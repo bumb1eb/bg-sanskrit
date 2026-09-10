@@ -395,7 +395,7 @@ document.addEventListener("click", function (e) {
     e.target.classList.contains("pronoun") ||
     e.target.classList.contains("adjective") ||
     e.target.classList.contains("indeclinable") ||
-    e.target.classList.contains("sandhi-word");
+    e.target.classList.contains("sandhi");
 
   // If tap is NOT on a Sanskrit word → hide popup
   if (!isWord) {
