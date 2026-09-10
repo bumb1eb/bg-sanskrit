@@ -384,6 +384,33 @@ function buildIndex() {
   });
 }
 
+// === MOBILE TAP HANDLER FOR MEANINGS ===
+document.addEventListener("click", function (e) {
+  const popup = document.getElementById("meaningPopup");
+
+  if (!e.target.classList.contains("noun") &&
+      !e.target.classList.contains("verb") &&
+      !e.target.classList.contains("pronoun") &&
+      !e.target.classList.contains("adjective") &&
+      !e.target.classList.contains("indeclinable")) {
+    popup.style.display = "none";
+    return;
+  }
+
+  const meaning = e.target.getAttribute("title");
+  if (meaning) {
+    popup.innerText = meaning;
+    popup.style.display = "block";
+  }
+});
+
+// === PAGE INITIALIZATION ===
+window.onload = () => {
+  buildIndex();
+  setChapter(CHAPTER_1, CHAPTER_1.name || "Chapter 1");
+};
+
+
 window.onload = () => {
   buildIndex();
   setChapter(CHAPTER_1, CHAPTER_1.name || "Chapter 1");
