@@ -384,10 +384,11 @@ function buildIndex() {
   });
 }
 
-// === MOBILE TAP HANDLER FOR MEANINGS ===
+// === MOBILE TAP HANDLER: POPUP NEXT TO TAPPED WORD ===
 document.addEventListener("click", function (e) {
   const popup = document.getElementById("meaningPopup");
 
+  // If tap is NOT on a Sanskrit word → hide popup
   if (!e.target.classList.contains("noun") &&
       !e.target.classList.contains("verb") &&
       !e.target.classList.contains("pronoun") &&
@@ -397,12 +398,23 @@ document.addEventListener("click", function (e) {
     return;
   }
 
+  // Get meaning
   const meaning = e.target.getAttribute("title");
-  if (meaning) {
-    popup.innerText = meaning;
-    popup.style.display = "block";
-  }
+  if (!meaning) return;
+
+  // Set popup text
+  popup.innerText = meaning;
+
+  // Position popup next to the tapped word
+  const rect = e.target.getBoundingClientRect();
+  const scrollY = window.scrollY || window.pageYOffset;
+
+  popup.style.left = (rect.left + rect.width/2 - popup.offsetWidth/2) + "px";
+  popup.style.top = (rect.top + scrollY - 45) + "px"; // 45px above the word
+  popup.style.display = "block";
 });
+
+
 
 // === PAGE INITIALIZATION ===
 window.onload = () => {
