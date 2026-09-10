@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8">
+  <title>Sanskrit Webpage</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ⭐ FLEX ROW WRAPPER (sidebar + main-content + case-panel) -->
+  <div id="layout-row" style="display:flex; flex-direction:row; align-items:flex-start; gap:20px;">
+
+    <!-- ⭐ LEFT SIDEBAR -->
+    <div id="sidebar">
+      <!-- ⭐ INDEX CONTAINER -->
+      <div id="index-container"></div>
+    </div>
+
+    <!-- ⭐ MAIN CONTENT -->
+    <div id="main-content">
+
+      <h1 style="text-align: center;">श्रीमद् भागवद् गीता</h1>
+
+      <div class="nav-inline">
+        <button id="prevBtn" onclick="changePage(-1)">←</button>
+        <div id="pageIndicator"></div>
+        <button id="nextBtn" onclick="changePage(1)">→</button>
+      </div>
+
+      <div id="shloka-section">
+        <div id="shloka" class="sanskrit-text stotra-text"></div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div id="two-column">
+        <div class="column">
+          <br><div class="section-title">संधि विच्छेद</div>
+          <div id="sandhi" class="sanskrit-text"></div>
+        </div>
+
+        <div class="column">
+          <br>
+          <div class="section-title" id="toggle-title">Transliteration</div>
+
+          <div id="toggle-buttons">
+            <button onclick="showTranslit()">Transliteration</button>
+            <button onclick="showTranslation()">Translation</button>
+          </div>
+
+          <div id="translit" class="sanskrit-text"></div>
+          <div id="translation" class="sanskrit-text" style="display:none;"></div>
+        </div>
+      </div>
+
+    </div> <!-- end main-content -->
+
+    <!-- ⭐ RIGHT CASE PANEL -->
+    <div id="case-panel"></div>
+
+  </div> <!-- end layout-row -->
+
+  <!-- ⭐ COLOR LEGEND -->
+  <div id="color-legend">
+    Colors legend:
+    <span class="noun">Nouns</span>,
+    <span class="verb">Verbs</span>,
+    <span class="pronoun">Pronouns</span>,
+    <span class="adjective">Adjectives</span>,
+    <span class="indeclinable">Indeclinable</span>,
+    <span class="sandhi">Sandhi-words</span>
+  </div>
+
+  <!-- ⭐ Scripts -->
+
+  <!-- Global dictionary -->
+  <script src="js/dict.js"></script>
+
+  <!-- Chapter 1 sandhi dictionary -->
+  <script src="js/dict-sandhi_ch1.js"></script>
+
+	<!-- GROUP FILES -->
+	<script src="js/ch1_01_10.js"></script>
+	<script src="js/ch1_11_20.js"></script>
+	<script src="js/ch1_21_30.js"></script>
+	<script src="js/ch1_31_40.js"></script>
+	<script src="js/ch1_41_47.js"></script>
+
+	<!-- CHAPTER OBJECTS -->
+	<script src="js/chapter1.js"></script>
+	<script src="js/chapter2.js"></script>
+	<script src="js/chapter3.js"></script>
+
+
+
+	<!-- RENDERER (MUST BE LAST) -->
+	<script src="js/render.js"></script>
+
+<!-- <script type="module">
+  import { ch1_21_30 } from "./js/ch1_21_30.js";
+  import { DICT } from "./js/dict.js";
+  import { DICT_SANDHI } from "./js/dict-sandhi_ch1.js";
+  import { checkMissingWords } from "./js/dict_checker.js";
+
+  // Run the checker
+  const missing = checkMissingWords(ch1_21_30, DICT, DICT_SANDHI);
+  console.log("Missing words:", missing);
+</script> -->
+
+<script type="module">
+  import { checkMissingWords } from "./js/dict_checker.js";
+
+  // Build DICT manually for the checker
+  const DICT = {
+    ...NOUNS,
+    ...VERBS,
+    ...PRONOUNS,
+    ...ADJECTIVES,
+    ...INDECLINABLES
+  };
+
+  // Use your sandhi dictionary
+  const DICT_SANDHI = SANDHI_CH1;
+
+  // Run the checker
+  const missing = checkMissingWords(CH1_41_47, DICT, DICT_SANDHI);
+  console.log("Missing words:", missing);
+</script>
+
+<script src="js/dict_checker.js"></script>
+
+
+</body>
+</html>

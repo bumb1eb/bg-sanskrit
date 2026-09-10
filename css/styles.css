@@ -1,0 +1,250 @@
+/* ⭐ PAGE LAYOUT */
+body {
+  font-family: 'Noto Serif Devanagari', serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ⭐ FLEX ROW WRAPPER — strict 3-column layout */
+#layout-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  height: 100vh;        /* full viewport height */
+  overflow: hidden;     /* prevent outer scroll */
+}
+
+/* ⭐ LEFT SIDEBAR — fixed width, stable */
+#sidebar {
+  width: 180px;
+  flex-shrink: 0;         /* never shrink */
+  padding-right: 20px;
+  border-right: 2px solid #d4af37;
+
+  height: 100vh;
+  overflow-y: scroll;      /* always reserve scrollbar space */
+  scrollbar-width: none;   /* hide scrollbar (Firefox) */
+}
+
+#sidebar::-webkit-scrollbar {
+  width: 0px;              /* hide scrollbar (Chrome/Safari) */
+}
+
+/* ⭐ MAIN CONTENT — flexible center */
+#main-content {
+  flex: 1;                 /* grows to fill remaining space */
+  min-width: 0;            /* prevents overflow pushing case-panel */
+  max-width: 800px;
+
+  height: 100vh;
+  overflow-y: auto;        /* scroll inside main content */
+}
+
+/* ⭐ RIGHT CASE PANEL — fixed width, stable */
+#case-panel {
+  width: 180px;            /* match sidebar width */
+  flex-shrink: 0;          /* never shrink */
+
+  height: 100vh;
+  overflow-y: scroll;      /* always reserve scrollbar space */
+  padding-left: 20px;
+  border-left: 2px solid #d4af37;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+
+  scrollbar-width: none;   /* hide scrollbar (Firefox) */
+}
+
+#case-panel::-webkit-scrollbar {
+  width: 0px;              /* hide scrollbar (Chrome/Safari) */
+}
+
+/* --------------------------------------------- */
+/* GRAMMATICAL COLORING */
+/* --------------------------------------------- */
+
+.noun { color: #2f6fb1; font-weight: 600; }
+.verb { color: #b91c1c; font-weight: 600; }
+
+.adjective { color: #0b7d3b; font-weight: 600; }
+.pronoun { color: #8b008b; font-weight: 600; }
+.indeclinable { color: #cc8400; font-weight: 600; }
+
+#shloka .noun, #sandhi .noun, #translit .noun { color: #1e3a8a !important; }
+#shloka .verb, #sandhi .verb, #translit .verb { color: #b91c1c !important; }
+#shloka .adjective, #sandhi .adjective, #translit .adjective { color: #0b7d3b !important; }
+#shloka .pronoun, #sandhi .pronoun, #translit .pronoun { color: #8b008b !important; }
+#shloka .indeclinable, #sandhi .indeclinable, #translit .indeclinable { color: #cc8400 !important; }
+
+.noun[title], .verb[title], .adjective[title], .pronoun[title], .indeclinable[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* ⭐ Multi-color balanced gradient for sandhi words */
+.sandhi {
+  background: linear-gradient(90deg,
+    #ff7ac8,
+    #5ab3ff,
+    #4dd0a9,
+    #c38cff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+#shloka .sandhi {
+  background: linear-gradient(90deg,
+    #ff7ac8,
+    #5ab3ff,
+    #4dd0a9,
+    #c38cff
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+#sandhi .sandhi,
+#translit .sandhi {
+  background: none !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* --------------------------------------------- */
+/* LAYOUT + VISUALS */
+/* --------------------------------------------- */
+
+.nav-inline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stotra-text {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* ⭐ Parchment background */
+#shloka-section {
+  margin-bottom: 1px;
+  padding: 10px;
+  min-height: 120px;
+  background-image: url('../images/parchment.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid transparent;
+  border-image-source: url('../images/burnt-edge.png');
+  border-image-slice: 30;
+  border-image-repeat: round;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(0,0,0,0.25);
+}
+
+.section-divider {
+  width: 100%;
+  height: 40px;
+  background: url('../images/gold-divider.png') center no-repeat;
+  background-size: contain;
+  margin: 2px 0;
+}
+
+#two-column {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.column {
+  width: 48%;
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 6px;
+  text-decoration: underline;
+}
+
+/* ⭐ Collapsible chapter styling */
+.chapter-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.toggle-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  border: 1px solid #b8860b;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 16px;
+  font-size: 14px;
+  color: #b8860b;
+  background-color: #fff8e1;
+}
+
+/* ⭐ Chapter block + grouped index */
+.chapter-block {
+  margin-bottom: 10px;
+}
+
+.chapter-body {
+  margin-left: 10px;
+}
+
+.group-header {
+  cursor: pointer;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+/* ⭐ Dynamic index verse items */
+.verses {
+  margin-top: 5px;
+  padding-left: 15px;
+}
+
+.verses li {
+  cursor: pointer;
+  padding: 4px 0;
+  color: #444;
+  text-decoration: underline;
+}
+
+.verses li:hover {
+  color: #b8860b;
+}
+
+#color-legend {
+  position: fixed;
+  bottom: 30px;
+  left: 250px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+#toggle-buttons {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+#toggle-buttons button {
+  margin: 0 5px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
