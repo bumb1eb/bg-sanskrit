@@ -384,35 +384,37 @@ function buildIndex() {
   });
 }
 
-// === MOBILE TAP HANDLER: POPUP NEXT TO TAPPED WORD ===
 document.addEventListener("click", function (e) {
   const popup = document.getElementById("meaningPopup");
 
-  // If tap is NOT on a Sanskrit word → hide popup
+  // Allow sandhi words too
   if (!e.target.classList.contains("noun") &&
       !e.target.classList.contains("verb") &&
       !e.target.classList.contains("pronoun") &&
       !e.target.classList.contains("adjective") &&
-      !e.target.classList.contains("indeclinable")) {
+      !e.target.classList.contains("indeclinable") &&
+      !e.target.classList.contains("sandhi-word")) {
     popup.style.display = "none";
     return;
   }
 
-  // Get meaning
-  const meaning = e.target.getAttribute("title");
+  // Get meaning from title or data-sandhi
+  const meaning = e.target.getAttribute("title") ||
+                  e.target.getAttribute("data-sandhi");
+
   if (!meaning) return;
 
-  // Set popup text
   popup.innerText = meaning;
 
-  // Position popup next to the tapped word
+  // Position popup above the tapped word
   const rect = e.target.getBoundingClientRect();
   const scrollY = window.scrollY || window.pageYOffset;
 
-  popup.style.left = (rect.left + rect.width/2 - popup.offsetWidth/2) + "px";
-  popup.style.top = (rect.top + scrollY - 45) + "px"; // 45px above the word
+  popup.style.left = rect.left + "px";
+  popup.style.top = (rect.top + scrollY - popup.offsetHeight - 10) + "px";
   popup.style.display = "block";
 });
+
 
 
 
