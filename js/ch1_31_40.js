@@ -15,8 +15,8 @@ const CH1_31_40 = [
     na·ca śreyaḥ·anupaśyāmi hatvā sva·janam·āhave॥<br>
   `,
   translation: `
-    The omens, indeed, I behold as adverse, O Keśava;<br>
-    And not well-being do I perceive, having slain our own people in battle. <br>
+    The omens, indeed, I visualise as adverse, O Keśava;<br>
+    And I do not see any good, having killed our own people in battle. <br>
   `
 },
 
@@ -36,8 +36,8 @@ const CH1_31_40 = [
     kim·naḥ rājyena govinda kim bhogaiḥ·jīvitena·vā॥<br>
   `,
   translation: `
-    Victory I do not desire, O Kṛṣṇa, nor kingdom, nor pleasures;<br>
-    What to us is kingdom, O Govinda, what enjoyments, or even life? <br>
+    I do not desire victory, O Kṛṣṇa, nor kingdom, nor pleasures;<br>
+    What (will we get) by the kingdom, O Govinda, or what enjoyments, by life (when our kinsmen are killed). <br>
   `
 },
 
@@ -57,7 +57,7 @@ const CH1_31_40 = [
     te·ime·avasthitāḥ yuddhe prāṇān·tyaktvā dhanāni·ca॥<br>
   `,
   translation: `
-    For whose sake kingdom was desired by us, and enjoyments and pleasures;<br>
+    For whose sake is desired by us, kingdom and enjoyments and pleasures;<br>
     They—these—stand here in battle, having abandoned lives and also wealth. <br>
   `
 },
@@ -100,7 +100,7 @@ const CH1_31_40 = [
   `,
   translation: `
     These I do not wish to slay, even though slaying, O Madhusūdana;<br>
-    Even for the sovereignty of the three worlds—what indeed for the sake of the earth? <br>
+    Also for the sovereignty of the three worlds — what indeed for the sake of the earth? <br>
   `
 },
 
@@ -121,7 +121,7 @@ const CH1_31_40 = [
   `,
   translation: `
     Having slain the sons of Dhṛtarāṣṭra, what joy would there be for us, O Janārdana;<br>
-    Sin alone would cling to us, having slain these aggressors. <br>
+    Sin alone would befall (us), having slain these aggressors. <br>
   `
 },
 
@@ -142,7 +142,7 @@ const CH1_31_40 = [
   `,
   translation: `
     Therefore not worthy are we to slay the sons of Dhṛtarāṣṭra, our own kinsmen;<br>
-    Our own people—how, having slain them, would we be happy, O Mādhava? <br>
+    Our own people indeed — how, having slain, would we be happy, O Mādhava? <br>
   `
 },
 
@@ -162,8 +162,8 @@ const CH1_31_40 = [
     kula·kṣaya·kṛtam doṣam mitra·drohe·ca pātakam॥<br>
   `,
   translation: `
-    Even though these do not see, their minds overcome by greed;<br>
-    The fault wrought by the ruin of the family, and the sin in betraying friends. <br>
+    Even though these (people) do not see, (because of) greed-infested minds;<br>
+    The fault in family destruction and the sin in betraying friends. <br>
   `
 },
 
@@ -184,7 +184,7 @@ const CH1_31_40 = [
   `,
   translation: `
     How should it not be known by us, to turn away from sin;<br>
-    The fault wrought by the ruin of the family, seen clearly, O Janārdana. <br>
+    The fault in family destruction, seen clearly, O Janārdana. <br>
   `
 },
 
@@ -204,8 +204,8 @@ const CH1_31_40 = [
     adharme naṣṭe kulaṁ kṛtsnam adharmaḥ·abhibhavati·uta॥<br>
   `,
   translation: `
-    In the ruin of the family, the eternal family‑duties perish;<br>
-    And when unrighteousness is destroyed, the whole family—indeed—adharma overwhelms. <br>
+    In family destruction, perish family duties (that are) eternal;<br>
+    In destruction of unrighteousness in the whole family, adharma (unrighteousness) overwhelms moreever. <br>
   `
 }
 

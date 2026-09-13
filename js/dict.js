@@ -228,7 +228,7 @@ const NOUNS = {
 "इमम्": { type: "noun", meaning: "this", case: "Accusative (2nd)" },
 "जनम्": { type: "noun", meaning: "people", case: "Accusative (2nd)" },
 "मुखम्": { type: "noun", meaning: "mouth", case: "Accusative (2nd)" },
-"गाण्डीवम्": { type: "noun", meaning: "Gandiva bow", case: "Accusative (2nd)" },
+"गाण्डीवम्": { type: "noun", meaning: "Gandiva (Arjun's bow)", case: "Accusative (2nd)" },
 "चिकीर्षवः": { type: "noun", meaning: "those desiring to act / wishing to do", case: "Nominative (1st plural)" },
 "द्विज": { type: "noun", meaning: "twice‑born (Brahmin)", case: "Nominative (1st)" },
 "महारथः": { type: "noun", meaning: "great chariot‑warrior", case: "Nominative (1st)" },
@@ -580,8 +580,8 @@ const ADJECTIVES = {
 "उद्यताः": { type: "adjective", meaning: "prepared", case: "Nominative" },
 "अप्रतीकारम्": { type: "adjective", meaning: "without resistance", case: "Accusative" },
 "अशस्त्रं": { type: "adjective", meaning: "unarmed", case: "Accusative" },
-"परयाविष्टो": { type: "adjective", meaning: "overwhelmed by supreme compassion", case: "Nominative" },
-"परया": { type: "adjective", meaning: "supreme", case: "Instrumental" },
+// "परयाविष्टो": { type: "adjective", meaning: "overwhelmed by supreme compassion", case: "Nominative" },
+"परया": { type: "adjective", meaning: "great/supreme", case: "Instrumental" },
 "संविग्न": { type: "adjective", meaning: "distressed", case: "Nominative" }
 
 };

@@ -16,7 +16,7 @@ const CH1_21_30 = [
   `,
   translation: `
     Arjuna said;<br>
-    In the midst of both armies, place the chariot for me, O Acyuta. <br>
+    In the midst of both armies, place the chariot for me, O Acyuta (Krishna). <br>
   `
 },
 
@@ -37,8 +37,8 @@ const CH1_21_30 = [
     kaiḥ·mayā saha yoddhavyam asmin raṇa·samudyame॥<br>
   `,
   translation: `
-    Until I may observe these, desirous of battle, standing here;<br>
-    With whom I must fight, in this rising undertaking of war. <br>
+    Until I observe these, desirous of battle, standing here;<br>
+    With whom I must fight, in this undertaking of war. <br>
   `
 },
 
@@ -60,7 +60,7 @@ const CH1_21_30 = [
   `,
   translation: `
     Those who are about to fight, I shall observe — those who have assembled here;<br>
-    Wishing to please the evil‑minded son of Dhṛtarāṣṭra in battle. <br>
+    Son of Dhṛtarāṣṭra, the evil‑minded, in battle (who) wish to please . <br>
   `
 },
 
@@ -85,8 +85,8 @@ const CH1_21_30 = [
   `,
   translation: `
     Sañjaya said;<br>
-    Thus addressed, Hṛṣīkeśa, by Guḍākeśa, O Bhārata, having placed the excellent chariot<br>
-    In the midst of both armies. <br>
+    Thus having been addressed, Hṛṣīkeśa (Krishna), by Guḍākeśa (Arjun), O Bhārata, <br>
+	In the midst of both armies, having placed the excellent chariot<br>
   `
 },
 
@@ -99,7 +99,7 @@ const CH1_21_30 = [
     उवाच पार्थ पश्यैतान्समवेतान्कुरूनिति ॥<br>
   `,
   sandhi: `
-    भीष्म·द्रोण·प्रमुखतः सर्वेषाम्·च मही·क्षिताम्।<br>
+    भीष्म·द्रोण·प्रमुखतः सर्वेषाम्·च महीक्षिताम्।<br>
     उवाच पार्थः पश्य·एतान् समवेतान्·कुरून्·इति॥<br>
   `,
   translit: `
@@ -108,7 +108,7 @@ const CH1_21_30 = [
   `,
   translation: `
     Before Bhīṣma, Droṇa, and the foremost of all kings;<br>
-    He said, “O Pārtha, behold these Kurus assembled.” <br>
+    (He - Krishna) said, “O Pārtha, behold these Kurus assembled.” <br>
   `
 },
 
@@ -117,7 +117,7 @@ const CH1_21_30 = [
   id: 26,
   title: "श्लोक 26",
   shloka: `
-    तत्रापश्यत्स्थितान् पार्थ: पितृ नथ पितामहान् ।<br>
+    तत्रापश्यत्स्थितान् पार्थ: पितृ नाथ पितामहान् ।<br>
     आचार्यान्मातुलान्भ्रातृ न्पुत्रान्पौत्रान्सखींस्तथा ॥<br>
   `,
   sandhi: `
@@ -129,7 +129,7 @@ const CH1_21_30 = [
     ācāryān·mātulān·bhrātṝn·putrān·pautrān·sakhīn·tathā॥<br>
   `,
   translation: `
-    There, Pārtha beheld those standing — fathers, and also grandfathers;<br>
+    There, Pārtha saw those standing — fathers, grandfathers;<br>
     Teachers, maternal uncles, brothers, sons, grandsons, and friends likewise. <br>
   `
 },
@@ -140,42 +140,42 @@ const CH1_21_30 = [
   shloka: `
     श्वशुरान्सुहृदश्चैव सेनयोरुभयोरपि ।<br>
     तान्समीक्ष्य स कौन्तेय: सर्वान्बन्धूनवस्थितान् ॥<br>
-    कृपया परयाविष्टो विषीदन्निदमब्रवीत् ।<br>
-  `,
+    `,
   sandhi: `
     श्वशुरान्·सुहृदः·च·एव सेनयोः·उभयोः·अपि ।<br>
     तान्·समीक्ष्य सः कौन्तेयः सर्वान्·बन्धून्·अवस्थितान् ॥<br>
-    कृपया परया·आविष्टः विषीदन् इदम्·अब्रवीत् ॥<br>
-  `,
+    `,
   translit: `
     śvaśurān·suhṛdaḥ·ca·eva senayoḥ·ubhayōḥ·api।<br>
     tān·samīkṣya saḥ kaunteyaḥ sarvān·bandhūn·avasthitān॥<br>
-    kṛpayā parayā·āviṣṭaḥ viśīdan idam·abravīt॥<br>
-  `,
+    `,
   translation: `
     Fathers‑in‑law and well‑wishers too, in both the armies;<br>
     Seeing them — all the kinsmen standing — the son of Kuntī,<br>
-    Overcome by supreme compassion, grieving, spoke this. <br>
-  `
+    `
 },
 
 {
   id: 28,
   title: "श्लोक 28",
   shloka: `
-    अर्जुन उवाच ।<br>
+    कृपया परयाविष्टो विषीदन्निदमब्रवीत् ।<br>
+	अर्जुन उवाच ।<br>
     दृष्ट्वेमं स्वजनं कृष्ण युयुत्सुं समुपस्थितम् ॥<br>
   `,
   sandhi: `
-    अर्जुनः उवाच ।<br>
+    कृपया परया·आविष्टः विषीदन् इदम्·अब्रवीत् ॥<br>
+	अर्जुनः उवाच ।<br>
     दृष्ट्वा·इमम् स्व·जनम् कृष्ण युयुत्सुम् समुप·स्थितम् ॥<br>
   `,
   translit: `
-    arjunaḥ uvāca।<br>
+    kṛpayā parayā·āviṣṭaḥ viśīdan idam·abravīt॥<br>
+	arjunaḥ uvāca।<br>
     dṛṣṭvā·imam sva·janam kṛṣṇa yuyutsum samupa·sthitam॥<br>
   `,
   translation: `
-    Arjuna said;<br>
+    Overcome by supreme compassion, grieving, spoke this. <br>
+	Arjuna said;<br>
     Seeing this, my own people, O Kṛṣṇa — desirous of battle, standing here. <br>
   `
 },

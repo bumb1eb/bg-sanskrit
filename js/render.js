@@ -249,14 +249,21 @@ function showTranslation() {
 function changePage(dir) {
   const chapterData = getChapterData(CURRENT_CHAPTER);
   let newIndex = currentIndex + dir;
+
   if (newIndex < 0) newIndex = 0;
   if (newIndex >= chapterData.length) newIndex = chapterData.length - 1;
-  renderStotra(newIndex);
+
+  currentIndex = newIndex;
+
+  // ⭐ Use jumpTo so the verse is saved
+  jumpTo(newIndex);
 }
+
 
 function jumpTo(index) {
   const chapterData = getChapterData(CURRENT_CHAPTER);
   if (index < 0 || index >= chapterData.length) return;
+  localStorage.setItem("lastVerse", index);
   renderStotra(index);
 }
 
@@ -273,7 +280,16 @@ function toggleChapter(headerEl) {
 
   const icon = headerEl.querySelector(".toggle-icon");
   if (icon) icon.textContent = isOpen ? "+" : "–";
+
+  // ⭐ SAVE CHAPTER STATE
+  const chapterName = headerEl.querySelector(".chapter-title").textContent;
+
+  let chapterState = JSON.parse(localStorage.getItem("chapterState") || "{}");
+  chapterState[chapterName] = !isOpen;   // true = open
+  localStorage.setItem("chapterState", JSON.stringify(chapterState));
 }
+
+
 
 function buildIndex() {
   const container = document.getElementById("index-container");
@@ -315,6 +331,13 @@ function buildIndex() {
     const body = document.createElement("div");
     body.className = "chapter-body";
     body.style.display = "none";
+	// ⭐ RESTORE CHAPTER STATE
+	const chapterState = JSON.parse(localStorage.getItem("chapterState") || "{}");
+	if (chapterState[chapter.name]) {
+	  body.style.display = "block";
+	  icon.textContent = "–";
+	}
+
 
     if (chapter.groups && Array.isArray(chapter.groups)) {
       chapter.groups.forEach((group, gIndex) => {
@@ -325,12 +348,28 @@ function buildIndex() {
         const ul = document.createElement("ul");
         ul.className = "verses";
         ul.style.display = "none";
+		// ⭐ RESTORE GROUP STATE
+		const groupState = JSON.parse(localStorage.getItem("groupState") || "{}");
+		if (groupState[chapter.name] && groupState[chapter.name][gIndex]) {
+		  ul.style.display = "block";
+		}
+
 
         groupHeader.onclick = (event) => {
-          event.stopPropagation();
-          const isOpen = ul.style.display === "block";
-          ul.style.display = isOpen ? "none" : "block";
-        };
+		  event.stopPropagation();
+		  const isOpen = ul.style.display === "block";
+		  ul.style.display = isOpen ? "none" : "block";
+
+		  // ⭐ SAVE GROUP STATE
+		  const chapterName = chapter.name;
+		  let groupState = JSON.parse(localStorage.getItem("groupState") || "{}");
+
+		  if (!groupState[chapterName]) groupState[chapterName] = {};
+		  groupState[chapterName][gIndex] = !isOpen;   // true = open
+
+		  localStorage.setItem("groupState", JSON.stringify(groupState));
+		};
+
 
         const data = group.data || [];
         for (let v = 0; v < data.length; v++) {
@@ -430,10 +469,14 @@ document.addEventListener("click", function (e) {
 window.onload = () => {
   buildIndex();
   setChapter(CHAPTER_1, CHAPTER_1.name || "Chapter 1");
-};
 
+  // ⭐ Restore last verse if available
+  const lastVerse = localStorage.getItem("lastVerse");
 
-window.onload = () => {
-  buildIndex();
-  setChapter(CHAPTER_1, CHAPTER_1.name || "Chapter 1");
+  if (lastVerse !== null) {
+    jumpTo(parseInt(lastVerse));
+  } else {
+    // default behavior
+    jumpTo(0);
+  }
 };

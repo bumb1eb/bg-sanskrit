@@ -20,7 +20,7 @@ const CH1_01_10 = [
     translation: `
     Dhritarashtra said.<br> 
 	On this land of dharma, in Kururshetra, gathered wanting to fight,<br>
-	Mine and Pandu's kin, what did they do, Sanjay? <br>
+	Mine and Pandu's kin indeed, what did they do, Sanjay? <br>
     `
   },
 
@@ -45,7 +45,7 @@ const CH1_01_10 = [
     translation: `
     Sanjaya said,<br>
 	having seen Pandava army, arrayed, Duryodhana then,<br>
-	getting closer to teacher/sir, king (he) said these words.<br>
+	getting closer to teacher/sir (Drona), king (he) said these words.<br>
     `
   },
 
@@ -65,7 +65,7 @@ const CH1_01_10 = [
     vyūḍhām drupadaputreṇa tava śiṣyeṇa dhīmatā ||
     `,
     translation: `
-    Having seen this great grouping belonging to Pandu-putras, sir, <br>
+    Having seen this great grouping belonging to Pandu-putras, teacher/sir, <br>
 	arrayed by son of Drupada, your disciple, the intelligent.<br>
     `
   },
@@ -107,7 +107,7 @@ const CH1_01_10 = [
     purujit kuntibhojaḥ ca śaibyaḥ ca narapuṅgavaḥ ॥<br>
     `,
     translation: `
-    Dhritarashtra and Chekitanah and King of Kashi, the powerful, <br>
+    Dhrstaketuh and Chekitanah and King of Kashi, the powerful, <br>
 	Purujit and Kuntibhoja and Saibyah, the bull among men.<br>
     `
   },
@@ -183,8 +183,8 @@ const CH1_01_10 = [
 	नानाशस्त्रप्रहरणाः सर्वे युद्धविशारदाः ॥<br>
 	`,
     sandhi: `
-    अन्ये च बहवः शूराः मत् - अर्थे त्यक्त - जीविताः ।<br>
-    नाना - शस्त्र - प्रहरणाः सर्वे युद्ध - विशारदाः ॥<br>
+    अन्ये च बहवः शूराः मत्·अर्थे त्यक्त·जीविताः ।<br>
+    नाना·शस्त्र·प्रहरणाः सर्वे युद्ध·विशारदाः ॥<br>
     `,
     translit: `
     anye ca bahavaḥ śūrāḥ mat-arthe tyakta-jīvitāḥ ।<br>
@@ -204,8 +204,8 @@ const CH1_01_10 = [
     पर्याप्तं त्विदमेतेषां बलं भीमाभिरक्षितम् ॥<br>
     `,
     sandhi: `
-    अपर्याप्तम् तत् अस्माकम् बलम् भीष्म - अभिरक्षितम् ।<br>
-    पर्याप्तम् तु इदम् एतेषाम् बलम् भीम - अभिरक्षितम् ॥<br>
+    अपर्याप्तम् तत् अस्माकम् बलम् भीष्म·अभिरक्षितम् ।<br>
+    पर्याप्तम् तु इदम् एतेषाम् बलम् भीम·अभिरक्षितम् ॥<br>
     `,
     translit: `
     aparyāptam tat asmākam balam bhīṣma-abhirakṣitam।<br>

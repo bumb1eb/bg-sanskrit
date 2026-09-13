@@ -1,140 +1,138 @@
 window.SANDHI_CH1 = {
-  1: {
-    "पाण्डवाश्चैव": { type: "sandhi", meaning: "pāṇḍavāḥ + ca + eva = and Pandavas indeed", case: "Nominative (1st)" },
-    "किमकुर्वत": { type: "sandhi", meaning: "kim + akurvata = what did they do" }
-  },
+1: {
+  "पाण्डवाश्चैव": { type: "sandhi", meaning: "पाण्डवाः + च + एव = and Pandavas indeed", case: "Nominative (1st)" },
+  "किमकुर्वत": { type: "sandhi", meaning: "किम् + अकुर्वत = what did they do" }
+},
 
-  2: {
-    "पाण्डवानीकं": { type: "sandhi", meaning: "pāṇḍava + anīkam = Pandava army", case: "Accusative (2nd)" },
-    "आचार्यमुपसङ्गम्य": { type: "sandhi", meaning: "ācāryam + upasaṅgamya = approaching the teacher", case: "Accusative (2nd)" },
-    "दुर्योधनस्तदा": { type: "sandhi", meaning: "duryodhanaḥ + tadā = Duryodhana then", case: "Nominative (1st)" },
-    "वचनमब्रवीत्": { type: "sandhi", meaning: "vacanam + abravīt = spoke the words", case: "Accusative (2nd)" }
-  },
+2: {
+  "पाण्डवानीकं": { type: "sandhi", meaning: "पाण्डव + अनीकम् = Pandava army", case: "Accusative (2nd)" },
+  "आचार्यमुपसङ्गम्य": { type: "sandhi", meaning: "आचार्यम् + उपसङ्गम्य = approaching the teacher", case: "Accusative (2nd)" },
+  "दुर्योधनस्तदा": { type: "sandhi", meaning: "दुर्योधनः + तदा = Duryodhana then", case: "Nominative (1st)" },
+  "वचनमब्रवीत्": { type: "sandhi", meaning: "वचनम् + अब्रवीत् = spoke the words", case: "Accusative (2nd)" }
+},
 
-  3: {
-    "पश्यैतां": { type: "sandhi", meaning: "paśya + etām = behold this" },
-    "पाण्डुपुत्राणामाचार्य": { type: "sandhi", meaning: "pāṇḍuputrāṇām + ācārya = O teacher, of the sons of Pandu", case: "Genitive (6th)" }
-  },
+3: {
+  "पश्यैतां": { type: "sandhi", meaning: "पश्य + एताम् = behold this" },
+  "पाण्डुपुत्राणामाचार्य": { type: "sandhi", meaning: "पाण्डुपुत्राणाम् + आचार्य = O teacher, of the sons of Pandu", case: "Genitive (6th)" }
+},
 
-  4: {
-    "भीमार्जुनसमा": { type: "sandhi", meaning: "bhīma + arjuna + samāḥ = equal to Bhima and Arjuna", case: "Nominative (1st)" },
-    "महेष्वासा": { type: "sandhi", meaning: "maha + eṣvāsā = great archers", case: "Nominative (1st)" },
-    "विराटश्च": { type: "sandhi", meaning: "virāṭaḥ + ca = and Virata", case: "Nominative (1st)" },
-    "द्रुपदश्च": { type: "sandhi", meaning: "drupadaḥ + ca = and Drupada", case: "Nominative (1st)" }
-  },
+4: {
+  "भीमार्जुनसमा": { type: "sandhi", meaning: "भीम + अर्जुन + समाः = equal to Bhima and Arjuna", case: "Nominative (1st)" },
+  "महेष्वासा": { type: "sandhi", meaning: "महाः + एष्वासाः = great archers", case: "Nominative (1st)" },
+  "विराटश्च": { type: "sandhi", meaning: "विराटः + च = and Virata", case: "Nominative (1st)" },
+  "द्रुपदश्च": { type: "sandhi", meaning: "द्रुपदः + च = and Drupada", case: "Nominative (1st)" }
+},
 
-  5: {
-    "धृष्टकेतुश्चेकितानः": { type: "sandhi", meaning: "dhṛṣṭaketuḥ + ca + cekitānaḥ = Dhrishtaketu and Cekitana", case: "Nominative (1st)" },
-    "नरपुङ्गवः": { type: "sandhi", meaning: "nara + puṅgavaḥ = bull among men", case: "Nominative (1st)" },
-    "काशिराजश्च": { type: "sandhi", meaning: "kāśirājaḥ + ca = and the king of Kashi", case: "Nominative (1st)" },
-    "पुरुजित्कुन्तिभोजश्च": { type: "sandhi", meaning: "purujit + kuntibhojaḥ + ca = Purujit and Kuntibhoja", case: "Nominative (1st)" },
-    "शैब्यश्च": { type: "sandhi", meaning: "śaibyaḥ + ca = and Shaibya", case: "Nominative (1st)" }
-  },
+5: {
+  "धृष्टकेतुश्चेकितानः": { type: "sandhi", meaning: "धृष्टकेतुः + च + चेकितानः = Dhrishtaketu and Cekitana", case: "Nominative (1st)" },
+  "नरपुङ्गवः": { type: "sandhi", meaning: "नर + पुङ्गवः = bull among men", case: "Nominative (1st)" },
+  "काशिराजश्च": { type: "sandhi", meaning: "काशिराजः + च = and the king of Kashi", case: "Nominative (1st)" },
+  "पुरुजित्कुन्तिभोजश्च": { type: "sandhi", meaning: "पुरुजित् + कुन्तिभोजः + च = Purujit and Kuntibhoja", case: "Nominative (1st)" },
+  "शैब्यश्च": { type: "sandhi", meaning: "शैब्यः + च = and Shaibya", case: "Nominative (1st)" }
+},
 
-  6: {
-    "युधामन्युश्च": { type: "sandhi", meaning: "yudhāmanyuḥ + ca = Yudhamanyu and", case: "Nominative (1st)" },
-    "उत्तमौजाश्च": { type: "sandhi", meaning: "uttamaujāḥ + ca = Uttamaujas and", case: "Nominative (1st)" },
-    "द्रौपदेयाश्च": { type: "sandhi", meaning: "draupadeyāḥ + ca = and sons of Draupadi", case: "Nominative (1st)" }
-  },
+6: {
+  "युधामन्युश्च": { type: "sandhi", meaning: "युधामन्युः + च = Yudhamanyu and", case: "Nominative (1st)" },
+  "उत्तमौजाश्च": { type: "sandhi", meaning: "उत्तमौजाः + च = Uttamaujas and", case: "Nominative (1st)" },
+  "द्रौपदेयाश्च": { type: "sandhi", meaning: "द्रौपदेयाः + च = and sons of Draupadi", case: "Nominative (1st)" }
+},
 
-  7: {
-    "द्विजोत्तम": { type: "sandhi", meaning: "dvija + uttama = best among the twice‑born", case: "Vocative (8th)" },
-    "तान्निबोध": { type: "sandhi", meaning: "tān + nibodha = know them", case: "Accusative (2nd)" },
-    "संज्ञार्थं": { type: "sandhi", meaning: "saṃjñā + artham = for identification", case: "Accusative (2nd)" },
-    "तान्ब्रवीमि": { type: "sandhi", meaning: "tān + bravīmi = I will tell you", case: "Accusative (2nd)" }
-  },
+7: {
+  "द्विजोत्तम": { type: "sandhi", meaning: "द्विज + उत्तम = best among the twice‑born", case: "Vocative (8th)" },
+  "तान्निबोध": { type: "sandhi", meaning: "तान् + निबोध = know them", case: "Accusative (2nd)" },
+  "संज्ञार्थं": { type: "sandhi", meaning: "संज्ञा + अर्थम् = for identification", case: "Accusative (2nd)" },
+  "तान्ब्रवीमि": { type: "sandhi", meaning: "तान् + ब्रवीमि = I will tell you", case: "Accusative (2nd)" }
+},
 
-  8: {
-    "भवान्भीष्मश्च": { type: "sandhi", meaning: "bhavān + bhīṣmaḥ + ca = you and Bhishma", case: "Nominative (1st)" },
-    "कर्णश्च": { type: "sandhi", meaning: "karṇaḥ + ca = and Karna", case: "Nominative (1st)" },
-    "कृपश्च": { type: "sandhi", meaning: "kṛpaḥ + ca = and Kripa", case: "Nominative (1st)" },
-    "विकर्णश्च": { type: "sandhi", meaning: "vikarṇaḥ + ca = and Vikarna", case: "Nominative (1st)" },
-    "सौमदत्तिस्तथैव": { type: "sandhi", meaning: "saumadattiḥ + tathā + eva = Saumadatti likewise indeed", case: "Nominative (1st)" }
-  },
+8: {
+  "भवान्भीष्मश्च": { type: "sandhi", meaning: "भवान् + भीष्मः + च = you and Bhishma", case: "Nominative (1st)" },
+  "कर्णश्च": { type: "sandhi", meaning: "कर्णः + च = and Karna", case: "Nominative (1st)" },
+  "कृपश्च": { type: "sandhi", meaning: "कृपः + च = and Kripa", case: "Nominative (1st)" },
+  "विकर्णश्च": { type: "sandhi", meaning: "विकर्णः + च = and Vikarna", case: "Nominative (1st)" },
+  "सौमदत्तिस्तथैव": { type: "sandhi", meaning: "सौमदत्तिः + तथा + एव = Saumadatti likewise indeed", case: "Nominative (1st)" }
+},
 
-  9: {
-    "त्यक्तजीविताः": { type: "sandhi", meaning: "tyakta + jīvitāḥ = those who have given up their lives", case: "Accusative (2nd)" },
-    "नानाशस्त्रप्रहरणाः": { type: "sandhi", meaning: "nānā + śastra + praharaṇāḥ = various weapon‑bearers", case: "Nominative (1st)" },
-    "युद्धविशारदाः": { type: "sandhi", meaning: "yuddha + viśāradāḥ = proficient in battle", case: "Nominative (1st)" }
-  },
+9: {
+  "त्यक्तजीविताः": { type: "sandhi", meaning: "त्यक्त + जीविताः = those who have given up their lives", case: "Accusative (2nd)" },
+  "नानाशस्त्रप्रहरणाः": { type: "sandhi", meaning: "नाना + शस्त्र + प्रहरणाः = various weapon‑bearers", case: "Nominative (1st)" },
+  "युद्धविशारदाः": { type: "sandhi", meaning: "युद्ध + विशारदाः = proficient in battle", case: "Nominative (1st)" }
+},
 
-  10: {
-    "तदस्माकं": { type: "sandhi", meaning: "tat + asmākam = that (is) ours", case: "Nominative (1st)" },
-    "भीष्माभिरक्षितम्": { type: "sandhi", meaning: "bhīṣma + abhirakṣitam = protected by Bhishma", case: "Instrumental (3rd)" },
-    "त्विदमेतेषां": { type: "sandhi", meaning: "tu + idam + eteṣām = but this (is) theirs", case: "Genitive (6th)" },
-    "भीमाभिरक्षितम्": { type: "sandhi", meaning: "bhīma + abhirakṣitam = protected by Bhima", case: "Instrumental (3rd)" }
-  },
+10: {
+  "तदस्माकं": { type: "sandhi", meaning: "तत् + अस्माकम् = that (is) ours", case: "Nominative (1st)" },
+  "भीष्माभिरक्षितम्": { type: "sandhi", meaning: "भीष्म + अभिरक्षितम् = protected by Bhishma", case: "Instrumental (3rd)" },
+  "त्विदमेतेषां": { type: "sandhi", meaning: "तु + इदम् + एतेषाम् = but this (is) theirs", case: "Genitive (6th)" },
+  "भीमाभिरक्षितम्": { type: "sandhi", meaning: "भीम + अभिरक्षितम् = protected by Bhima", case: "Instrumental (3rd)" }
+},
 
-  11: {
-    "यथाभागमवस्थिताः": { type: "sandhi", case: "Nominative (1st)", meaning: "yathābhāgam + avasthitāḥ = stationed according to division" },
-    "भीष्ममेवाभिरक्षन्तु": { type: "sandhi", case: "Accusative (2nd)", meaning: "bhīṣmam + eva + abhirakṣantu = Bhishma indeed (you) must protect" }
-  },
+11: {
+  "यथाभागमवस्थिताः": { type: "sandhi", case: "Nominative (1st)", meaning: "यथाभागम् + अवस्थिताः = stationed according to division" },
+  "भीष्ममेवाभिरक्षन्तु": { type: "sandhi", case: "Accusative (2nd)", meaning: "भीष्मम् + एव + अभिरक्षन्तु = Bhishma indeed (you) must protect" }
+},
 
-  12: {
-    "सञ्जनयन्हर्षं": { type: "sandhi", meaning: "sañjanayan + harṣam = generating joy", case: "Accusative (2nd)" },
-    "कुरुवृद्धः": { type: "sandhi", meaning: "kuru + vṛddhaḥ = the elder of the Kurus", case: "Nominative (1st)" },
-    "सिंहनादं": { type: "sandhi", meaning: "siṃha + nādam = lion-like roar", case: "Accusative (2nd)" },
-    "विनद्योच्चैः": { type: "sandhi", meaning: "vinadya + uccaiḥ = roaring loudly", case: "Indeclinable" }
-  },
-  
-  13: {
-  "शङ्खाश्च": { type: "sandhi", meaning: "śaṅkhāḥ + ca = conches and", case: "Nominative (1st)" },
-  "भेर्यश्च": { type: "sandhi", meaning: "bheryaḥ + ca = kettledrums and", case: "Nominative (1st)" },
-  "पणवानकगोमुखाः": { type: "sandhi", meaning: "paṇavānaka + gomukhāḥ = drums, cymbals, trumpets", case: "Nominative (1st)" },
-  "सहसैवाभ्यहन्यन्त": { type: "sandhi", meaning: "sahasā + eva + abhyahanyanta = suddenly indeed they were struck" },
-  "शब्दस्तुमुलोऽभवत्": { type: "sandhi", meaning: "śabdaḥ + tumulaḥ + abhavat = the sound became tumultuous", case: "Nominative (1st)" }
-  },
-  
-  14: {
+12: {
+  "सञ्जनयन्हर्षं": { type: "sandhi", meaning: "सञ्जनयन् + हर्षम् = generating joy", case: "Accusative (2nd)" },
+  "कुरुवृद्धः": { type: "sandhi", meaning: "कुरु + वृद्धः = the elder of the Kurus", case: "Nominative (1st)" },
+  "सिंहनादं": { type: "sandhi", meaning: "सिंह + नादम् = lion-like roar", case: "Accusative (2nd)" },
+  "विनद्योच्चैः": { type: "sandhi", meaning: "विनद्य + उच्चैः = roaring loudly", case: "Indeclinable" }
+},
+
+13: {
+  "शङ्खाश्च": { type: "sandhi", meaning: "शङ्खाः + च = conches and", case: "Nominative (1st)" },
+  "भेर्यश्च": { type: "sandhi", meaning: "भेर्यः + च = kettledrums and", case: "Nominative (1st)" },
+  "पणवानकगोमुखाः": { type: "sandhi", meaning: "पणवानक + गोमुखाः = drums, cymbals, trumpets", case: "Nominative (1st)" },
+  "सहसैवाभ्यहन्यन्त": { type: "sandhi", meaning: "सहसा + एव + अभ्यहन्यन्त = suddenly indeed they were struck" },
+  "शब्दस्तुमुलोऽभवत्": { type: "sandhi", meaning: "शब्दः + तुमुलः + अभवत् = the sound became tumultuous", case: "Nominative (1st)" }
+},
+
+14: {
   "श्वेतैर्हयैर्युक्ते": { type: "sandhi", meaning: "श्वेतैः + हयैः + युक्ते = yoked with white horses", case: "Locative (7th)" },
   "पाण्डवश्चैव": { type: "sandhi", meaning: "पाण्डवः + च + एव = Pandava indeed", case: "Nominative (1st)" },
-  "शङ्खौप्रदध्मतुः": { type: "sandhi", meaning: "शङ्खौ + प्रदध्मतुḥ = blew the conches", case: "Accusative (2nd)" }	
-  },
+  "शङ्खौप्रदध्मतुः": { type: "sandhi", meaning: "शङ्खौ + प्रदध्मतुḥ = blew the conches", case: "Accusative (2nd)" }
+},
 
 15: {
-/*     "पाञ्चजन्यं": { type: "sandhi", meaning: "pāñcajanya + am = Pāñcajanya (conch)", case: "Accusative (2nd)" },
-    "देवदत्तं": { type: "sandhi", meaning: "devadatta + am = Devadatta (conch)", case: "Accusative (2nd)" }, */
-    "महाशङ्खं": { type: "sandhi", meaning: "mahā + śaṅkham = great conch", case: "Accusative (2nd)" }
-  },
+  "महाशङ्खं": { type: "sandhi", meaning: "महाः + शङ्खम् = great conch", case: "Accusative (2nd)" }
+},
 
-  16: {
-    "अनन्तविजयं": { type: "sandhi", meaning: "ananta + vijayam = Ananta‑vijaya (Yudhishthira’s conch)", case: "Accusative (2nd)" },
-    "कुन्तीपुत्रो": { type: "sandhi", meaning: "kuntī + putraḥ = son of Kuntī", case: "Nominative (1st)" },
-    "सहदेवश्च": { type: "sandhi", meaning: "sahadevaḥ + ca = Sahadeva and", case: "Nominative (1st)" },
-    "सुघोषमणिपुष्पकौ": { type: "sandhi", meaning: "sughoṣa + maṇipuṣpakau = Sughoṣa and Maṇipuṣpaka", case: "Accusative (2nd)" }
-  },
+16: {
+  "अनन्तविजयं": { type: "sandhi", meaning: "अनन्त + विजयम् = Ananta‑vijaya", case: "Accusative (2nd)" },
+  "कुन्तीपुत्रो": { type: "sandhi", meaning: "कुन्ती + पुत्रः = son of Kuntī", case: "Nominative (1st)" },
+  "सहदेवश्च": { type: "sandhi", meaning: "सहदेवः + च = Sahadeva and", case: "Nominative (1st)" },
+  "सुघोषमणिपुष्पकौ": { type: "sandhi", meaning: "सुघोष + मणिपुष्पकौ = Sughoṣa and Maṇipuṣpaka", case: "Accusative (2nd)" }
+},
 
-  17: {
-    "काश्यश्च": { type: "sandhi", meaning: "kāśyaḥ + ca = Kāśya and", case: "Nominative (1st)" },
-    "विराटश्च": { type: "sandhi", meaning: "virāṭaḥ + ca = Virāṭa and", case: "Nominative (1st)" },
-    "सात्यकिश्चापराजितः": { type: "sandhi", meaning: "sātyakiḥ + ca + aparājitaḥ= Sātyaki the undefeated", case: "Nominative (1st)" },
-    "परमेष्वासः": { type: "sandhi", meaning: "parama + iṣvāsaḥ = supreme archer", case: "Nominative (1st)" },
-    "महारथः": { type: "sandhi", meaning: "mahā + rathaḥ = great chariot‑warrior", case: "Nominative (1st)" }    
-  },
+17: {
+  "काश्यश्च": { type: "sandhi", meaning: "काश्यः + च = Kāśya and", case: "Nominative (1st)" },
+  "विराटश्च": { type: "sandhi", meaning: "विराटः + च = Virāṭa and", case: "Nominative (1st)" },
+  "सात्यकिश्चापराजितः": { type: "sandhi", meaning: "सात्यकिः + च + अपराजितः = Sātyaki the undefeated", case: "Nominative (1st)" },
+  "परमेष्वासः": { type: "sandhi", meaning: "परम + इष्वासः = supreme archer", case: "Nominative (1st)" },
+  "महारथः": { type: "sandhi", meaning: "महाः + रथः = great chariot‑warrior", case: "Nominative (1st)" }
+},
 
-  18: {
-    "द्रौपदेयाश्च": { type: "sandhi", meaning: "draupadeyāḥ + ca = and sons of Draupadī", case: "Nominative (1st)" },
-	"सौभद्रश्च": { type: "sandhi", meaning: "saubhadraḥ + ca = and son of Subhadra", case: "Nominative (1st)" },
-    "पृथिवीपते": { type: "sandhi", meaning: "pṛthivī + pate = O lord of the earth", case: "Vocative" },
-    "शङ्खान्दध्मुः": { type: "sandhi", meaning: "śaṅkhān + dadhmuḥ = conches they blew", case: "Accusative (2nd)" }
-  },
+18: {
+  "द्रौपदेयाश्च": { type: "sandhi", meaning: "द्रौपदेयाः + च = and sons of Draupadī", case: "Nominative (1st)" },
+  "सौभद्रश्च": { type: "sandhi", meaning: "सौभद्रः + च = and son of Subhadra", case: "Nominative (1st)" },
+  "पृथिवीपते": { type: "sandhi", meaning: "पृथिवी + पते = O lord of the earth", case: "Vocative" },
+  "शङ्खान्दध्मुः": { type: "sandhi", meaning: "शङ्खान् + दध्मुः = conches they blew", case: "Accusative (2nd)" }
+},
 
-  19: {
-    "धार्तराष्ट्राणां": { type: "sandhi", meaning: "dhārtarāṣṭra + āṇām = of the sons of Dhṛtarāṣṭra", case: "Genitive (6th)" },
-    "व्यदारयत्": { type: "sandhi", meaning: "vya + dārayat = tore apart", case: null },
-    "नभश्च": { type: "sandhi", meaning: "nabhaḥ + ca = sky and", case: "Nominative (1st)" },
-    "चैव": { type: "sandhi", meaning: "ca + eva = and indeed", case: "Accusative (2nd)" },
-    "तुमुलोऽभ्यनुनादयन्": { type: "sandhi", meaning: "tumulaḥ + abhi + anunādayan = the tumultuous one reverberated over", case: "Nominative (1st)" }
-  },
+19: {
+  "धार्तराष्ट्राणां": { type: "sandhi", meaning: "धार्तराष्ट्र + आणाम् = of the sons of Dhṛtarāṣṭra", case: "Genitive (6th)" },
+  "व्यदारयत्": { type: "sandhi", meaning: "व्य + दारयत् = tore apart", case: null },
+  "नभश्च": { type: "sandhi", meaning: "नभः + च = sky and", case: "Nominative (1st)" },
+  "चैव": { type: "sandhi", meaning: "च + एव = and indeed", case: "Accusative (2nd)" },
+  "तुमुलोऽभ्यनुनादयन्": { type: "sandhi", meaning: "तुमुलः + अभि + अनुनादयन् = the tumultuous one reverberated over", case: "Nominative (1st)" }
+},
 
-  20: {
-    "व्यवस्थितान्दृष्ट्वा": { type: "sandhi", meaning: "vyavasthitān + dṛṣṭvā = having seen those arrayed", case: null },
-    "कपिध्वजः": { type: "sandhi", meaning: "kapi + dhvajaḥ = monkey‑bannered one", case: "Nominative (1st)" },
-    "शस्त्रसम्पाते": { type: "sandhi", meaning: "śastra + sampāte = weapons‑exchange", case: "Locative (7th)" },
-    "धनुरुद्यम्य": { type: "sandhi", meaning: "dhanuḥ + udyamya = raising the bow", case: null },
-    "महीपते": { type: "sandhi", meaning: "mahī + pate = O lord of the earth", case: "Vocative" },
-	"वाक्यमिदमाह": { type: "sandhi", meaning: "vākyam + idam + āha = said these words", case: "null" }
-  },
+20: {
+  "व्यवस्थितान्दृष्ट्वा": { type: "sandhi", meaning: "व्यवस्थितान् + दृष्ट्वा = having seen those arrayed", case: null },
+  "कपिध्वजः": { type: "sandhi", meaning: "कपि + ध्वजः = monkey‑bannered one", case: "Nominative (1st)" },
+  "शस्त्रसम्पाते": { type: "sandhi", meaning: "शस्त्र + सम्पाते = weapons‑exchange", case: "Locative (7th)" },
+  "धनुरुद्यम्य": { type: "sandhi", meaning: "धनुः + उद्यम्य = raising the bow", case: null },
+  "महीपते": { type: "sandhi", meaning: "मही + पते = O lord of the earth", case: "Vocative" },
+  "वाक्यमिदमाह": { type: "sandhi", meaning: "वाक्यम् + इदम् + आह = said these words", case: null }
+},
   
  21: {
   "सेनयोरुभयोर्मध्ये": { type: "sandhi", meaning: "सेनयोः + उभयोः + मध्ये = between both armies", case: "Locative (7th)" },
@@ -144,8 +142,8 @@ window.SANDHI_CH1 = {
 22: {
   "यावदेतान्निरीक्षेऽहं": { type: "sandhi", meaning: "यावत् + एतान् + निरीक्षे + अहम् = until I observe these", case: "Accusative (2nd)" },
   "योद्धुकामानवस्थितान्": { type: "sandhi", meaning: "योद्धु + कामान् + अवस्थितान् = those desiring to fight, standing", case: "Accusative (2nd)" },
-  "कैर्मया": { type: "sandhi", split: ["कैः", "मया"], case: null },
-"योद्धव्यमस्मिन्": { type: "sandhi", split: ["योद्धव्यम्", "अस्मिन्"], case: null },
+  "कैर्मया": { type: "sandhi", meaning: ["कैः", "मया"], case: null },
+"योद्धव्यमस्मिन्": { type: "sandhi", meaning: ["योद्धव्यम्", "अस्मिन्"], case: null },
   "रणसमुद्यमे": { type: "sandhi", meaning: "रण + समुद्यमे = in the battle‑effort", case: "Locative (7th)" }
 },
 
@@ -154,16 +152,15 @@ window.SANDHI_CH1 = {
   "यएतेऽत्रसमागताḥ": { type: "sandhi", meaning: "यः + एते + अत्र + समागताः = those who have assembled here", case: "Nominative (1st)" },
   "दुर्बुद्धेर्युद्धे": { type: "sandhi", meaning: "दुर्बुद्धेः + युद्धे = in the battle of the evil‑minded", case: "Locative (7th)" },
   "प्रियचिकीर्षव:": { type: "sandhi", meaning: "प्रिय + चिकीर्षवः = wishing to please", case: "Nominative (1st)" },
-  "एतेऽत्र": { type: "sandhi", split: ["एते", "अत्र"], case: null }
+  "एतेऽत्र": { type: "sandhi", meaning: ["एते", "अत्र"], case: null }
 },
 
 24: {
-  "एवमुक्तो": { type: "sandhi", split: ["एवम्", "उक्तः"], case: null },
+  "एवमुक्तो": { type: "sandhi", meaning: "एवम् + उक्तः = thus spoke", case: null },
   "गुडाकेशेनभारत": { type: "sandhi", meaning: "गुडाकेशेन + भारत = by Guḍākeśa, O Bhārata", case: "Instrumental (3rd)" },
   "सेनयोरुभयोर्मध्ये": { type: "sandhi", meaning: "सेनयोः + उभयोः + मध्ये = between both armies", case: "Locative (7th)" },
   "रथोत्तमम्": { type: "sandhi", meaning: "रथ + उत्तमम् = the best chariot", case: "Accusative (2nd)" },
-  "एवमुक्तो": { type: "sandhi", split: ["एवम्", "उक्तः"], case: null },
-  "गुडाकेशेन": { type: "sandhi", split: ["गुडाकेशेन"], case: null }   // simple, but appears fused in your text
+  "गुडाकेशेन": { type: "sandhi", meaning: ["गुडाकेशेन"], case: null }   // simple, but appears fused in your text
 },
 
 25: {
@@ -173,8 +170,8 @@ window.SANDHI_CH1 = {
 },
 
 26: {
-  "आचार्यान्मातुलान्भ्रातृ": { type: "sandhi", split: ["आचार्यान्", "मातुलान्", "भ्रातॄन्"], case: null },
-  "न्पुत्रान्पौत्रान्सखींस्तथा": { type: "sandhi", split: ["पुत्रान्", "पौत्रान्", "सखीन्", "तथा"], case: null },
+  "आचार्यान्मातुलान्भ्रातृ": { type: "sandhi", meaning: "आचार्यान् + मातुलान् + भ्रातॄन् = teachers, maternal uncles, brothers", case: null },
+  "न्पुत्रान्पौत्रान्सखींस्तथा": { type: "sandhi", meaning: "पुत्रान् + पौत्रान् + सखीन् + तथा = sons, grand-sons, friends etc.", case: null },
   "तत्रापश्यत्स्थितान्": { type: "sandhi", meaning: "तत्र + अपश्यत् + स्थितान् = there he saw those standing", case: "Accusative (2nd)" },
   "पितृनथपितामहान्": { type: "sandhi", meaning: "पितृ + नाथ + पितामहान् = fathers, grandfathers", case: "Accusative (2nd)" },
   "आचार्यान्मातुलान्भ्रातृन्": { type: "sandhi", meaning: "आचार्यान् + मातुलान् + भ्रातॄन् = teachers, maternal uncles, brothers", case: "Accusative (2nd)" },
@@ -182,20 +179,19 @@ window.SANDHI_CH1 = {
 },
 
 27: {
-  "श्वशुरान्सुहृदश्चैव": { type: "sandhi", meaning: "श्वशुरान् + सुहृदः + च + एव = fathers‑in‑law and friends indeed", case: "Accusative (2nd)" },
+  "श्वशुरान्सुहृदश्चैव": { type: "sandhi", meaning: "श्वशुरान् + सुहृदः + च + एव = fathers‑in‑law and well-wishers indeed", case: "Accusative (2nd)" },
   "सेनयोरुभयोरपि": { type: "sandhi", meaning: "सेनयोः + उभयोः + अपि = on both sides of the armies", case: "Locative (7th)" },
-  "समीक्ष्यसकौन्तेयः": { type: "sandhi", meaning: "समीक्ष्य + स + कौन्तेयः = seeing, the son of Kuntī", case: "Nominative (1st)" },
   "सर्वान्बन्धूनवस्थितान्": { type: "sandhi", meaning: "सर्वान् + बन्धून् + अवस्थितान् = all relatives standing", case: "Accusative (2nd)" },
-  "कृपयापरयाविष्टो": { type: "sandhi", meaning: "कृपया + परया + आविष्टः = overcome by great compassion", case: "Nominative (1st)" },
-  "विषीदन्निदमब्रवीत्": { type: "sandhi", meaning: "विषीदन् + इदम् + अब्रवीत् = grieving, he spoke this", case: "Nominative (1st)" },
-  "तान्समीक्ष्य": { type: "sandhi", split: ["तान्", "समीक्ष्य"], case: null }
+  "तान्समीक्ष्य": { type: "sandhi", meaning: "तान् + समीक्ष्य =  you having seen", case: null }
 },
 
 28: {
   "दृष्ट्वेमंस्वजनं": { type: "sandhi", meaning: "दृष्ट्वा + इमम् + स्व + जनम् = seeing my own people", case: "Accusative (2nd)" },
   "युयुत्सुंसमुपस्थितम्": { type: "sandhi", meaning: "युयुत्सुम् + समुप + स्थितम् = desirous to fight, assembled", case: "Accusative (2nd)" },
-  "दृष्ट्वेमं": { type: "sandhi", split: ["दृष्ट्वा", "इमम्"], case: null },
-"स्वजनं": { type: "sandhi", split: ["स्व", "जनम्"], case: null }
+  "दृष्ट्वेमं": { type: "sandhi", meaning: "दृष्ट्वा + इमम् = having seen this", case: null },
+  "परयाविष्टो": { type: "sandhi", meaning: "परया + आविष्टः = overcome by great (compassion)", case: "Nominative (1st)" },
+  "विषीदन्निदमब्रवीत्": { type: "sandhi", meaning: "विषीदन् + इदम् + अब्रवीत् = grieving, he spoke this", case: "Nominative (1st)" },
+  "स्वजनं": { type: "sandhi", split: ["स्व", "जनम्"], case: null }
 
 },
 
@@ -204,8 +200,8 @@ window.SANDHI_CH1 = {
   "परिशुष्यति": { type: "sandhi", meaning: "परि + शुष्यति = dries up", case: "Nominative (1st)" },
   "वेपथुश्चशरीरे": { type: "sandhi", meaning: "वेपथुः + च + शरीरे = trembling in the body", case: "Locative (7th)" },
   "रोमहर्षश्चजायते": { type: "sandhi", meaning: "रोम + हर्षः + च + जायते = hair‑standing thrill arises", case: "Nominative (1st)" },
-  "वेपथुश्च": { type: "sandhi", split: ["वेपथुः", "च"], case: null },
-  "रोमहर्षश्च": { type: "sandhi", split: ["रोम", "हर्षः", "च"], case: null }
+  "वेपथुश्च": { type: "sandhi", meaning: "वेपथुः + च = trembles and", case: null },
+  "रोमहर्षश्च": { type: "sandhi", meaning: "रोम + हर्षः + च = hair raising", case: null }
 
 
 },
@@ -216,9 +212,9 @@ window.SANDHI_CH1 = {
   "परिदह्यते": { type: "sandhi", meaning: "परि + दह्यते = burns", case: "Nominative (1st)" },
   "नचशक्नोम्यवस्थातुं": { type: "sandhi", meaning: "न + च + शक्नोमि + अवस्थातुम् = I am not able to stand firm", case: "Accusative (2nd)" },
   "भ्रमतीवचमेमनः": { type: "sandhi", meaning: "भ्रमति + इव + च + मे + मनः = my mind reels as if", case: "Nominative (1st)" },
-  "हस्तात्त्वक्चै": { type: "sandhi", split: ["हस्तात्", "त्वक्", "च", "एव"], case: null },
-  "भ्रमतीव": { type: "sandhi", split: ["भ्रमति", "इव"], case: null },
-  "शक्नोम्यवस्थातुं": { type: "sandhi", split: ["शक्नोमि", "अवस्थातुम्"], case: null }
+  "हस्तात्त्वक्चै": { type: "sandhi", meaning: "हस्तात् + त्वक् + च + एव = from my hand, and skin indeed", case: null },
+  "भ्रमतीव": { type: "sandhi", meaning: "भ्रमति + इव = reels as if", case: null },
+  "शक्नोम्यवस्थातुं": { type: "sandhi", meaning: "शक्नोमि + अवस्थातुम् = I am able to stand firm", case: null }
 
 },
 
@@ -252,7 +248,7 @@ window.SANDHI_CH1 = {
 36: {
   "धार्तराष्ट्रान्नः": { type: "sandhi", meaning: "धार्तराष्ट्रान् + नः = the sons of Dhṛtarāṣṭra, for us", split: ["धार्तराष्ट्रान्","नः"], case: null },
   "स्याज्जनार्दन": { type: "sandhi", meaning: "स्यात् + जनार्दन = would there be, O Janārdana", split: ["स्यात्","जनार्दन"], case: null },
-  "पापमेवाश्रयेदस्मान्हत्वैतानाततायिनः": { type: "sandhi", meaning: "पापम् + एव + आश्रयेत् + अस्मान् + हत्वा + एतान् + आततायिनः = sin alone would cling to us, having slain these aggressors", split: ["पापम्","एव","आश्रयेत्","अस्मान्","हत्वा","एतान्","आततायिनः"], case: null }
+  "पापमेवाश्रयेदस्मान्हत्वैतानाततायिनः": { type: "sandhi", meaning: "पापम् + एव + आश्रयेत् + अस्मान् + हत्वा + एतान् + आततायिनः = sin alone would befall us, having slain these aggressors", split: ["पापम्","एव","आश्रयेत्","अस्मान्","हत्वा","एतान्","आततायिनः"], case: null }
 },
 
 37: {

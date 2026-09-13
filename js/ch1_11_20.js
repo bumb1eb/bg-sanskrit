@@ -7,15 +7,15 @@ const CH1_11_20 = [
     भीष्ममेवाभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
     `,
     sandhi: `
-    अयनेषु च सर्वेषु यथाभागम् - अवस्थिताः।<br>
-    भीष्मम् - एव - अभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
+    अयनेषु च सर्वेषु यथाभागम्·अवस्थिताः।<br>
+    भीष्मम्·एव·अभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
     `,
     translit: `
-    ayanēṣu ca sarvēṣu yathābhāgam - avasthitāḥ |<br>
-    bhīṣmam - ēva - abhirakṣantu bhavantaḥ sarva ēva hi ||<br>
+    ayanēṣu ca sarvēṣu yathābhāgam·avasthitāḥ |<br>
+    bhīṣmam·ēva·abhirakṣantu bhavantaḥ sarva ēva hi ||<br>
     `,
     translation: `
-    at strategic points and everywhere, according to division, being stationed,<br>
+    At strategic points and everywhere, according to division, being stationed,<br>
     Bhishma alone must certainly be protected by you all.<br>
     `
   },
@@ -28,8 +28,8 @@ const CH1_11_20 = [
     सिंहनादं विनद्योच्चैः शङ्खं दध्मौ प्रतापवान् ॥<br>
     `,
     sandhi: `
-    तस्य सञ्जनयन् हर्षम् कुरु - वृद्धः पितामहः।<br>
-    सिंह - नादम् विनद्य - उच्चैः शङ्खम् दध्मौ प्रतापवान्।<br>
+    तस्य सञ्जनयन्·हर्षम् कुरु·वृद्धः पितामहः।<br>
+    सिंह·नादम् विनद्य·उच्चैः शङ्खम् दध्मौ प्रतापवान्।<br>
     `,
     translit: `
     tasya sañjanayan - harṣam kuru - vṛddhaḥ pitāmahaḥ |<br>
@@ -49,8 +49,8 @@ const CH1_11_20 = [
     सहसैवाभ्यहन्यन्त स शब्दस्तुमुलोऽभवत् ॥<br>
     `,
     sandhi: `
-    ततः शङ्खाः च भेर्यः च पणवानक - गोमुखाः।<br>
-    सहसा एव अभ्यहन्यन्त सः शब्दः तुमुलः अभवत् ॥<br>
+    ततः शङ्खाः·च भेर्यः·च पणवानक·गोमुखाः।<br>
+    सहसा·एव·अभ्यहन्यन्त सः शब्दः·तुमुलः·अभवत् ॥<br>
     `,
     translit: `
     tataḥ śaṅkhāḥ ca bheryaḥ ca paṇavānaka-gomukhāḥ।<br>
@@ -70,15 +70,15 @@ const CH1_11_20 = [
     माधवः पाण्डवश्चैव दिव्यौ शङ्खौ प्रदध्मतुः॥<br>
     `,
     sandhi: `
-    ततः श्वेतैः - हयैः - युक्ते महति स्यन्दने स्थितौ।<br>
-    माधवः पाण्डवः - च - एव दिव्यौ शङ्खौ प्रदध्मतुः॥<br>
+    ततः श्वेतैः·हयैः·युक्ते महति स्यन्दने स्थितौ।<br>
+    माधवः पाण्डवः·च·एव दिव्यौ शङ्खौ प्रदध्मतुः॥<br>
     `,
     translit: `
     tataḥ śvetaiḥ - hayaiḥ - yukte mahati syandane sthitau।<br>
     mādhavaḥ pāṇḍavaḥ - ca - eva divyau śaṅkhau pradadhmatuḥ॥<br>
     `,
     translation: `
-    Thereafter, in the great chariot yoked with white horses, standing; <br>
+    Thereafter, in the white-horses-yoked great chariot , standing; <br>
     Mādhava and the son of Pāṇḍu, their divine conches blew.<br>
     `
 },
@@ -92,7 +92,7 @@ const CH1_11_20 = [
     `,
     sandhi: `
     पाञ्चजन्यम् हृषीकेशः देवदत्तम् धनञ्जयः। <br>
-    पौण्ड्रम् दध्मौ महा - शङ्खम् भीमकर्मा वृकोदरः॥ <br>
+    पौण्ड्रम् दध्मौ महा·शङ्खम् भीमकर्मा वृकोदरः॥ <br>
     `,
     translit: `
     pāñcajanyam hṛṣīkeśaḥ devadattam dhanañjayaḥ।<br>
@@ -178,14 +178,14 @@ const CH1_11_20 = [
     `,
     sandhi: `
     स घोषः धार्तराष्ट्राणाम् हृदयानि वि·अदारयत्।<br>
-    नभः·च पृथिवीं·च·एव तुमुलः अभि·अनुनादयन्॥<br>
+    नभः·च पृथिवीं·च·एव·तुमुलः·अभि·अनुनादयन्॥<br>
     `,
     translit: `
     sa ghoṣaḥ dhārtarāṣṭrāṇām hṛdayāni vi·adārayat।<br>
     nabhaḥ·ca pṛthivīṁ·ca·eva tumulaḥ abhi·anunādayan॥<br>
     `,
     translation: `
-    That sound, of the sons of Dhṛtarāṣṭra, tore the hearts;<br>
+    That sound, hearts of the sons of Dhṛtarāṣṭra, tore;<br>
     And the sky and the earth, indeed, the tumultuous (sound) reverberated over. <br>
     `
 },
@@ -211,7 +211,7 @@ const CH1_11_20 = [
     translation: `
     Then, the arrangement, having seen, of the sons of Dhṛtarāṣṭra, the monkey‑bannered one (Arjuna);<br>
     At the time of weapons clashing, raising his bow, the son of Pāṇḍu; <br>
-	To Hṛṣīkeśa, this word he spoke to lord of the earth.<br>
+	To Hṛṣīkeśa, this word he spoke to, O lord of the earth.<br>
     `
 }
 
