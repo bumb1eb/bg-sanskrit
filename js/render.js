@@ -129,6 +129,13 @@ function setChapter(chapterObj, chapterName = "Current Chapter") {
   CURRENT_CHAPTER_NAME = chapterName;
   currentIndex = 0;
 
+  // ✅ Rebuild SANDHI for this chapter only
+  if (CURRENT_CHAPTER.sandhi) {
+    loadChapterSandhi(CURRENT_CHAPTER.sandhi);
+  } else {
+    window.SANDHI = {};
+  }
+
   document.getElementById("shloka").innerHTML = "";
   document.getElementById("sandhi").innerHTML = "";
   document.getElementById("translit").innerHTML = "";
@@ -137,6 +144,7 @@ function setChapter(chapterObj, chapterName = "Current Chapter") {
 
   renderStotra(0);
 }
+
 
 /* -----------------------------------------------------------
    MAIN RENDERER

@@ -637,7 +637,6 @@ window.DICT = {
   ...PRONOUNS,
   ...ADJECTIVES,
   ...INDECLINABLES,
-  ...(window.SANDHI || {})   // ⭐ REQUIRED
 };
 
 
@@ -648,6 +647,9 @@ window.DICT = {
 // Ensure your sandhi files define:  window.SANDHI = { ... }
 
 function loadChapterSandhi(chapterSandhi) {
+  // Clear previous chapter’s sandhi
+  window.SANDHI = {};
+
   Object.keys(chapterSandhi).forEach(verseNum => {
     const entries = chapterSandhi[verseNum];
     Object.keys(entries).forEach(word => {

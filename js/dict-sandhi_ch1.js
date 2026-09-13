@@ -319,20 +319,9 @@ window.SANDHI_CH1 = {
   "शोकसंविग्नमानसः": { type: "sandhi", meaning: "शोक + संविग्न + मानसः = mind overcome by sorrow", case: "Nominative (1st)" }
 }
 
-
-
-
-
-
- 
-
-  
-  
-
-
 };
 
-loadChapterSandhi(window.SANDHI_CH1);
+
 
 
 

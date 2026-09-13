@@ -90,7 +90,11 @@
   // ⭐ Button handler
   window.runChecker = function () {
     const chapterData = getChapterData(CURRENT_CHAPTER);
-    const result = checkMissingWords(chapterData, DICT, SANDHI);
+    const result = checkMissingWords(
+	  chapterData,
+	  DICT,
+	  CURRENT_CHAPTER.sandhi || {}
+	);
 
     console.log("🔍 Missing words report:");
     console.log(result);

@@ -1,5 +1,6 @@
 const CHAPTER_1 = {
   name: "Chapter 1",
+  sandhi: window.SANDHI_CH1,
   groups: [
     { label: "Verses 1–10", data: CH1_01_10 },
     { label: "Verses 11–20", data: CH1_11_20 },
@@ -8,6 +9,3 @@ const CHAPTER_1 = {
     { label: "Verses 41–47", data: CH1_41_47 }
   ]
 };
-
-loadChapterSandhi(SANDHI_CH1);
-
