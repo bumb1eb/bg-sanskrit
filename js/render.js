@@ -225,9 +225,6 @@ function renderCasePanel(index) {
   document.getElementById("case-panel").innerHTML = html;
 }
 
-
-
-
 /* -----------------------------------------------------------
    UI TOGGLES
 ----------------------------------------------------------- */
@@ -288,7 +285,6 @@ function toggleChapter(headerEl) {
   chapterState[chapterName] = !isOpen;   // true = open
   localStorage.setItem("chapterState", JSON.stringify(chapterState));
 }
-
 
 
 function buildIndex() {
@@ -380,6 +376,7 @@ function buildIndex() {
           li.onclick = (event) => {
             event.stopPropagation();
             setChapter(chapter, chapter.name || "Chapter");
+			localStorage.setItem("lastChapter", chapter.name);
             let offset = 0;
             for (let gg = 0; gg < gIndex; gg++) {
               offset += (chapter.groups[gg].data || []).length;
@@ -462,21 +459,29 @@ document.addEventListener("click", function (e) {
 });
 
 
-
-
-
 // === PAGE INITIALIZATION ===
 window.onload = () => {
   buildIndex();
-  setChapter(CHAPTER_1, CHAPTER_1.name || "Chapter 1");
 
-  // ⭐ Restore last verse if available
+  const lastChapter = localStorage.getItem("lastChapter");
   const lastVerse = localStorage.getItem("lastVerse");
 
+  // ⭐ Map chapter names to objects
+  const chapterMap = {
+    "Chapter 1": CHAPTER_1,
+    "Chapter 2": CHAPTER_2,
+    "Chapter 3": CHAPTER_3
+  };
+
+  // ⭐ Restore chapter (fallback = Chapter 1)
+  const chapterObj = chapterMap[lastChapter] || CHAPTER_1;
+  setChapter(chapterObj, chapterObj.name);
+
+  // ⭐ Restore verse
   if (lastVerse !== null) {
     jumpTo(parseInt(lastVerse));
   } else {
-    // default behavior
     jumpTo(0);
   }
 };
+

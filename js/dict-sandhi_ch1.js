@@ -241,7 +241,7 @@ window.SANDHI_CH1 = {
 35: {
   "एतान्न": { type: "sandhi", meaning: "एतान् + न = these, not", split: ["एतान्","न"], case: null },
   "हन्तुमिच्छामि": { type: "sandhi", meaning: "हन्तुम् + इच्छामि = I wish to slay", split: ["हन्तुम्","इच्छामि"], case: null },
-  "घ्नतोऽपि": { type: "sandhi", meaning: "घ्नतः + अपि = being killed even", split: ["घ्नतः","अपि"], case: null },
+  "घ्नतोऽपि": { type: "sandhi", meaning: "घ्नतः + अपि = being killed eve", split: ["घ्नतः","अपि"], case: null },
   "महीकृते": { type: "sandhi", meaning: "मही + कृते = for the sake of the earth", split: ["मही","कृते"], case: null }
 },
 

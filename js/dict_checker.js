@@ -111,4 +111,17 @@
   // ⭐ Make available globally
   window.checkMissingWords = checkMissingWords;
 
+
+function runChecker() {
+  const chapterData = getChapterData(CURRENT_CHAPTER);
+
+  const result = checkMissingWords(chapterData, DICT, SANDHI);
+
+  console.log("🔍 Missing words report:");
+  console.log(result);
+
+  alert("Check console for missing words.");
+}
+
+
 })();
