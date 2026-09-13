@@ -12,5 +12,5 @@ const CHAPTER_2 = {
   ]
 };
 
-loadChapterSandhi(SANDHI_CH1);
+loadChapterSandhi(SANDHI_CH2);
 
