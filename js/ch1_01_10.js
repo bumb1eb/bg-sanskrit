@@ -150,7 +150,7 @@ const CH1_01_10 = [
     `,
     translation: `
     Ours (army) but distinguished, for your knowledge, O twice-born (Drona), <br>
-	Leaders of my army for your information, I will tell you. <br>
+	Leaders of my army, for your information, I will tell you. <br>
     `
   },
 

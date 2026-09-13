@@ -40,7 +40,7 @@ window.SANDHI_CH1 = {
 7: {
   "द्विजोत्तम": { type: "sandhi", meaning: "द्विज + उत्तम = best among the twice‑born", case: "Vocative (8th)" },
   "तान्निबोध": { type: "sandhi", meaning: "तान् + निबोध = know them", case: "Accusative (2nd)" },
-  "संज्ञार्थं": { type: "sandhi", meaning: "संज्ञा + अर्थम् = for identification", case: "Accusative (2nd)" },
+  "संज्ञार्थं": { type: "sandhi", meaning: "संज्ञा + अर्थम् = for information", case: "Accusative (2nd)" },
   "तान्ब्रवीमि": { type: "sandhi", meaning: "तान् + ब्रवीमि = I will tell you", case: "Accusative (2nd)" }
 },
 
@@ -241,7 +241,7 @@ window.SANDHI_CH1 = {
 35: {
   "एतान्न": { type: "sandhi", meaning: "एतान् + न = these, not", split: ["एतान्","न"], case: null },
   "हन्तुमिच्छामि": { type: "sandhi", meaning: "हन्तुम् + इच्छामि = I wish to slay", split: ["हन्तुम्","इच्छामि"], case: null },
-  "घ्नतोऽपि": { type: "sandhi", meaning: "घ्नतः + अपि = even though slaying", split: ["घ्नतः","अपि"], case: null },
+  "घ्नतोऽपि": { type: "sandhi", meaning: "घ्नतः + अपि = being killed even", split: ["घ्नतः","अपि"], case: null },
   "महीकृते": { type: "sandhi", meaning: "मही + कृते = for the sake of the earth", split: ["मही","कृते"], case: null }
 },
 
@@ -276,50 +276,46 @@ window.SANDHI_CH1 = {
  
 
 41: {
-  "अधर्माभिभवात्कृष्ण": { type: "sandhi", meaning: "अधर्म + अभिभवात् + कृष्ण = from the rise of unrighteousness, O Kṛṣṇa", case: "Ablative (5th)" },
+  "अधर्माभिभवात्कृष्ण": { type: "sandhi", meaning: "अधर्म + अभिभवात् + कृष्ण = from unrighteousness overpowering, O Kṛṣṇa", case: "Ablative (5th)" },
   "प्रदुष्यन्तिकुलस्त्रियः": { type: "sandhi", meaning: "प्रदुष्यन्ति + कुल + स्त्रियः = the women of the family become corrupt", case: "Nominative (1st)" },
   "स्त्रीषुदुष्टासुवार्ष्णेय": { type: "sandhi", meaning: "स्त्रीषु + दुष्टासु + वार्ष्णेय = when women are corrupt, O Vārṣṇeya", case: "Locative (7th)" },
   "जायतेवर्णसङ्करः": { type: "sandhi", meaning: "जायते + वर्ण + सङ्करः = arises the mixing of castes", case: "Nominative (1st)" }
 },
 
 42: {
-  "सङ्करोनरकायैव": { type: "sandhi", meaning: "सङ्करः + नरकाय + एव = mixture leads to hell indeed", case: "Dative (4th)" },
-  "कुलघ्नानांकुलस्यच": { type: "sandhi", meaning: "कुलघ्नानाम् + कुलस्य + च = of destroyers of the family and of the family", case: "Genitive (6th)" },
+  "नरकायैव": { type: "sandhi", meaning: "नरकाय + एव =  leads to hell indeed", case: "Dative (4th)" },
+  "कुलघ्नानां": { type: "sandhi", meaning: "कुल + घ्नानाम् = of family-destroyers", case: "Genitive (6th)" },
   "लुप्तपिण्डोदकक्रियाः": { type: "sandhi", meaning: "लुप्त + पिण्ड + उदक + क्रियाः = lost offerings of food and water rites", case: "Nominative (1st)" }
 },
 
 43: {
-  "दोषैरेतैःकुलघ्नानाम्": { type: "sandhi", meaning: "दोषैः + एतैः + कुलघ्नानाम् = by these faults of family‑destroyers", case: "Instrumental (3rd)" },
+  "दोषैरेतैः": { type: "sandhi", meaning: "दोषैः + एतैः = by these faults", case: "Instrumental (3rd)" },
   "वर्णसङ्करकारकैः": { type: "sandhi", meaning: "वर्ण + सङ्कर + कारकैः = by the causes of caste‑mixture", case: "Instrumental (3rd)" },
-  "उत्साद्यन्तेजातिधर्माः": { type: "sandhi", meaning: "उत्साद्यन्ते + जाति + धर्माः = caste duties perish", case: "Nominative (1st)" },
-  "कुलधर्माश्चशाश्वताः": { type: "sandhi", meaning: "कुलधर्माः + च + शाश्वताः = family duties also eternal ones", case: "Nominative (1st)" }
+  "कुलधर्माश्च": { type: "sandhi", meaning: "कुल + धर्माः + च  = and family duties", case: "Nominative (1st)" }
 },
 
 44: {
   "उत्सन्नकुलधर्माणां": { type: "sandhi", meaning: "उत्सन्न + कुल + धर्माणाम् = of those whose family duties are destroyed", case: "Genitive (6th)" },
   "मनुष्याणांजनार्दन": { type: "sandhi", meaning: "मनुष्याणाम् + जनार्दन = of humans, O Janārdana", case: "Genitive (6th)" },
-  "नरकेऽनियतंवासः": { type: "sandhi", meaning: "नरके + अनियतं + वासः = indefinite stay in hell", case: "Locative (7th)" },
+  "नरकेऽनियतं": { type: "sandhi", meaning: "नरके + अनियतं = indefinite stay in hell", case: "Locative (7th)" },
   "भवतीत्यनुशुश्रुम": { type: "sandhi", meaning: "भवति + इति + अनु + शुश्रुम = it is said thus we have heard", case: "Nominative (1st)" }
 },
 
 45: {
-  "अहोबतमहत्पापं": { type: "sandhi", meaning: "अहो + बत + महत् + पापम् = alas, a great sin", case: "Accusative (2nd)" },
-  "कर्तुंव्यवसितावयम्": { type: "sandhi", meaning: "कर्तुम् + व्यवसिताः + वयम् = we are resolved to commit", case: "Nominative (1st)" },
+  "महत्पापं": { type: "sandhi", meaning: "महत् + पापम् = great sin", case: "Accusative (2nd)" },
   "यद्राज्यसुखलोभेन": { type: "sandhi", meaning: "यत् + राज्य + सुख + लोभेन = by greed for kingdom and pleasure", case: "Instrumental (3rd)" },
-  "हन्तुंस्वजनमुद्यताः": { type: "sandhi", meaning: "हन्तुम् + स्व + जनम् + उद्यताः = ready to kill our own people", case: "Accusative (2nd)" }
+  "स्वजनमुद्यताः": { type: "sandhi", meaning: "स्व + जनम् + उद्यताः = ready (to kill) our own people", case: "Accusative (2nd)" }
 },
 
 46: {
-  "मामप्रतीकारमशस्त्रं": { type: "sandhi", meaning: "माम् + प्रतीकारम् + अशस्त्रम् = me unresisting and unarmed", case: "Accusative (2nd)" },
+  "मामप्रतीकारमशस्त्रं": { type: "sandhi", meaning: "माम् + अप्रतीकारम् + अशस्त्रम् = me unresisting and unarmed", case: "Accusative (2nd)" },
   "शस्त्रपाणयः": { type: "sandhi", meaning: "शस्त्र + पाणयः = weapon‑bearing men", case: "Nominative (1st)" },
-  "धार्तराष्ट्रारणेहन्युः": { type: "sandhi", meaning: "धार्तराष्ट्राः + रणे + हन्युः = sons of Dhṛtarāṣṭra may kill in battle", case: "Locative (7th)" },
-  "तन्मेक्षेमतरंभावेत्": { type: "sandhi", meaning: "तत् + मे + क्षेम + तरम् + भवेत् = that would be more beneficial for me", case: "Nominative (1st)" }
+  "हन्युस्तन्मे": { type: "sandhi", meaning: "हन्युः + तत् + मे = would kill, that for me", case: "Locative (7th)" }
 },
 
 47: {
   "एवमुक्त्वार्जुनः": { type: "sandhi", meaning: "एवम् + उक्त्वा + अर्जुनः = thus having spoken, Arjuna", case: "Nominative (1st)" },
-  "सङ्ख्येरथोपस्थउपाविशत्": { type: "sandhi", meaning: "सङ्ख्ये + रथ + उपस्थे + उप + आविशत् = sat down in the chariot in the midst of battle", case: "Locative (7th)" },
-  "विसृज्यसशरंचापम्": { type: "sandhi", meaning: "विसृज्य + स + शरम् + चापम् = casting off bow and arrow", case: "Accusative (2nd)" },
+  "रथोपस्थ": { type: "sandhi", meaning: "रथ + उपस्थे= in the chariot seat", case: "Locative (7th)" },
   "शोकसंविग्नमानसः": { type: "sandhi", meaning: "शोक + संविग्न + मानसः = mind overcome by sorrow", case: "Nominative (1st)" }
 }
 

@@ -15,8 +15,8 @@ const CH1_41_47 = [
     strīṣu duṣṭāsu vārṣṇeya jāyate varṇa·saṅkaraḥ॥<br>
   `,
   translation: `
-    From the overpowering of unrighteousness, O Kṛṣṇa, the women of the family become corrupted;<br>
-    In corrupted women, O Vārṣṇeya, arises the confusion of caste. <br>
+    From adharma (unrighteousness) overpowering (dharma), O Kṛṣṇa, the women of the family become corrupted;<br>
+    In corrupted women, O Vārṣṇeya (Krishna), arises mixture of caste (illegitimate offspring). <br>
   `
 },
 
@@ -36,8 +36,8 @@ const CH1_41_47 = [
     patanti pitaraḥ·hi·eṣām lupta·piṇḍa·udaka·kriyāḥ॥<br>
   `,
   translation: `
-    Confusion of caste leads indeed to hell for the destroyers of the family and for the family;<br>
-    Their ancestors fall, since their offerings of food and water are lost. <br>
+    Mixture (of caste) leads to hell indeed of the family-destroyers and of the family;<br>
+    Their ancestors fall, (since) they lose (those who) perform pinda (rice ball) and udaka (water) offerings. <br>
   `
 },
 
@@ -57,8 +57,8 @@ const CH1_41_47 = [
     utsādyante jāti·dharmāḥ kula·dharmāḥ·ca śāśvatāḥ॥<br>
   `,
   translation: `
-    By these faults of the destroyers of the family, the makers of caste‑confusion;<br>
-    The duties of caste perish, and the eternal duties of the family likewise. <br>
+    By these faults of the family-destroyers, by caste‑mixture causing;<br>
+    Are destroyed caste-duties and family-duties (that are) eternal. <br>
   `
 },
 
@@ -78,8 +78,8 @@ const CH1_41_47 = [
     narake·aniyataṃ vāsaḥ bhavati·iti·anu·śuśruma॥<br>
   `,
   translation: `
-    For men whose family duties are destroyed, O Janārdana;<br>
-    In hell, unsteady dwelling occurs — thus have we heard. <br>
+    (Having) destroyed family duties of mankind, O Janārdana;<br>
+    In hell, forever dwelling occurs — thus have we heard. <br>
   `
 },
 
@@ -99,8 +99,8 @@ const CH1_41_47 = [
     yat·rājya·sukha·lobhena hantum sva·janam·udyatāḥ॥<br>
   `,
   translation: `
-    Alas indeed, a great sin we are resolved to commit;<br>
-    That, through greed for kingdom‑pleasure, we are ready to slay our own people. <br>
+    Alas indeed, a great sin to commit, resolved are we;<br>
+    That, through greed for kingdom pleasure, to slay our own people we are ready. <br>
   `
 },
 
@@ -120,8 +120,8 @@ const CH1_41_47 = [
     dhārtarāṣṭrāḥ raṇe hanyuḥ·tat·me kṣema·taraṃ bhavet॥<br>
   `,
   translation: `
-    If, unresisting and unarmed, the sons of Dhṛtarāṣṭra in battle should slay me;<br>
-    That would be more beneficial for me. <br>
+    If, me unresisting and unarmed, weapons in hand (them) <br>
+	the sons of Dhṛtarāṣṭra in battle should slay me, that to me would be better. <br>
   `
 },
 
@@ -136,17 +136,17 @@ const CH1_41_47 = [
   sandhi: `
     सञ्जय उवाच ।<br>
     एवम्·उक्त्वा अर्जुनः सङ्ख्ये रथ·उपस्थे उपाविशत् ।<br>
-    विसृज्य स·शरं चापं शोक·संविग्न·मानसः ॥<br>
+    विसृज्य सशरं चापं शोक·संविग्न·मानसः ॥<br>
   `,
   translit: `
     sañjaya uvāca।<br>
     evam·uktvā arjunaḥ saṅkhye ratha·upasthe upāviśat।<br>
-    visṛjya sa·śaraṃ cāpaṃ śoka·saṃvigna·mānasaḥ॥<br>
+    visṛjya saśaraṃ cāpaṃ śoka·saṃvigna·mānasaḥ॥<br>
   `,
   translation: `
     Sañjaya said:<br>
-    Thus speaking, Arjuna in the battle‑array sat down in the chariot‑seat;<br>
-    Casting aside bow and arrow, his mind overcome by sorrow. <br>
+    Thus speaking, Arjuna on the battlefield, in the chariot‑seat sat down;<br>
+    Casting aside bow and arrow, (his) mind overcome by sorrow. <br>
   `
 }
 

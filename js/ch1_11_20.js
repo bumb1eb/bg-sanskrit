@@ -99,8 +99,8 @@ const CH1_11_20 = [
     pauṇḍram dadhmau mahā - śaṅkham bhīmakarmā vṛkaudaraḥ॥<br>
     `,
     translation: `
-    Pāñcajanya (was blown) by Hṛṣīkeśa, and Devadatta (by) Dhanañjaya;<br>
-    Pauṇḍra was blown, the great conch, (by) Bhīma,doer of mighty deeds, the wolf-bellied (another name for Bhima).<br>
+    Pāñcajanya (was blown) by Hṛṣīkeśa (Krishna), and Devadatta (by) Dhanañjaya (Arjun);<br>
+    Pauṇḍra was blown, the great conch, (by) Bhīma, doer of mighty deeds, the wolf-bellied (another name for Bhima).<br>
     `
 }
 ,
@@ -142,7 +142,7 @@ const CH1_11_20 = [
     dhṛṣṭa·dyumnaḥ virāṭaḥ·ca sātyakiḥ·ca aparājitaḥ॥<br>
     `,
     translation: `
-    Kāśya, the supreme archer, and Śikhaṇḍin, the great chariot‑warrior;<br>
+    Kāśya, the supreme archer, and Śikhaṇḍi, the great chariot‑warrior;<br>
     Dhṛṣṭadyumna and Virāṭa, and Sātyaki, the undefeated (one).<br>
     `
 }
@@ -186,7 +186,7 @@ const CH1_11_20 = [
     `,
     translation: `
     That sound, hearts of the sons of Dhṛtarāṣṭra, tore;<br>
-    And the sky and the earth, indeed, the tumultuous (sound) reverberated over. <br>
+    And the sky and the earth, indeed, tumultuous (sound) reverberated over. <br>
     `
 },
 

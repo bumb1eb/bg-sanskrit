@@ -107,8 +107,8 @@ const CH1_21_30 = [
     uvāca pārthaḥ paśya·etān samavetān·kurūn·iti॥<br>
   `,
   translation: `
-    Before Bhīṣma, Droṇa, and the foremost of all kings;<br>
-    (He - Krishna) said, “O Pārtha, behold these Kurus assembled.” <br>
+    Before/In front of Bhīṣma, Droṇa, and the foremost of all kings;<br>
+    (Krishna) said, “O Pārtha, behold these Kurus assembled.” <br>
   `
 },
 
@@ -174,7 +174,7 @@ const CH1_21_30 = [
     dṛṣṭvā·imam sva·janam kṛṣṇa yuyutsum samupa·sthitam॥<br>
   `,
   translation: `
-    Overcome by supreme compassion, grieving, spoke this. <br>
+    Overcome by great compassion, grieving, spoke this. <br>
 	Arjuna said;<br>
     Seeing this, my own people, O Kṛṣṇa — desirous of battle, standing here. <br>
   `

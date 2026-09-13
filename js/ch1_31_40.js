@@ -99,7 +99,7 @@ const CH1_31_40 = [
     api tri·lokya·rājyasya hetoḥ kim·nu mahī·kṛte॥<br>
   `,
   translation: `
-    These I do not wish to slay, even though slaying, O Madhusūdana;<br>
+    These I do not wish to slay, being killed even, O Madhusūdana;<br>
     Also for the sovereignty of the three worlds — what indeed for the sake of the earth? <br>
   `
 },
@@ -193,19 +193,19 @@ const CH1_31_40 = [
   title: "श्लोक 40",
   shloka: `
     कुलक्षये प्रणश्यन्ति कुलधर्माः सनातनाः ।<br>
-    अधर्मे नष्टे कुलं कृत्स्नमधर्मोऽभिभवत्युत ॥<br>
+    धर्मे नष्टे कुलं कृत्स्नमधर्मोऽभिभवत्युत ॥<br>
   `,
   sandhi: `
     कुल·क्षये प्रणश्यन्ति कुल·धर्माः सनातनाः ।<br>
-    अधर्मे नष्टे कुलं कृत्स्नम् अधर्मः·अभिभवति·उत ॥<br>
+    धर्मे नष्टे कुलं कृत्स्नम् अधर्मः·अभिभवति·उत ॥<br>
   `,
   translit: `
     kula·kṣaye pranaśyanti kula·dharmāḥ sanātanāḥ।<br>
-    adharme naṣṭe kulaṁ kṛtsnam adharmaḥ·abhibhavati·uta॥<br>
+    dharme naṣṭe kulaṁ kṛtsnam adharmaḥ·abhibhavati·uta॥<br>
   `,
   translation: `
     In family destruction, perish family duties (that are) eternal;<br>
-    In destruction of unrighteousness in the whole family, adharma (unrighteousness) overwhelms moreever. <br>
+    In destruction of (family) duties in the whole family, adharma (unrighteousness) overwhelms moreever. <br>
   `
 }
 
