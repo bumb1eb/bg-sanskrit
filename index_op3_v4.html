@@ -108,43 +108,10 @@
 	<script src="js/chapter2.js"></script>
 	<script src="js/chapter3.js"></script>
 
-
+	<script src="js/dict_checker.js"></script>
 
 	<!-- RENDERER (MUST BE LAST) -->
 	<script src="js/render.js"></script>
-
-<!-- <script type="module">
-  import { ch1_21_30 } from "./js/ch1_21_30.js";
-  import { DICT } from "./js/dict.js";
-  import { DICT_SANDHI } from "./js/dict-sandhi_ch1.js";
-  import { checkMissingWords } from "./js/dict_checker.js";
-
-  // Run the checker
-  const missing = checkMissingWords(ch1_21_30, DICT, DICT_SANDHI);
-  console.log("Missing words:", missing);
-</script> -->
-
-<script type="module">
-  import { checkMissingWords } from "./js/dict_checker.js";
-
-  // Build DICT manually for the checker
-  const DICT = {
-    ...NOUNS,
-    ...VERBS,
-    ...PRONOUNS,
-    ...ADJECTIVES,
-    ...INDECLINABLES
-  };
-
-  // Use your sandhi dictionary
-  const DICT_SANDHI = SANDHI_CH1;
-
-  // Run the checker
-  const missing = checkMissingWords(CH1_41_47, DICT, DICT_SANDHI);
-  console.log("Missing words:", missing);
-</script>
-
-<script src="js/dict_checker.js"></script>
 
 <div id="meaningPopup" style="
   position: absolute;
@@ -159,8 +126,6 @@
   z-index: 9999;
 "></div>
 
-
-<div id="meaningPopup"></div>
 
 </body>
 </html>
