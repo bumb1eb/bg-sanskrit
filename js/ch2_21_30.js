@@ -37,8 +37,8 @@ const CH2_21_30 = [
     tathā śarīrāṇi vihāya jīrṇāni·anyāni saṃyāti navāni dehī॥<br>
   `,
   translation: `
-    Garments worn out as having cast off, new (he) takes, a man other ones;<br>
-    So bodies casts off worn out, other (it) goes new, the embodied one (soul). <br>
+    Garments worn-out as having cast off, new (he) takes, a man other ones;<br>
+    So bodies casts off worn-out, other (it) encounters new, the embodied one (soul). <br>
   `
 },
 
@@ -58,7 +58,7 @@ const CH2_21_30 = [
     na ca·enaṃ kledayanti āpaḥ na śoṣayati mārutaḥ॥<br>
   `,
   translation: `
-    Not this pierce weapons, not this burn fire;<br>
+    Not this pierce weapons, not this burns fire;<br>
     And not this moistens water, not dries it wind. <br>
   `
 },
@@ -79,8 +79,8 @@ const CH2_21_30 = [
     nityaḥ sarvagataḥ sthāṇuḥ acalaḥ·ayaṃ sanātanaḥ॥<br>
   `,
   translation: `
-    This is uncuttable, unburnable, unmoistenable, undryable indeed;<br>
-    Eternal, all‑pervading, stable, unmoving, everlasting. <br>
+    Uncuttable this, unburnable this, unmoistenable and undryable indeed;<br>
+    Eternal, all‑pervading, stable, unmoving this, ancient. <br>
   `
 },
 
@@ -100,8 +100,8 @@ const CH2_21_30 = [
     tasmāt·evam viditvā·enaṃ na·anuśocitum·arhasi॥<br>
   `,
   translation: `
-    This is said to be unmanifest, unthinkable, unchangeable;<br>
-    Therefore, knowing this thus, you should not grieve. <br>
+    Unmanifest this, unthinkable this, unchangeable this it is said;<br>
+    Therefore thus knowing this, not grieve you should. <br>
   `
 },
 
@@ -121,8 +121,8 @@ const CH2_21_30 = [
     tathā·api tvaṃ mahābāho na·evam śocitum·arhasi॥<br>
   `,
   translation: `
-    And if you think this is eternally born or eternally dead;<br>
-    Even then, O mighty‑armed, you should not grieve. <br>
+    And morever this is eternally born or eternally, you think, dies;<br>
+    Even then, O mighty‑armed, not this grieve you should. <br>
   `
 },
 
