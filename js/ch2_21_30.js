@@ -142,8 +142,8 @@ const CH2_21_30 = [
     jātasya hi dhruvaḥ mṛtyuḥ dhruvaṃ janma mṛtasya ca॥<br>
   `,
   translation: `
-    Of the born, death is certain; of the dead, birth is certain;<br>
-    Of the born, death is certain; of the dead, birth is certain. <br>
+    Of the born indeed certain death; and certain bith of the dead;<br>
+    Therefore inevitable in purpose. not you grieve should. <br>
   `
 },
 
@@ -163,8 +163,8 @@ const CH2_21_30 = [
     avyakta·nidhānāni eva tatra kā paridevanā॥<br>
   `,
   translation: `
-    Unmanifest in the beginning, manifest in the middle, O Bhārata;<br>
-    Unmanifest again at the end—what lamentation is there. <br>
+    Unmanifest in the beginning beings, manifest in the middle, O Bhārata;<br>
+    Unmanifest ends indeed — there what lamentation. <br>
   `
 },
 
@@ -184,8 +184,8 @@ const CH2_21_30 = [
     āścaryavat ca·enaṃ anyaḥ śṛṇoti śrutvā·api·enaṃ veda na·ca·eva kaścit॥<br>
   `,
   translation: `
-    Someone sees this as wondrous, someone speaks of it as wondrous;<br>
-    Someone hears this as wondrous, yet hearing it, no one knows it. <br>
+    Wonderously sees someone this, and wonderously speaks thus indeed others;<br>
+    And wonderously this others hear, and having heard also this knows not anyone. <br>
   `
 },
 
@@ -205,8 +205,8 @@ const CH2_21_30 = [
     tasmāt·sarvāṇi bhūtāni na tvaṃ śocitum·arhasi॥<br>
   `,
   translation: `
-    The embodied one is ever indestructible in the body of all, O Bhārata;<br>
-    Therefore, you should not grieve for any beings. <br>
+    The embodied one (soul), ever indestructible this in the body of all, O Bhārata;<br>
+    Therefore, all beings not you grieve should. <br>
   `
 }
 
