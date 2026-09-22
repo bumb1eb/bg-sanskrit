@@ -16,8 +16,8 @@ const CH2_31_40 = [
     dharmyāt hi yuddhāt śreyaḥ anyat kṣatriyasya na vidyate॥<br>
   `,
   translation: `
-    Looking to your own duty, you should not tremble;<br>
-    For from a righteous war, better than this is none for a kṣatriya. <br>
+    And own duty even looking, not tremble you should;<br>
+    From a righteous war indeed, better (alternative) other for a kṣatriya (is) not found. <br>
   `
 },
 
