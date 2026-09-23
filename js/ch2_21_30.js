@@ -131,15 +131,15 @@ const CH2_21_30 = [
   title: "श्लोक 27",
   shloka: `
     जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च ।<br>
-    जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च ॥<br>
+    तस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि ॥<br>
   `,
   sandhi: `
     जातस्य हि ध्रुवः मृत्युः ध्रुवं जन्म मृतस्य च।<br>
-    जातस्य हि ध्रुवः मृत्युः ध्रुवं जन्म मृतस्य च॥<br>
+    तस्मात् अपरिहार्ये अर्थे न त्वं शोचितुम् अर्हसि ॥<br>
   `,
   translit: `
     jātasya hi dhruvaḥ mṛtyuḥ dhruvaṃ janma mṛtasya ca।<br>
-    jātasya hi dhruvaḥ mṛtyuḥ dhruvaṃ janma mṛtasya ca॥<br>
+    tasmāt aparihārye arthe na tvaṁ śocitum arhasi॥<br>
   `,
   translation: `
     Of the born indeed certain death; and certain bith of the dead;<br>

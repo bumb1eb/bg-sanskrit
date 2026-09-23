@@ -16,7 +16,7 @@ const CH2_31_40 = [
     dharmyāt hi yuddhāt śreyaḥ anyat kṣatriyasya na vidyate॥<br>
   `,
   translation: `
-    And own duty even looking, not tremble you should;<br>
+    And own duty even considering, not tremble you should;<br>
     From a righteous war indeed, better (alternative) other for a kṣatriya (is) not found. <br>
   `
 },
@@ -37,8 +37,8 @@ const CH2_31_40 = [
     sukhinaḥ kṣatriyāḥ pārtha labhante yuddham īdṛśam॥<br>
   `,
   translation: `
-    Happily obtained, an open gate to heaven;<br>
-    Happy are the kṣatriyas, O Pārtha, who obtain such a battle. <br>
+    Unasked for also offered heaven's doors wide open;<br>
+    Fortunate (are the) kṣatriyas, Partha (Arjun), (who) obtain in war like this. <br>
   `
 },
 
@@ -58,8 +58,8 @@ const CH2_31_40 = [
     tataḥ sva·dharmam kīrtim ca hitvā pāpam avāpsyasi॥<br>
   `,
   translation: `
-    But if you will not perform this righteous battle;<br>
-    Then, abandoning duty and fame, you will incur sin. <br>
+    Therefore if you this righteous battle do not perform;<br>
+    Then, own's righteous duty and reputation losing, sin incur (you will). <br>
   `
 },
 
@@ -79,8 +79,8 @@ const CH2_31_40 = [
     sambhāvitasya ca akīrtiḥ maraṇāt atiricyate॥<br>
   `,
   translation: `
-    Infamy also the beings will speak of you, endless;<br>
-    And for the honored, infamy is worse than death. <br>
+    Infamy/disrepute also even all beings will speak of you, endlessly;<br>
+    And for a man of honour, infamy than death becomes more. <br>
   `
 },
 
@@ -100,8 +100,8 @@ const CH2_31_40 = [
     yeṣām ca tvam bahu·mataḥ bhūtvā yāsyasi lāghavam॥<br>
   `,
   translation: `
-    The great warriors will think you withdrawn from battle out of fear;<br>
-    And having been highly esteemed by them, you will fall into disgrace. <br>
+    From fear from the battlefield running away, they will consider you, the great warriors;<br>
+    And whom for, you in high esteem having been, should be treated small/adversely. <br>
   `
 },
 
@@ -121,8 +121,8 @@ const CH2_31_40 = [
     nindantaḥ tava sāmarthyam tataḥ duḥkhataram nu kim॥<br>
   `,
   translation: `
-    Many unworthy words your enemies will speak;<br>
-    Mocking your strength—what could be more painful than that. <br>
+    And unspeakable words many, will say your enemies;<br>
+    Mocking your strength — than that more painful ofcourse what could be. <br>
   `
 },
 
@@ -142,8 +142,8 @@ const CH2_31_40 = [
     tasmāt uttiṣṭha kaunteya yuddhāya kṛta·niścayaḥ॥<br>
   `,
   translation: `
-    Slain, you will attain heaven; victorious, you will enjoy the earth;<br>
-    Therefore arise, O son of Kuntī, resolved for battle. <br>
+    Slain, either you will attain heaven; or victorious you will enjoy the earth;<br>
+    Therefore arise, O son of Kuntī, to fight having made resolution. <br>
   `
 },
 
@@ -163,8 +163,8 @@ const CH2_31_40 = [
     tataḥ yuddhāya yujyasva na·evam pāpam·avāpsyasi॥<br>
   `,
   translation: `
-    Having made pleasure and pain, gain and loss, victory and defeat equal;<br>
-    Then engage in battle—you will not incur sin. <br>
+    Pleasure and in pain, in equanimity having done, gain and loss, victory and defeat ;<br>
+    Therefore to fight, engage, not in this way sins you will incur. <br>
   `
 },
 
@@ -184,8 +184,8 @@ const CH2_31_40 = [
     buddhyā yuktaḥ yayā pārtha karma·bandham prahāsyasi॥<br>
   `,
   translation: `
-    This understanding has been declared to you in Sāṅkhya; now hear it in Yoga;<br>
-    Endowed with this understanding, O Pārtha, you will cast off the bondage of action. <br>
+    This (to) you spoken in Sāṅkhya (philisophy of knowledge); in Buddhi (wisdom) Yog you now listen;<br>
+    In wisdom endowed with, by which Partha (Arjun), action-bondage you will be released from. <br>
   `
 },
 
@@ -205,8 +205,8 @@ const CH2_31_40 = [
     svalpam api asya dharmasya trāyate mahataḥ bhayāt॥<br>
   `,
   translation: `
-    Here there is no loss of effort, nor is there any harm;<br>
-    Even a little of this dharma protects from great fear. <br>
+    Not in this endeavour loss exists, adverse results not known;<br>
+    Little even of this dharma frees from very great fear. <br>
   `
 }
 

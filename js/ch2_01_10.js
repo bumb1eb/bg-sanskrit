@@ -111,7 +111,7 @@ const CH2_01_10 = [
     hatvā·artha·kāmān·tu gurūn·iha·eva bhuñjīya bhogān rudhira·pradigdhān॥<br>
   `,
 	translation: `
-    Teachers, not having killed, surely distinguished personalities, better to enjoy by begging for alms in this world;<br>
+    Teachers, not having killed, surely distinguished personalities, better to enjoy by begging for alms even in this world;<br>
     Having slain for wealth and desire, teachers, here indeed, (one would) enjoy pleasures blood‑smeared. <br>
 	`
   },
