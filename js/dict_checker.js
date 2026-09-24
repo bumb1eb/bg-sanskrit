@@ -94,19 +94,26 @@
   // ⭐ Make available globally
   window.checkMissingWords = checkMissingWords;
 
-  // ⭐ Button handler
-  window.runChecker = function () {
-    const chapterData = CH2_51_60.slice(0, 9);
-    const result = checkMissingWords(
-	  chapterData,
-	  DICT,
-	  CURRENT_CHAPTER.sandhi || {}
-	);
+	  // ⭐ Button handler
+	window.runChecker = function () {
 
-    console.log("🔍 Missing words report:");
-    console.log(result);
+	  // ⭐ CHECK VERSES 51–70
+	  const chapterData = [
+		...CH2_51_60
+		
+	  ];
 
-    alert("Check console for missing words.");
-  };
+	  const result = checkMissingWords(
+		chapterData,
+		DICT,
+		CURRENT_CHAPTER.sandhi || {}
+	  );
+
+	  console.log("🔍 Missing words report:");
+	  console.log(result);
+
+	  alert("Check console for missing words.");
+	};
+
 
 })();

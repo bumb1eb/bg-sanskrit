@@ -353,8 +353,157 @@ window.SANDHI_CH2 = {
   "सुकृतदुष्कृते": { type: "sandhi", meaning: "सुकृत + दुष्कृते = good deeds + bad deeds", case: null },
   "तस्माद्योगाय": { type: "sandhi", meaning: "तस्मात् + योगाय = therefore + for yoga", case: null },
   "जहातीह": { type: "sandhi", meaning: "जहाति + इह = casts off + here", case: null }
-}
+   },
+   
+   51: {
+  "कर्मजं": { type: "sandhi", meaning: "कर्म + जम् = action + born", case: null },
+  "बुद्धियुक्ता": { type: "sandhi", meaning: "बुद्धि + युक्ताः = understanding + endowed", case: null },
+  "जन्मबन्धविनिर्मुक्ता": { type: "sandhi", meaning: "जन्म + बन्ध + विनिर्मुक्ताः = birth + bondage + freed", case: null },
+  "गच्छन्त्यनामयम्": { type: "sandhi", meaning: "गच्छन्ति + अनामयम् = they go + to the state free from affliction", case: null }
+},
 
+52: {
+  "मोहकलिलं": { type: "sandhi", meaning: "मोह + कलिलम् = delusion + tangle/mire", case: null },
+  "बुद्धिर्व्यतितरिष्यति": { type: "sandhi", meaning: "बुद्धिः + व्यतितरिष्यति = understanding + will cross over", case: null }
+
+},
+
+53: {
+  "श्रुतिविप्रतिपन्ना": { type: "sandhi", meaning: "श्रुति + विप्रतिपन्ना = scripture + confused/opposed", case: null },
+  "समाधावचला": { type: "sandhi", meaning: "समाधौ + अचला = in meditation + steady", case: null },
+  "बुद्धिस्तदा": { type: "sandhi", meaning: "बुद्धिः + तदा = understanding + then", case: null },
+  "योगमवाप्स्यसि": { type: "sandhi", meaning: "योगम् + अवाप्स्यसि = yoga + you will attain", case: null }
+},
+
+54: {
+  "स्थितप्रज्ञस्य": { type: "sandhi", meaning: "स्थित + प्रज्ञस्य = steady + of wisdom", case: null },
+  "समाधिस्थस्य": { type: "sandhi", meaning: "समाधि + स्थस्य = meditation + established", case: null },
+  "स्थितधी": { type: "sandhi", meaning: "स्थित + धीः = steady + intellect", case: null },
+  "किमासीत": { type: "sandhi", meaning: "किम् + आसीत = how + sit", case: null }
+
+},
+
+55: {
+  "प्रजहाति": { type: "sandhi", meaning: "प्र + जहाति = completely + abandons", case: null },
+  "कामान्सर्वान्पार्थ": { type: "sandhi", meaning: "कामान् + सर्वान् + पार्थ = desires + all + O Pārtha", case: null },
+  "मनोगतान्": { type: "sandhi", meaning: "मनः + गतान् = mind + arisen", case: null },
+  "आत्मन्येवात्मना": { type: "sandhi", meaning: "आत्मनि + एव + आत्मना = in the Self + alone + by the Self", case: null },
+  "स्थितप्रज्ञस्तदोच्यते": { type: "sandhi", meaning: "स्थित + प्रज्ञः + तदा + उच्यते = steady + wisdom + then + is called", case: null }
+},
+
+56: {
+  "दुखेष्वनुद्विग्नमना": { type: "sandhi", meaning: "दुःखेषु + अनुद्विग्न + मनाः = in sorrows + undisturbed + mind", case: null },
+  "विगतस्पृह": { type: "sandhi", meaning: "विगत + स्पृहः = free from + longing", case: null },
+  "वीतरागभयक्रोध": { type: "sandhi", meaning: "वीत + राग + भय + क्रोधः = free from + attachment + fear + anger", case: null },
+  "स्थितधीर्मुनिरुच्यते": { type: "sandhi", meaning: "स्थित + धीः + मुनिः + उच्यते = steady + intellect + sage + is called", case: null }
+},
+
+57: {
+  "सर्वत्रानभिस्नेहस्तत्तत्प्राप्य": { type: "sandhi", meaning: "सर्वत्र + अनभिस्नेहः + तत् + तत् + प्राप्य = everywhere + unattached + this + that + encountering", case: null },
+  "शुभाशुभम्": { type: "sandhi", meaning: "शुभ + अशुभम् = good + evil", case: null },
+  "नाभिनन्दति": { type: "sandhi", meaning: "न + अभिनन्दति = not + rejoices", case: null },
+
+},
+
+58: {
+  "चायं": { type: "sandhi", meaning: "च + अयम् = and + this", case: null },
+  "कूर्मोऽङ्गानीव": { type: "sandhi", meaning: "कूर्मः + अङ्गानि + इव = tortoise + limbs + like", case: null },
+  "इन्द्रियाणीन्द्रियार्थेभ्यस्तस्य": { type: "sandhi", meaning: "इन्द्रियाणि + इन्द्रिय + अर्थेभ्यः + तस्य = senses + sense + objects + of him", case: null }
+
+},
+
+59: {
+  "निराहारस्य": { type: "sandhi", meaning: "निर् + आहारस्य = without + food", case: null },
+  "रसोऽप्यस्य": { type: "sandhi", meaning: "रसः + अपि + अस्य = taste + even + of him", case: null },
+  },
+
+60: {
+  "ह्यपि": { type: "sandhi", meaning: "हि + अपि = indeed even", case: null },
+
+},
+
+
+  61: {
+    "मत्पर": { type: "sandhi", meaning: "मत् + पर = me + supreme/centered on", case: null },
+    "यस्येन्द्रियाणि": { type: "sandhi", meaning: "यस्य + इन्द्रियाणि = whose + senses", case: null }
+  },
+
+  62: {
+    "विषयान्पुंसः": { type: "sandhi", meaning: "विषयान् + पुंसः = objects + of a person", case: null },
+    "सङ्गस्तेषूपजायते": { type: "sandhi", meaning: "सङ्गः + तेषु + उपजायते = attachment + in them + arises", case: null },
+    "सङ्गात्सञ्जायते": { type: "sandhi", meaning: "सङ्गात् + सञ्जायते = from attachment + is born", case: null },
+    "कामात्क्रोधोऽभिजायते": { type: "sandhi", meaning: "कामात् + क्रोधः + अभिजायते = from desire + anger + arises", case: null }
+  },
+
+  63: {
+    "क्रोधाद्भवति": { type: "sandhi", meaning: "क्रोधात् + भवति = from anger + arises", case: null },
+    "सम्मोहात्स्मृतिविभ्रमः": { type: "sandhi", meaning: "सम्मोहात् + स्मृति + विभ्रमः = from delusion + memory + confusion", case: null },
+    "स्मृतिभ्रंशात्": { type: "sandhi", meaning: "स्मृति + भ्रंशात् = memory + loss/from fall", case: null },
+    "बुद्धिनाशात्प्रणश्यति": { type: "sandhi", meaning: "बुद्धि + नाशात् + प्रणश्यति = intellect + destruction + perishes", case: null },
+    "बुद्धिनाशो": { type: "sandhi", meaning: "बुद्धि + नाशः = intellect + destruction", case: null }
+  },
+
+  64: {
+    "रागद्वेषवियुक्तैस्तु": { type: "sandhi", meaning: "राग + द्वेष + वियुक्तैः + तु = attachment + hatred + free from + indeed", case: null },
+    "विषयानिन्द्रियैश्चरन्": { type: "sandhi", meaning: "विषयान् + इन्द्रियैः + चरन् = objects + with senses + moving", case: null },
+    "आत्मवश्यैर्विधेयात्मा": { type: "sandhi", meaning: "आत्म + वश्यैः + विधेय + आत्मा = self + controlled + disciplined + self", case: null },
+    "प्रसादमधिगच्छति": { type: "sandhi", meaning: "प्रसादम् + अधिगच्छति = serenity + attains", case: null }
+  },
+
+  65: {
+    "सर्वदुःखानाम्": { type: "sandhi", meaning: "सर्व + दुःखानाम् = all + sorrows", case: null },
+    "हानिरस्योपजायते": { type: "sandhi", meaning: "हानिः + अस्य + उपजायते = destruction + of him + arises", case: null },
+    "प्रसन्नचेतसो": { type: "sandhi", meaning: "प्रसन्न + चेतसः = serene + mind", case: null },
+    "ह्याशु": { type: "sandhi", meaning: "हि + आशु = indeed + quickly", case: null },
+    "पर्यवतिष्ठते": { type: "sandhi", meaning: "परि + अवतिष्ठते = completely + stands/settles", case: null }
+  },
+
+  66: {
+    "नास्ति": { type: "sandhi", meaning: "न + अस्ति = not + is", case: null },
+    "बुद्धिरयुक्तस्य": { type: "sandhi", meaning: "बुद्धिः + अयुक्तस्य = intellect + of the unsteady", case: null },
+    "चायुक्तस्य": { type: "sandhi", meaning: "च + अयुक्तस्य = and + of the unsteady", case: null },
+    "चाभावयतः": { type: "sandhi", meaning: "च + अभावयतः = and + of one who imagines", case: null },
+    "शान्तिरशान्तस्य": { type: "sandhi", meaning: "शान्तिः + अशान्तस्य = peace + of the unpeaceful", case: null }
+  },
+
+  67: {
+    "यन्मनोऽनुविधीयते": { type: "sandhi", meaning: "यत् + मनः + अनुविधीयते = that + mind + follows", case: null },
+    "तदस्य": { type: "sandhi", meaning: "तत् + अस्य = that + of him", case: null },
+    "वायुर्नावमिवाम्भसि": { type: "sandhi", meaning: "वायुः + नावम् + इव + अम्भसि = wind + boat + like + on water", case: null }
+  },
+
+  68: {
+    "तस्माद्यस्य": { type: "sandhi", meaning: "तस्मात् + यस्य = therefore + whose", case: null },
+    "इन्द्रियाणीन्द्रियार्थेभ्यस्तस्य": { type: "sandhi", meaning: "इन्द्रियाणि + इन्द्रिय + अर्थेभ्यः + तस्य = senses + sense + objects + of him", case: null }
+  },
+
+  69: {
+    "सर्वभूतानां": { type: "sandhi", meaning: "सर्व + भूतानाम् = all + beings", case: null }
+  },
+
+  70: {
+    "आपूर्यमाणमचलप्रतिष्ठं": { type: "sandhi", meaning: "आपूर्यमाणम् + अचल + प्रतिष्ठम् = ever‑filled + unmoving + established", case: null },
+    "समुद्रमापः": { type: "sandhi", meaning: "समुद्रम् + आपः = ocean + waters", case: null },
+    "यद्वत्": { type: "sandhi", meaning: "यत् + वत् = as + like", case: null },
+    "तद्वत्कामा": { type: "sandhi", meaning: "तत् + वत् + कामाः = so + like + desires", case: null },
+    "शान्तिमाप्नोति": { type: "sandhi", meaning: "शान्तिम् + आप्नोति = peace + attains", case: null },
+    "कामकामी": { type: "sandhi", meaning: "काम + कामी = desire + desiring person", case: null }
+  },
+
+  71: {
+    "कामान्यः": { type: "sandhi", meaning: "कामान् + यः = desires + who", case: null },
+    "सर्वान्पुमांश्चरति": { type: "sandhi", meaning: "सर्वान् + पुमान् + चरति = all + person + moves/acts", case: null },
+    "निःस्पृहः": { type: "sandhi", meaning: "निः + स्पृहः = without + longing", case: null },
+    "निर्ममो": { type: "sandhi", meaning: "निर् + ममः = without + mine‑ness", case: null },
+    "निरहङ्कारः": { type: "sandhi", meaning: "निर् + अहङ्कारः = without + ego", case: null },
+    "शान्तिमधिगच्छति": { type: "sandhi", meaning: "शान्तिम् + अधिगच्छति = peace + attains", case: null }
+  },
+
+  72: {
+    "नैनां": { type: "sandhi", meaning: "न + एनाम् = not + this", case: null },
+    "स्थित्वास्यामन्तकालेऽपि": { type: "sandhi", meaning: "स्थित्वा + अस्याम् + अन्त + काले + अपि = having stood + in this + end + time + even", case: null },
+    "ब्रह्मनिर्वाणमृच्छति": { type: "sandhi", meaning: "ब्रह्म + निर्वाणम् + ऋच्छति = Brahman + liberation + attains", case: null }
+  }
 
 
 

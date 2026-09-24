@@ -3,7 +3,7 @@ const CH2_51_60 = [
     id: 51,
     title: "श्लोक 51",
     shloka: `
-      कर्मजं बुद्धियुक्ता हि फलं त्यक्त्वा मनीषिण:।<br>
+      कर्मजं बुद्धियुक्ता हि फलं त्यक्त्वा मनीषिणः।<br>
       जन्मबन्धविनिर्मुक्ता: पदं गच्छन्त्यनामयम् ॥<br>
     `,
     sandhi: `
@@ -15,8 +15,8 @@ const CH2_51_60 = [
       janma·bandha·vinirmuktāḥ padam gacchanti anāmayam॥<br>
     `,
     translation: `
-      Endowed with understanding, abandoning the fruit born of action;<br>
-      Freed from birth‑bondage, they go to the state free from affliction. <br>
+      Born from activity, endowed with understanding indeed, fruit (of action) having abandoned, wise men ;<br>
+      Birth‑bondage freed from, they go to the state free from affliction. <br>
     `
   },
 
@@ -93,7 +93,7 @@ const CH2_51_60 = [
     shloka: `
       श्रीभगवानुवाच  ।<br>
       प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान्  ।<br>
-      आत्मन्येवात्मना तुष्ट: स्थितप्रज्ञस्तदोच्यते ॥<br>
+      आत्मन्येवात्मना तुष्टः स्थितप्रज्ञस्तदोच्यते ॥<br>
     `,
     sandhi: `
       श्री·भगवान् उवाच।<br>
@@ -158,7 +158,7 @@ const CH2_51_60 = [
     id: 58,
     title: "श्लोक 58",
     shloka: `
-      यदा संहरते चायं कूर्मोऽङ्गानीव सर्वश: ।<br>
+      यदा संहरते चायं कूर्मोऽङ्गानीव सर्वशः ।<br>
       इन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥<br>
     `,
     sandhi: `
@@ -179,11 +179,11 @@ const CH2_51_60 = [
     id: 59,
     title: "श्लोक 59",
     shloka: `
-      विषया विनिवर्तन्ते निराहारस्य देहिन:।<br>
+      विषया विनिवर्तन्ते निराहारस्य देहिनः।<br>
       रसोऽप्यस्य परं दृष्ट्वा निवर्तते ॥<br>
     `,
     sandhi: `
-      विषयाः विनिवर्तन्ते निराहारस्य देहिनः।<br>
+      विषया विनिवर्तन्ते निराहारस्य देहिनः।<br>
       रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
     `,
     translit: `
@@ -200,7 +200,7 @@ const CH2_51_60 = [
     id: 60,
     title: "श्लोक 60",
     shloka: `
-      यततो ह्यपि कौन्तेय पुरुषस्य विपश्चित: ।<br>
+      यततो ह्यपि कौन्तेय पुरुषस्य विपश्चितः ।<br>
       इन्द्रियाणि प्रमाथीनि हरन्ति प्रसभं मन: ॥<br>
     `,
     sandhi: `
