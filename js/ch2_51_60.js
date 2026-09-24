@@ -7,12 +7,12 @@ const CH2_51_60 = [
       जन्मबन्धविनिर्मुक्ता: पदं गच्छन्त्यनामयम् ॥<br>
     `,
     sandhi: `
-      कर्म·जम्·बुद्धि·युक्ताः·हि·फलं·त्यक्त्वा·मनीषिणः।<br>
-      जन्म·बन्ध·विनिर्मुक्ताः·पदम्·गच्छन्ति·अनामयम्॥<br>
+      कर्म·जम् बुद्धि·युक्ताः हि फलं त्यक्त्वा मनीषिणः।<br>
+      जन्म·बन्ध·विनिर्मुक्ताः पदम् गच्छन्ति अनामयम्॥<br>
     `,
     translit: `
-      karma·jam·buddhi·yuktāḥ·hi·phalaṃ·tyaktvā·manīṣiṇaḥ।<br>
-      janma·bandha·vinirmuktāḥ·padam·gacchanti·anāmayam॥<br>
+      karma·jam buddhi·yuktāḥ hi phalaṃ tyaktvā manīṣiṇaḥ।<br>
+      janma·bandha·vinirmuktāḥ padam gacchanti anāmayam॥<br>
     `,
     translation: `
       Endowed with understanding, abandoning the fruit born of action;<br>
@@ -28,12 +28,12 @@ const CH2_51_60 = [
       तदा गन्तासि निर्वेदं श्रोतव्यस्य श्रुतस्य च ॥<br>
     `,
     sandhi: `
-      यदा·ते·मोह·कलिलम्·बुद्धिः·व्यतितरिष्यति।<br>
-      तदा·गन्तासि·निर्वेदम्·श्रोतव्यस्य·श्रुतस्य·च॥<br>
+      यदा ते मोह·कलिलम् बुद्धिः व्यतितरिष्यति।<br>
+      तदा गन्तासि निर्वेदम् श्रोतव्यस्य श्रुतस्य च॥<br>
     `,
     translit: `
-      yadā·te·moha·kalilam·buddhiḥ·vyatitariṣyati।<br>
-      tadā·gantāsi·nirvedam·śrotavyasya·śrutasya·ca॥<br>
+      yadā te moha·kalilam buddhiḥ vyatitariṣyati।<br>
+      tadā gantāsi nirvedam śrotavyasya śrutasya ca॥<br>
     `,
     translation: `
       When your understanding crosses beyond the tangle of delusion;<br>
@@ -49,12 +49,12 @@ const CH2_51_60 = [
       समाधावचला बुद्धिस्तदा योगमवाप्स्यसि ॥<br>
     `,
     sandhi: `
-      श्रुति·विप्रतिपन्ना·ते·यदा·स्थास्यति·निश्चला।<br>
-      समाधौ·अचला·बुद्धिः·तदा·योगम्·अवाप्स्यसि॥<br>
+      श्रुति·विप्रतिपन्ना ते यदा स्थास्यति निश्चला।<br>
+      समाधौ अचला बुद्धिः तदा योगम् अवाप्स्यसि॥<br>
     `,
     translit: `
-      śruti·vipratipannā·te·yadā·sthāsyati·niścalā।<br>
-      samādhau·acalā·buddhiḥ·tadā·yogam·avāpsyasi॥<br>
+      śruti·vipratipannā te yadā sthāsyati niścalā।<br>
+      samādhau acalā buddhiḥ tadā yogam avāpsyasi॥<br>
     `,
     translation: `
       When your understanding, confused by scripture, stands unmoving;<br>
@@ -71,14 +71,14 @@ const CH2_51_60 = [
       स्थितधी: किं प्रभाषेत किमासीत व्रजेत किम् ॥<br>
     `,
     sandhi: `
-      अर्जुनः·उवाच।<br>
-      स्थित·प्रज्ञस्य·का·भाषा·समाधि·स्थस्य·केशव।<br>
-      स्थित·धीः·किम्·प्रभाषेत·किम्·आसीत·व्रजेत·किम्॥<br>
+      अर्जुनः उवाच।<br>
+      स्थित·प्रज्ञस्य का भाषा समाधि·स्थस्य केशव।<br>
+      स्थित·धीः किम् प्रभाषेत किम् आसीत व्रजेत किम्॥<br>
     `,
     translit: `
-      arjunaḥ·uvāca।<br>
-      sthita·prajñasya·kā·bhāṣā·samādhi·sthasya·keśava।<br>
-      sthita·dhīḥ·kim·prabhāṣeta·kim·āsīta·vrajeta·kim॥<br>
+      arjunaḥ uvāca।<br>
+      sthita·prajñasya kā bhāṣā samādhi·sthasya keśava।<br>
+      sthita·dhīḥ kim prabhāṣeta kim āsīta vrajeta kim॥<br>
     `,
     translation: `
       Arjuna spoke:<br>
@@ -96,14 +96,14 @@ const CH2_51_60 = [
       आत्मन्येवात्मना तुष्ट: स्थितप्रज्ञस्तदोच्यते ॥<br>
     `,
     sandhi: `
-      श्री·भगवान्·उवाच।<br>
-      प्र·जहाति·यदा·कामान्·सर्वान्·पार्थ·मनः·गतान्।<br>
-      आत्मनि·एव·आत्मना·तुष्टः·स्थित·प्रज्ञः·तदा·उच्यते॥<br>
+      श्री·भगवान् उवाच।<br>
+      प्र·जहाति यदा कामान् सर्वान् पार्थ मनः·गतान्।<br>
+      आत्मनि एव आत्मना तुष्टः स्थित·प्रज्ञः तदा उच्यते॥<br>
     `,
     translit: `
-      śrī·bhagavān·uvāca।<br>
-      prajahāti·yadā·kāmān·sarvān·pārtha·manaḥ·gatān।<br>
-      ātmani·eva·ātmanā·tuṣṭaḥ·sthita·prajñaḥ·tadā·ucyate॥<br>
+      śrī·bhagavān uvāca।<br>
+      prajahāti yadā kāmān sarvān pārtha manaḥ·gatān।<br>
+      ātmani eva ātmanā tuṣṭaḥ sthita·prajñaḥ tadā ucyate॥<br>
     `,
     translation: `
       The Blessed Lord spoke:<br>
@@ -120,12 +120,12 @@ const CH2_51_60 = [
       वीतरागभयक्रोध: स्थितधीर्मुनिरुच्यते  ॥<br>
     `,
     sandhi: `
-      दुःखेषु·अनुद्विग्न·मनाः·सुखेषु·विगत·स्पृहः।<br>
-      वीत·राग·भय·क्रोधः·स्थित·धीः·मुनिः·उच्यते॥<br>
+      दुःखेषु अनुद्विग्न·मनाः सुखेषु विगत·स्पृहः।<br>
+      वीत·राग·भय·क्रोधः स्थित·धीः मुनिः उच्यते॥<br>
     `,
     translit: `
-      duḥkheṣu·anudvigna·manāḥ·sukheṣu·vigata·spṛhaḥ।<br>
-      vīta·rāga·bhaya·krodhaḥ·sthita·dhīḥ·muniḥ·ucyate॥<br>
+      duḥkheṣu anudvigna·manāḥ sukheṣu vigata·spṛhaḥ।<br>
+      vīta·rāga·bhaya·krodhaḥ sthita·dhīḥ muniḥ ucyate॥<br>
     `,
     translation: `
       One whose mind is undisturbed in sorrow, free from longing in pleasure;<br>
@@ -141,12 +141,12 @@ const CH2_51_60 = [
       नाभिनन्दति न द्वेष्टि तस्य प्रज्ञा प्रतिष्ठिता ॥<br>
     `,
     sandhi: `
-      यः·सर्वत्र·अनभिस्नेहः·तत्·तत्·प्राप्य·शुभ·अशुभम्।<br>
-      न·अभिनन्दति·न·द्वेष्टि·तस्य·प्रज्ञा·प्रतिष्ठिता॥<br>
+      यः सर्वत्र अनभिस्नेहः तत्·तत्·प्राप्य शुभ·अशुभम्।<br>
+      न अभिनन्दति न द्वेष्टि तस्य प्रज्ञा प्रतिष्ठिता॥<br>
     `,
     translit: `
-      yaḥ·sarvatra·anabhisnehaḥ·tat·tat·prāpya·śubha·aśubham।<br>
-      na·abhinandati·na·dveṣṭi·tasya·prajñā·pratiṣṭhitā॥<br>
+      yaḥ sarvatra anabhisnehaḥ tat·tat·prāpya śubha·aśubham।<br>
+      na abhinandati na dveṣṭi tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
       He who is unattached everywhere, encountering good or evil;<br>
@@ -162,12 +162,12 @@ const CH2_51_60 = [
       इन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥<br>
     `,
     sandhi: `
-      यदा·संहरते·च·अयम्·कूर्मः·अङ्गानि·इव·सर्वशः।<br>
-      इन्द्रियाणि·इन्द्रिय·अर्थेभ्यः·तस्य·प्रज्ञा·प्रतिष्ठिता॥<br>
+      यदा संहरते च अयम् कूर्मः अङ्गानि इव सर्वशः।<br>
+      इन्द्रियाणि इन्द्रिय·अर्थेभ्यः तस्य प्रज्ञा प्रतिष्ठिता॥<br>
     `,
     translit: `
-      yadā·saṃharate·ca·ayaṃ·kūrmaḥ·aṅgāni·iva·sarvaśaḥ।<br>
-      indriyāṇi·indriya·arthebhyaḥ·tasya·prajñā·pratiṣṭhitā॥<br>
+      yadā saṃharate ca ayaṃ kūrmaḥ aṅgāni iva sarvaśaḥ।<br>
+      indriyāṇi indriya·arthebhyaḥ tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
       When, like a tortoise withdrawing its limbs, he withdraws his senses from objects;<br>
@@ -183,12 +183,12 @@ const CH2_51_60 = [
       रसोऽप्यस्य परं दृष्ट्वा निवर्तते ॥<br>
     `,
     sandhi: `
-      विषयाः·विनिवर्तन्ते·निराहारस्य·देहिनः।<br>
-      रसः·अपि·अस्य·परम्·दृष्ट्वा·निवर्तते॥<br>
+      विषयाः विनिवर्तन्ते निराहारस्य देहिनः।<br>
+      रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
     `,
     translit: `
-      viṣayāḥ·vinivartante·nirāhārasya·dehinaḥ।<br>
-      rasaḥ·api·asya·param·dṛṣṭvā·nivartate॥<br>
+      viṣayāḥ vinivartante nirāhārasya dehinaḥ।<br>
+      rasaḥ api asya param dṛṣṭvā nivartate॥<br>
     `,
     translation: `
       Sense‑objects withdraw from one who abstains from them;<br>
@@ -204,12 +204,12 @@ const CH2_51_60 = [
       इन्द्रियाणि प्रमाथीनि हरन्ति प्रसभं मन: ॥<br>
     `,
     sandhi: `
-      यततः·हि·अपि·कौन्तेय·पुरुषस्य·विपश्चितः।<br>
-      इन्द्रियाणि·प्रमाथीनि·हरन्ति·प्रसभम्·मनः॥<br>
+      यततः हि अपि कौन्तेय पुरुषस्य विपश्चितः।<br>
+      इन्द्रियाणि प्रमाथीनि हरन्ति प्रसभम् मनः॥<br>
     `,
     translit: `
-      yatataḥ·hi·api·kaunteya·puruṣasya·vipaścitaḥ।<br>
-      indriyāṇi·pramāthīni·haranti·prasabham·manaḥ॥<br>
+      yatataḥ hi api kaunteya puruṣasya vipaścitaḥ।<br>
+      indriyāṇi pramāthīni haranti prasabham manaḥ॥<br>
     `,
     translation: `
       Even for the striving, O son of Kuntī, for the wise man;<br>

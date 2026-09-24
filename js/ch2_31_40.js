@@ -17,7 +17,7 @@ const CH2_31_40 = [
   `,
   translation: `
     And own duty even considering, not tremble you should;<br>
-    From a righteous war indeed, better (alternative) other for a kṣatriya (is) not found. <br>
+    From a righteous war indeed, better other (alternative) of a kṣatriya (is) not found. <br>
   `
 },
 
@@ -206,7 +206,7 @@ const CH2_31_40 = [
   `,
   translation: `
     Not in this endeavour loss exists, adverse results not known;<br>
-    Little even of this dharma frees from very great fear. <br>
+    Little even of this dharma, frees from very great fear. <br>
   `
 }
 

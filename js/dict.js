@@ -550,6 +550,7 @@ const NOUNS = {
 "वादान्": { type: "noun", meaning: "words", case: "Acc" },
 "अहिताः": { type: "noun", meaning: "enemies", case: "Nom" },
 "सामर्थ्यम्": { type: "noun", meaning: "strength", case: "Acc" },
+"सामर्थ्यं": { type: "noun", meaning: "strength", case: "Acc" },
 "दुःखतरम्": { type: "noun", meaning: "greater sorrow", case: "Nom" },
 "स्वर्गम्": { type: "noun", meaning: "heaven", case: "Acc" },
 "महीम्": { type: "noun", meaning: "earth", case: "Acc" },
@@ -590,7 +591,74 @@ const NOUNS = {
 "अभिहिता": { type: "noun", meaning: "declared (fem.)", case: "Nom" },
 "साङ्ख्ये": { type: "noun", meaning: "in Sāṅkhya", case: "Loc" },
 "योगे": { type: "noun", meaning: "in Yoga", case: "Loc" },
-"बुद्ध्या": { type: "noun", meaning: "with understanding", case: "Instr" }
+"बुद्ध्या": { type: "noun", meaning: "with understanding", case: "Instr" },
+"स्वर्गं": { type: "noun", meaning: "heaven", case: "Acc" },
+"हतो": { type: "noun", meaning: "slain one", case: "Nom" },
+"येषां": { type: "noun", meaning: "of whom", case: "Gen" },
+"अकीर्तिं": { type: "noun", meaning: "infamy", case: "Acc" },
+"संग्रामं": { type: "noun", meaning: "battle", case: "Acc" },
+"कीर्तिं": { type: "noun", meaning: "fame", case: "Acc" },
+"दुःखतरं": { type: "noun", meaning: "greater sorrow", case: "Nom" },
+"महतो": { type: "noun", meaning: "of the great", case: "Gen" },
+"प्रत्यवायो": { type: "noun", meaning: "harm; obstacle", case: "Nom" },
+  "व्यवसाय": { type: "noun", meaning: "resolve; determination", case: "Nom" },
+  "नन्दन": { type: "noun", meaning: "delight; son", case: "Nom" },
+  "शाखाः": { type: "noun", meaning: "branches", case: "Nom" },
+  "बुद्धयः": { type: "noun", meaning: "intellects", case: "Nom" },
+  "वाचम्": { type: "noun", meaning: "speech", case: "Acc" },
+  "वाद": { type: "noun", meaning: "argument; doctrine", case: "Nom" },
+  "काम": { type: "noun", meaning: "desire", case: "Nom" },
+  "आत्मानः": { type: "noun", meaning: "selves", case: "Nom" },
+  "फल": { type: "noun", meaning: "fruit; result", case: "Nom" },
+  "प्रदाम्": { type: "noun", meaning: "giver; bestower", case: "Acc" },
+  "क्रिया": { type: "noun", meaning: "action; ritual", case: "Nom" },
+  "विशेष": { type: "noun", meaning: "distinction", case: "Nom" },
+  "भोग": { type: "noun", meaning: "enjoyment", case: "Nom" },
+  "ऐश्वर्य": { type: "noun", meaning: "prosperity; lordship", case: "Nom" },
+  "गतिम्": { type: "noun", meaning: "path; goal", case: "Acc" },
+  "चेतसाम्": { type: "noun", meaning: "of minds", case: "Gen" },
+  "समाधौ": { type: "noun", meaning: "in concentration", case: "Loc" },
+  "विषयाः": { type: "noun", meaning: "objects", case: "Nom" },
+  "वेदाः": { type: "noun", meaning: "Vedas", case: "Nom" },
+  "सत्त्व": { type: "noun", meaning: "purity; essence", case: "Nom" },
+  "निर्योग": { type: "noun", meaning: "absence of yoga", case: "Nom" },
+  "अर्थः": { type: "noun", meaning: "meaning; purpose", case: "Nom" },
+  "उदपाने": { type: "noun", meaning: "in a well", case: "Loc" },
+  "उदके": { type: "noun", meaning: "in water", case: "Loc" },
+  "वेदेषु": { type: "noun", meaning: "in the Vedas", case: "Loc" },
+  "ब्राह्मणस्य": { type: "noun", meaning: "of the Brahmin", case: "Gen" },
+  "कर्मणि": { type: "noun", meaning: "in action", case: "Loc" },
+  "अधिकारः": { type: "noun", meaning: "authority; eligibility", case: "Nom" },
+  "फलेषु": { type: "noun", meaning: "in fruits/results", case: "Loc" },
+  "हेतुः": { type: "noun", meaning: "cause", case: "Nom" },
+  "भूः": { type: "noun", meaning: "earth", case: "Nom" },
+  "सङ्गः": { type: "noun", meaning: "attachment", case: "Nom" },
+  "अकर्मणि": { type: "noun", meaning: "in inaction", case: "Loc" },
+  "योग": { type: "noun", meaning: "discipline; yoga", case: "Nom" },
+  "कर्माणि": { type: "noun", meaning: "actions", case: "Acc" },
+  "सङ्गम्": { type: "noun", meaning: "attachment", case: "Acc" },
+  "धनञ्जय": { type: "noun", meaning: "Arjuna", case: "Voc" },
+  "सिद्धि": { type: "noun", meaning: "success", case: "Nom" },
+  "असिद्ध्योः": { type: "noun", meaning: "in success and failure", case: "Loc" },
+  "समत्वम्": { type: "noun", meaning: "equanimity", case: "Nom" },
+  "बुद्धि": { type: "noun", meaning: "intellect", case: "Nom" },
+  "योगात्": { type: "noun", meaning: "from yoga", case: "Abl" },
+  "बुद्धौ": { type: "noun", meaning: "in intellect", case: "Loc" },
+  "शरणम्": { type: "noun", meaning: "refuge", case: "Acc" },
+  "हेतवः": { type: "noun", meaning: "causes", case: "Nom" },
+  "वाचं": { type: "noun", meaning: "speech", case: "Acc" },
+"वादिन": { type: "noun", meaning: "speaker; proponent", case: "Nom" },
+"वेदा": { type: "noun", meaning: "Vedas", case: "Nom" },
+"सर्वत": { type: "noun", meaning: "all; entire", case: "Nom" },
+"सङ्गं": { type: "noun", meaning: "attachment", case: "Acc" },
+"कृपणा": { type: "noun", meaning: "miserly person", case: "Nom" },
+"कर्मसु": { type: "noun", meaning: "in actions", case: "Loc" },
+"कौशलम्": { type: "noun", meaning: "skill; proficiency", case: "Acc" },
+"उभे": { type: "noun", meaning: "both", case: "Acc" }, 
+"सुकृत": { type: "noun", meaning: "in good deed", case: "Loc" },
+"दुष्कृते": { type: "noun", meaning: "in bad deed", case: "Loc" }
+
+
 
 
 
@@ -773,7 +841,19 @@ const VERBS = {
 "अवाप्स्यसि": { type: "verb", meaning: "you will obtain", case: "" },
 "जित्वा": { type: "verb", meaning: "having conquered", case: "" },
 "कृत्वा": { type: "verb", meaning: "having made", case: "" },
-"अस्ति": { type: "verb", meaning: "is", case: "" }
+"अस्ति": { type: "verb", meaning: "is", case: "" },
+"लभन्ते": { type: "verb", meaning: "they obtain", case: "" },
+"करिष्यसि": { type: "verb", meaning: "you will do", case: "" },
+"अवाप्स्यसि": { type: "verb", meaning: "you will obtain", case: "" },
+"जित्वा": { type: "verb", meaning: "having conquered", case: "" },
+"युक्तो": { type: "verb", meaning: "endowed; joined", case: "" },  // used adjectivally but root meaning is verbal
+  "प्रवदन्ति": { type: "verb", meaning: "they speak", case: "" },
+  "विधीयते": { type: "verb", meaning: "is established", case: "" },
+  "भव": { type: "verb", meaning: "become!", case: "" },
+  "विजानतः": { type: "verb", meaning: "knowing", case: "" },
+  "अस्तु": { type: "verb", meaning: "let it be", case: "" },
+  "अन्विच्छ": { type: "verb", meaning: "seek!", case: "" },
+  "जहाति": { type: "verb", meaning: "cast off", case: "" }
 
 
 
@@ -865,8 +945,12 @@ const PRONOUNS = {
 "यया": { type: "pronoun", meaning: "by which", case: "Instr" },
 "त्व": { type: "pronoun", meaning: "you", case: "" },
 "त्वाम्": { type: "pronoun", meaning: "you", case: "Acc" },
-"चेत्": { type: "indeclinable", meaning: "if", case: "" }   // stays indeclinable
-
+"चेत्": { type: "indeclinable", meaning: "if", case: "" },  // stays indeclinable
+"याम्": { type: "pronoun", meaning: "which; whom", case: "Acc" },
+  "तया": { type: "pronoun", meaning: "by her / by that", case: "Inst" },
+  "यावान्": { type: "pronoun", meaning: "as much as", case: "Nom" },
+  "तावान्": { type: "pronoun", meaning: "so much", case: "Nom" },
+  "वादिनः": { type: "pronoun", meaning: "those who speak / the proponents", case: "Nom" }
 
 
 
@@ -974,6 +1058,7 @@ const ADJECTIVES = {
 "नित्य": { type: "adjective", meaning: "eternal", case: "" },
 "ध्रुवः": { type: "adjective", meaning: "certain", case: "Nom" },
 "ध्रुवं": { type: "adjective", meaning: "certain", case: "Acc" },
+"ध्रुवो": { type: "adjective", meaning: "certain", case: "Acc" },
 "अव्यक्त": { type: "adjective", meaning: "unmanifest", case: "" },
 "व्यक्त": { type: "adjective", meaning: "manifest", case: "" },
 "आश्चर्यवत्": { type: "adjective", meaning: "wondrous", case: "" },
@@ -994,7 +1079,36 @@ const ADJECTIVES = {
 "सम्भावितस्य": { type: "adjective", meaning: "of the honored", case: "Gen" },
 "अपावृतम्": { type: "adjective", meaning: "open", case: "Acc" },
 "ईदृशम्": { type: "adjective", meaning: "of this kind", case: "Acc" },
-"समे": { type: "adjective", meaning: "equal", case: "Loc" }
+"समे": { type: "adjective", meaning: "equal", case: "Loc" },
+"अपरिहार्ये": { type: "adjective", meaning: "inevitable", case: "Nom" },
+"उपपन्नम्": { type: "adjective", meaning: "obtained", case: "Acc" },
+"अवाच्य": { type: "adjective", meaning: "unworthy", case: "" },
+"धर्म्यं": { type: "adjective", meaning: "righteous", case: "Acc" },
+"ईदृशम्": { type: "adjective", meaning: "of this kind", case: "Acc" },
+  "आत्मिका": { type: "adjective", meaning: "pertaining to self", case: "Nom" },
+  "अनन्ताः": { type: "adjective", meaning: "endless", case: "Nom" },
+  "अव्यवसायिनाम्": { type: "adjective", meaning: "of the irresolute", case: "Gen" },
+  "पुष्पिताम्": { type: "adjective", meaning: "flowering", case: "Acc" },
+  "अविपश्चितः": { type: "adjective", meaning: "undiscerning", case: "Nom" },
+  "रताः": { type: "adjective", meaning: "attached", case: "Nom" },
+  "पराः": { type: "adjective", meaning: "superior; other", case: "Nom" },
+  "बहुलाम्": { type: "adjective", meaning: "abundant", case: "Acc" },
+  "प्रसक्तानाम्": { type: "adjective", meaning: "of the attached", case: "Gen" },
+  "अपहृत": { type: "adjective", meaning: "stolen; taken away", case: "Nom" },
+  "गुण्य": { type: "adjective", meaning: "pertaining to qualities", case: "Nom" },
+  "गुण्यः": { type: "adjective", meaning: "qualified; virtuous", case: "Nom" },
+  "निर्द्वन्द्वः": { type: "adjective", meaning: "free from dualities", case: "Nom" },
+  "स्थः": { type: "adjective", meaning: "standing; stable", case: "Nom" },
+  "आत्मवान्": { type: "adjective", meaning: "self‑controlled", case: "Nom" },
+  "समः": { type: "adjective", meaning: "equal", case: "Nom" },
+  "अवरम्": { type: "adjective", meaning: "inferior", case: "Acc" },
+  "कृपणाः": { type: "adjective", meaning: "miserly", case: "Nom" },
+  "सम्प्लुत": { type: "adjective", meaning: "overflowing", case: "Nom" },
+  "समो": { type: "adjective", meaning: "equal", case: "Nom" },
+"एका": { type: "adjective", meaning: "one; single", case: "Nom" }
+
+
+
 
 
 
@@ -1077,7 +1191,14 @@ const INDECLINABLES = {
 "कदा": { type: "indeclinable", meaning: "when", case: "" },
 "चित्": { type: "indeclinable", meaning: "indeed; even", case: "" },
 "धर्म्यात्": { type: "indeclinable", meaning: "from the righteous", case: "" },
-"युद्धात्": { type: "indeclinable", meaning: "from battle", case: "" }
+"युद्धात्": { type: "indeclinable", meaning: "from battle", case: "" },
+"ततो": { type: "indeclinable", meaning: "then; therefore", case: "" },
+  "त्रै": { type: "indeclinable", meaning: "threefold", case: "" },
+  "निस्त्रै": { type: "indeclinable", meaning: "beyond the three", case: "" },
+  "सर्वतः": { type: "indeclinable", meaning: "from all sides", case: "" },
+  "कदाचन": { type: "indeclinable", meaning: "ever; at any time", case: "" },
+  "दूरेण": { type: "indeclinable", meaning: "by far; from afar", case: "" }
+
 
 
 

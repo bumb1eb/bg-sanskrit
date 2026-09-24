@@ -7,16 +7,16 @@ const CH2_41_50 = [
       बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम् ॥<br>
     `,
     sandhi: `
-      व्यवसाय·आत्मिका·बुद्धिः·एका·इह·कुरु·नन्दन।<br>
-      बहु·शाखाः·हि·अनन्ताः·च·बुद्धयः·अव्यवसायिनाम्॥<br>
+      व्यवसाय·आत्मिका बुद्धिः एका इह कुरु नन्दन।<br>
+      बहु·शाखाः हि·अनन्ताः·च बुद्धयः अव्यवसायिनाम्॥<br>
     `,
     translit: `
-      vyavasāya·ātmikā·buddhiḥ·ekā·iha·kuru·nandana।<br>
-      bahu·śākhāḥ·hi·anantāḥ·ca·buddhayaḥ·avyavasāyinām॥<br>
+      vyavasāya·ātmikā buddhiḥ ekā iha kuru nandana।<br>
+      bahu·śākhāḥ hi·anantāḥ·ca buddhayaḥ avyavasāyinām॥<br>
     `,
     translation: `
-      Resolute understanding is single, O joy of the Kurus;<br>
-      Many‑branched and endless are the thoughts of the irresolute. <br>
+      Resolute-natured insight (there is ) one here, descendant of Kurus;<br>
+      Many‑branched indeed and endless (are the) insights of the irresolute. <br>
     `
   },
 
@@ -28,16 +28,16 @@ const CH2_41_50 = [
       वेदवादरता: पार्थ नान्यदस्तीति वादिन: ॥<br>
     `,
     sandhi: `
-      याम्·इमाम्·पुष्पिताम्·वाचम्·प्रवदन्ति·अविपश्चितः।<br>
-      वेद·वाद·रताः·पार्थ·न·अन्यत्·अस्ति·इति·वादिनः॥<br>
+      याम्·इमाम्·पुष्पिताम्·वाचम्·प्रवदन्ति अविपश्चितः।<br>
+      वेद·वाद·रताः पार्थ न अन्यत् अस्ति इति वादिनः॥<br>
     `,
     translit: `
-      yām·imām·puṣpitām·vācam·pravadanti·avipaścitaḥ।<br>
-      veda·vāda·ratāḥ·pārtha·na·anyat·asti·iti·vādiṇaḥ॥<br>
+      yām·imām·puṣpitām·vācam pravadanti avipaścitaḥ।<br>
+      veda·vāda·ratāḥ pārtha na anyat asti iti vādiṇaḥ॥<br>
     `,
     translation: `
-      This flowery speech is spoken by the unwise;<br>
-      Attached to Vedic words, O Pārtha, saying “there is nothing else.” <br>
+      Which, this flowery speech is spoken (by the) unwise;<br>
+      Indulging in Vedic words, O Pārtha (Arjuna), not anything there is, thus saying. <br>
     `
   },
 
@@ -49,16 +49,16 @@ const CH2_41_50 = [
       क्रियाविशेषबहुलां भोगैश्वर्यगतिं प्रति ॥<br>
     `,
     sandhi: `
-      काम·आत्मानः·स्वर्ग·पराः·जन्म·कर्म·फल·प्रदाम्।<br>
-      क्रिया·विशेष·बहुलाम्·भोग·ऐश्वर्य·गतिम्·प्रति॥<br>
+      काम·आत्मानः स्वर्ग·पराः जन्म·कर्म·फल·प्रदाम्।<br>
+      क्रिया·विशेष·बहुलाम् भोग·ऐश्वर्य·गतिम् प्रति॥<br>
     `,
     translit: `
-      kāma·ātmānaḥ·svarga·parāḥ·janma·karma·phala·pradām।<br>
-      kriyā·viśeṣa·bahulām·bhoga·aiśvarya·gatim·prati॥<br>
+      kāma·ātmānaḥ svarga·parāḥ janma·karma·phala·pradām।<br>
+      kriyā·viśeṣa·bahulām bhoga·aiśvarya·gatim prati॥<br>
     `,
     translation: `
-      Desire‑driven, heaven‑focused, giving birth‑action‑fruits;<br>
-      Full of ritual details, aiming at enjoyment and power. <br>
+      Desire‑driven, heaven‑focused, (re)birth-action‑fruits giving;<br>
+      (Addicted to) rituals special varied, enjoyment prosperity progress towards. <br>
     `
   },
 
@@ -70,16 +70,16 @@ const CH2_41_50 = [
       व्यवसायात्मिका बुद्धि: समाधौ न विधीयते ॥<br>
     `,
     sandhi: `
-      भोग·ऐश्वर्य·प्रसक्तानाम्·तया·अपहृत·चेतसाम्।<br>
-      व्यवसाय·आत्मिका·बुद्धिः·समाधौ·न·विधीयते॥<br>
+      भोग·ऐश्वर्य·प्रसक्तानाम् तया·अपहृत·चेतसाम्।<br>
+      व्यवसाय·आत्मिका बुद्धिः समाधौ न विधीयते॥<br>
     `,
     translit: `
-      bhoga·aiśvarya·prasaktānām·tayā·apahṛta·cetasām।<br>
-      vyavasāya·ātmikā·buddhiḥ·samādhau·na·vidhīyate॥<br>
+      bhoga·aiśvarya·prasaktānām tayā·apahṛta·cetasām।<br>
+      vyavasāya·ātmikā buddhiḥ samādhau na vidhīyate॥<br>
     `,
     translation: `
-      For those attached to enjoyment and power, whose minds are stolen by that;<br>
-      Resolute understanding does not arise in meditation. <br>
+      Enjoyment and prosperity attached (those people), by this stolen of minds;<br>
+      Resolute-natured insight in meditation not it is established. <br>
     `
   },
 
@@ -91,16 +91,16 @@ const CH2_41_50 = [
       निर्द्वन्द्वो नित्यसत्त्वस्थो निर्योगक्षेम आत्मवान् ॥<br>
     `,
     sandhi: `
-      त्रै·गुण्य·विषयाः·वेदाः·निस्त्रै·गुण्यः·भव·अर्जुन।<br>
-      निर्द्वन्द्वः·नित्य·सत्त्व·स्थः·निर्योग·क्षेम·आत्मवान्॥<br>
+      त्रै·गुण्य·विषयाः वेदाः निस्त्रै·गुण्यः भव अर्जुन।<br>
+      निर्द्वन्द्वः नित्य·सत्त्व·स्थः निर्योग·क्षेम आत्मवान्॥<br>
     `,
     translit: `
-      trai·guṇya·viṣayā·vedā·nistrai·guṇyo·bhava·arjuna।<br>
-      nirdvandvaḥ·nitya·sattva·sthaḥ·niryoga·kṣema·ātmavān॥<br>
+      trai·guṇya·viṣayā vedā nistrai·guṇyo bhava arjuna।<br>
+      nirdvandvaḥ nitya·sattva·sthaḥ niryoga·kṣema ātmavān॥<br>
     `,
     translation: `
-      The Vedas concern the three guṇas; be free from the three guṇas, O Arjuna;<br>
-      Free from dualities, ever in purity, without concern for gain and safety, self‑possessed. <br>
+      Three gunas related (are the) Vedas, beyond the three gunas become, O Arjuna;<br>
+      Beyond duality, ever in purity, fixed without concern for gain and safety, self‑possessed. <br>
     `
   },
 
@@ -112,16 +112,16 @@ const CH2_41_50 = [
       तावान्सर्वेषु वेदेषु ब्राह्मणस्य विजानत: ॥<br>
     `,
     sandhi: `
-      यावान्·अर्थः·उदपाने·सर्वतः·सम्प्लुत·उदके।<br>
-      तावान्·सर्वेषु·वेदेषु·ब्राह्मणस्य·विजानतः॥<br>
+      यावान्·अर्थः उदपाने सर्वतः सम्प्लुत·उदके।<br>
+      तावान्·सर्वेषु वेदेषु ब्राह्मणस्य विजानतः॥<br>
     `,
     translit: `
-      yāvān·arthaḥ·udapāne·sarvataḥ·sampluta·udake।<br>
-      tāvān·sarveṣu·vedeṣu·brāhmaṇasya·vijānataḥ॥<br>
+      yāvān·arthaḥ udapāne sarvataḥ sampluta·udake।<br>
+      tāvān·sarveṣu vedeṣu brāhmaṇasya vijānataḥ॥<br>
     `,
     translation: `
-      Whatever use there is in a well when water is everywhere;<br>
-      So is all the Vedas to the knower. <br>
+      As much as (there is) meaning in a well (when) everywhere flooded by water;<br>
+      In the same way in all the Vedas, (there is meaning) in knowing of the Brahmana. <br>
     `
   },
 
@@ -133,16 +133,16 @@ const CH2_41_50 = [
       मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥<br>
     `,
     sandhi: `
-      कर्मणि·एव·अधिकारः·ते·मा·फलेषु·कदाचन।<br>
-      मा·कर्म·फल·हेतुः·भूः·मा·ते·सङ्गः·अस्तु·अकर्मणि॥<br>
+      कर्मणि·एव·अधिकारः·ते मा फलेषु कदाचन।<br>
+      मा कर्म·फल·हेतुः·भूः मा ते सङ्गः·अस्तु·अकर्मणि॥<br>
     `,
     translit: `
-      karmaṇy·eva·adhikāraḥ·te·mā·phaleṣu·kadācana।<br>
-      mā·karma·phala·hetur·bhūr·mā·te·saṅgo·astu·akarmaṇi॥<br>
+      karmaṇi·eva·adhikāraḥ·te mā phaleṣu kadācana।<br>
+      mā karma·phala·hetur·bhūr mā te saṅgaḥ·astu·akarmaṇi॥<br>
     `,
     translation: `
-      In action alone is your right, never in its fruits;<br>
-      Let not the fruits of action be your motive, nor let your attachment be to inaction. <br>
+      In action alone is your right, not in its fruits ever;<br>
+      Not action-fruit (oriented) motive should be, not thy attachment let be in inaction. <br>
     `
   },
 
@@ -154,16 +154,16 @@ const CH2_41_50 = [
       सिद्ध्यसिद्ध्यो: समो भूत्वा समत्वं योग उच्यते ॥<br>
     `,
     sandhi: `
-      योग·स्थः·कुरु·कर्माणि·सङ्गम्·त्यक्त्वा·धनञ्जय।<br>
-      सिद्धि·असिद्ध्योः·समः·भूत्वा·समत्वम्·योगः·उच्यते॥<br>
+      योग·स्थः कुरु कर्माणि सङ्गम् त्यक्त्वा धनञ्जय।<br>
+      सिद्धि·असिद्ध्योः समः भूत्वा समत्वम् योग उच्यते॥<br>
     `,
     translit: `
-      yoga·sthaḥ·kuru·karmāṇi·saṅgam·tyaktvā·dhanañjaya।<br>
-      siddhi·asiddhyoḥ·samaḥ·bhūtvā·samatvam·yogaḥ·ucyate॥<br>
+      yoga·sthaḥ kuru karmāṇi saṅgam tyaktvā dhanañjaya।<br>
+      siddhi·asiddhyoḥ samaḥ bhūtvā samatvam yoga ucyate॥<br>
     `,
     translation: `
-      Established in yoga, perform actions, abandoning attachment, O Dhanañjaya;<br>
-      Being equal in success and failure—equanimity is called yoga. <br>
+      Yoga-established, perform actions, attachment having abandoned , O Dhanañjaya (Arjuna);<br>
+      Success - failure equal having become, equanimity (is) Yoga it is said. <br>
     `
   },
 
@@ -175,16 +175,16 @@ const CH2_41_50 = [
       बुद्धौ शरणमन्विच्छ कृपणा: फलहेतव:॥<br>
     `,
     sandhi: `
-      दूरेण·हि·अवरम्·कर्म·बुद्धि·योगात्·धनञ्जय।<br>
-      बुद्धौ·शरणम्·अन्विच्छ·कृपणाः·फल·हेतवः॥<br>
+      दूरेण हि अवरम् कर्म बुद्धि·योगात् धनञ्जय।<br>
+      बुद्धौ शरणम् अन्विच्छ कृपणाः फल·हेतवः॥<br>
     `,
     translit: `
-      dūreṇa·hi·avaram·karma·buddhi·yogāt·dhanañjaya।<br>
-      buddhau·śaraṇam·anviccha·kṛpaṇāḥ·phala·hetavaḥ॥<br>
+      dūreṇa hi avaram karma buddhi·yogāt dhanañjaya।<br>
+      buddhau śaraṇam anviccha kṛpaṇāḥ phala·hetavaḥ॥<br>
     `,
     translation: `
-      Far inferior indeed is action to the yoga of understanding, O Dhanañjaya;<br>
-      Seek refuge in understanding—wretched are those whose motive is the fruit. <br>
+      By far indeed inferior (is) action from the yoga of intelligence, O Dhanañjaya (Arjuna);<br>
+      In understanding refuge seek — wretched (are) those fruit-motivated. <br>
     `
   },
 
@@ -196,16 +196,16 @@ const CH2_41_50 = [
       तस्माद्योगाय युज्यस्व योग: कर्मसु कौशलम् ॥<br>
     `,
     sandhi: `
-      बुद्धि·युक्तो·जहाति·इह·उभे·सुकृत·दुष्कृते।<br>
-      तस्मात्·योगाय·युज्यस्व·योगः·कर्मसु·कौशलम्॥<br>
+      बुद्धि·युक्तो जहाति इह उभे सुकृत·दुष्कृते।<br>
+      तस्मात्·योगाय युज्यस्व योगः कर्मसु कौशलम्॥<br>
     `,
     translit: `
-      buddhi·yukto·jahāti·iha·ubhe·sukṛta·duṣkṛte।<br>
-      tasmāt·yogāya·yujyasva·yogaḥ·karmasu·kauśalam॥<br>
+      buddhi·yukto jahāti iha ubhe sukṛta·duṣkṛte।<br>
+      tasmāt·yogāya yujyasva yogaḥ karmasu kauśalam॥<br>
     `,
     translation: `
-      Endowed with understanding, one casts off here both good and evil deeds;<br>
-      Therefore engage in yoga—yoga is skill in actions. <br>
+      Endowed with understanding, (one) casts off here, both good and evil deeds;<br>
+      Therefore in yoga engage — yoga is skill in actions. <br>
     `
   }
 ];

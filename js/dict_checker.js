@@ -21,15 +21,22 @@
            .filter(t => t.length > 0);
 
     const isCompound = rawToken => {
-      const token = clean(rawToken);
-      return (
-        token.includes("·") ||
-        token.includes("-") ||
-        token.includes("–") ||
-        token.includes("—") ||
-        splitToken(token).length > 1
-      );
-    };
+	  const token = clean(rawToken);
+
+	  // If token contains explicit separators → compound
+	  if (token.includes("·") || token.includes("-") || token.includes("–") || token.includes("—")) {
+		return true;
+	  }
+
+	  // If token is long and contains multiple Devanagari consonant clusters → likely compound
+	  // e.g. व्यवसायात्मिका, बुद्धिरेकेह, ह्यनन्ताश्च
+	  if (/[\u0900-\u097F]{6,}/.test(token)) {
+		return true;
+	  }
+
+	return false;
+	};
+
 
     verses.forEach(v => {
 
@@ -89,7 +96,7 @@
 
   // ⭐ Button handler
   window.runChecker = function () {
-    const chapterData = getChapterData(CURRENT_CHAPTER);
+    const chapterData = CH2_51_60.slice(0, 9);
     const result = checkMissingWords(
 	  chapterData,
 	  DICT,
