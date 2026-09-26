@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BG Sanskrit Prototype</title>
+    <link rel="stylesheet" href="prototype-five-verse.css" />
+  </head>
+  <body>
+    <div class="prototype-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Prototype</p>
+          <h1>Bhagavad Gita Reader</h1>
+        </div>
+        <div class="nav-controls">
+          <button id="prevBtn" type="button">Previous</button>
+          <span id="verseLabel">Verse 1.1</span>
+          <button id="nextBtn" type="button">Next</button>
+        </div>
+      </header>
+
+      <main class="verse-grid">
+        <section class="verse-block">
+          <div class="block-header">
+            <h2>Sanskrit</h2>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-mode="original">Original</button>
+              <button class="toggle-btn" data-mode="sandhi">Sandhi-viccheda</button>
+            </div>
+          </div>
+          <div id="sanskritBlock" class="block-content sanskrit-block"></div>
+        </section>
+
+        <section class="verse-block">
+          <h2>IAST</h2>
+          <div id="iastBlock" class="block-content"></div>
+        </section>
+
+        <section class="verse-block">
+          <h2>Translation</h2>
+          <div id="translationBlock" class="block-content"></div>
+        </section>
+      </main>
+
+      <aside id="detailPanel" class="detail-panel">
+        <h3>Word details</h3>
+        <p>Click a word to inspect it.</p>
+      </aside>
+    </div>
+
+    <script src="prototype-five-verse.js"></script>
+  </body>
+</html>
