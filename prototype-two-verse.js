@@ -7,15 +7,13 @@ const verses = [
       w2: { text: "उवाच", type: "verb", meaning: "said" },
       w3: { text: "धर्मक्षेत्रे", type: "noun", meaning: "in the field of dharma", case: "Locative" },
       w4: { text: "कुरुक्षेत्रे", type: "noun", meaning: "in Kurukshetra", case: "Locative" },
-      w5: { text: "समवेताः", type: "adjective", meaning: "assembled / gathered" },
+      w5: { text: "समवेता", type: "adjective", meaning: "assembled / gathered" },
       w6: { text: "युयुत्सवः", type: "noun", meaning: "desiring to fight" },
       w7: { text: "मामकाः", type: "noun", meaning: "my sons / my people" },
-      w8: { text: "पाण्डवाः", type: "noun", meaning: "sons of Pandu" },
-      w9: { text: "च", type: "indeclinable", meaning: "and" },
-      w10: { text: "एव", type: "indeclinable", meaning: "indeed" },
-      w11: { text: "किम्", type: "pronoun", meaning: "what" },
-      w12: { text: "अकुर्वत", type: "verb", meaning: "did they do" },
-      w13: { text: "सञ्जय", type: "noun", meaning: "Sanjaya", case: "Vocative" }
+      w8: { text: "पाण्डवाश्चैव", type: "noun", meaning: "the sons of Pandu and also" },
+      w9: { text: "किम्", type: "pronoun", meaning: "what" },
+      w10: { text: "अकुर्वत", type: "verb", meaning: "did they do" },
+      w11: { text: "सञ्जय", type: "noun", meaning: "Sanjaya", case: "Vocative" }
     },
     blocks: {
       original: [
@@ -23,15 +21,13 @@ const verses = [
         { id: "w2", text: "उवाच" },
         { id: "w3", text: "धर्मक्षेत्रे" },
         { id: "w4", text: "कुरुक्षेत्रे" },
-        { id: "w5", text: "समवेताः" },
+        { id: "w5", text: "समवेता" },
         { id: "w6", text: "युयुत्सवः" },
         { id: "w7", text: "मामकाः" },
-        { id: "w8", text: "पाण्डवाः" },
-        { id: "w9", text: "च" },
-        { id: "w10", text: "एव" },
-        { id: "w11", text: "किम्" },
-        { id: "w12", text: "अकुर्वत" },
-        { id: "w13", text: "सञ्जय" }
+        { id: "w8", text: "पाण्डवाश्चैव" },
+        { id: "w9", text: "किम्" },
+        { id: "w10", text: "अकुर्वत" },
+        { id: "w11", text: "सञ्जय" }
       ],
       sandhi: [
         { id: "w1", text: "धृतराष्ट्र" },
@@ -56,17 +52,15 @@ const verses = [
         { id: "w5", text: "samavetāḥ" },
         { id: "w6", text: "yuyutsavaḥ" },
         { id: "w7", text: "māmakāḥ" },
-        { id: "w8", text: "pāṇḍavāḥ" },
-        { id: "w9", text: "ca" },
-        { id: "w10", text: "eva" },
-        { id: "w11", text: "kim" },
-        { id: "w12", text: "akurvata" },
-        { id: "w13", text: "sañjaya" }
+        { id: "w8", text: "pāṇḍavāś ca eva" },
+        { id: "w9", text: "kim" },
+        { id: "w10", text: "akurvata" },
+        { id: "w11", text: "sañjaya" }
       ],
       translation: [
         { ids: ["w1", "w2"], text: "Dhritarashtra said." },
-        { ids: ["w3", "w4", "w5", "w6"], text: "On the field of dharma, in Kurukshetra, assembled and eager for battle," },
-        { ids: ["w7", "w8", "w9", "w10", "w11", "w12", "w13"], text: "my sons and the sons of Pandu—what did they do, O Sanjaya?" }
+        { ids: ["w3", "w4", "w5", "w6"], text: "On the field of dharma, in Kurukshetra, gathered and eager for battle," },
+        { ids: ["w7", "w8", "w9", "w10", "w11"], text: "my sons and the sons of Pandu—what did they do, Sanjaya?" }
       ]
     }
   },
@@ -78,15 +72,12 @@ const verses = [
       w2: { text: "उवाच", type: "verb", meaning: "said" },
       w3: { text: "दृष्ट्वा", type: "verb", meaning: "having seen" },
       w4: { text: "तु", type: "indeclinable", meaning: "then / but" },
-      w5: { text: "पाण्डवानीकम्", type: "noun", meaning: "the Pandava army", case: "Accusative" },
-      w6: { text: "व्यूढम्", type: "adjective", meaning: "arrayed / formed" },
-      w7: { text: "दुर्योधनः", type: "noun", meaning: "Duryodhana" },
-      w8: { text: "तदा", type: "indeclinable", meaning: "then" },
-      w9: { text: "आचार्यम्", type: "noun", meaning: "teacher", case: "Accusative" },
-      w10: { text: "उपसङ्गम्य", type: "verb", meaning: "approaching / having approached" },
-      w11: { text: "राजा", type: "noun", meaning: "king", case: "Nominative" },
-      w12: { text: "वचनम्", type: "noun", meaning: "speech", case: "Accusative" },
-      w13: { text: "अब्रवीत्", type: "verb", meaning: "spoke" }
+      w5: { text: "पाण्डवानीकं", type: "noun", meaning: "the Pandava army", case: "Accusative" },
+      w6: { text: "व्यूढं", type: "adjective", meaning: "arrayed / formed" },
+      w7: { text: "दुर्योधनस्तदा", type: "noun", meaning: "Duryodhana then" },
+      w8: { text: "आचार्यमुपसङ्गम्य", type: "verb", meaning: "approaching the teacher" },
+      w9: { text: "राजा", type: "noun", meaning: "king", case: "Nominative" },
+      w10: { text: "वचनमब्रवीत्", type: "verb", meaning: "spoke these words" }
     },
     blocks: {
       original: [
@@ -94,30 +85,24 @@ const verses = [
         { id: "w2", text: "उवाच" },
         { id: "w3", text: "दृष्ट्वा" },
         { id: "w4", text: "तु" },
-        { id: "w5", text: "पाण्डवानीकम्" },
-        { id: "w6", text: "व्यूढम्" },
-        { id: "w7", text: "दुर्योधनः" },
-        { id: "w8", text: "तदा" },
-        { id: "w9", text: "आचार्यम्" },
-        { id: "w10", text: "उपसङ्गम्य" },
-        { id: "w11", text: "राजा" },
-        { id: "w12", text: "वचनम्" },
-        { id: "w13", text: "अब्रवीत्" }
+        { id: "w5", text: "पाण्डवानीकं" },
+        { id: "w6", text: "व्यूढं" },
+        { id: "w7", text: "दुर्योधनस्तदा" },
+        { id: "w8", text: "आचार्यमुपसङ्गम्य" },
+        { id: "w9", text: "राजा" },
+        { id: "w10", text: "वचनमब्रवीत्" }
       ],
       sandhi: [
         { id: "w1", text: "सञ्जय" },
         { id: "w2", text: "उवाच" },
         { id: "w3", text: "दृष्ट्वा" },
         { id: "w4", text: "तु" },
-        { id: "w5", text: "पाण्डवानीकम्" },
-        { id: "w6", text: "व्यूढम्" },
-        { id: "w7", text: "दुर्योधनः" },
-        { id: "w8", text: "तदा" },
-        { id: "w9", text: "आचार्यम्" },
-        { id: "w10", text: "उपसङ्गम्य" },
-        { id: "w11", text: "राजा" },
-        { id: "w12", text: "वचनम्" },
-        { id: "w13", text: "अब्रवीत्" }
+        { id: "w5", text: "पाण्डवः अनीकम्" },
+        { id: "w6", text: "व्यूढं" },
+        { id: "w7", text: "दुर्योधनः तदा" },
+        { id: "w8", text: "आचार्यम् उपसङ्गम्य" },
+        { id: "w9", text: "राजा" },
+        { id: "w10", text: "वचनम् अब्रवीत्" }
       ],
       iast: [
         { id: "w1", text: "sañjaya" },
@@ -126,18 +111,15 @@ const verses = [
         { id: "w4", text: "tu" },
         { id: "w5", text: "pāṇḍavānīkam" },
         { id: "w6", text: "vyūḍham" },
-        { id: "w7", text: "duryodhanaḥ" },
-        { id: "w8", text: "tadā" },
-        { id: "w9", text: "ācāryam" },
-        { id: "w10", text: "upasaṅgamya" },
-        { id: "w11", text: "rājā" },
-        { id: "w12", text: "vacanam" },
-        { id: "w13", text: "abravīt" }
+        { id: "w7", text: "duryodhanaḥ tadā" },
+        { id: "w8", text: "ācāryam upasaṅgamya" },
+        { id: "w9", text: "rājā" },
+        { id: "w10", text: "vacanam abravīt" }
       ],
       translation: [
-        { ids: ["w1", "w2"], text: "Sanjaya said:" },
-        { ids: ["w3", "w4", "w5", "w6", "w7", "w8"], text: "Having seen the Pandava army arrayed, Duryodhana then" },
-        { ids: ["w9", "w10", "w11", "w12", "w13"], text: "approached the teacher and spoke these words." }
+        { ids: ["w1", "w2"], text: "Sanjaya said." },
+        { ids: ["w3", "w4", "w5", "w6", "w7"], text: "Having seen the Pandava army arrayed, Duryodhana then" },
+        { ids: ["w8", "w9", "w10"], text: "approached the teacher and spoke these words." }
       ]
     }
   }
