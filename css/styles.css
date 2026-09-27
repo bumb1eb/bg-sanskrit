@@ -297,11 +297,15 @@ body {
   cursor: pointer;
 }
 
-/* ⭐ Force center alignment inside Sanskrit blocks */
+/* ⭐ Match Shloka parchment typography + center alignment */
 #sandhi.sanskrit-text,
 #translit.sanskrit-text,
 #translation.sanskrit-text {
   text-align: center !important;
+  font-size: 1.1rem;
+  line-height: 1.4;
   white-space: pre-line;
   word-break: break-word;
+  padding: 10px 0;            /* match shloka-section vertical spacing */
+  margin-bottom: 20px;        /* match parchment block spacing */
 }
