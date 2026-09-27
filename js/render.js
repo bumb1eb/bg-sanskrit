@@ -65,7 +65,7 @@ function renderSection(text) {
   return text
     .split("<br>")
     .map(line =>
-      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks
+      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks 
           .split(" ")
           .map(w => renderWord(w.trim()))
           .join(" ")
