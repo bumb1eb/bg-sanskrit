@@ -438,7 +438,7 @@ window.SANDHI_CH2 = {
   63: {
     "क्रोधाद्भवति": { type: "sandhi", meaning: "क्रोधात् + भवति = from anger + arises", case: null },
     "सम्मोहात्स्मृतिविभ्रमः": { type: "sandhi", meaning: "सम्मोहात् + स्मृति + विभ्रमः = from delusion + memory + confusion", case: null },
-    "स्मृतिभ्रंशात्": { type: "sandhi", meaning: "स्मृति + भ्रंशात् = memory + loss/from fall", case: null },
+    "स्मृतिभ्रंशाद्": { type: "sandhi", meaning: "स्मृति + ्रंशाद् = memory + loss/from fall", case: null },
     "बुद्धिनाशात्प्रणश्यति": { type: "sandhi", meaning: "बुद्धि + नाशात् + प्रणश्यति = intellect + destruction + perishes", case: null },
     "बुद्धिनाशो": { type: "sandhi", meaning: "बुद्धि + नाशः = intellect + destruction", case: null }
   },
@@ -451,7 +451,7 @@ window.SANDHI_CH2 = {
   },
 
   65: {
-    "सर्वदुःखानाम्": { type: "sandhi", meaning: "सर्व + दुःखानाम् = all + sorrows", case: null },
+    "सर्वदुःखानां": { type: "sandhi", meaning: "सर्व + दुःखानाम् = all + sorrows", case: null },
     "हानिरस्योपजायते": { type: "sandhi", meaning: "हानिः + अस्य + उपजायते = destruction + of him + arises", case: null },
     "प्रसन्नचेतसो": { type: "sandhi", meaning: "प्रसन्न + चेतसः = serene + mind", case: null },
     "ह्याशु": { type: "sandhi", meaning: "हि + आशु = indeed + quickly", case: null },

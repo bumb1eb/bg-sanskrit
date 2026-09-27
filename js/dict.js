@@ -409,6 +409,7 @@ const NOUNS = {
   "शोकम्": { type: "noun", meaning: "grief", case: "Accusative (2nd)" },
   "उच्छोषणम्": { type: "noun", meaning: "drying", case: "Accusative (2nd)" },
   "इन्द्रियाणाम्": { type: "noun", meaning: "of senses", case: "Genitive" },
+  "इन्द्रियाणां": { type: "noun", meaning: "of senses", case: "Genitive" },
   "भूमौ": { type: "noun", meaning: "on earth", case: "Locative" },
   "असपत्नम्": { type: "noun", meaning: "unrivaled", case: "Accusative (2nd)" },
   "राज्यम्": { type: "noun", meaning: "kingdom", case: "Accusative (2nd)" },
@@ -734,6 +735,7 @@ const NOUNS = {
 "शान्तिः": { type: "noun", meaning: "peace", case: "Nom" },
 "अशान्तस्य": { type: "noun", meaning: "of the unpeaceful", case: "Gen" },
 "प्रज्ञाम्": { type: "noun", meaning: "wisdom; understanding", case: "Acc" },
+"प्रज्ञां": { type: "noun", meaning: "wisdom; understanding", case: "Acc" },
 "वायुः": { type: "noun", meaning: "wind", case: "Nom" },
 "नावम्": { type: "noun", meaning: "boat", case: "Acc" },
 "अम्भसि": { type: "noun", meaning: "in water", case: "Loc" },
@@ -742,7 +744,9 @@ const NOUNS = {
 "निशा": { type: "noun", meaning: "night", case: "Nom" },
 "भूतानाम्": { type: "noun", meaning: "of beings", case: "Gen" },
 "तस्याम्": { type: "noun", meaning: "in that", case: "Loc" },
+"तस्यां": { type: "noun", meaning: "in that", case: "Loc" },
 "यस्याम्": { type: "noun", meaning: "in which", case: "Loc" },
+"यस्यां": { type: "noun", meaning: "in which", case: "Loc" },
 "सा": { type: "noun", meaning: "she; that", case: "Nom" },
 "मुनेः": { type: "noun", meaning: "of the sage", case: "Gen" },
 "पुमान्": { type: "noun", meaning: "man; person", case: "Nom" },
@@ -752,7 +756,20 @@ const NOUNS = {
 "पुरुषस्य": { type: "noun", meaning: "of the person/man", case: "Gen" },
 "विपश्चितः": { type: "noun", meaning: "of the wise/discerning one", case: "Gen" },
 "प्रसभम्": { type: "noun", meaning: "forcibly; violently", case: "Acc" },
-"प्रसभं": { type: "noun", meaning: "forcibly; violently", case: "Acc" }
+"प्रसभं": { type: "noun", meaning: "forcibly; violently", case: "Acc" },
+"रसवर्जं": { type: "noun", meaning: "except taste; devoid of flavor", case: "Acc" },
+"समुद्रम्": { type: "noun", meaning: "ocean", case: "Acc" },
+"कामाः": { type: "noun", meaning: "desires", case: "Nom" },
+"यम्": { type: "noun", meaning: "whom", case: "Acc" },
+"कामी": { type: "noun", meaning: "desirer; one who desires", case: "Nom" },
+"ब्राह्मी": { type: "noun", meaning: "pertaining to Brahman; divine", case: "Nom" },
+"स्थितिः": { type: "noun", meaning: "state; condition", case: "Nom" },
+"अस्याम्": { type: "noun", meaning: "in this (feminine)", case: "Loc" },
+"अन्त": { type: "noun", meaning: "end", case: "Nom" },
+"काले": { type: "noun", meaning: "at the time", case: "Loc" },
+"ब्रह्म": { type: "noun", meaning: "Brahman", case: "Nom" },
+"निर्वाणम्": { type: "noun", meaning: "liberation; extinction", case: "Acc" },
+"एनाम्": { type: "noun", meaning: "this (fem.)", case: "Acc" }
 
 
 
@@ -979,13 +996,21 @@ const VERBS = {
 "वतिष्ठते": { type: "verb", meaning: "stands firmly", case: "" },
 "अभावयतः": { type: "verb", meaning: "of one who imagines", case: "" },
 "चरताम्": { type: "verb", meaning: "of those who move", case: "" },
+"चरतां": { type: "verb", meaning: "of those who move", case: "" },
 "अनुविधीयते": { type: "verb", meaning: "is followed", case: "" },
 "हरति": { type: "verb", meaning: "takes away", case: "" },
 "जागर्ति": { type: "verb", meaning: "keeps awake", case: "" },
 "जाग्रति": { type: "verb", meaning: "wake; remain awake", case: "" },
 "पश्यतः": { type: "verb", meaning: "of the one who sees", case: "" },
 "चरति": { type: "verb", meaning: "he moves; he acts", case: "" },
-"हरन्ति": { type: "verb", meaning: "they carry away; they seize", case: "" }
+"हरन्ति": { type: "verb", meaning: "they carry away; they seize", case: "" },
+"ध्यायतो": { type: "verb", meaning: "of one who meditates; while meditating", case: null },
+"पश्यतो": { type: "verb", meaning: "of one who sees; while seeing", case: null },
+"प्रविशन्ति": { type: "verb", meaning: "they enter", case: null },
+"आप्नोति": { type: "verb", meaning: "attains", case: null },
+"ऋच्छति": { type: "verb", meaning: "reaches; attains", case: null },
+"विमुह्यति": { type: "verb", meaning: "becomes deluded", case: null },
+"स्थित्वा": { type: "verb", meaning: "having stood; having remained", case: null }
 
 
 
@@ -1086,7 +1111,8 @@ const PRONOUNS = {
   "तया": { type: "pronoun", meaning: "by her / by that", case: "Inst" },
   "यावान्": { type: "pronoun", meaning: "as much as", case: "Nom" },
   "तावान्": { type: "pronoun", meaning: "so much", case: "Nom" },
-  "वादिनः": { type: "pronoun", meaning: "those who speak / the proponents", case: "Nom" }
+  "वादिनः": { type: "pronoun", meaning: "those who speak / the proponents", case: "Nom" },
+"यम्": { type: "pronoun", meaning: "whom", case: "Acc" } 
 
 
 
@@ -1259,7 +1285,12 @@ const ADJECTIVES = {
 "विधेय": { type: "adjective", meaning: "disciplined; obedient", case: "Nom" },
 "प्रसन्न": { type: "adjective", meaning: "clear; serene", case: "Nom" },
 "अयुक्तस्य": { type: "adjective", meaning: "of the unsteady", case: "Gen" },
-"प्रमाथीनि": { type: "adjective", meaning: "turbulent; agitating", case: "Nom" }
+"प्रमाथीनि": { type: "adjective", meaning: "turbulent; agitating", case: "Nom" },
+"संयमी": { type: "adjective", meaning: "self‑controlled; restrained", case: "Nom" },
+"अचल": { type: "adjective", meaning: "unmoving; steady", case: "Nom" },
+"प्रतिष्ठम्": { type: "adjective", meaning: "established; firm", case: "Acc" },
+"आपूर्यमाणम्": { type: "adjective", meaning: "being filled; ever‑filled", case: "Acc" },
+
 
 
 
@@ -1359,7 +1390,8 @@ const INDECLINABLES = {
 "निर्": { type: "indeclinable", meaning: "without; free from", case: "" },
 "यदा": { type: "indeclinable", meaning: "when", case: null },
 "यततः": { type: "indeclinable", meaning: "while striving", case: null },
-"यततो": { type: "indeclinable", meaning: "while striving", case: null }
+"यततो": { type: "indeclinable", meaning: "while striving", case: null },
+"वत्": { type: "indeclinable", meaning: "like; as", case: null }
 
 
 
