@@ -5,15 +5,38 @@ body {
   padding: 20px;
 }
 
-/* ⭐ FLEX ROW WRAPPER — strict 3-column layout */
+/* ⭐ Responsive layout wrapper */
 #layout-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px; /* desktop: 3 columns */
   gap: 20px;
-  height: 100vh;        /* full viewport height */
-  overflow: hidden;     /* prevent outer scroll */
+  height: 100vh;
+  overflow: hidden;
 }
+
+/* ⭐ Mobile collapse */
+@media (max-width: 900px) {
+  #layout-row {
+    grid-template-columns: 1fr; /* stack all blocks */
+    height: auto;               /* allow natural height */
+  }
+
+  #sidebar,
+  #case-panel {
+    width: 100%;
+    height: auto;
+    border: none;
+    padding: 10px 0;
+    overflow: visible;
+  }
+
+  #main-content {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+}
+
 
 /* ⭐ LEFT SIDEBAR — fixed width, stable */
 #sidebar {
@@ -154,11 +177,20 @@ body {
   margin: 2px 0;
 }
 
+/* ⭐ Responsive verse block layout */
 #two-column {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  justify-content: space-between;
 }
+
+/* ⭐ Mobile collapse */
+@media (max-width: 900px) {
+  #two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .column {
   width: 48%;
