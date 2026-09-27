@@ -178,7 +178,7 @@ function renderStotra(index) {
   document.getElementById("translation").innerHTML = renderSection(s.translation || "");
 
   document.getElementById("pageIndicator").innerText =
-    `Stotra ${index + 1} of ${chapterData.length}`;
+  `Stotra ${index + 1} of ${chapterData.length}`;
 
   document.getElementById("prevBtn").disabled = index === 0;
   document.getElementById("nextBtn").disabled = index === chapterData.length - 1;
@@ -443,7 +443,7 @@ function buildIndex() {
 
           li.onclick = (event) => {
             event.stopPropagation();
-            setChapter(chapter, chapter.name || "Chapter");
+            setChapter(chapter, chapter.name || "Chapter", chapter.number);
 			localStorage.setItem("lastChapter", chapter.name);
             let offset = 0;
             for (let gg = 0; gg < gIndex; gg++) {

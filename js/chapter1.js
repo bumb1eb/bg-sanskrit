@@ -1,4 +1,5 @@
 const CHAPTER_1 = {
+  number: 1,
   name: "Chapter 1",
   sandhi: window.SANDHI_CH1,
   groups: [

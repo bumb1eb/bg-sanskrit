@@ -157,17 +157,28 @@ body {
   margin-bottom: 1px;
   padding: 10px;
   min-height: 120px;
+
+  /* parchment background */
   background-image: url('../images/parchment.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  /* burnt-edge border */
   border: 1px solid transparent;
   border-image-source: url('../images/burnt-edge.png');
   border-image-slice: 30;
   border-image-repeat: round;
   border-radius: 10px;
   box-shadow: 0 0 18px rgba(0,0,0,0.25);
+
+  /* ⭐ NEW: vertical centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical centering */
+  align-items: center;        /* horizontal centering */
 }
+
 
 .section-divider {
   width: 100%;
@@ -300,8 +311,8 @@ body {
 
 .toggle-switch {
   position: relative;
-  width: 50px;  /* smaller track */
-  height: 22px; /* smaller track height */
+  width: 45px;  /* smaller track */
+  height: 20px; /* smaller track height */
 }
 
 .toggle-switch input {
@@ -364,12 +375,12 @@ input:checked + .slider:before {
 #translit.sanskrit-text,
 #translation.sanskrit-text {
   text-align: center !important;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.2;
   white-space: pre-line;
   word-break: break-word;
   padding: 10px 0;            /* match shloka-section vertical spacing */
-  margin-bottom: 15px;        /* match parchment block spacing */
+  margin-bottom: 35px;        /* match parchment block spacing */
 }
 
 /* ⭐ Parchment-like container for Sandhi/Translit/Translation */
