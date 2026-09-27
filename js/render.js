@@ -65,7 +65,7 @@ function renderSection(text) {
   return text
     .split("<br>")
     .map(line =>
-      line.replace(/\s+/g, " ").trim()
+      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks
           .split(" ")
           .map(w => renderWord(w.trim()))
           .join(" ")
@@ -80,14 +80,14 @@ function renderSandhiViched(text) {
 
   text = text
     .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/[ \t]+/g, " ");               // ⭐ preserve line breaks
 
   if (!text) return "";
 
   return text
     .split("<br>")
     .map(line =>
-      line.replace(/\s+/g, " ").trim()
+      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks
         .split(" ")
         .map(w => {
           const parts = w.split(/[-–—]|·/);
@@ -100,6 +100,7 @@ function renderSandhiViched(text) {
     .join("<br>");
 }
 
+
 /* -----------------------------------------------------------
    GLOBAL STATE
 ----------------------------------------------------------- */
@@ -110,7 +111,7 @@ let CURRENT_CHAPTER_NAME = CHAPTER_1.name || "Chapter 1";
 /* -----------------------------------------------------------
    DEBUG TOGGLE — hide/show missing-words button
 ----------------------------------------------------------- */
-const DEBUG = true; // change to true when needed
+const DEBUG = false; // change to true when needed
 
 const btn = document.getElementById("check-missing-btn");
 if (btn) {
