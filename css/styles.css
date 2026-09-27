@@ -303,7 +303,7 @@ body {
 #translation.sanskrit-text {
   text-align: center !important;
   font-size: 1.1rem;
-  line-height: 1.4;
+  line-height: 1.2;
   white-space: pre-line;
   word-break: break-word;
   padding: 10px 0;            /* match shloka-section vertical spacing */
