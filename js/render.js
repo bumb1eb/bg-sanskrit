@@ -62,10 +62,12 @@ function renderWord(rawWord) {
 function renderSection(text) {
   if (!text) return "";
 
+  text = text.replace(/^\s+/gm, "");   // ⭐ remove indentation
+
   return text
     .split("<br>")
     .map(line =>
-      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks 
+      line.replace(/[ \t]+/g, " ").trim()
           .split(" ")
           .map(w => renderWord(w.trim()))
           .join(" ")
@@ -73,21 +75,23 @@ function renderSection(text) {
     .join("<br>");
 }
 
+
 /* -----------------------------------------------------------
    SANDHI-VICHED RENDERER
 ----------------------------------------------------------- */
 function renderSandhiViched(text) {
 
   text = text
+    .replace(/^\s+/gm, "")             // ⭐ remove indentation
     .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/[ \t]+/g, " ");               // ⭐ preserve line breaks
+    .replace(/[ \t]+/g, " ");
 
   if (!text) return "";
 
   return text
     .split("<br>")
     .map(line =>
-      line.replace(/[ \t]+/g, " ").trim()   // ⭐ preserve line breaks
+      line.replace(/[ \t]+/g, " ").trim()
         .split(" ")
         .map(w => {
           const parts = w.split(/[-–—]|·/);
@@ -99,6 +103,7 @@ function renderSandhiViched(text) {
     )
     .join("<br>");
 }
+
 
 
 /* -----------------------------------------------------------

@@ -28,12 +28,12 @@ const CH2_71_72 = [
       स्थित्वास्यामन्तकालेऽपि ब्रह्मनिर्वाणमृच्छति ॥<br>
     `,
     sandhi: `
-      एषा ब्राह्मी स्थितिः पार्थ न एनाम् प्राप्य विमुह्यति।<br>
-      स्थित्वा·अस्याम् अन्त·काले अपि ब्रह्म·निर्वाणम् ऋच्छति॥<br>
+      एषा ब्राह्मी स्थितिः पार्थ न एनाम् प्राप्य विमुह्यति ।<br>
+      स्थित्वा·अस्याम् अन्त·काले अपि ब्रह्म·निर्वाणम् ऋच्छति ॥<br>
     `,
     translit: `
-      eṣā·brāhmī·sthitiḥ pārtha na enām prāpya vimuhyati।<br>
-      sthitvā·asyām anta·kāle api brahma·nirvāṇam ṛcchati॥<br>
+      eṣā·brāhmī·sthitiḥ pārtha na enām prāpya vimuhyati ।<br>
+      sthitvā·asyām anta·kāle api brahma·nirvāṇam ṛcchati ॥<br>
     `,
     translation: `
       This (is the) Brahmic state, O Pārtha; not having attained it, one is deluded;<br>
