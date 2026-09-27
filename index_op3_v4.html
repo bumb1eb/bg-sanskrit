@@ -14,7 +14,6 @@
 
     <!-- ⭐ LEFT SIDEBAR -->
     <div id="sidebar">
-      <!-- ⭐ INDEX CONTAINER -->
       <div id="index-container"></div>
     </div>
 
@@ -29,50 +28,48 @@
         <button id="nextBtn" onclick="changePage(1)">→</button>
       </div>
 
+      <!-- ⭐ SHLOKA (PARCHMENT) -->
       <div id="shloka-section">
         <div id="shloka" class="sanskrit-text stotra-text"></div>
       </div>
 
       <div class="section-divider"></div>
 
-      <div id="two-column">
+      <!-- ⭐ SINGLE COLUMN LAYOUT -->
+      <div id="single-column">
 
-        <!-- ⭐ COLUMN 1 — SANDHI -->
-        <div class="column">
-          <br>
-          <div class="section-title">संधि विच्छेद</div>
-
-          <!-- ⭐ WRAPPED SANDHI BLOCK -->
-          <div class="sanskrit-block">
-            <div id="sandhi" class="sanskrit-text"></div>
-          </div>
+        <!-- ⭐ SANDHI -->
+        <div class="section-title">संधि विच्छेद</div>
+        <div class="sanskrit-block">
+          <div id="sandhi" class="sanskrit-text"></div>
         </div>
 
-        <!-- ⭐ COLUMN 2 — TRANSLIT / TRANSLATION -->
-        <div class="column">
-          <br>
-          <div class="section-title" id="toggle-title">Transliteration</div>
+        <!-- ⭐ TRANSLITERATION / TRANSLATION -->
+        <div class="section-title toggle-wrapper">
+		  <span class="toggle-label-left">Transliteration</span>
 
-          <div id="toggle-buttons">
-            <button onclick="showTranslit()">Transliteration</button>
-            <button onclick="showTranslation()">Translation</button>
-          </div>
+		  <label class="toggle-switch">
+			<input type="checkbox" id="toggle-slider" onclick="toggleTT()" checked>
+			<span class="slider"></span>
+		  </label>
 
-          <!-- ⭐ WRAPPED TRANSLIT BLOCK -->
-          <div class="sanskrit-block">
-            <div id="translit" class="sanskrit-text"></div>
-          </div>
+		  <span class="toggle-label-right">Verbatim Translation</span>
+		</div>
 
-          <!-- ⭐ WRAPPED TRANSLATION BLOCK -->
-          <div class="sanskrit-block">
-            <div id="translation" class="sanskrit-text" style="display:none;"></div>
-          </div>
+
+
+
+        <div class="sanskrit-block">
+          <div id="translit" class="sanskrit-text" style="display:none;"></div>
         </div>
 
-      </div> <!-- end two-column -->
+        <div class="sanskrit-block">
+          <div id="translation" class="sanskrit-text"></div>
+        </div>
+
+      </div> <!-- end single-column -->
 
     </div> <!-- end main-content -->
-
 
     <!-- button to check words missing from the dictionary -->
     <button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
@@ -94,22 +91,16 @@
   </div>
 
   <!-- ⭐ Scripts -->
-
-  <!-- Global dictionary -->
   <script src="js/dict.js"></script>
-
-  <!-- Chapter 1-2 sandhi dictionary -->
   <script src="js/dict-sandhi_ch1.js"></script>
   <script src="js/dict-sandhi_ch2.js"></script>
-  
-  <!-- GROUP FILES -->
+
   <script src="js/ch1_01_10.js"></script>
   <script src="js/ch1_11_20.js"></script>
   <script src="js/ch1_21_30.js"></script>
   <script src="js/ch1_31_40.js"></script>
   <script src="js/ch1_41_47.js"></script>
 
-  <!-- CHAPTER 2 GROUP FILES -->
   <script src="js/ch2_01_10.js"></script>
   <script src="js/ch2_11_20.js"></script>
   <script src="js/ch2_21_30.js"></script>
@@ -118,15 +109,13 @@
   <script src="js/ch2_51_60.js"></script>
   <script src="js/ch2_61_70.js"></script>
   <script src="js/ch2_71_72.js"></script>
-  
-  <!-- CHAPTER OBJECTS -->
+
   <script src="js/chapter1.js"></script>
   <script src="js/chapter2.js"></script>
   <script src="js/chapter3.js"></script>
 
   <script src="js/dict_checker.js"></script>
 
-  <!-- RENDERER (MUST BE LAST) -->
   <script src="js/render.js?v=20240931"></script>
 
   <div id="meaningPopup" style="
