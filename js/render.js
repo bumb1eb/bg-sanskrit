@@ -108,6 +108,16 @@ let CURRENT_CHAPTER = CHAPTER_1;
 let CURRENT_CHAPTER_NAME = CHAPTER_1.name || "Chapter 1";
 
 /* -----------------------------------------------------------
+   DEBUG TOGGLE — hide/show missing-words button
+----------------------------------------------------------- */
+const DEBUG = false; // change to true when needed
+
+const btn = document.getElementById("check-missing-btn");
+if (btn) {
+  btn.style.display = DEBUG ? "inline-block" : "none";
+}
+
+/* -----------------------------------------------------------
    INDEX MAPPING
 ----------------------------------------------------------- */
 function getGlobalIndex(localIndex) {
