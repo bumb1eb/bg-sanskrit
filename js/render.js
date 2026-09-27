@@ -286,7 +286,26 @@ function jumpTo(index) {
   if (index < 0 || index >= chapterData.length) return;
   localStorage.setItem("lastVerse", index);
   renderStotra(index);
+  toggleTT();
 }
+
+// ⭐ Use to not persist the toggle and reset it to right side for each verse
+/* function jumpTo(index) {
+  const chapterData = getChapterData(CURRENT_CHAPTER);
+  if (index < 0 || index >= chapterData.length) return;
+
+  localStorage.setItem("lastVerse", index);
+  renderStotra(index);
+
+  // ⭐ Reset slider to ON for every new verse
+  const slider = document.getElementById("toggle-slider");
+  slider.checked = true;
+
+  // ⭐ Apply translation view
+  toggleTT();
+}
+ */
+
 
 function toggleTT() {
   const translit = document.getElementById("translit");

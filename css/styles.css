@@ -300,8 +300,8 @@ body {
 
 .toggle-switch {
   position: relative;
-  width: 50px;
-  height: 26px;
+  width: 50px;  /* smaller track */
+  height: 22px; /* smaller track height */
 }
 
 .toggle-switch input {
@@ -325,9 +325,9 @@ body {
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
+  height: 16px;     /* smaller knob */
+  width: 16px;      /* smaller knob */
+  left: 3px;        /* adjust for smaller sizeb */
   bottom: 3px;
   background-color: white;
   border-radius: 50%;
@@ -348,6 +348,7 @@ input:checked + .slider:before {
   justify-content: center;
   gap: 6px;
   margin-bottom: 6px;   /* match Sandhi title spacing */
+  font-weight: 700;      /* ⭐ bold headings */
 }
 
 .section-title {
@@ -363,7 +364,7 @@ input:checked + .slider:before {
 #translit.sanskrit-text,
 #translation.sanskrit-text {
   text-align: center !important;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   white-space: pre-line;
   word-break: break-word;
