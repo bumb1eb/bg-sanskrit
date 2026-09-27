@@ -191,9 +191,24 @@ body {
   }
 }
 
+/* ⭐ Desktop full-width for Sandhi/Translit/Translation */
+@media (min-width: 900px) {
+  #two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 .column {
   width: 48%;
+  text-align: center;
+}
+
+/* ⭐ Center-align Sandhi, Transliteration, Translation */
+#sandhi,
+#translit,
+#translation {
   text-align: center;
 }
 
@@ -202,6 +217,7 @@ body {
   margin-bottom: 6px;
   text-decoration: underline;
 }
+
 
 /* ⭐ Collapsible chapter styling */
 .chapter-header {
