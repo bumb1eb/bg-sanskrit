@@ -296,3 +296,12 @@ body {
   font-size: 0.85rem;
   cursor: pointer;
 }
+
+/* ⭐ Force center alignment inside Sanskrit blocks */
+#sandhi.sanskrit-text,
+#translit.sanskrit-text,
+#translation.sanskrit-text {
+  text-align: center !important;
+  white-space: pre-line;
+  word-break: break-word;
+}
