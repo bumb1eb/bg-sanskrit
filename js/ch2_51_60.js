@@ -16,7 +16,7 @@ const CH2_51_60 = [
     `,
     translation: `
       Born from activity, endowed with understanding indeed, fruit (of action) having abandoned, wise men ;<br>
-      Birth‑bondage freed from, they go to the state free from affliction. <br>
+      (Re-)birth‑bondage freed from, they go to the state free from affliction. <br>
     `
   },
 
@@ -36,8 +36,8 @@ const CH2_51_60 = [
       tadā gantāsi nirvedam śrotavyasya śrutasya ca॥<br>
     `,
     translation: `
-      When your understanding crosses beyond the tangle of delusion;<br>
-      Then you will become indifferent to what is heard and what is yet to be heard. <br>
+      When your, delusion tangle, wisdom crosses ;<br>
+      Then you will go (become) indifferent of what is heard and of what is yet to be heard. <br>
     `
   },
 
@@ -57,8 +57,8 @@ const CH2_51_60 = [
       samādhau acalā buddhiḥ tadā yogam avāpsyasi॥<br>
     `,
     translation: `
-      When your understanding, confused by scripture, stands unmoving;<br>
-      Then, in meditation, your steady mind will attain yoga. <br>
+      Opposite of what is heard, your (wisdom) when stands unmoving;<br>
+      In meditation, unmoving wisdom, then yoga you will attain. <br>
     `
   },
 
@@ -82,8 +82,8 @@ const CH2_51_60 = [
     `,
     translation: `
       Arjuna spoke:<br>
-      What is the speech of the one of steady wisdom, O Keśava, who is established in meditation?<br>
-      How does the steady‑minded one speak, sit, and move? <br>
+      Of the one of steady wisdom, what definition, of (one who is) meditation-established, O Keśava? <br>
+      Steady‑minded, how one speaks, how one sits, how one goes about? <br>
     `
   },
 
@@ -106,9 +106,9 @@ const CH2_51_60 = [
       ātmani eva ātmanā tuṣṭaḥ sthita·prajñaḥ tadā ucyate॥<br>
     `,
     translation: `
-      The Blessed Lord spoke:<br>
-      When one abandons all desires arising in the mind, O Pārtha;<br>
-      And is satisfied in the Self alone by the Self—then he is called steady in wisdom. <br>
+      The Lord spoke:<br>
+      One abandons when desires all, O Pārtha, arising in the mind;<br>
+      In the self indeed by the self contended/satisfied, steady in wisdom then he is said to be. <br>
     `
   },
 
@@ -128,8 +128,8 @@ const CH2_51_60 = [
       vīta·rāga·bhaya·krodhaḥ sthita·dhīḥ muniḥ ucyate॥<br>
     `,
     translation: `
-      One whose mind is undisturbed in sorrow, free from longing in pleasure;<br>
-      Free from attachment, fear, and anger—such a sage is called steady in wisdom. <br>
+      In sorrow/misery, (one who is) undisturbed-minded, in happiness/pleasure (one who is) free from desire;<br>
+      Disappeared (freed of) passion, fear, anger, steady of wisdom, a sage he is said to be. <br>
     `
   },
 
@@ -149,8 +149,8 @@ const CH2_51_60 = [
       na abhinandati na dveṣṭi tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
-      He who is unattached everywhere, encountering good or evil;<br>
-      Neither rejoices nor hates—his wisdom is firmly established. <br>
+      He who is everywhere unattached, after obtaining, pleasant or unpleaseant;<br>
+      Neither rejoices nor hates — his wisdom is firmly established. <br>
     `
   },
 
@@ -170,8 +170,8 @@ const CH2_51_60 = [
       indriyāṇi indriya·arthebhyaḥ tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
-      When, like a tortoise withdrawing its limbs, he withdraws his senses from objects;<br>
-      His wisdom is firmly established. <br>
+     And when, withdraws tortoise-limbs like, completely;<br>
+     (All) senses from sense objects, his wisdom is firmly established. <br>
     `
   },
 
@@ -180,19 +180,19 @@ const CH2_51_60 = [
     title: "श्लोक 59",
     shloka: `
       विषया विनिवर्तन्ते निराहारस्य देहिनः।<br>
-      रसोऽप्यस्य परं दृष्ट्वा निवर्तते ॥<br>
+      रसवर्जं रसोऽप्यस्य परं दृष्ट्वा निवर्तते ॥<br>
     `,
     sandhi: `
       विषया विनिवर्तन्ते निराहारस्य देहिनः।<br>
-      रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
+      रस.वर्जं रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
     `,
     translit: `
       viṣayāḥ vinivartante nirāhārasya dehinaḥ।<br>
-      rasaḥ api asya param dṛṣṭvā nivartate॥<br>
+      rasaḥ.varjam rasaḥ api asya param dṛṣṭvā nivartate॥<br>
     `,
     translation: `
-      Sense‑objects withdraw from one who abstains from them;<br>
-      But the taste remains—yet seeing the Supreme, it too withdraws. <br>
+      Sense‑objects stop to act, of the one who abstains, the embodied soul;<br>
+      Taste excluded, taste also his, the highest/supreme having seen, it stops. <br>
     `
   },
 
@@ -212,8 +212,8 @@ const CH2_51_60 = [
       indriyāṇi pramāthīni haranti prasabham manaḥ॥<br>
     `,
     translation: `
-      Even for the striving, O son of Kuntī, for the wise man;<br>
-      The turbulent senses forcibly carry away the mind. <br>
+      Of the one striving indeed even, O son of Kuntī, of a person of wisdom;<br>
+      The senses (that are) turbulent, seize/remove forcibly the mind. <br>
     `
   }
 ];

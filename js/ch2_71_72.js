@@ -15,8 +15,8 @@ const CH2_71_72 = [
       nir·mamaḥ nir·ahaṅkāraḥ saḥ śāntim adhigacchati॥<br>
     `,
     translation: `
-      Having abandoned all desires, the man moves about without longing;<br>
-      Without possessiveness, without ego—he attains peace. <br>
+      Abandoning desires who all, the man goes about free from longing;<br>
+      Without possessiveness, without ego — he peace attains. <br>
     `
   },
 
@@ -36,7 +36,7 @@ const CH2_71_72 = [
       sthitvā·asyām anta·kāle api brahma·nirvāṇam ṛcchati॥<br>
     `,
     translation: `
-      This is the Brahmic state, O Pārtha; having attained it, one is not deluded;<br>
+      This (is the) Brahmic state, O Pārtha; not having attained it, one is deluded;<br>
       Established in it even at the end‑time, one reaches Brahma‑nirvāṇa. <br>
     `
   }

@@ -184,7 +184,7 @@ const CH2_31_40 = [
     buddhyā yuktaḥ yayā pārtha karma·bandham prahāsyasi॥<br>
   `,
   translation: `
-    This (to) you spoken in Sāṅkhya (philisophy of knowledge); in Buddhi (wisdom) Yog you now listen;<br>
+    This (to) you spoken in Sāṅkhya (philisophy of knowledge); in Buddhi (wisdom/insight) Yog you now listen;<br>
     In wisdom endowed with, by which Partha (Arjun), action-bondage you will be released from. <br>
   `
 },

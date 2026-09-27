@@ -15,8 +15,8 @@ const CH2_61_70 = [
       vaśe hi yasya indriyāṇi tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
-      Restraining all of them, disciplined, devoted to Me;<br>
-      For whose senses are under control—his wisdom is firmly established. <br>
+      Them all restraining steadfast he should sit, devoted to Me;<br>
+      Under control indeed whose senses, his wisdom is firmly established. <br>
     `
   },
 
@@ -36,7 +36,7 @@ const CH2_61_70 = [
       saṅgāt sañjāyate kāmaḥ kāmāt krodhaḥ abhijāyate॥<br>
     `,
     translation: `
-      Thinking of objects, attachment arises in a man;<br>
+      Dwelling on sense-objects, for man, attachment in them arises;<br>
       From attachment comes desire; from desire, anger is born. <br>
     `
   },
@@ -78,8 +78,8 @@ const CH2_61_70 = [
       ātma·vaśyaiḥ vidheya·ātmā prasādam adhigacchati॥<br>
     `,
     translation: `
-      Moving among objects with senses free from attraction and aversion;<br>
-      Self‑controlled, disciplined—the self attains serenity. <br>
+      Passion and hate eliminated, but sense-objects with the senses engaging;<br>
+      Self‑restrained, controlled (by the) self, peace/satisfaction/serenity he attains. <br>
     `
   },
 
@@ -99,8 +99,8 @@ const CH2_61_70 = [
       prasanna·cetasaḥ hi āśu buddhiḥ parya·vatiṣṭhate॥<br>
     `,
     translation: `
-      In serenity, the destruction of all sorrows arises for him;<br>
-      For the serene‑minded, understanding quickly becomes steady. <br>
+      In peace/satisfaction/serenity, (of) all sorrows destruction, his takes place;<br>
+      Of the serene‑minded indeed, quickly wisdom/intellience becomes steady. <br>
     `
   },
 
@@ -120,8 +120,8 @@ const CH2_61_70 = [
       na ca abhāvayataḥ śāntiḥ aśāntasya kutaḥ sukham॥<br>
     `,
     translation: `
-      There is no understanding for the undisciplined, nor is there meditation;<br>
-      For one without meditation, there is no peace; and for the unpeaceful, how can there be happiness. <br>
+      Not there is wisdom/intelligence of the unsteady in yoga, and not of the unsteady in yoga (has) concentration;<br>
+      And not of the non-concentrating peace/tranquility, of the unpeaceful where from happiness/joy. <br>
     `
   },
 
@@ -141,8 +141,8 @@ const CH2_61_70 = [
       tat asya harati prajñām vāyuḥ nāvam iva ambhasi॥<br>
     `,
     translation: `
-      For the senses that roam, if the mind follows them;<br>
-      It carries away his understanding, as wind carries a boat on water. <br>
+      Of the senses indeed roaming, when the mind is guided (to);<br>
+      That his carries away wisdom/intellience, (as if) the wind a boat like on water. <br>
     `
   },
 
@@ -162,8 +162,8 @@ const CH2_61_70 = [
       indriyāṇi indriya·arthebhyaḥ tasya prajñā pratiṣṭhitā॥<br>
     `,
     translation: `
-      Therefore, O mighty‑armed, whose senses are restrained in every way;<br>
-      His wisdom is firmly established. <br>
+      Therefore, he who, O mighty‑armed (Arjuna), restrained in every way;<br>
+      The senses from the sense-objects, his wisdom/intelligence is firmly established. <br>
     `
   },
 
@@ -183,8 +183,8 @@ const CH2_61_70 = [
       yasyām jāgrati bhūtāni sā niśā paśyataḥ muneḥ॥<br>
     `,
     translation: `
-      What is night for all beings, therein the disciplined one is awake;<br>
-      Where beings are awake, that is night for the sage who sees. <br>
+      What is night of all beings, therein is awake one who is the self-controlled; <br>
+      That in which are awake all beings, that (is) night of the perceiving sage. <br>
     `
   },
 
@@ -204,8 +204,8 @@ const CH2_61_70 = [
       tat·vat kāmāḥ yam praviśanti sarve saḥ śāntim āpnoti na kāma·kāmī॥<br>
     `,
     translation: `
-      As waters enter the ever‑full, unmoving ocean;<br>
-      So all desires enter him—he attains peace, not the desire‑driven. <br>
+      Becoming filled (is) unmoved, stable the ocean, waters they enter as;<br>
+      So all desires whom they enter, all he peace achieves, not (he who is) desire‑driven. <br>
     `
   }
 ];

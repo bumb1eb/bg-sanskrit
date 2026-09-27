@@ -120,8 +120,8 @@ const CH2_41_50 = [
       tāvān·sarveṣu vedeṣu brāhmaṇasya vijānataḥ॥<br>
     `,
     translation: `
-      As much as (there is) meaning in a well (when) everywhere flooded by water;<br>
-      In the same way in all the Vedas, (there is meaning) in knowing of the Brahmana. <br>
+      As much as (there is) meaning in a well, (compared to) everywhere in over-flowing water (great lake) ;<br>
+      In the same way in all the Vedas, (compared to) of the Brahmana knowing (self-knowing). <br>
     `
   },
 
@@ -184,7 +184,7 @@ const CH2_41_50 = [
     `,
     translation: `
       By far indeed inferior (is) action from the yoga of intelligence, O Dhanañjaya (Arjuna);<br>
-      In understanding refuge seek — wretched (are) those fruit-motivated. <br>
+      In understanding refuge seek — wretched (are those) fruit-motivated. <br>
     `
   },
 
