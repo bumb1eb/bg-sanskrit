@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Sanskrit Webpage</title>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20240931">
 </head>
 
 <body>
@@ -36,11 +36,19 @@
       <div class="section-divider"></div>
 
       <div id="two-column">
+
+        <!-- ⭐ COLUMN 1 — SANDHI -->
         <div class="column">
-          <br><div class="section-title">संधि विच्छेद</div>
-          <div id="sandhi" class="sanskrit-text"></div>
+          <br>
+          <div class="section-title">संधि विच्छेद</div>
+
+          <!-- ⭐ WRAPPED SANDHI BLOCK -->
+          <div class="sanskrit-block">
+            <div id="sandhi" class="sanskrit-text"></div>
+          </div>
         </div>
 
+        <!-- ⭐ COLUMN 2 — TRANSLIT / TRANSLATION -->
         <div class="column">
           <br>
           <div class="section-title" id="toggle-title">Transliteration</div>
@@ -50,17 +58,24 @@
             <button onclick="showTranslation()">Translation</button>
           </div>
 
-          <div id="translit" class="sanskrit-text"></div>
-          <div id="translation" class="sanskrit-text" style="display:none;"></div>
+          <!-- ⭐ WRAPPED TRANSLIT BLOCK -->
+          <div class="sanskrit-block">
+            <div id="translit" class="sanskrit-text"></div>
+          </div>
+
+          <!-- ⭐ WRAPPED TRANSLATION BLOCK -->
+          <div class="sanskrit-block">
+            <div id="translation" class="sanskrit-text" style="display:none;"></div>
+          </div>
         </div>
-      </div>
+
+      </div> <!-- end two-column -->
 
     </div> <!-- end main-content -->
 
 
-	<!-- button to check words missing from the dictionary -->
-	<button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
-
+    <!-- button to check words missing from the dictionary -->
+    <button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
 
     <!-- ⭐ RIGHT CASE PANEL -->
     <div id="case-panel"></div>
@@ -87,45 +102,45 @@
   <script src="js/dict-sandhi_ch1.js"></script>
   <script src="js/dict-sandhi_ch2.js"></script>
   
-	<!-- GROUP FILES -->
-	<script src="js/ch1_01_10.js"></script>
-	<script src="js/ch1_11_20.js"></script>
-	<script src="js/ch1_21_30.js"></script>
-	<script src="js/ch1_31_40.js"></script>
-	<script src="js/ch1_41_47.js"></script>
-	<!-- CHAPTER 2 GROUP FILES -->
-	<script src="js/ch2_01_10.js"></script>
-	<script src="js/ch2_11_20.js"></script>
-	<script src="js/ch2_21_30.js"></script>
-	<script src="js/ch2_31_40.js"></script>
-	<script src="js/ch2_41_50.js"></script>
-	<script src="js/ch2_51_60.js"></script>
-	<script src="js/ch2_61_70.js"></script>
-	<script src="js/ch2_71_72.js"></script>
-	
-	<!-- CHAPTER OBJECTS -->
-	<script src="js/chapter1.js"></script>
-	<script src="js/chapter2.js"></script>
-	<script src="js/chapter3.js"></script>
+  <!-- GROUP FILES -->
+  <script src="js/ch1_01_10.js"></script>
+  <script src="js/ch1_11_20.js"></script>
+  <script src="js/ch1_21_30.js"></script>
+  <script src="js/ch1_31_40.js"></script>
+  <script src="js/ch1_41_47.js"></script>
 
-	<script src="js/dict_checker.js"></script>
+  <!-- CHAPTER 2 GROUP FILES -->
+  <script src="js/ch2_01_10.js"></script>
+  <script src="js/ch2_11_20.js"></script>
+  <script src="js/ch2_21_30.js"></script>
+  <script src="js/ch2_31_40.js"></script>
+  <script src="js/ch2_41_50.js"></script>
+  <script src="js/ch2_51_60.js"></script>
+  <script src="js/ch2_61_70.js"></script>
+  <script src="js/ch2_71_72.js"></script>
+  
+  <!-- CHAPTER OBJECTS -->
+  <script src="js/chapter1.js"></script>
+  <script src="js/chapter2.js"></script>
+  <script src="js/chapter3.js"></script>
 
-	<!-- RENDERER (MUST BE LAST) -->
-	<script src="js/render.js"></script>
+  <script src="js/dict_checker.js"></script>
 
-<div id="meaningPopup" style="
-  position: absolute;
-  background: #fff8dc;
-  border: 1px solid #c9a86a;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 18px;
-  display: none;
-  max-width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 9999;
-"></div>
+  <!-- RENDERER (MUST BE LAST) -->
+  <script src="js/render.js?v=20240931"></script>
 
+  <div id="meaningPopup" style="
+    position: absolute;
+    background: #fff8dc;
+    border: 1px solid #c9a86a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    display: none;
+    max-width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+  "></div>
 
 </body>
 </html>

@@ -309,3 +309,11 @@ body {
   padding: 10px 0;            /* match shloka-section vertical spacing */
   margin-bottom: 20px;        /* match parchment block spacing */
 }
+
+/* ⭐ Parchment-like container for Sandhi/Translit/Translation */
+.sanskrit-block {
+  width: 100%;
+  padding: 10px 0;
+  margin: 0 auto;
+  text-align: center;
+}
