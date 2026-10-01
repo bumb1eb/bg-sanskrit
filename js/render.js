@@ -104,6 +104,62 @@ function renderSandhiViched(text) {
     .join("<br>");
 }
 
+/* -----------------------------------------------------------
+   MAP SANDHI → TRANSLIT (inherit color + meaning)
+----------------------------------------------------------- */
+function mapSandhiToTranslit(sandhiLine, translitLine, DICT) {
+
+  // Split helper: space OR middle dot
+  const splitWords = line =>
+    line
+      .replace(/[|।॥]/g, "")        // remove danda etc.
+      .replace(/[\u200B-\u200D\uFEFF]/g, "")
+      .split(/[\s·]+/)              // split on space or middle dot
+      .filter(w => w.trim().length > 0);
+
+  const sandhiWords = splitWords(sandhiLine);
+  const translitWords = splitWords(translitLine);
+
+  const result = [];
+
+  for (let i = 0; i < translitWords.length; i++) {
+
+    const sandhiWord = sandhiWords[i];
+    const translitWord = translitWords[i];
+
+    let dictEntry = null;
+
+    if (sandhiWord && DICT[sandhiWord]) {
+      dictEntry = DICT[sandhiWord];
+    }
+
+    if (dictEntry) {
+      const cls = dictEntry.type || "";
+      const meaning = dictEntry.meaning || "";
+      result.push(
+        `<span class="${cls}" title="${meaning}">${translitWord}</span>`
+      );
+    } else {
+      result.push(`<span>${translitWord}</span>`);
+    }
+  }
+
+  return result.join(" ");
+}
+
+/* -----------------------------------------------------------
+   TRANSLIT RENDERER (mapped)
+----------------------------------------------------------- */
+function renderTranslitMapped(sandhiText, translitText) {
+  return translitText
+    .replace(/^\s+/gm, "")
+    .split("<br>")
+    .map((line, idx) => {
+      const sandhiLine = sandhiText.split("<br>")[idx] || "";
+      return mapSandhiToTranslit(sandhiLine, line, DICT);
+    })
+    .join("<br>");
+}
 
 
 /* -----------------------------------------------------------
@@ -174,7 +230,7 @@ function renderStotra(index) {
 
   document.getElementById("shloka").innerHTML = renderSection(s.shloka);
   document.getElementById("sandhi").innerHTML = renderSandhiViched(s.sandhi);
-  document.getElementById("translit").innerHTML = renderSection(s.translit);
+  document.getElementById("translit").innerHTML = renderTranslitMapped(s.sandhi, s.translit);
   document.getElementById("translation").innerHTML = renderSection(s.translation || "");
 
   document.getElementById("pageIndicator").innerText =

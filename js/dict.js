@@ -15,7 +15,7 @@ const NOUNS = {
   "पाण्डवः": { type: "noun", meaning: "Pandava", case: "Nominative (1st)" },
   "अनीकम्": { type: "noun", meaning: "army", case: "Accusative (2nd)" },
   "सञ्जय": { type: "noun", meaning: "Sanjaya", case: "Vocative (8th)" },
-  "पाण्डवानीकं": { type: "noun", meaning: "Pandava army", case: "Accusative (2nd)" },
+/*  "पाण्डवानीकं": { type: "noun", meaning: "Pandava army", case: "Accusative (2nd)" },*/
   "दुर्योधनः": { type: "noun", meaning: "Duryodhana", case: "Nominative (1st)" },
   "आचार्यम्": { type: "noun", meaning: "teacher", case: "Accusative (2nd)" },
   "राजा": { type: "noun", meaning: "king", case: "Nominative (1st)" },

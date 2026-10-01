@@ -184,11 +184,11 @@ const CH2_51_60 = [
     `,
     sandhi: `
       विषया विनिवर्तन्ते निराहारस्य देहिनः।<br>
-      रस.वर्जं रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
+      रसवर्जं रसः अपि अस्य परम् दृष्ट्वा निवर्तते॥<br>
     `,
     translit: `
       viṣayāḥ vinivartante nirāhārasya dehinaḥ।<br>
-      rasaḥ.varjam rasaḥ api asya param dṛṣṭvā nivartate॥<br>
+      rasaḥvarjam rasaḥ api asya param dṛṣṭvā nivartate॥<br>
     `,
     translation: `
       Sense‑objects stop to act, of the one who abstains, the embodied soul;<br>

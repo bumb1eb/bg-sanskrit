@@ -106,7 +106,7 @@
 	  const result = checkMissingWords(
 		chapterData,
 		DICT,
-		CURRENT_CHAPTER.sandhi || {}
+		SANDHI
 	  );
 
 	  console.log("🔍 Missing words report:");
