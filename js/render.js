@@ -363,25 +363,20 @@ function jumpTo(index) {
  */
 
 
-function toggleTT() {
+function toggleSandhiTranslit() {
+  const sandhi = document.getElementById("sandhi");
   const translit = document.getElementById("translit");
-  const translation = document.getElementById("translation");
   const slider = document.getElementById("toggle-slider");
 
   if (slider.checked) {
-    // Show translation text
-    translation.style.display = "block";
-
-    // Hide transliteration text ONLY (not the wrapper)
-    translit.style.display = "none";
-  } else {
-    // Show transliteration text
     translit.style.display = "block";
-
-    // Hide translation text ONLY
-    translation.style.display = "none";
+    sandhi.style.display = "none";
+  } else {
+    translit.style.display = "none";
+    sandhi.style.display = "block";
   }
 }
+
 
 
 
