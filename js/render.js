@@ -1,5 +1,13 @@
 // js/render.js
 
+// Use real chapter objects as the source of truth
+window.CHAPTERS = [
+  CHAPTER_1,
+  CHAPTER_2,
+  CHAPTER_3
+];
+
+
 function normalizeSanskrit(str) {
   return str
     .normalize("NFC")
@@ -37,17 +45,14 @@ function getChapterData(chapter) {
 function lookupDict(rawWord) {
   const key = getLookupKey(rawWord);
 
-  // 1. Try normal dictionary
   if (window.DICT && window.DICT[key]) return window.DICT[key];
-
-  // 2. Try sandhi dictionary
   if (window.SANDHI && window.SANDHI[key]) return window.SANDHI[key];
 
   return null;
 }
 
 /* -----------------------------------------------------------
-   SHLOKA RENDERER (gradient)
+   SHLOKA RENDERER
 ----------------------------------------------------------- */
 function renderWord(rawWord) {
   const info = lookupDict(rawWord) || {};
@@ -62,7 +67,7 @@ function renderWord(rawWord) {
 function renderSection(text) {
   if (!text) return "";
 
-  text = text.replace(/^\s+/gm, "");   // ⭐ remove indentation
+  text = text.replace(/^\s+/gm, "");
 
   return text
     .split("<br>")
@@ -75,14 +80,13 @@ function renderSection(text) {
     .join("<br>");
 }
 
-
 /* -----------------------------------------------------------
    SANDHI-VICHED RENDERER
 ----------------------------------------------------------- */
 function renderSandhiViched(text) {
 
   text = text
-    .replace(/^\s+/gm, "")             // ⭐ remove indentation
+    .replace(/^\s+/gm, "")
     .replace(/[\u200B-\u200D\uFEFF]/g, "")
     .replace(/[ \t]+/g, " ");
 
@@ -105,16 +109,15 @@ function renderSandhiViched(text) {
 }
 
 /* -----------------------------------------------------------
-   MAP SANDHI → TRANSLIT (inherit color + meaning)
+   MAP SANDHI → TRANSLIT
 ----------------------------------------------------------- */
 function mapSandhiToTranslit(sandhiLine, translitLine, DICT) {
 
-  // Split helper: space OR middle dot
   const splitWords = line =>
     line
-      .replace(/[|।॥]/g, "")        // remove danda etc.
+      .replace(/[|।॥]/g, "")
       .replace(/[\u200B-\u200D\uFEFF]/g, "")
-      .split(/[\s·]+/)              // split on space or middle dot
+      .split(/[\s·]+/)
       .filter(w => w.trim().length > 0);
 
   const sandhiWords = splitWords(sandhiLine);
@@ -148,7 +151,7 @@ function mapSandhiToTranslit(sandhiLine, translitLine, DICT) {
 }
 
 /* -----------------------------------------------------------
-   TRANSLIT RENDERER (mapped)
+   TRANSLIT RENDERER
 ----------------------------------------------------------- */
 function renderTranslitMapped(sandhiText, translitText) {
   return translitText
@@ -161,7 +164,6 @@ function renderTranslitMapped(sandhiText, translitText) {
     .join("<br>");
 }
 
-
 /* -----------------------------------------------------------
    GLOBAL STATE
 ----------------------------------------------------------- */
@@ -170,9 +172,9 @@ let CURRENT_CHAPTER = CHAPTER_1;
 let CURRENT_CHAPTER_NAME = CHAPTER_1.name || "Chapter 1";
 
 /* -----------------------------------------------------------
-   DEBUG TOGGLE — hide/show missing-words button
+   DEBUG TOGGLE
 ----------------------------------------------------------- */
-const DEBUG = false; // change to true when needed
+const DEBUG = false;
 
 const btn = document.getElementById("check-missing-btn");
 if (btn) {
@@ -201,20 +203,19 @@ function setChapter(chapterObj, chapterName = "Current Chapter") {
   CURRENT_CHAPTER_NAME = chapterName;
   currentIndex = 0;
 
-  // ✅ Rebuild SANDHI for this chapter only
   if (CURRENT_CHAPTER.sandhi) {
     loadChapterSandhi(CURRENT_CHAPTER.sandhi);
   } else {
     window.SANDHI = {};
   }
 
-  document.getElementById("shloka").innerHTML = "";
-  document.getElementById("sandhi").innerHTML = "";
-  document.getElementById("translit").innerHTML = "";
-  document.getElementById("translation").innerHTML = "";
-  document.getElementById("case-panel").innerHTML = "";
+  // ⭐ DO NOT clear the content panel
+  // The verse on screen must remain visible until user clicks a verse
 
-  renderStotra(0);
+  // Save current active chapter to localStorage
+  localStorage.setItem("lastChapter", CURRENT_CHAPTER_NAME);
+
+  // ⭐ DO NOT auto-jump, auto-highlight, auto-expand, or collapse anything
 }
 
 
@@ -243,7 +244,7 @@ function renderStotra(index) {
 }
 
 /* -----------------------------------------------------------
-   CASE PANEL — WITH CASE NAME NORMALIZATION
+   CASE PANEL
 ----------------------------------------------------------- */
 function renderCasePanel(index) {
   const chapterData = getChapterData(CURRENT_CHAPTER);
@@ -306,21 +307,6 @@ function renderCasePanel(index) {
 }
 
 /* -----------------------------------------------------------
-   UI TOGGLES
------------------------------------------------------------ */
-function showTranslit() {
-  document.getElementById("translit").style.display = "block";
-  document.getElementById("translation").style.display = "none";
-  document.getElementById("toggle-title").innerText = "Transliteration";
-}
-
-function showTranslation() {
-  document.getElementById("translit").style.display = "none";
-  document.getElementById("translation").style.display = "block";
-  document.getElementById("toggle-title").innerText = "Verbatim Translation";
-}
-
-/* -----------------------------------------------------------
    PAGE NAVIGATION
 ----------------------------------------------------------- */
 function changePage(dir) {
@@ -332,37 +318,63 @@ function changePage(dir) {
 
   currentIndex = newIndex;
 
-  // ⭐ Use jumpTo so the verse is saved
   jumpTo(newIndex);
 }
 
-
+/* -----------------------------------------------------------
+   FIXED jumpTo() — NO toggleTT()
+----------------------------------------------------------- */
 function jumpTo(index) {
   const chapterData = getChapterData(CURRENT_CHAPTER);
   if (index < 0 || index >= chapterData.length) return;
-  localStorage.setItem("lastVerse", index);
-  renderStotra(index);
-  toggleTT();
-}
-
-// ⭐ Use to not persist the toggle and reset it to right side for each verse
-/* function jumpTo(index) {
-  const chapterData = getChapterData(CURRENT_CHAPTER);
-  if (index < 0 || index >= chapterData.length) return;
 
   localStorage.setItem("lastVerse", index);
   renderStotra(index);
 
-  // ⭐ Reset slider to ON for every new verse
+  // ⭐ Reset slider
   const slider = document.getElementById("toggle-slider");
-  slider.checked = true;
+  slider.checked = false;
+  toggleSandhiTranslit();
 
-  // ⭐ Apply translation view
-  toggleTT();
+  // ⭐ Highlight active verse in index
+  highlightActiveVerse(index);
+  expandGroupForVerse(index + 1);
+
 }
- */
+
+function highlightActiveVerse(index) {
+  const verseNumber = index + 1;
+
+  // Find the chapter-block whose header matches CURRENT_CHAPTER.name
+  const chapterBlocks = document.querySelectorAll(".chapter-block");
+  let currentBlock = null;
+
+  chapterBlocks.forEach(block => {
+    const header = block.querySelector(".chapter-header span:nth-child(2)");
+    if (header && header.textContent.trim() === CURRENT_CHAPTER.name.trim()) {
+      currentBlock = block;
+    }
+  });
+
+  if (!currentBlock) return;
+
+  // Remove highlight ONLY inside the current chapter
+  currentBlock.querySelectorAll("ul.verses li")
+    .forEach(li => li.classList.remove("active-verse"));
+
+  // Highlight the correct verse inside the current chapter
+  const target = currentBlock.querySelector(`ul.verses li[data-verse="${verseNumber}"]`);
+  if (target) {
+    target.classList.add("active-verse");
+  }
+}
 
 
+
+
+/* -----------------------------------------------------------
+   NEW Sandhi ↔ Transliteration toggle
+----------------------------------------------------------- */
 function toggleSandhiTranslit() {
   const sandhi = document.getElementById("sandhi");
   const translit = document.getElementById("translit");
@@ -377,173 +389,181 @@ function toggleSandhiTranslit() {
   }
 }
 
-
-
-
-
-
-
 /* -----------------------------------------------------------
    CHAPTER INDEX UI
 ----------------------------------------------------------- */
-function toggleChapter(headerEl) {
-  const chapterBlock = headerEl.parentElement;
-  const body = chapterBlock.querySelector(".chapter-body");
-  if (!body) return;
+function toggleChapter(header) {
+  const chapterBlock = header.parentElement;
+  const chapterBody = chapterBlock.querySelector(".chapter-body");
+  const icon = header.querySelector(".toggle-icon");
 
-  const isOpen = body.style.display === "block";
-  body.style.display = isOpen ? "none" : "block";
+  // Identify which chapter this header belongs to
+  const chapterName = header.querySelector("span:not(.toggle-icon)").textContent.trim();
+  const chapterIndex = window.CHAPTERS.findIndex(ch => ch.name === chapterName);
 
-  const icon = headerEl.querySelector(".toggle-icon");
-  if (icon) icon.textContent = isOpen ? "+" : "–";
+  if (chapterIndex !== -1 && CURRENT_CHAPTER !== window.CHAPTERS[chapterIndex]) {
+    // ⭐ Formally switch the chapter state and reload Chapter data
+    setChapter(window.CHAPTERS[chapterIndex], chapterName);
+  }
 
-  // ⭐ SAVE CHAPTER STATE
-  const chapterName = headerEl.querySelector(".chapter-title").textContent;
+  // Collapse all other chapters
+  document.querySelectorAll(".chapter-body").forEach(body => {
+    if (body !== chapterBody) body.style.display = "none";
+  });
+  document.querySelectorAll(".chapter-header .toggle-icon").forEach(ic => {
+    if (ic !== icon) ic.textContent = "▶";
+  });
 
-  let chapterState = JSON.parse(localStorage.getItem("chapterState") || "{}");
-  chapterState[chapterName] = !isOpen;   // true = open
-  localStorage.setItem("chapterState", JSON.stringify(chapterState));
+  // Toggle selected chapter body display
+  if (chapterBody.style.display === "none") {
+    chapterBody.style.display = "block";
+    icon.textContent = "▼";
+  } else {
+    chapterBody.style.display = "none";
+    icon.textContent = "▶";
+  }
 }
 
 
+/* -----------------------------------------------------------
+   BUILD INDEX (SAFE VERSION)
+----------------------------------------------------------- */
 function buildIndex() {
+  console.log("CHAPTERS in buildIndex:", window.CHAPTERS);
   const container = document.getElementById("index-container");
-  if (!container) return;
-
   container.innerHTML = "";
 
-  const chapters = [CHAPTER_1, CHAPTER_2, CHAPTER_3];
+  const chapters = window.CHAPTERS || [];
 
-  chapters.forEach((chapter) => {
-    if (!chapter) return;
+  chapters.forEach((chapter, cIndex) => {
 
     const chapterBlock = document.createElement("div");
     chapterBlock.className = "chapter-block";
 
-    const header = document.createElement("div");
-    header.className = "chapter-header";
+    const chapterHeader = document.createElement("div");
+    chapterHeader.className = "chapter-header";
 
-    const icon = document.createElement("span");
-    icon.className = "toggle-icon";
-    icon.textContent = "+";
-    icon.onclick = (event) => {
-      event.stopPropagation();
-      toggleChapter(header);
-    };
+    const chapterIcon = document.createElement("span");
+    chapterIcon.className = "toggle-icon";
+    chapterIcon.textContent = "▶";
 
-    const title = document.createElement("span");
-    title.className = "chapter-title";
-    title.textContent = chapter.name || "Chapter";
-    title.onclick = (event) => {
-      event.stopPropagation();
-      toggleChapter(header);
-    };
+    const chapterTitle = document.createElement("span");
+    chapterTitle.textContent = chapter.name || `Chapter ${cIndex + 1}`;
 
-    header.appendChild(icon);
-    header.appendChild(title);
-    chapterBlock.appendChild(header);
+    chapterHeader.appendChild(chapterIcon);
+    chapterHeader.appendChild(chapterTitle);
 
-    const body = document.createElement("div");
-    body.className = "chapter-body";
-    body.style.display = "none";
-	// ⭐ RESTORE CHAPTER STATE
-	const chapterState = JSON.parse(localStorage.getItem("chapterState") || "{}");
-	if (chapterState[chapter.name]) {
-	  body.style.display = "block";
-	  icon.textContent = "–";
-	}
+    chapterHeader.onclick = () => toggleChapter(chapterHeader);
 
+    chapterBlock.appendChild(chapterHeader);
 
-    if (chapter.groups && Array.isArray(chapter.groups)) {
-      chapter.groups.forEach((group, gIndex) => {
-        const groupHeader = document.createElement("div");
-        groupHeader.className = "group-header";
-        groupHeader.textContent = group.label || `Group ${gIndex + 1}`;
+    const chapterBody = document.createElement("div");
+    chapterBody.className = "chapter-body";
+    chapterBody.style.display = "none";
 
-        const ul = document.createElement("ul");
-        ul.className = "verses";
-        ul.style.display = "none";
-		// ⭐ RESTORE GROUP STATE
-		const groupState = JSON.parse(localStorage.getItem("groupState") || "{}");
-		if (groupState[chapter.name] && groupState[chapter.name][gIndex]) {
-		  ul.style.display = "block";
-		}
+    const groups = chapter.groups || [];
 
+    groups.forEach((group, gIndex) => {
 
-        groupHeader.onclick = (event) => {
-		  event.stopPropagation();
-		  const isOpen = ul.style.display === "block";
-		  ul.style.display = isOpen ? "none" : "block";
+      const groupHeader = document.createElement("div");
+      groupHeader.className = "group-header";
 
-		  // ⭐ SAVE GROUP STATE
-		  const chapterName = chapter.name;
-		  let groupState = JSON.parse(localStorage.getItem("groupState") || "{}");
+      const groupIcon = document.createElement("span");
+      groupIcon.className = "toggle-icon";
+      groupIcon.textContent = "▶";
 
-		  if (!groupState[chapterName]) groupState[chapterName] = {};
-		  groupState[chapterName][gIndex] = !isOpen;   // true = open
+      const groupTitle = document.createElement("span");
+      groupTitle.textContent = group.label || `Group ${gIndex + 1}`;
 
-		  localStorage.setItem("groupState", JSON.stringify(groupState));
-		};
+      groupHeader.appendChild(groupIcon);
+      groupHeader.appendChild(groupTitle);
 
-
-        const data = group.data || [];
-        for (let v = 0; v < data.length; v++) {
-          const li = document.createElement("li");
-          const verse = data[v];
-          li.textContent = verse.title || `Verse ${verse.id || (v + 1)}`;
-
-          li.onclick = (event) => {
-            event.stopPropagation();
-            setChapter(chapter, chapter.name || "Chapter", chapter.number);
-			localStorage.setItem("lastChapter", chapter.name);
-            let offset = 0;
-            for (let gg = 0; gg < gIndex; gg++) {
-              offset += (chapter.groups[gg].data || []).length;
-            }
-            const flatIndex = offset + v;
-            jumpTo(flatIndex);
-          };
-
-          ul.appendChild(li);
-        }
-
-        body.appendChild(groupHeader);
-        body.appendChild(ul);
-      });
-
-    } else {
-      const data = getChapterData(chapter);
       const ul = document.createElement("ul");
       ul.className = "verses";
       ul.style.display = "none";
 
-      for (let i = 0; i < data.length; i++) {
-        const li = document.createElement("li");
-        const verse = data[i];
-        li.textContent = verse.title || `Verse ${verse.id || (i + 1)}`;
+      const verseObjects = group.data || [];
 
-        li.onclick = (event) => {
-          event.stopPropagation();
-          setChapter(chapter, chapter.name || "Chapter");
-          jumpTo(i);
-        };
-
-        ul.appendChild(li);
+      // ⭐ store range on the header for auto-expand logic
+      if (verseObjects.length > 0) {
+        groupHeader.dataset.start = verseObjects[0].id;
+        groupHeader.dataset.end = verseObjects[verseObjects.length - 1].id;
       }
 
-      body.appendChild(ul);
-    }
+      verseObjects.forEach((verseObj) => {
+        const li = document.createElement("li");
+        li.textContent = `Verse ${verseObj.id}`;
+        li.setAttribute("data-verse", verseObj.id);
+        li.onclick = (event) => {
+		  event.stopPropagation();              // prevent collapsing the group
+		  expandGroupForVerse(verseObj.id);     // ensure correct group is open
+		  jumpTo(verseObj.id - 1);              // load the verse (0-based index)
+		};
+        ul.appendChild(li);
+      });
 
-    chapterBlock.appendChild(body);
+      groupHeader.onclick = (event) => {
+        event.stopPropagation();
+        toggleGroup(groupHeader, ul);
+      };
+
+      chapterBody.appendChild(groupHeader);
+      chapterBody.appendChild(ul);
+    });
+
+    chapterBlock.appendChild(chapterBody);
     container.appendChild(chapterBlock);
   });
 }
 
-// === MOBILE TAP HANDLER: POPUP ABOVE TAPPED WORD ===
+function toggleGroup(groupHeader, ul) {
+  const icon = groupHeader.querySelector(".toggle-icon");
+  const isOpen = ul.style.display === "block";
+  ul.style.display = isOpen ? "none" : "block";
+  icon.textContent = isOpen ? "▶" : "▼";
+}
+
+
+function expandGroupForVerse(verseNumber) {
+  // Find active chapter block in sidebar to prevent cross-chapter matching
+  const chapterBlocks = document.querySelectorAll("#sidebar .chapter-block");
+  let activeChapterBlock = null;
+
+  chapterBlocks.forEach(block => {
+    const title = block.querySelector(".chapter-header span:not(.toggle-icon)").textContent.trim();
+    if (title === CURRENT_CHAPTER_NAME) {
+      activeChapterBlock = block;
+    }
+  });
+
+  const scope = activeChapterBlock || document;
+  const headers = scope.querySelectorAll(".group-header");
+
+  headers.forEach(header => {
+    const start = parseInt(header.dataset.start, 10);
+    const end = parseInt(header.dataset.end, 10);
+    const body = header.nextElementSibling; // <ul> after group header
+    const icon = header.querySelector(".toggle-icon");
+
+    if (!body || isNaN(start) || isNaN(end)) return;
+
+    if (verseNumber >= start && verseNumber <= end) {
+      body.style.display = "block";
+      if (icon) icon.textContent = "▼";
+    } else {
+      body.style.display = "none";
+      if (icon) icon.textContent = "▶";
+    }
+  });
+}
+
+
+/* -----------------------------------------------------------
+   MOBILE TAP HANDLER
+----------------------------------------------------------- */
 document.addEventListener("click", function (e) {
   const popup = document.getElementById("meaningPopup");
 
-  // Allow sandhi words too
   const isWord =
     e.target.classList.contains("noun") ||
     e.target.classList.contains("verb") ||
@@ -552,13 +572,11 @@ document.addEventListener("click", function (e) {
     e.target.classList.contains("indeclinable") ||
     e.target.classList.contains("sandhi");
 
-  // If tap is NOT on a Sanskrit word → hide popup
   if (!isWord) {
     popup.style.display = "none";
     return;
   }
 
-  // Get meaning from title or data-sandhi
   const meaning =
     e.target.getAttribute("title") ||
     e.target.getAttribute("data-sandhi");
@@ -567,7 +585,6 @@ document.addEventListener("click", function (e) {
 
   popup.innerText = meaning;
 
-  // Position popup ABOVE the tapped word
   const rect = e.target.getBoundingClientRect();
   const scrollY = window.scrollY || window.pageYOffset;
 
@@ -577,30 +594,31 @@ document.addEventListener("click", function (e) {
   popup.style.display = "block";
 });
 
-
-// === PAGE INITIALIZATION ===
+/* -----------------------------------------------------------
+   PAGE INITIALIZATION
+----------------------------------------------------------- */
 window.onload = () => {
+  window.CHAPTERS = [CHAPTER_1, CHAPTER_2, CHAPTER_3];  
+  
+  console.log("CHAPTERS used in buildIndex:", window.CHAPTERS);
+  
   buildIndex();
 
   const lastChapter = localStorage.getItem("lastChapter");
   const lastVerse = localStorage.getItem("lastVerse");
 
-  // ⭐ Map chapter names to objects
   const chapterMap = {
     "Chapter 1": CHAPTER_1,
     "Chapter 2": CHAPTER_2,
     "Chapter 3": CHAPTER_3
   };
 
-  // ⭐ Restore chapter (fallback = Chapter 1)
   const chapterObj = chapterMap[lastChapter] || CHAPTER_1;
   setChapter(chapterObj, chapterObj.name);
 
-  // ⭐ Restore verse
   if (lastVerse !== null) {
     jumpTo(parseInt(lastVerse));
   } else {
     jumpTo(0);
   }
 };
-

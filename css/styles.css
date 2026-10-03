@@ -40,9 +40,9 @@ body {
 
 /* ⭐ LEFT SIDEBAR — fixed width, stable */
 #sidebar {
-  width: 180px;
+  width: 150px;
   flex-shrink: 0;         /* never shrink */
-  padding-right: 20px;
+  padding-right: 10px;
   border-right: 2px solid #d4af37;
 
   height: 100vh;
@@ -88,12 +88,12 @@ body {
 /* GRAMMATICAL COLORING */
 /* --------------------------------------------- */
 
-.noun { color: #2f6fb1; font-weight: 600; }
-.verb { color: #b91c1c; font-weight: 600; }
+.noun { color: #2f6fb1; font-weight: 550; }
+.verb { color: #b91c1c; font-weight: 550; }
 
-.adjective { color: #0b7d3b; font-weight: 600; }
-.pronoun { color: #8b008b; font-weight: 600; }
-.indeclinable { color: #cc8400; font-weight: 600; }
+.adjective { color: #0b7d3b; font-weight: 550; }
+.pronoun { color: #8b008b; font-weight: 550; }
+.indeclinable { color: #cc8400; font-weight: 550; }
 
 #shloka .noun, #sandhi .noun, #translit .noun { color: #2f6fb1 !important; }
 #shloka .verb, #sandhi .verb, #translit .verb { color: #b91c1c !important; }
@@ -116,7 +116,7 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
+  font-weight: 550; /* weight of sandhi words in parchment section*/
 }
 
 #shloka .sandhi {
@@ -221,6 +221,7 @@ body {
 #translit,
 #translation {
   text-align: center;
+  font-weight: 400; /*font size for the text under title 'verbatim tranlsation' */
 }
 
 .section-title {
@@ -228,6 +229,13 @@ body {
   margin-bottom: 3px;
   text-decoration: underline;
 }
+
+/* #display-mode-label {
+  font-size: 16px;
+  margin-bottom: 6px;
+  opacity: 0.75;
+  text-align: center;
+} */
 
 
 /* ⭐ Collapsible chapter styling */
@@ -239,23 +247,10 @@ body {
   margin-bottom: 5px;
 }
 
-.toggle-icon {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  margin-right: 6px;
-  border: 1px solid #b8860b;
-  border-radius: 3px;
-  text-align: center;
-  line-height: 16px;
-  font-size: 14px;
-  color: #b8860b;
-  background-color: #fff8e1;
-}
 
 /* ⭐ Chapter block + grouped index */
 .chapter-block {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .chapter-body {
@@ -268,18 +263,6 @@ body {
   margin: 4px 0;
 }
 
-/* ⭐ Dynamic index verse items */
-.verses {
-  margin-top: 5px;
-  padding-left: 15px;
-}
-
-.verses li {
-  cursor: pointer;
-  padding: 4px 0;
-  color: #444;
-  text-decoration: underline;
-}
 
 .verses li:hover {
   color: #b8860b;
@@ -381,6 +364,7 @@ input:checked + .slider:before {
   word-break: break-word;
   padding: 10px 0;            /* match shloka-section vertical spacing */
   margin-bottom: 35px;        /* match parchment block spacing */
+  font-weight: 400;
 }
 
 /* ⭐ Parchment-like container for Sandhi/Translit/Translation */
@@ -389,4 +373,92 @@ input:checked + .slider:before {
   padding: 0;
   margin: 0 auto;
   text-align: center;
+}
+
+/* --------------------------------------------- */
+/* ⭐ SIDEBAR TREE-VIEW UPGRADE */
+/* --------------------------------------------- */
+
+/* Remove bullets from verse lists */
+#sidebar ul.verses {
+  list-style: disc;
+  padding-left: 2;
+  margin-left: 2;
+}
+
+/* Verse items */
+#sidebar ul.verses li {
+  padding: 4px 4px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+#sidebar ul.verses li:hover {
+  background: #f0e6d2;
+}
+
+/* Chapter headers */
+.chapter-header {
+  cursor: pointer;
+  padding: 4px 4px;
+  margin: 4px 0:
+  font-size: 16px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+/* Group headers */
+.group-header {
+  cursor: pointer;
+  padding: 4px 8px;
+  margin: 4px 0 2px 0;
+  font-weight: normal;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.chapter-header:hover {
+  background: #e8dcc0;
+}
+
+.group-header:hover {
+  background: #e8dcc0;
+}
+
+
+/* Arrow icons */
+.toggle-icon {
+  font-size: 18px;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* ⭐ Highlight the active verse in the index */
+#sidebar ul.verses li.active-verse {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #b8860b;   /* optional: golden highlight */
+}
+
+
+/* ⭐ Unified index typography */
+.chapter-header,
+.group-header,
+#sidebar ul.verses li {
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
+#sidebar ul.verses li.active-verse {
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  color: #b8860b !important;
 }
