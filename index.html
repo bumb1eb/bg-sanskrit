@@ -1,140 +1,78 @@
 <!DOCTYPE html>
-<html lang="sa">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sanskrit Webpage</title>
+  <title>Sanskrit Text Explorer</title>
 
-  <link rel="stylesheet" href="css/styles.css?v=20240931">
+  <!-- Landing page stylesheet -->
+  <link rel="stylesheet" href="css/landing.css">
 </head>
 
 <body>
 
-  <!-- ⭐ FLEX ROW WRAPPER (sidebar + main-content + case-panel) -->
-  <div id="layout-row" style="display:flex; flex-direction:row; align-items:flex-start; gap:20px;">
+  <div id="landing-container">
 
-    <!-- ⭐ LEFT SIDEBAR -->
-    <div id="sidebar">
-      <div id="index-container"></div>
+    <h1>Sanskrit Text Explorer</h1>
+
+    <p>
+      Welcome to the Sanskrit Text Explorer — a tool designed for readers who are 
+      <strong>not familiar with Sanskrit or Devanagari</strong>, but want to explore classical texts 
+      with clarity, structure, and guided grammatical breakdowns.
+    </p>
+
+    <h2>What this tool does</h2>
+    <ul>
+      <li>Shows Devanagari text with transliteration</li>
+      <li>Breaks down compounds (sandhi) word-by-word</li>
+      <li>Highlights nouns, verbs, pronouns, adjectives, indeclinables</li>
+      <li>Shows case information for each word</li>
+      <li>Lets you explore verse-by-verse with grammar toggles</li>
+    </ul>
+
+    <h2>Available Texts</h2>
+
+	<div class="text-links">
+
+	  <div class="text-entry">
+		<span class="text-title">Śrī Bhagavad Gītā</span>
+
+		<span class="text-actions">
+		  – 
+		  <a href="gita/index_gita.html"
+			 onclick="localStorage.removeItem('lastVerse'); localStorage.removeItem('lastChapter');">
+			 Start from the Beginning
+		  </a>
+
+		  –
+		  <a href="gita/index_gita.html">
+			 Resume from Last Verse
+		  </a>
+		</span>
+
+		<div id="resume-info" class="resume-info"></div>
+	  </div>
+
+	</div>
+
+    <!-- Future texts -->
+    <!--
+    <div class="text-links">
+      <a href="upanishads/index_upanishads.html">Upanishads Explorer</a>
+      <a href="yogasutra/index_yogasūtra.html">Yoga Sutras Explorer</a>
     </div>
+    -->
 
-    <!-- ⭐ MAIN CONTENT -->
-    <div id="main-content">
-
-      <h1 style="text-align: center;">श्रीमद् भागवद् गीता</h1>
-
-      <div class="nav-inline">
-        <button id="prevBtn" onclick="changePage(-1)">←</button>
-        <div id="pageIndicator"></div>
-        <button id="nextBtn" onclick="changePage(1)">→</button>
-      </div>
-
-      <!-- ⭐ SHLOKA (PARCHMENT) -->
-      <div id="shloka-section">
-        <div id="shloka" class="sanskrit-text stotra-text"></div>
-      </div>
-
-      <div class="section-divider"></div>
-
-      <!-- ⭐ SINGLE COLUMN LAYOUT -->
-      <div id="single-column">
-
-        <!-- ⭐ Display label -->
-		<!-- <div id="display-mode-label">
-			<strong>Display:</strong>
-		</div> -->	
-		
-		<!-- ⭐ SANDHI / TRANSLIT TOGGLE -->
-        <div class="section-title toggle-wrapper">
-
-          <span class="toggle-label-left"><b>Compound-split verse</b></span>
-
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-slider" onclick="toggleSandhiTranslit()">
-            <span class="slider"></span>
-          </label>
-
-          <span class="toggle-label-right"><b>Transliteration</b></span>
-
-        </div>
-
-        <div class="sanskrit-block">
-          <div id="sandhi" class="sanskrit-text"></div>
-        </div>
-
-        <div class="sanskrit-block">
-          <div id="translit" class="sanskrit-text" style="display:none;"></div>
-        </div>
-
-        <!-- ⭐ VERBATIM TRANSLATION (always visible) -->
-        <div class="section-title"><b>Verbatim Translation</b></div>
-
-		<div class="sanskrit-block">
-          <div id="translation" class="sanskrit-text"></div>
-        </div>
-
-      </div> <!-- end single-column -->
-
-    </div> <!-- end main-content -->
-
-    <!-- button to check words missing from the dictionary -->
-    <button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
-
-    <!-- ⭐ RIGHT CASE PANEL -->
-    <div id="case-panel"></div>
-
-  </div> <!-- end layout-row -->
-
-  <!-- ⭐ COLOR LEGEND -->
-  <div id="color-legend">
-    Colors legend:
-    <span class="noun">Nouns</span>,
-    <span class="verb">Verbs</span>,
-    <span class="pronoun">Pronouns</span>,
-    <span class="adjective">Adjectives</span>,
-    <span class="indeclinable">Indeclinable</span>,
-    <span class="sandhi">Sandhi-words</span>
   </div>
 
-  <!-- ⭐ Scripts -->
-  <script src="js/dict.js"></script>
-  <script src="js/dict-sandhi_ch1.js"></script>
-  <script src="js/dict-sandhi_ch2.js"></script>
+  <script>
+    const lastChapter = localStorage.getItem('lastChapter');
+    const lastVerse = localStorage.getItem('lastVerse');
 
-  <script src="js/ch1_01_10.js"></script>
-  <script src="js/ch1_11_20.js"></script>
-  <script src="js/ch1_21_30.js"></script>
-  <script src="js/ch1_31_40.js"></script>
-  <script src="js/ch1_41_47.js"></script>
-
-  <script src="js/ch2_01_10.js"></script>
-  <script src="js/ch2_11_20.js"></script>
-  <script src="js/ch2_21_30.js"></script>
-  <script src="js/ch2_31_40.js"></script>
-  <script src="js/ch2_41_50.js"></script>
-  <script src="js/ch2_51_60.js"></script>
-  <script src="js/ch2_61_70.js"></script>
-  <script src="js/ch2_71_72.js"></script>
-
-  <script src="js/chapter1.js"></script>
-  <script src="js/chapter2.js"></script>
-  <script src="js/chapter3.js"></script>
-
-  <script src="js/dict_checker.js"></script>
-
-  <script src="js/render.js"></script>
-
-  <div id="meaningPopup" style="
-    position: absolute;
-    background: #fff8dc;
-    border: 1px solid #c9a86a;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 18px;
-    display: none;
-    max-width: 200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 9999;
-  "></div>
+    if (lastChapter && lastVerse !== null) {
+      document.getElementById('resume-info').innerText =
+        `Last visited: ${lastChapter}, Verse ${parseInt(lastVerse) + 1}`;
+    }
+  </script>
 
 </body>
 </html>

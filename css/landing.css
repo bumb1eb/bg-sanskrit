@@ -1,0 +1,86 @@
+/* --------------------------------------------- */
+/* LANDING PAGE — Sanskrit Explorer               */
+/* --------------------------------------------- */
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f9f4e8; /* parchment tone */
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Centered container */
+#landing-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #fffdf7;
+  border: 2px solid #d4af37; /* gold border */
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
+
+/* Headings */
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #8b5e00; /* deep gold-brown */
+}
+
+h2 {
+  margin-top: 30px;
+  color: #6a4a00;
+}
+
+/* Paragraphs */
+p {
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* List styling */
+ul {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------- */
+/* TEXT ENTRY (Śrī Bhagavad Gītā line)           */
+/* --------------------------------------------- */
+
+.text-entry {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.text-title {
+  font-weight: 600;
+  color: #6a4a00; /* deep gold-brown */
+  font-size: 20px;
+}
+
+.text-actions {
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.text-actions a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 6px;
+}
+
+.text-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Resume info text */
+.resume-info {
+  margin-top: 6px;
+  color: #555;
+  font-style: italic;
+  font-size: 16px;
+}
