@@ -154,26 +154,26 @@ const CH1_01_10 = [
     `
   },
 
-  {
-    id: 8,
-    title: "श्लोक 8",
-    shloka: `
-    भवान्भीष्मश्च कर्णश्च कृपश्च समितिंजयः।<br>
-    अश्वत्थामा विकर्णश्च सौमदत्तिस्तथैव च ॥<br>
-    `,
-    sandhi: `
-    भवान् भीष्मः च कर्णः च कृपः च समितिंजयः।<br>
-    अश्वत्थामा विकर्णः च सौमदत्तिः तथा एव च ॥<br>
-    `,
-    translit: `
-    bhavān bhīṣmaḥ ca karṇaḥ ca kṛpaḥ ca samitiñjayaḥ ।<br>
-    aśvatthāmā vikarṇaḥ ca saumadattiḥ tathā eva ca ॥<br>
-    `,
-    translation: `
-    You and Bhishma and Karna and Kripah and Samitinjayah, <br>
-	Ashvathama and Vikarna and Saumadattih, likewise indeed. <br>
-    `
-  },
+{
+  id: 8,
+  title: "श्लोक 8",
+  shloka: `
+भवान्भीष्मश्च कर्णश्च कृपश्च समितिंजयः।<br>
+अश्वत्थामा विकर्णश्च सौमदत्तिस्तथैव च ॥<br>
+`,
+  sandhi: `
+भवान् भीष्मः च कर्णः च कृपः च समितिंजयः।<br>
+अश्वत्थामा विकर्णः च सौमदत्तिः तथा एव च ॥<br>
+`,
+  translit: `
+bhavān bhīṣmaḥ ca karṇaḥ ca kṛpaḥ ca samitiñjayaḥ।<br>
+aśvatthāmā vikarṇaḥ ca saumadattiḥ tathā eva ca॥<br>
+`,
+  translation: `
+You and Bhishma and Karna and Kripah and Samitinjayah,<br>
+Ashvathama and Vikarna and Saumadattih, likewise indeed.<br>
+`
+},
 
   {
     id: 9,

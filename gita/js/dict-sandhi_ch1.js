@@ -5,7 +5,7 @@ window.SANDHI_CH1 = {
 },
 
 2: {
-  "पाण्डवानीकं": { type: "sandhi", meaning: "पाण्डव + अनीकम् = Pandava army", case: "Accusative (2nd)" },
+  "पाण्डवानीकं": { type: "sandhi", meaning: "पाण्डवः + अनीकम् = Pandava army", case: "Accusative (2nd)" },
   "आचार्यमुपसङ्गम्य": { type: "sandhi", meaning: "आचार्यम् + उपसङ्गम्य = approaching the teacher", case: "Accusative (2nd)" },
   "दुर्योधनस्तदा": { type: "sandhi", meaning: "दुर्योधनः + तदा = Duryodhana then", case: "Nominative (1st)" },
   "वचनमब्रवीत्": { type: "sandhi", meaning: "वचनम् + अब्रवीत् = spoke the words", case: "Accusative (2nd)" }

@@ -1426,16 +1426,29 @@ window.DICT = {
 // Ensure your sandhi files define:  window.SANDHI = { ... }
 
 function loadChapterSandhi(chapterSandhi) {
-  // Clear previous chapter’s sandhi
   window.SANDHI = {};
 
   Object.keys(chapterSandhi).forEach(verseNum => {
     const entries = chapterSandhi[verseNum];
+
     Object.keys(entries).forEach(word => {
-      window.SANDHI[word] = entries[word];
+      const entry = entries[word];
+
+      // ⭐ NEW: detect true sandhi compounds
+      const isCompound =
+        (Array.isArray(entry.meaning) && entry.meaning.length > 1) ||
+        (typeof entry.meaning === "string" && entry.meaning.includes("+")) ||
+        (Array.isArray(entry.split) && entry.split.length > 1);
+
+      // ⭐ Add flag
+      window.SANDHI[word] = {
+        ...entry,
+        isCompound
+      };
     });
   });
 }
+
 
 
 

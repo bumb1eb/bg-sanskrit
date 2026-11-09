@@ -4,70 +4,133 @@
   <meta charset="UTF-8">
   <title>Sanskrit Webpage</title>
 
+  <!-- Main stylesheet for the Sanskrit Explorer -->
   <link rel="stylesheet" href="css/styles.css?v=20240931">
 </head>
 
 <body>
 
-<!-- ⭐ OUTER GOLDEN FRAME -->
+<!-- ============================================================
+     OUTER GOLDEN FRAME — visual container for the entire layout
+     ============================================================ -->
 <div id="outer-frame">
 
-  <!-- ⭐ FLEX ROW WRAPPER (sidebar + main-content + case-panel) -->
+  <!-- ============================================================
+       MAIN 3-COLUMN LAYOUT (Sidebar | Main Content | Grammar Panel)
+       JS modules rely on these IDs for rendering and toggling.
+       ============================================================ -->
   <div id="layout-row" style="display:flex; flex-direction:row; align-items:flex-start; gap:20px;">
 
-    <!-- ⭐ LEFT SIDEBAR -->
+    <!-- ============================================================
+         LEFT SIDEBAR — chapter/verse navigation
+         Filled by render.js → buildSidebar()
+         ============================================================ -->
     <div id="sidebar">
       <div id="index-container"></div>
     </div>
 
-	<div class="vertical-separator"></div>
+    <div class="vertical-separator"></div>
 
-    <!-- ⭐ MAIN CONTENT -->
+    <!-- ============================================================
+         MAIN CONTENT — all Sanskrit layers (shloka, sandhi, translit)
+         ============================================================ -->
     <div id="main-content">
 
+      <!-- Title of the text -->
       <h1 style="text-align: center;">श्रीमद् भागवद् गीता</h1>
 
+      <!-- Navigation arrows + verse indicator -->
       <div class="nav-inline">
-		<button id="prevBtn" onclick="changePage(-1)" class="nav-arrow">←</button>
-		<span id="pageIndicator" class="stotra-title"></span>
-		<button id="nextBtn" onclick="changePage(1)" class="nav-arrow">→</button>
-	  </div>
+        <button id="prevBtn" onclick="changePage(-1)" class="nav-arrow">←</button>
+        <span id="pageIndicator" class="stotra-title"></span>
+        <button id="nextBtn" onclick="changePage(1)" class="nav-arrow">→</button>
+      </div>
 
-
-      <!-- ⭐ SHLOKA (PARCHMENT) -->
+      <!-- ============================================================
+           SHLOKA SECTION (Layer 1 — Original Sanskrit)
+           No grammar coloring, no dictionary meanings.
+           ============================================================ -->
       <div id="shloka-section">
         <div id="shloka" class="sanskrit-text stotra-text"></div>
       </div>
 
       <div class="section-divider"></div>
 
-      <!-- ⭐ SINGLE COLUMN LAYOUT -->
+      <!-- ============================================================
+           SINGLE COLUMN LAYOUT — contains all analytical layers
+           ============================================================ -->
       <div id="single-column">
 
-        <div class="section-title toggle-wrapper">
-          <span class="toggle-label-left"><b>Compound-split verse</b></span>
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-slider" onclick="toggleSandhiTranslit()">
-            <span class="slider"></span>
-          </label>
-          <span class="toggle-label-right"><b>Transliteration</b></span>
+        <!-- ============================================================
+             SANDHI + TRANSLIT WRAPPER (Layer 2)
+             Controlled by toggle-slider (sandhi/translit switch)
+             Used by animations.js for typing + underline animations
+             ============================================================ -->
+        <div id="sandhi-translit-wrapper" style="display:none;">
+
+          <!-- Sandhi/Translit toggle switch -->
+          <div class="section-title toggle-wrapper">
+            <span class="toggle-label-left"><b>Compound-split verse</b></span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-slider" onchange="toggleSlider()">
+              <span class="slider"></span>
+            </label>
+            <span class="toggle-label-right"><b>Transliteration</b></span>
+          </div>
+
+          <!-- Sandhi (split Sanskrit) -->
+          <div class="sanskrit-block">
+            <div id="sandhi" class="sanskrit-text"></div>
+          </div>
+
+          <!-- Transliteration -->
+          <div class="sanskrit-block">
+            <div id="translit" class="sanskrit-text"></div>
+          </div>
+
+        </div>
+		
+		<!-- ============================================================
+        PHRASE GROUPS (Layer 2 — Analytical Sanskrit)
+        Controlled by toggle-phrase-groups (viewModes.js)
+        ============================================================ -->
+        <div id="phrase-groups-wrapper" style="display:none;">
+          <div class="section-title"><b>Phrase Groups</b></div>
+          <div class="sanskrit-block">
+            <div id="phrase-groups" class="sanskrit-text"></div>
+          </div>
         </div>
 
-        <div class="sanskrit-block">
-          <div id="sandhi" class="sanskrit-text"></div>
+        <!-- ============================================================
+        MEANING ORDER (Layer 2 — Analytical Sanskrit)
+        Controlled by toggle-meaning-order (viewModes.js)
+        ============================================================ -->
+        <div id="meaning-order-wrapper" style="display:none;">
+          <div class="section-title"><b>Meaning Order</b></div>
+          <div class="sanskrit-block">
+            <div id="meaning-order" class="sanskrit-text"></div>
+          </div>
         </div>
 
-        <div class="sanskrit-block">
-          <div id="translit" class="sanskrit-text" style="display:none;"></div>
+
+
+		
+        <!-- ============================================================
+             VERBATIM TRANSLATION (Layer 3 — English)
+             Controlled by toggle-translation (viewModes.js)
+             ============================================================ -->
+        <div id="translation-wrapper" style="display:none;">
+          <div class="section-title"><b>Verbatim Translation</b></div>
+          <div class="sanskrit-block">
+            <div id="translation" class="sanskrit-text"></div>
+          </div>
         </div>
 
-        <div class="section-title"><b>Verbatim Translation</b></div>
-
-        <div class="sanskrit-block">
-          <div id="translation" class="sanskrit-text"></div>
-        </div>
-
-        <div id="cases-wrapper">
+        <!-- ============================================================
+             CASES BELOW (Layer 2 — Analytical Sanskrit)
+             Filled by grammar.js + dictionary.js
+             ============================================================ -->
+        <div id="cases-wrapper" style="display:none;">
           <div class="section-title"><b>Cases in this Shloka</b></div>
           <div class="sanskrit-block">
             <div id="cases-below" class="sanskrit-text"></div>
@@ -78,17 +141,26 @@
 
     </div> <!-- end main-content -->
 
-    <!-- button to check words missing from the dictionary -->
-    <button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
-
 	<div class="vertical-separator"></div>
 
-    <!-- ⭐ RIGHT CASE PANEL -->
+    <!-- ============================================================
+         RIGHT CASE PANEL — Grammar Toggles
+         Group A: View Modes
+         Group B: Grammar Coloring
+         ============================================================ -->
     <div id="case-panel">
 
       <h3>Grammar Options</h3>
 
       <div id="grammar-options">
+
+        <!-- Group A — View Mode Toggles -->
+        <label><input type="checkbox" id="toggle-sandhi"> Separate joined words</label>
+        <label><input type="checkbox" id="toggle-phrase-groups"> Show phrase groups</label>
+        <label><input type="checkbox" id="toggle-meaning-order"> Read in meaning order</label>
+        <label><input type="checkbox" id="toggle-translation"> Show verbatim translation</label>
+
+        <!-- Group B — Grammar Coloring Toggles -->
         <label class="grammar-toggle noun">
           <input type="checkbox" id="toggle-nouns" onchange="toggleGrammar('noun')"> Nouns
         </label>
@@ -109,17 +181,22 @@
           <input type="checkbox" id="toggle-indeclinables" onchange="toggleGrammar('indeclinable')"> Indeclinables
         </label>
 
-        <label class="grammar-toggle sandhi">
-          <input type="checkbox" id="toggle-sandhis" onchange="toggleGrammar('sandhi')"> Compounds (Sandhi)
-        </label>
-
         <label class="grammar-toggle case">
           <input type="checkbox" id="toggle-cases" onchange="toggleGrammar('case')"> Cases
         </label>
+
       </div>
 
+      <!-- Enable/Reset buttons -->
       <button onclick="enableAllGrammar()">Enable All</button>
       <button onclick="disableAllGrammar()">Reset</button>
+	  
+	  <!-- ============================================================
+      DICTIONARY CHECK BUTTON (developer utility)
+      ============================================================ -->
+	  <button id="check-missing-btn" onclick="runChecker()">Check Missing Words</button> 
+
+      
 
     </div> <!-- end case-panel -->
 
@@ -128,63 +205,72 @@
 </div> <!-- end outer-frame -->
 
 
+<!-- ============================================================
+     COLOR LEGEND (hidden by CSS)
+     ============================================================ -->
+<div id="color-legend">
+  Colors legend:
+  <span class="noun">Nouns</span>,
+  <span class="verb">Verbs</span>,
+  <span class="pronoun">Pronouns</span>,
+  <span class="adjective">Adjectives</span>,
+  <span class="indeclinable">Indeclinable</span>
 </div>
 
+<!-- ============================================================
+     SCRIPT LOADING — order matters
+     ============================================================ -->
 
+<!-- Dictionary files -->
+<script src="js/dict.js"></script>
+<script src="js/dict-sandhi_ch1.js"></script>
+<script src="js/dict-sandhi_ch2.js"></script>
 
-  </div> <!-- end layout-row -->
+<!-- Verse data files -->
+<script src="js/ch1_01_10.js"></script>
+<script src="js/ch1_11_20.js"></script>
+<script src="js/ch1_21_30.js"></script>
+<script src="js/ch1_31_40.js"></script>
+<script src="js/ch1_41_47.js"></script>
 
-  <!-- ⭐ COLOR LEGEND -->
-  <div id="color-legend">
-    Colors legend:
-    <span class="noun">Nouns</span>,
-    <span class="verb">Verbs</span>,
-    <span class="pronoun">Pronouns</span>,
-    <span class="adjective">Adjectives</span>,
-    <span class="indeclinable">Indeclinable</span>,
-    <span class="sandhi">Sandhi-words</span>
-  </div>
+<script src="js/ch2_01_10.js"></script>
+<script src="js/ch2_11_20.js"></script>
+<script src="js/ch2_21_30.js"></script>
+<script src="js/ch2_31_40.js"></script>
+<script src="js/ch2_41_50.js"></script>
+<script src="js/ch2_51_60.js"></script>
+<script src="js/ch2_61_70.js"></script>
+<script src="js/ch2_71_72.js"></script>
 
-  <!-- ⭐ Scripts -->
-  <script src="js/dict.js"></script>
-  <script src="js/dict-sandhi_ch1.js"></script>
-  <script src="js/dict-sandhi_ch2.js"></script>
+<script src="js/chapter1.js"></script>
+<script src="js/chapter2.js"></script>
+<script src="js/chapter3.js"></script>
 
-  <script src="js/ch1_01_10.js"></script>
-  <script src="js/ch1_11_20.js"></script>
-  <script src="js/ch1_21_30.js"></script>
-  <script src="js/ch1_31_40.js"></script>
-  <script src="js/ch1_41_47.js"></script>
+<!-- Developer dictionary checker -->
+<script src="js/dict_checker.js"></script>
 
-  <script src="js/ch2_01_10.js"></script>
-  <script src="js/ch2_11_20.js"></script>
-  <script src="js/ch2_21_30.js"></script>
-  <script src="js/ch2_31_40.js"></script>
-  <script src="js/ch2_41_50.js"></script>
-  <script src="js/ch2_51_60.js"></script>
-  <script src="js/ch2_61_70.js"></script>
-  <script src="js/ch2_71_72.js"></script>
+<!-- view mode javascript -->
+<script src="js/viewModes.js"></script>
+<script src="js/grammar.js"></script>
+<script src="js/hover.js"></script>
+<script src="js/animations.js"></script>
 
-  <script src="js/chapter1.js"></script>
-  <script src="js/chapter2.js"></script>
-  <script src="js/chapter3.js"></script>
+<!-- Main rendering engine -->
+<script src="js/render.js"></script>
 
-  <script src="js/dict_checker.js"></script>
-
-  <script src="js/render.js"></script>
-
-  <div id="meaningPopup" style="
-    position: absolute;
-    background: #fff8dc;
-    border: 1px solid #c9a86a;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 18px;
-    display: none;
-    max-width: 200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 9999;
-  "></div>
+<!-- Tooltip popup (will be replaced by hover.js later) -->
+<div id="meaningPopup" style="
+  position: absolute;
+  background: #fff8dc;
+  border: 1px solid #c9a86a;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  display: none;
+  max-width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+"></div>
 
 </body>
 </html>

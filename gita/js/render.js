@@ -1,684 +1,463 @@
-// js/render.js
+/* ============================================================
+   render.js — Main Rendering Engine for Sanskrit Explorer
+   ------------------------------------------------------------
+   Responsibilities:
+   - Load chapter/verse data
+   - Render shloka, sandhi, translit, translation
+   - Render phrase groups + meaning order
+   - Render cases
+   - Build sidebar navigation
+   - Handle next/prev navigation
+   - Provide hooks for grammar.js, dictionary.js, hover.js
+   - Provide hooks for animations.js (future)
+   ============================================================ */
 
-// Use real chapter objects as the source of truth
-window.CHAPTERS = [
-  CHAPTER_1,
-  CHAPTER_2,
-  CHAPTER_3
-];
 
-
-function normalizeSanskrit(str) {
-  return str
-    .normalize("NFC")
-    .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .trim();
-}
-
-function getLookupKey(rawWord) {
-  let w = rawWord.normalize("NFC");
-
-  w = w.replace(/[।॥]/g, "");
-  w = w.replace(/[\u200B-\u200D\uFEFF]/g, "");
-  w = w.replace(/[-‑–—]/g, "-");
-  w = w.replace(/[|,;:.!?]/g, "");
-  w = w.replace(/\s+/g, "");
-
-  return w;
-}
-
-/* -----------------------------------------------------------
-   HELPER: FLATTEN CHAPTER
------------------------------------------------------------ */
-function getChapterData(chapter) {
-  if (!chapter) return [];
-  if (Array.isArray(chapter)) return chapter;
-  if (chapter.groups && Array.isArray(chapter.groups)) {
-    return chapter.groups.flatMap(g => g.data || []);
-  }
-  return [];
-}
-
-/* -----------------------------------------------------------
-   GLOBAL DICTIONARY LOOKUP
------------------------------------------------------------ */
-function lookupDict(rawWord) {
-  const key = getLookupKey(rawWord);
-
-  if (window.DICT && window.DICT[key]) return window.DICT[key];
-  if (window.SANDHI && window.SANDHI[key]) return window.SANDHI[key];
-
-  return null;
-}
-
-/* -----------------------------------------------------------
-   SHLOKA RENDERER
------------------------------------------------------------ */
-function renderWord(rawWord) {
-  const info = lookupDict(rawWord) || {};
-
-  const allowedTypes = ["noun","verb","adjective","pronoun","indeclinable","sandhi"];
-  const cls = allowedTypes.includes(info.type) ? info.type : "";
-  const title = info.meaning ? `title="${info.meaning}"` : "";
-
-  return `<span class="${cls}" ${title}>${rawWord}</span>`;
-}
-
-function renderSection(text) {
-  if (!text) return "";
-
-  text = text.replace(/^\s+/gm, "");
-
-  return text
-    .split("<br>")
-    .map(line =>
-      line.replace(/[ \t]+/g, " ").trim()
-          .split(" ")
-          .map(w => renderWord(w.trim()))
-          .join(" ")
-    )
-    .join("<br>");
-}
-
-/* -----------------------------------------------------------
-   SANDHI-VICHED RENDERER
------------------------------------------------------------ */
-function renderSandhiViched(text) {
-
-  text = text
-    .replace(/^\s+/gm, "")
-    .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/[ \t]+/g, " ");
-
-  if (!text) return "";
-
-  return text
-    .split("<br>")
-    .map(line =>
-      line.replace(/[ \t]+/g, " ").trim()
-        .split(" ")
-        .map(w => {
-          const parts = w.split(/[-–—]|·/);
-          return parts
-            .map(p => renderWord(p))
-            .join('<span class="dot">·</span>');
-        })
-        .join(" ")
-    )
-    .join("<br>");
-}
-
-/* -----------------------------------------------------------
-   MAP SANDHI → TRANSLIT
------------------------------------------------------------ */
-function mapSandhiToTranslit(sandhiLine, translitLine, DICT) {
-
-  const splitWords = line =>
-    line
-      .replace(/[|।॥]/g, "")
-      .replace(/[\u200B-\u200D\uFEFF]/g, "")
-      .split(/[\s·]+/)
-      .filter(w => w.trim().length > 0);
-
-  const sandhiWords = splitWords(sandhiLine);
-  const translitWords = splitWords(translitLine);
-
-  const result = [];
-
-  for (let i = 0; i < translitWords.length; i++) {
-
-    const sandhiWord = sandhiWords[i];
-    const translitWord = translitWords[i];
-
-    let dictEntry = null;
-
-    if (sandhiWord && DICT[sandhiWord]) {
-      dictEntry = DICT[sandhiWord];
-    }
-
-    if (dictEntry) {
-      const cls = dictEntry.type || "";
-      const meaning = dictEntry.meaning || "";
-      result.push(
-        `<span class="${cls}" title="${meaning}">${translitWord}</span>`
-      );
-    } else {
-      result.push(`<span>${translitWord}</span>`);
-    }
-  }
-
-  return result.join(" ");
-}
-
-/* -----------------------------------------------------------
-   TRANSLIT RENDERER
------------------------------------------------------------ */
-function renderTranslitMapped(sandhiText, translitText) {
-  return translitText
-    .replace(/^\s+/gm, "")
-    .split("<br>")
-    .map((line, idx) => {
-      const sandhiLine = sandhiText.split("<br>")[idx] || "";
-      return mapSandhiToTranslit(sandhiLine, line, DICT);
-    })
-    .join("<br>");
-}
-
-/* -----------------------------------------------------------
+/* ------------------------------------------------------------
    GLOBAL STATE
------------------------------------------------------------ */
-let currentIndex = 0;
-let CURRENT_CHAPTER = CHAPTER_1;
-let CURRENT_CHAPTER_NAME = CHAPTER_1.name || "Chapter 1";
+   ------------------------------------------------------------ */
 
-/* -----------------------------------------------------------
-   DEBUG TOGGLE
------------------------------------------------------------ */
-const DEBUG = false;
+// Current chapter and verse index
+let currentChapter = 1;
+let currentVerseIndex = 0;
 
-const btn = document.getElementById("check-missing-btn");
-if (btn) {
-  btn.style.display = DEBUG ? "inline-block" : "none";
-}
+// All chapters loaded from chapter files
+// Each chapter file defines: chapterX = [ {verse objects}, ... ]
+const chapters = {
+  1: chapter1,
+  2: chapter2,
+  3: chapter3
+};
 
-/* -----------------------------------------------------------
-   INDEX MAPPING
------------------------------------------------------------ */
-function getGlobalIndex(localIndex) {
-  const ch1Len = getChapterData(CHAPTER_1).length;
-  const ch2Len = getChapterData(CHAPTER_2).length;
-  const ch3Len = getChapterData(CHAPTER_3).length;
+const chapterSandhiMap = {
+  1: window.SANDHI_CH1,
+  2: window.SANDHI_CH2,
+  3: window.SANDHI_CH3
+};
 
-  if (CURRENT_CHAPTER === CHAPTER_1) return localIndex + 1;
-  if (CURRENT_CHAPTER === CHAPTER_2) return ch1Len + localIndex + 1;
-  if (CURRENT_CHAPTER === CHAPTER_3) return ch1Len + ch2Len + localIndex + 1;
-  return localIndex + 1;
-}
+let currentMode = "sandhi";   // or "translit"
 
-/* -----------------------------------------------------------
-   CHAPTER SWITCH
------------------------------------------------------------ */
-function setChapter(chapterObj, chapterName = "Current Chapter") {
-  CURRENT_CHAPTER = chapterObj;
-  CURRENT_CHAPTER_NAME = chapterName;
-  currentIndex = 0;
+/* ------------------------------------------------------------
+   INITIALIZATION
+   ------------------------------------------------------------ */
 
-  if (CURRENT_CHAPTER.sandhi) {
-    loadChapterSandhi(CURRENT_CHAPTER.sandhi);
-  } else {
-    window.SANDHI = {};
+document.addEventListener("DOMContentLoaded", () => {
+  buildSidebar();
+
+  const savedChapter = parseInt(localStorage.getItem("currentChapter"));
+  const savedVerse   = parseInt(localStorage.getItem("currentVerseIndex"));
+
+  if (!isNaN(savedChapter) && !isNaN(savedVerse)) {
+    currentChapter = savedChapter;
+    currentVerseIndex = savedVerse;
   }
 
-  // ⭐ DO NOT clear the content panel
-  // The verse on screen must remain visible until user clicks a verse
-
-  // Save current active chapter to localStorage
-  localStorage.setItem("lastChapter", CURRENT_CHAPTER_NAME);
-
-  // ⭐ DO NOT auto-render verse 1.1
-  // ⭐ DO NOT call renderStotra(0)
-  // ⭐ DO NOT auto-jump, auto-highlight, auto-expand, or collapse anything
-}
+  renderCurrentVerse();
+  highlightActiveVerse();
+});
 
 
+/* ============================================================
+   SIDEBAR — CHAPTER + VERSE LIST
+   ============================================================ */
 
-
-/* -----------------------------------------------------------
-   MAIN RENDERER
------------------------------------------------------------ */
-function renderStotra(index) {
-  const chapterData = getChapterData(CURRENT_CHAPTER);
-  const s = chapterData[index];
-  if (!s) return;
-
-  currentIndex = index;
-
-  document.getElementById("shloka").innerHTML = renderSection(s.shloka);
-  document.getElementById("sandhi").innerHTML = renderSandhiViched(s.sandhi);
-  document.getElementById("translit").innerHTML = renderTranslitMapped(s.sandhi, s.translit);
-  document.getElementById("translation").innerHTML = renderSection(s.translation || "");
-
-  document.getElementById("pageIndicator").innerText =
-  `Stotra ${index + 1} of ${chapterData.length}`;
-
-  document.getElementById("prevBtn").disabled = index === 0;
-  document.getElementById("nextBtn").disabled = index === chapterData.length - 1;
-
-  renderCasePanel(index);
-}
-
-/* -----------------------------------------------------------
-   CASE PANEL
------------------------------------------------------------ */
-function renderCasePanel(index) {
-  const chapterData = getChapterData(CURRENT_CHAPTER);
-  const s = chapterData[index];
-  if (!s) return;
-
-  const sandhiText = s.sandhi || "";
-
-  const sandhiWords = sandhiText
-    .replace(/<br>/g, " ")
-    .replace(/[।|,;:.!?]/g, "")
-    .split(/\s+/)
-    .filter(w => w.trim().length > 0);
-
-  const cases = {
-    "Nominative (1st)": [],
-    "Accusative (2nd)": [],
-    "Instrumental (3rd)": [],
-    "Dative (4th)": [],
-    "Ablative (5th)": [],
-    "Genitive (6th)": [],
-    "Locative (7th)": [],
-    "Vocative (8th)": []
-  };
-
-  const caseKeyMap = {
-    "Nominative": "Nominative (1st)",
-    "Accusative": "Accusative (2nd)",
-    "Instrumental": "Instrumental (3rd)",
-    "Dative": "Dative (4th)",
-    "Ablative": "Ablative (5th)",
-    "Genitive": "Genitive (6th)",
-    "Locative": "Locative (7th)",
-    "Vocative": "Vocative (8th)"
-  };
-
-  sandhiWords.forEach(w => {
-    const parts = w.split(/[-–—]|·/).filter(p => p.trim().length > 0);
-
-    parts.forEach(p => {
-      const info = lookupDict(p);
-      if (info && info.case) {
-        const bucket = caseKeyMap[info.case] || info.case;
-        if (cases[bucket]) {
-          cases[bucket].push(p);
-        }
-      }
-    });
-  });
-
-  let html = "";
-
-  Object.entries(cases).forEach(([caseName, words]) => {
-    if (words.length > 0) {
-      html += `<div class="case-group"><strong>${caseName}</strong><br>${words.join(", ")}</div>`;
-    }
-  });
-
-  document.getElementById("cases-below").innerHTML = html;
-}
-
-/* -----------------------------------------------------------
-   PAGE NAVIGATION
------------------------------------------------------------ */
-function changePage(dir) {
-  const chapterData = getChapterData(CURRENT_CHAPTER);
-  let newIndex = currentIndex + dir;
-
-  if (newIndex < 0) newIndex = 0;
-  if (newIndex >= chapterData.length) newIndex = chapterData.length - 1;
-
-  currentIndex = newIndex;
-
-  jumpTo(newIndex);
-}
-
-/* -----------------------------------------------------------
-   FIXED jumpTo() — NO toggleTT()
------------------------------------------------------------ */
-function jumpTo(index) {
-  const chapterData = getChapterData(CURRENT_CHAPTER);
-  if (index < 0 || index >= chapterData.length) return;
-
-  localStorage.setItem("lastVerse", index);
-  renderStotra(index);
-
-  // ⭐ Reset slider
-  const slider = document.getElementById("toggle-slider");
-  slider.checked = false;
-  toggleSandhiTranslit();
-
-  // ⭐ Hide all grammar after rendering the new verse
-  disableAllGrammar();
-
-  // ⭐ Highlight active verse in index
-  highlightActiveVerse(index);
-  expandGroupForVerse(index + 1);
-}
-
-
-function highlightActiveVerse(index) {
-  const verseNumber = index + 1;
-
-  // Find the chapter-block whose header matches CURRENT_CHAPTER.name
-  const chapterBlocks = document.querySelectorAll(".chapter-block");
-  let currentBlock = null;
-
-  chapterBlocks.forEach(block => {
-    const header = block.querySelector(".chapter-header span:nth-child(2)");
-    if (header && header.textContent.trim() === CURRENT_CHAPTER.name.trim()) {
-      currentBlock = block;
-    }
-  });
-
-  if (!currentBlock) return;
-
-  // Remove highlight ONLY inside the current chapter
-  currentBlock.querySelectorAll("ul.verses li")
-    .forEach(li => li.classList.remove("active-verse"));
-
-  // Highlight the correct verse inside the current chapter
-  const target = currentBlock.querySelector(`ul.verses li[data-verse="${verseNumber}"]`);
-  if (target) {
-    target.classList.add("active-verse");
-  }
-}
-
-
-
-
-/* -----------------------------------------------------------
-   NEW Sandhi ↔ Transliteration toggle
------------------------------------------------------------ */
-function toggleSandhiTranslit() {
-  const sandhi = document.getElementById("sandhi");
-  const translit = document.getElementById("translit");
-  const slider = document.getElementById("toggle-slider");
-
-  if (slider.checked) {
-    translit.style.display = "block";
-    sandhi.style.display = "none";
-  } else {
-    translit.style.display = "none";
-    sandhi.style.display = "block";
-  }
-}
-
-/* -----------------------------------------------------------
-   CHAPTER INDEX UI
------------------------------------------------------------ */
-function toggleChapter(header) {
-  const chapterBlock = header.parentElement;
-  const chapterBody = chapterBlock.querySelector(".chapter-body");
-  const icon = header.querySelector(".toggle-icon");
-
-  // Identify which chapter this header belongs to
-  const chapterName = header.querySelector("span:not(.toggle-icon)").textContent.trim();
-  const chapterIndex = window.CHAPTERS.findIndex(ch => ch.name === chapterName);
-
-  if (chapterIndex !== -1 && CURRENT_CHAPTER !== window.CHAPTERS[chapterIndex]) {
-    // ⭐ Formally switch the chapter state and reload Chapter data
-    setChapter(window.CHAPTERS[chapterIndex], chapterName);
-  }
-
-  // Collapse all other chapters
-  document.querySelectorAll(".chapter-body").forEach(body => {
-    if (body !== chapterBody) body.style.display = "none";
-  });
-  document.querySelectorAll(".chapter-header .toggle-icon").forEach(ic => {
-    if (ic !== icon) ic.textContent = "▶";
-  });
-
-  // Toggle selected chapter body display
-  if (chapterBody.style.display === "none") {
-    chapterBody.style.display = "block";
-    icon.textContent = "▼";
-  } else {
-    chapterBody.style.display = "none";
-    icon.textContent = "▶";
-  }
-}
-
-
-/* -----------------------------------------------------------
-   BUILD INDEX (SAFE VERSION)
------------------------------------------------------------ */
-function buildIndex() {
-  console.log("CHAPTERS in buildIndex:", window.CHAPTERS);
+function buildSidebar() {
   const container = document.getElementById("index-container");
   container.innerHTML = "";
 
-  const chapters = window.CHAPTERS || [];
+  Object.keys(chapters).forEach(chNum => {
+    const chBlock = document.createElement("div");
+    chBlock.className = "chapter-block";
 
-  chapters.forEach((chapter, cIndex) => {
+    // --- Chapter header with triangle ---
+    const header = document.createElement("div");
+    header.className = "chapter-header";
 
-    const chapterBlock = document.createElement("div");
-    chapterBlock.className = "chapter-block";
+    header.innerHTML = `
+      <span class="toggle-icon">▶</span>
+      Chapter ${chNum}
+    `;
 
-    const chapterHeader = document.createElement("div");
-    chapterHeader.className = "chapter-header";
+    header.onclick = () => {
+      toggleChapter(chNum);
+      header.classList.toggle("open");
+    };
 
-    const chapterIcon = document.createElement("span");
-    chapterIcon.className = "toggle-icon";
-    chapterIcon.textContent = "▶";
+    // --- Verse list ---
+    const body = document.createElement("ul");
+    body.className = "verses";
+    body.style.display = "none";
 
-    const chapterTitle = document.createElement("span");
-    chapterTitle.textContent = chapter.name || `Chapter ${cIndex + 1}`;
+    chapters[chNum].forEach((v, idx) => {
+      const li = document.createElement("li");
 
-    chapterHeader.appendChild(chapterIcon);
-    chapterHeader.appendChild(chapterTitle);
+      // Triangle + verse number
+      li.innerHTML = `
+        <span class="toggle-icon">▶</span>
+        Verse ${v.id}
+      `;
 
-    chapterHeader.onclick = () => toggleChapter(chapterHeader);
+      li.onclick = () => {
+        currentChapter = parseInt(chNum);
+        currentVerseIndex = idx;
+		
+		localStorage.setItem("currentChapter", currentChapter);
+		localStorage.setItem("currentVerseIndex", currentVerseIndex);
 
-    chapterBlock.appendChild(chapterHeader);
+        renderCurrentVerse();
+        highlightActiveVerse();
 
-    const chapterBody = document.createElement("div");
-    chapterBody.className = "chapter-body";
-    chapterBody.style.display = "none";
-
-    const groups = chapter.groups || [];
-
-    groups.forEach((group, gIndex) => {
-
-      const groupHeader = document.createElement("div");
-      groupHeader.className = "group-header";
-
-      const groupIcon = document.createElement("span");
-      groupIcon.className = "toggle-icon";
-      groupIcon.textContent = "▶";
-
-      const groupTitle = document.createElement("span");
-      groupTitle.textContent = group.label || `Group ${gIndex + 1}`;
-
-      groupHeader.appendChild(groupIcon);
-      groupHeader.appendChild(groupTitle);
-
-      const ul = document.createElement("ul");
-      ul.className = "verses";
-      ul.style.display = "none";
-
-      const verseObjects = group.data || [];
-
-      // ⭐ store range on the header for auto-expand logic
-      if (verseObjects.length > 0) {
-        groupHeader.dataset.start = verseObjects[0].id;
-        groupHeader.dataset.end = verseObjects[verseObjects.length - 1].id;
-      }
-
-      verseObjects.forEach((verseObj) => {
-        const li = document.createElement("li");
-        li.textContent = `Verse ${verseObj.id}`;
-        li.setAttribute("data-verse", verseObj.id);
-        li.onclick = (event) => {
-		  event.stopPropagation();              // prevent collapsing the group
-		  expandGroupForVerse(verseObj.id);     // ensure correct group is open
-		  jumpTo(verseObj.id - 1);              // load the verse (0-based index)
-		};
-        ul.appendChild(li);
-      });
-
-      groupHeader.onclick = (event) => {
-        event.stopPropagation();
-        toggleGroup(groupHeader, ul);
+        // highlight active verse triangle
+        li.classList.add("open");
       };
 
-      chapterBody.appendChild(groupHeader);
-      chapterBody.appendChild(ul);
+      body.appendChild(li);
     });
 
-    chapterBlock.appendChild(chapterBody);
-    container.appendChild(chapterBlock);
+    chBlock.appendChild(header);
+    chBlock.appendChild(body);
+    container.appendChild(chBlock);
   });
 }
 
-function toggleGroup(groupHeader, ul) {
-  const icon = groupHeader.querySelector(".toggle-icon");
-  const isOpen = ul.style.display === "block";
-  ul.style.display = isOpen ? "none" : "block";
-  icon.textContent = isOpen ? "▶" : "▼";
-}
 
-
-function expandGroupForVerse(verseNumber) {
-  // Find active chapter block in sidebar to prevent cross-chapter matching
-  const chapterBlocks = document.querySelectorAll("#sidebar .chapter-block");
-  let activeChapterBlock = null;
-
-  chapterBlocks.forEach(block => {
-    const title = block.querySelector(".chapter-header span:not(.toggle-icon)").textContent.trim();
-    if (title === CURRENT_CHAPTER_NAME) {
-      activeChapterBlock = block;
-    }
-  });
-
-  const scope = activeChapterBlock || document;
-  const headers = scope.querySelectorAll(".group-header");
-
-  headers.forEach(header => {
-    const start = parseInt(header.dataset.start, 10);
-    const end = parseInt(header.dataset.end, 10);
-    const body = header.nextElementSibling; // <ul> after group header
-    const icon = header.querySelector(".toggle-icon");
-
-    if (!body || isNaN(start) || isNaN(end)) return;
-
-    if (verseNumber >= start && verseNumber <= end) {
-      body.style.display = "block";
-      if (icon) icon.textContent = "▼";
-    } else {
-      body.style.display = "none";
-      if (icon) icon.textContent = "▶";
+function toggleChapter(chNum) {
+  const blocks = document.querySelectorAll(".chapter-block");
+  blocks.forEach(block => {
+    const header = block.querySelector(".chapter-header");
+    const body = block.querySelector(".verses");
+    if (header.textContent.includes(chNum)) {
+      const isOpen = body.style.display === "block";
+      body.style.display = isOpen ? "none" : "block";
+      header.classList.toggle("open", !isOpen);
     }
   });
 }
 
-/* -----------------------------------------------------------
-   ENABLE GRAMMAR SECTION
------------------------------------------------------------ */
-function toggleGrammar(type) {
-  if (type === "case") {
-    const enabled = document.getElementById("toggle-cases").checked;
-    document.getElementById("cases-wrapper").style.display = enabled ? "block" : "none";
-    return;
+function highlightActiveVerse() {
+  const lists = document.querySelectorAll("#sidebar ul.verses li");
+  lists.forEach(li => li.classList.remove("active-verse"));
+
+  const active = document.querySelectorAll("#sidebar ul.verses")[currentChapter - 1]
+    .children[currentVerseIndex];
+
+  if (active) active.classList.add("active-verse");
+}
+
+
+/* ============================================================
+   MAIN RENDER FUNCTION
+   ============================================================ */
+
+function renderCurrentVerse() {
+  // ⭐ Load sandhi dictionary for this chapter
+	loadChapterSandhi(chapterSandhiMap[currentChapter]);
+
+  const verseObj = chapters[currentChapter][currentVerseIndex];
+
+  // Update page indicator
+  document.getElementById("pageIndicator").textContent =
+    `Chapter ${currentChapter}, Verse ${verseObj.id}`;
+
+  // Render each layer
+  renderShloka(verseObj);
+  renderSandhi(verseObj);
+  renderTranslit(verseObj);
+  renderTranslation(verseObj);
+  renderPhraseGroups(verseObj);
+  renderMeaningOrder(verseObj);
+  renderCases(verseObj);
+
+  // Apply grammar coloring (grammar.js)
+  if (typeof applyGrammarColoring === "function") {
+    applyGrammarColoring();
   }
-  const enabled = document.getElementById(`toggle-${type}s`)?.checked;
 
-  const elements = document.querySelectorAll(
-    `#shloka .${type}, #sandhi .${type}, #translit .${type}`
-  );
+  // Attach hover meanings (hover.js)
+  if (typeof attachHoverMeanings === "function") {
+    attachHoverMeanings();
+  }
 
-  elements.forEach(el => {
-    if (enabled) {
-      el.style.color = "";        // restore CSS color
-      el.style.fontWeight = "";   // restore CSS weight
-    } else {
-      el.style.color = "#222";    // hide grammar
-      el.style.fontWeight = "400";
-    }
-  });
+  // Trigger animations (animations.js)
+  if (typeof runAnimations === "function") {
+    runAnimations();
+  }
+
+  highlightActiveVerse();
 }
 
-function enableAllGrammar() {
-  ["noun", "verb", "pronoun", "adjective", "indeclinable", "sandhi", "case"]
-    .forEach(type => {
-      const checkbox = document.getElementById(`toggle-${type}s`);
-      if (checkbox) checkbox.checked = true;
-      toggleGrammar(type);
+
+/* ============================================================
+   RENDERING INDIVIDUAL SECTIONS
+   ============================================================ */
+
+function renderShloka(v) {
+  document.getElementById("shloka").innerHTML = v.shloka;   // No grammar coloring for parchment
+}
+
+function renderSandhi(v) {
+  const lines = v.sandhi
+    .split("<br>")
+    .map(line => line.trim())
+    .filter(line => line !== "")
+    .map(line => wrapWordsWithGrammar(line));
+
+  document.getElementById("sandhi").innerHTML = lines.join("<br>");
+}
+
+function renderTranslit(v) {
+  const sandhiLines = v.sandhi.split("<br>").map(line => line.trim());
+
+  const lines = v.translit
+    .split("<br>")
+    .map(line => line.trim())
+    .filter(line => line !== "")
+    .map((line, i) => {
+      const devWords = sandhiLines[i].split(/[\s·]+/);
+      return wrapWordsWithGrammar(line, devWords);
     });
+
+  document.getElementById("translit").innerHTML = lines.join("<br>");
 }
 
 
-function disableAllGrammar() {
-  ["noun","verb","pronoun","adjective","indeclinable","sandhi", "case"].forEach(type => {
-    document.getElementById(`toggle-${type}s`).checked = false;
-    toggleGrammar(type);
-  });
+function renderTranslation(v) {
+  document.getElementById("translation").innerHTML = v.translation;
+}
+
+function wrapWordsWithGrammar(text, devWords = null) {
+  if (!text) return "";
+
+  const words = text.replace(/\s+/g, " ").trim().split(/[\s·]+/);
+  const devList = devWords ? devWords : words;
+
+  const colored = words
+    .map((word, index) => {
+
+      const devSource = devList[index] || word;
+      const cleanDev = devSource.replace(/[।॥]/g, "");
+
+      const info = DICT[cleanDev] || {};
+      const cls = info.type ? info.type : "";
+
+      // ⭐ FIX: separate danda from the word
+      const cleanedDisplay = word.replace(/[।॥]/g, "");
+      const danda = word.match(/[।॥]+$/)?.[0] || "";
+
+      return `<span class="word ${cls}">${cleanedDisplay}</span>${danda}`;
+    })
+    .join(" ");
+
+  const enriched = colored.replace(
+    /<span class="word([^"]*)">([^<]+)<\/span>/g,
+    (match, cls, wordText, offset) => {
+
+      const index = (colored.slice(0, offset).match(/<span class="word/g) || []).length;
+
+      const devSource = devList[index] || wordText;
+      const cleanDev = devSource.replace(/[।॥]/g, "");
+
+      const dictInfo = DICT[cleanDev];
+      const dictMeaning = dictInfo?.meaning || "";
+      const dictCase = dictInfo?.case || "";
+
+      const sandhiInfo = window.dictSandhi ? window.dictSandhi[cleanDev] : null;
+      const sandhiMeaning = sandhiInfo?.meaning || "";
+      const sandhiCase = sandhiInfo?.case || "";
+
+      const meaning = sandhiMeaning || dictMeaning || "";
+      const caseInfo = sandhiCase || dictCase || "";
+
+      return `<span class="word ${cls}" data-meaning="${meaning}" data-case="${caseInfo}">${wordText}</span>`;
+    }
+ )
+
+  // ------------------------------------------------------------
+  // DEBUG LOGS (safe to comment out later)
+  // ------------------------------------------------------------
+/*    console.log("wrapWordsWithGrammar DEBUG:");
+      console.log("  text:", text);
+      console.log("  words:", words);
+      console.log("  devList:", devList);
+      console.log("  colored:", colored);
+
+      colored.replace(
+        /<span class="word([^"]*)">([^<]+)<\/span>/g,
+        (match, cls, wordText, offset) => {
+          const index = (colored.slice(0, offset).match(/<span class="word/g) || []).length;
+          console.log(`  span: word="${wordText}", index=${index}, devWord="${devList[index]}"`);
+        }
+      );
+*/
+
+  return enriched;
 }
 
 
 
 
 
-/* -----------------------------------------------------------
-   MOBILE TAP HANDLER
------------------------------------------------------------ */
-document.addEventListener("click", function (e) {
-  const popup = document.getElementById("meaningPopup");
+/* ============================================================
+   UI TOGGLES / DISPLAY HELPERS (FIXED TIMING)
+   ============================================================ */
 
-  const isWord =
-    e.target.classList.contains("noun") ||
-    e.target.classList.contains("verb") ||
-    e.target.classList.contains("pronoun") ||
-    e.target.classList.contains("adjective") ||
-    e.target.classList.contains("indeclinable") ||
-    e.target.classList.contains("sandhi");
+function toggleSlider() {
+  const checked = document.getElementById("toggle-slider").checked;
 
-  if (!isWord) {
-    popup.style.display = "none";
-    return;
-  }
-
-  const meaning =
-    e.target.getAttribute("title") ||
-    e.target.getAttribute("data-sandhi");
-
-  if (!meaning) return;
-
-  popup.innerText = meaning;
-
-  const rect = e.target.getBoundingClientRect();
-  const scrollY = window.scrollY || window.pageYOffset;
-
-  popup.style.left = (rect.left + rect.width / 2 - popup.offsetWidth / 2) + "px";
-  popup.style.top = (rect.top + scrollY - popup.offsetHeight - 12) + "px";
-
-  popup.style.display = "block";
-});
-
-/* -----------------------------------------------------------
-   PAGE INITIALIZATION
------------------------------------------------------------ */
-window.onload = () => {
-  window.CHAPTERS = [CHAPTER_1, CHAPTER_2, CHAPTER_3];  
-  
-  console.log("CHAPTERS used in buildIndex:", window.CHAPTERS);
-  
-  buildIndex();
-
-  const lastChapter = localStorage.getItem("lastChapter");
-  const lastVerse = localStorage.getItem("lastVerse");
-
-  const chapterMap = {
-    "Chapter 1": CHAPTER_1,
-    "Chapter 2": CHAPTER_2,
-    "Chapter 3": CHAPTER_3
-  };
-
-  const chapterObj = chapterMap[lastChapter] || CHAPTER_1;
-  setChapter(chapterObj, chapterObj.name);
-
-  if (lastVerse !== null) {
-    jumpTo(parseInt(lastVerse));
+  if (checked) {
+    currentMode = "translit";
+    document.getElementById("sandhi").style.display = "none";
+    document.getElementById("translit").style.display = "block";
   } else {
-    jumpTo(0);
+    currentMode = "sandhi";
+    document.getElementById("sandhi").style.display = "block";
+    document.getElementById("translit").style.display = "none";
   }
-  
-  // ⭐ NEW: Start with all grammar OFF (black)
-  disableAllGrammar();
-  
-  // ⭐ Hide cases on load
-  document.getElementById("cases-wrapper").style.display = "none";
-  
-};
+
+  // Get the current verse data object
+  const verseObj = chapters[currentChapter][currentVerseIndex];
+
+  // ⭐ FORCE RE-RENDERING of the text layers so all metadata classes are cleanly generated
+  renderSandhi(verseObj);
+  renderTranslit(verseObj);
+  renderPhraseGroups(verseObj);
+  renderMeaningOrder(verseObj);
+
+  // ⭐ REQUIRED: re-attach hover + execute grammar coloring engine now that the elements are safe in the DOM
+  if (typeof applyGrammarColoring === "function") applyGrammarColoring();
+  if (typeof attachHoverMeanings === "function") attachHoverMeanings();
+}
+
+
+
+
+
+/* ------------------------------------------------------------
+   PHRASE GROUPS (origOrder)
+   ------------------------------------------------------------ */
+function renderPhraseGroups(v) {
+  const container = document.getElementById("phrase-groups");
+  container.innerHTML = "";
+
+  if (!v.origOrder || !v.parts) return;
+
+  v.origOrder.forEach(idx => {
+    const part = v.parts[idx - 1];
+    if (!part) return;
+
+    const span = document.createElement("span");
+
+    span.innerHTML = wrapWordsWithGrammar(
+      currentMode === "sandhi" ? part.sandhi : part.translit,
+      part.sandhi.split(/[\s·]+/)
+    );
+
+    span.className = "sanskrit-text";
+
+    container.appendChild(span);
+    container.appendChild(document.createElement("br"));
+  });
+}
+
+
+
+
+
+/* ------------------------------------------------------------
+   MEANING ORDER (sorted parts)
+   ------------------------------------------------------------ */
+function renderMeaningOrder(v) {
+  const container = document.getElementById("meaning-order");
+  container.innerHTML = "";
+
+  if (!v.parts) return;
+
+  v.parts.forEach(part => {
+    const span = document.createElement("span");
+
+    span.innerHTML = wrapWordsWithGrammar(
+      currentMode === "sandhi" ? part.sandhi : part.translit,
+      part.sandhi.split(/[\s·]+/)
+    );
+
+    span.className = "sanskrit-text";
+    container.appendChild(span);
+
+    // ⭐ NEW: guided meaning (minimal addition)
+    const guide = document.createElement("span");
+    guide.className = "guide-text";
+    guide.textContent = " — " + part.guide;
+    container.appendChild(guide);
+
+    container.appendChild(document.createElement("br"));
+  });
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------
+   CASES BELOW (dictionary + dict-sandhi)
+   ------------------------------------------------------------ */
+function renderCases(v) {
+  const container = document.getElementById("cases-below");
+  container.innerHTML = "";
+
+  if (!v.cases) return;
+
+  v.cases.forEach(c => {
+    const div = document.createElement("div");
+    div.textContent = c;
+    container.appendChild(div);
+  });
+}
+
+
+/* ============================================================
+   NAVIGATION BUTTONS (Prev / Next)
+   ============================================================ */
+
+function changePage(delta) {
+  const chapterArray = chapters[currentChapter];
+
+  currentVerseIndex += delta;
+
+  // If moving before first verse → go to previous chapter
+  if (currentVerseIndex < 0) {
+    if (currentChapter > 1) {
+      currentChapter--;
+      currentVerseIndex = chapters[currentChapter].length - 1;
+    } else {
+      currentVerseIndex = 0;
+    }
+  }
+
+  // If moving past last verse → go to next chapter
+  if (currentVerseIndex >= chapterArray.length) {
+    if (currentChapter < Object.keys(chapters).length) {
+      currentChapter++;
+      currentVerseIndex = 0;
+    } else {
+      currentVerseIndex = chapterArray.length - 1;
+    }
+  }
+
+  localStorage.setItem("currentChapter", currentChapter);
+  localStorage.setItem("currentVerseIndex", currentVerseIndex);
+
+
+  renderCurrentVerse();
+}
+
+
+/* ============================================================
+   DEVELOPER TOOL — CHECK MISSING DICTIONARY WORDS
+   ============================================================ */
+
+function runChecker() {
+  if (typeof checkMissingWords === "function") {
+    checkMissingWords();
+  }
+}

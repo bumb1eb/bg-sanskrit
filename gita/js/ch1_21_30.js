@@ -17,7 +17,14 @@ const CH1_21_30 = [
   translation: `
     Arjuna said;<br>
     In the midst of both armies, place the chariot for me, O Acyuta (Krishna). <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Speaker", sandhi: "अर्जुनः उवाच।", translit: "arjunaḥ uvāca।", guide: "Arjuna said"},
+    {id: 2, role: "Person addressed", sandhi: "अच्युत", translit: "acyuta", guide: "O Acyuta (Krishna)"},
+    {id: 3, role: "Request or command", sandhi: "रथम् स्थापय मे", translit: "ratham sthāpaya me", guide: "Place the chariot for me"},
+    {id: 4, role: "Place or setting", sandhi: "सेनयोः·उभयोः·मध्ये", translit: "senayoḥ·ubhayōḥ·madhye", guide: "In the midst of both armies"}
+  ],
+  origOrder: [1,4,3,2]
 },
 
 
@@ -39,7 +46,14 @@ const CH1_21_30 = [
   translation: `
     Until I observe these, desirous of battle, standing here;<br>
     With whom I must fight, in this undertaking of war. <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Time or purpose", sandhi: "यावत् · एतान् निरीक्षे · अहम्", translit: "yāvat · etān nirīkṣe · aham", guide: "Until I observe these"},
+    {id: 2, role: "People being observed", sandhi: "योद्धु · कामान् अवस्थितान्", translit: "yoddhu · kāmān avasthitān", guide: "those wishing to fight, standing here"},
+    {id: 3, role: "Question", sandhi: "कैः · मया सह योद्धव्यम्", translit: "kaiḥ · mayā saha yoddhavyam", guide: "with whom must I fight?"},
+    {id: 4, role: "Context", sandhi: "अस्मिन् रण · समुद्यमे ॥", translit: "asmin raṇa · samudyame ॥", guide: "in this undertaking of war"}
+  ],
+  origOrder: [1,2,3,4]
 },
 
 
@@ -61,7 +75,16 @@ const CH1_21_30 = [
   translation: `
     Those who are about to fight, I shall observe — those who have assembled here;<br>
     Son of Dhṛtarāṣṭra, the evil‑minded, in battle (who) wish to please . <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Who acts?", sandhi: "अवेक्षे·अहम्", translit: "avekṣe·aham", guide: "I shall observe"},
+    {id: 2, role: "What is affected?", sandhi: "ये·एते·अत्र समागताः", translit: "ye·ete·atra samāgatāḥ", guide: "those who have assembled here"},
+    {id: 3, role: "Description or quality", sandhi: "योत्स्यमानान्", translit: "yotsyamānān", guide: "those about to fight"},
+    {id: 4, role: "Reason or result", sandhi: "युद्धे प्रिय·चिकीर्षवः", translit: "yuddhe priya·cikīrṣavaḥ", guide: "desiring to please in battle"},
+    {id: 5, role: "Person addressed", sandhi: "धार्तराष्ट्रस्य", translit: "dhārtarāṣṭrasya", guide: "of Dhṛtarāṣṭra’s son"},
+    {id: 6, role: "Description or quality", sandhi: "दुर्बुद्धेः", translit: "durbuddheḥ", guide: "of the evil‑minded one"},
+    ],
+	origOrder: [3,1,2,5,6,4]
 },
 
 
@@ -74,20 +97,29 @@ const CH1_21_30 = [
     सेनयोरुभयोर्मध्ये स्थापयित्वा रथोत्तमम् ॥<br>
   `,
   sandhi: `
-    सञ्जयः उवाच।<br>
-    एवम्·उक्तः हृषीकेशः गुडाकेशेन भारत।<br>
-    सेनयोः·उभयोः·मध्ये स्थापयित्वा रथ·उत्तमम्॥<br>
+    सञ्जयः उवाच ।<br>
+    एवम्·उक्तः हृषीकेशः गुडाकेशेन भारत ।<br>
+    सेनयोः·उभयोः·मध्ये स्थापयित्वा रथ·उत्तमम् ॥<br>
   `,
   translit: `
-    sañjayaḥ uvāca।<br>
-    evam·uktaḥ hṛṣīkeśaḥ guḍākeśena bhārata।<br>
-    senayoḥ·ubhayōḥ·madhye sthāpayitvā ratha·uttamam॥<br>
+    sañjayaḥ uvāca ।<br>
+    evam·uktaḥ hṛṣīkeśaḥ guḍākeśena bhārata ।<br>
+    senayoḥ·ubhayōḥ·madhye sthāpayitvā ratha·uttamam ॥<br>
   `,
   translation: `
     Sañjaya said;<br>
     Thus having been addressed, Hṛṣīkeśa (Krishna), by Guḍākeśa (Arjun), O Bhārata, <br>
 	In the midst of both armies, having placed the excellent chariot<br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Speaker", sandhi: "सञ्जयः उवाच ।", translit: "sañjayaḥ uvāca ।", guide: "Sanjaya said"},
+    {id: 2, role: "Person addressed", sandhi: "भारत", translit: "bhārata", guide: "O Bhārata"},
+	{id: 3, role: "Situation or context", sandhi: "एवम्·उक्तः हृषीकेशः", translit: "evam·uktaḥ hṛṣīkeśaḥ", guide: "Thus having been addressed, Hṛṣīkeśa"},
+    {id: 4, role: "Who acts?", sandhi: "गुडाकेशेन", translit: "guḍākeśena", guide: "by Guḍākeśa (Arjuna)"},
+    {id: 5, role: "Place or setting", sandhi: "सेनयोः·उभयोः·मध्ये", translit: "senayoḥ·ubhayōḥ·madhye", guide: "in the midst of both armies"},
+    {id: 6, role: "What happens?", sandhi: "स्थापयित्वा रथ·उत्तमम्", translit: "sthāpayitvā ratha·uttamam", guide: "having placed the excellent chariot"}
+  ],
+	origOrder: [1,3,4,2,5,6]
 },
 
 
@@ -99,8 +131,8 @@ const CH1_21_30 = [
     उवाच पार्थ पश्यैतान्समवेतान्कुरूनिति ॥<br>
   `,
   sandhi: `
-    भीष्म·द्रोण·प्रमुखतः सर्वेषाम्·च महीक्षिताम्।<br>
-    उवाच पार्थः पश्य·एतान् समवेतान्·कुरून्·इति॥<br>
+    भीष्म·द्रोण·प्रमुखतः सर्वेषाम्·च महीक्षिताम् ।<br>
+    उवाच पार्थः पश्य·एतान् समवेतान्·कुरून्·इति ॥<br>
   `,
   translit: `
     bhīṣma·droṇa·pramukhataḥ sarveṣām·ca mahī·kṣitām।<br>
@@ -109,7 +141,15 @@ const CH1_21_30 = [
   translation: `
     Before/In front of Bhīṣma, Droṇa, and the foremost of all kings;<br>
     (Krishna) said, “O Pārtha, behold these Kurus assembled.” <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Place or setting", sandhi: "भीष्म·द्रोण·प्रमुखतः सर्वेषाम्·च महीक्षिताम्", translit: "bhīṣma·droṇa·pramukhataḥ sarveṣām·ca mahī·kṣitām", guide: "before Bhīṣma, Droṇa, and all kings"},
+    {id: 2, role: "Speaker", sandhi: "उवाच", translit: "uvāca", guide: "(Krishna) said"},
+    {id: 3, role: "Request or command", sandhi: "पार्थः पश्य·एतान्", translit: "pārthaḥ paśya·etān", guide: "Pārtha, behold these"},
+    {id: 4, role: "What is affected?", sandhi: "समवेतान्·कुरून्·इति", translit: "samavetān·kurūn·iti", guide: "the assembled Kurus, thus"}
+
+  ],
+	origOrder: [1,2,3,4]
 },
 
 
@@ -131,7 +171,13 @@ const CH1_21_30 = [
   translation: `
     There, Pārtha saw those standing — fathers, grandfathers;<br>
     Teachers, maternal uncles, brothers, sons, grandsons, and friends likewise. <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Who acts?", sandhi: "पार्थः", translit: "pārthaḥ", guide: "Pārtha"},
+    {id: 2, role: "What happens?", sandhi: "तत्र·अपश्यत्·स्थितान्", translit: "tatra·apaśyat·sthitān", guide: "There he saw those standing"},
+    {id: 3, role: "What is affected?", sandhi: "पितृ·नाथ पितामहान् आचार्यान्·मातुलान्·भ्रातॄन् पुत्रान्·पौत्रान्·सखीन्·तथा", translit: "pitṛ·nātha pitāmahān ācāryān·mātulān·bhrātṝn putrān·pautrān·sakhīn·tathā", guide: "fathers, grandfathers, teachers, maternal uncles, brothers, sons, grandsons, friends likewise"}
+  ],
+	origOrder: [2,1,3,4]
 },
 
 {
@@ -152,7 +198,15 @@ const CH1_21_30 = [
   translation: `
     Fathers‑in‑law and well‑wishers too, in both the armies;<br>
     Seeing them — all the kinsmen standing — the son of Kuntī,<br>
-    `
+    `,
+   parts: [
+    {id: 1, role: "Who acts?", sandhi: "कौन्तेयः सः", translit: "kaunteyaḥ saḥ", guide: "He, the son of Kuntī"},
+    {id: 2, role: "What happens?", sandhi: "तान्·समीक्ष्य", translit: "tān·samīkṣya", guide: "having seen them"},
+    {id: 3, role: "What is affected?", sandhi: "सर्वान्·बन्धून्·अवस्थितान्", translit: "sarvān·bandhūn·avasthitān ", guide: "all the kinsmen standing"},
+    {id: 4, role: "What is affected?", sandhi: "श्वशुरान्·सुहृदः·च·एव", translit: "śvaśurān·suhṛdaḥ·ca·eva", guide: "fathers‑in‑law and well‑wishers too"},
+    {id: 5, role: "Place or setting", sandhi: "सेनयोः·उभयोः·अपि", translit: "senayoḥ·ubhayōḥ·api", guide: "in both armies"}
+  ],
+	origOrder: [4,5,2,1,3]
 },
 
 {
@@ -177,7 +231,16 @@ const CH1_21_30 = [
     Overcome by great compassion, grieving, spoke this. <br>
 	Arjuna said;<br>
     Seeing this, my own people, O Kṛṣṇa — desirous of battle, standing here. <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "Situation or context", sandhi: "कृपया परया·आविष्टः विषीदन्", translit: "kṛpayā parayā·āviṣṭaḥ viśīdan", guide: "overcome by great compassion, grieving"},
+    {id: 2, role: "Speaker", sandhi: "अर्जुनः उवाच", translit: "arjunaḥ uvāca", guide: "Arjuna said"},
+	{id: 3, role: "Speaker", sandhi: "इदम्·अब्रवीत्", translit: "idam·abravīt", guide: "he spoke this"},
+    {id: 4, role: "Person addressed", sandhi: "कृष्ण", translit: "kṛṣṇa", guide: "O Krishna"},
+    {id: 5, role: "What is affected?", sandhi: "दृष्ट्वा·इमम् स्व·जनम्", translit: "dṛṣṭvā·imam sva·janam", guide: "seeing my own people"},
+    {id: 6, role: "Description or quality", sandhi: "युयुत्सुम् समुप·स्थितम्", translit: "yuyutsum samupa·sthitam", guide: "desirous of battle, standing here"}
+  ],
+	origOrder: [1,2,3,5,4,6]
 },
 
 {
@@ -198,7 +261,13 @@ const CH1_21_30 = [
   translation: `
     My limbs sink; my mouth dries up;<br>
     Trembling arises in my body, and my hair stands on end. <br>
-  `
+  `,
+  parts: [
+  {id: 1, role: "Description or quality", sandhi: "सीदन्ति मम गात्राणि मुखम्·च परि·शुष्यति वेपथुः·च", translit: "sīdanti mama gātrāṇi mukham·ca pari·śuṣyati vepathuḥ·ca", guide: "my limbs sink, my mouth dries, and trembling occurs"},
+  {id: 2, role: "Place or setting", sandhi: "शरीरे मे", translit: "śarīre me", guide: "in my body"},
+  {id: 3, role: "Description or quality", sandhi: "रोम·हर्षः·च जायते", translit: "roma·harṣaḥ·ca jāyate", guide: "my hair stands on end"}
+	],
+	origOrder: [1,2,3]
 },
 
 {
@@ -219,7 +288,14 @@ const CH1_21_30 = [
   translation: `
     The Gāṇḍīva slips from my hand, and my skin burns indeed;<br>
     I am unable to stand firm, and my mind whirls as if reeling. <br>
-  `
+  `,
+  parts: [
+    {id: 1, role: "What happens?", sandhi: "गाण्डीवम् स्रंसते हस्तात्", translit: "gāṇḍīvam sraṁsate hastāt", guide: "the Gāṇḍīva slips from my hand"},
+    {id: 2, role: "Description or quality", sandhi: "त्वक्·च·एव परि·दह्यते", translit: "tvak·ca·eva pari·dahyate", guide: "and my skin burns indeed"},
+    {id: 3, role: "Description or quality", sandhi: "न·च शक्नोमि·अवस्थातुम्", translit: "na·ca śaknomi·avasthātum", guide: "I am unable to stand firm"},
+    {id: 4, role: "Description or quality", sandhi: "भ्रमति·इव·च मे मनः", translit: "bhramati·iva·ca me manaḥ", guide: "and my mind reels as if whirling"}
+  ],
+	origOrder: [1,2,3,4]
 },
 
 ];

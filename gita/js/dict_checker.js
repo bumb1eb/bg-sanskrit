@@ -1,54 +1,80 @@
-/* -----------------------------------------------------------
-   ADVANCED DICTIONARY CHECKER (NON‑MODULE VERSION)
------------------------------------------------------------ */
+/* ============================================================
+   dict_checker.js — Dictionary Coverage Checker
+   ------------------------------------------------------------
+   Responsibilities:
+   - Identify missing DICT entries
+   - Identify missing dict-sandhi entries
+   - Check both shloka and sandhi-viched
+   - Work with ANY chapter (auto-detect)
+   - Provide clean console output
+   - Integrate with render.js → runChecker()
+   ============================================================ */
 
 (function () {
 
+  /* ------------------------------------------------------------
+     Utility: clean a Sanskrit token
+     ------------------------------------------------------------ */
+  function cleanToken(w) {
+    return w
+      .replace(/[.,;:!?()"'”“’॥।]/g, "")
+      .replace(/[\u200B-\u200D\uFEFF]/g, "")
+      .trim();
+  }
+
+  /* ------------------------------------------------------------
+     Utility: split token into parts (handles ·, -, —, whitespace)
+     ------------------------------------------------------------ */
+  function splitToken(token) {
+    return token
+      .split(/[-–—]|·|\s+/)
+      .map(t => cleanToken(t))
+      .filter(t => t.length > 0);
+  }
+
+  /* ------------------------------------------------------------
+     Utility: detect compound words
+     ------------------------------------------------------------ */
+  function isCompound(rawToken) {
+    const token = cleanToken(rawToken);
+
+    // Explicit separators
+    if (token.includes("·") || token.includes("-") || token.includes("–") || token.includes("—")) {
+      return true;
+    }
+
+    // Long Devanagari cluster → likely compound
+    if (/[\u0900-\u097F]{6,}/.test(token)) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /* ------------------------------------------------------------
+     MAIN CHECKER
+     ------------------------------------------------------------ */
   function checkMissingWords(verses, DICT, DICT_SANDHI) {
 
     const missingShlokaSimple = new Set();
     const missingViched = new Set();
     const missingShlokaSandhi = new Set();
 
-    const clean = w =>
-      w.replace(/[.,;:!?()"'”“’॥।]/g, "")
-       .replace(/[\u200B-\u200D\uFEFF]/g, "")
-       .trim();
-
-    const splitToken = token =>
-      token.split(/[-–—]|·|\s+/)
-           .map(t => clean(t))
-           .filter(t => t.length > 0);
-
-    const isCompound = rawToken => {
-	  const token = clean(rawToken);
-
-	  // If token contains explicit separators → compound
-	  if (token.includes("·") || token.includes("-") || token.includes("–") || token.includes("—")) {
-		return true;
-	  }
-
-	  // If token is long and contains multiple Devanagari consonant clusters → likely compound
-	  // e.g. व्यवसायात्मिका, बुद्धिरेकेह, ह्यनन्ताश्च
-	  if (/[\u0900-\u097F]{6,}/.test(token)) {
-		return true;
-	  }
-
-	return false;
-	};
-
-
     verses.forEach(v => {
 
-      // 1. SHLOKA
+      /* --------------------------------------------------------
+         1. CHECK SHLOKA (original Sanskrit)
+         -------------------------------------------------------- */
       v.shloka.split(/[\s<br>]+/).forEach(token => {
-        const cleaned = clean(token);
+        const cleaned = cleanToken(token);
         if (!cleaned) return;
 
         const parts = splitToken(cleaned);
 
         if (isCompound(token)) {
-          if (!DICT_SANDHI[cleaned]) missingShlokaSandhi.add(cleaned);
+          if (!DICT_SANDHI[cleaned]) {
+            missingShlokaSandhi.add(cleaned);
+          }
           return;
         }
 
@@ -59,9 +85,11 @@
         });
       });
 
-      // 2. SANDHI-VICHED
+      /* --------------------------------------------------------
+         2. CHECK SANDHI-VICHED (split Sanskrit)
+         -------------------------------------------------------- */
       v.sandhi.split(/[\s<br>]+/).forEach(token => {
-        const cleaned = clean(token);
+        const cleaned = cleanToken(token);
         if (!cleaned) return;
 
         const parts = splitToken(cleaned);
@@ -75,13 +103,20 @@
 
     });
 
-    console.log("=== Missing SHLOKA simple words (DICT) ===");
+    /* ------------------------------------------------------------
+       OUTPUT RESULTS
+       ------------------------------------------------------------ */
+    console.log("===============================================");
+    console.log("🔍 DICTIONARY COVERAGE REPORT");
+    console.log("===============================================");
+
+    console.log("📘 Missing SHLOKA simple words (DICT):");
     console.log([...missingShlokaSimple]);
 
-    console.log("=== Missing VICHED words (DICT) ===");
+    console.log("📗 Missing VICHED words (DICT):");
     console.log([...missingViched]);
 
-    console.log("=== Missing SHLOKA sandhi compounds (DICT_SANDHI) ===");
+    console.log("📙 Missing SHLOKA sandhi compounds (DICT_SANDHI):");
     console.log([...missingShlokaSandhi]);
 
     return {
@@ -91,29 +126,38 @@
     };
   }
 
-  // ⭐ Make available globally
+  /* ------------------------------------------------------------
+     Make available globally
+     ------------------------------------------------------------ */
   window.checkMissingWords = checkMissingWords;
 
-	  // ⭐ Button handler
-	window.runChecker = function () {
+  /* ------------------------------------------------------------
+     Button handler — auto-detect current chapter
+     ------------------------------------------------------------
+     Your old version hardcoded CH2_51_60.
+     This new version:
+       ✔ Detects currentChapter from render.js
+       ✔ Checks ALL verses in that chapter
+     ------------------------------------------------------------ */
+  window.runChecker = function () {
 
-	  // ⭐ CHECK VERSES 51–70
-	  const chapterData = [
-		...CH2_51_60
-		
-	  ];
+    const chapterData = chapters[currentChapter]; // from render.js
 
-	  const result = checkMissingWords(
-		chapterData,
-		DICT,
-		SANDHI
-	  );
+    if (!chapterData) {
+      alert("No chapter data found.");
+      return;
+    }
 
-	  console.log("🔍 Missing words report:");
-	  console.log(result);
+    const result = checkMissingWords(
+      chapterData,
+      DICT,
+      SANDHI
+    );
 
-	  alert("Check console for missing words.");
-	};
+    console.log("🔍 Missing words report:");
+    console.log(result);
 
+    alert("Dictionary check complete. See console for details.");
+  };
 
 })();

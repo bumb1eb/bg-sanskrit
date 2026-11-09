@@ -1,3 +1,4 @@
+// Metadata object (optional, not used by render.js)
 const CHAPTER_1 = {
   number: 1,
   name: "Chapter 1",
@@ -10,3 +11,12 @@ const CHAPTER_1 = {
     { label: "Verses 41–47", data: CH1_41_47 }
   ]
 };
+
+// REQUIRED by render.js — this is what was missing
+window.chapter1 = [
+  ...CH1_01_10,
+  ...CH1_11_20,
+  ...CH1_21_30,
+  ...CH1_31_40,
+  ...CH1_41_47
+];

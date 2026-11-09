@@ -3,20 +3,20 @@ const CH1_11_20 = [
     id: 11,
     title: "श्लोक 11",
     shloka: `
-    अयनेषु च सर्वेषु यथाभागमवस्थिताः।<br>
-    भीष्ममेवाभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
+	अयनेषु च सर्वेषु यथाभागमवस्थिताः।<br>
+	भीष्ममेवाभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
     `,
     sandhi: `
-    अयनेषु च सर्वेषु यथाभागम्·अवस्थिताः।<br>
-    भीष्मम्·एव·अभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
+	अयनेषु च सर्वेषु यथाभागम्·अवस्थिताः।<br>
+	भीष्मम्·एव·अभिरक्षन्तु भवन्तः सर्व एव हि ॥<br>
     `,
     translit: `
-    ayanēṣu ca sarvēṣu yathābhāgam·avasthitāḥ |<br>
-    bhīṣmam·ēva·abhirakṣantu bhavantaḥ sarva ēva hi ||<br>
+	ayanēṣu ca sarvēṣu yathābhāgam·avasthitāḥ।<br>
+	bhīṣmam·ēva·abhirakṣantu bhavantaḥ sarva ēva hi ॥<br>
     `,
     translation: `
-    At strategic points and everywhere, according to division, being stationed,<br>
-    Bhishma alone must certainly be protected by you all.<br>
+	At strategic points and everywhere, according to division, being stationed,<br>
+	Bhishma alone must certainly be protected by you all.<br>
     `
   },
 
@@ -25,16 +25,16 @@ const CH1_11_20 = [
     title: "श्लोक 12",
     shloka: `
     तस्य सञ्जनयन्हर्षं कुरुवृद्धः पितामहः।<br>
-    सिंहनादं विनद्योच्चैः शङ्खं दध्मौ प्रतापवान् ॥<br>
+    सिंहनादं विनद्योच्चैः शङ्खं दध्मौ प्रतापवान्॥<br>
     `,
     sandhi: `
     तस्य सञ्जनयन्·हर्षम् कुरु·वृद्धः पितामहः।<br>
-    सिंह·नादम् विनद्य·उच्चैः शङ्खम् दध्मौ प्रतापवान्।<br>
+    सिंह·नादम् विनद्य·उच्चैः शङ्खम् दध्मौ प्रतापवान्॥<br>
     `,
     translit: `
-    tasya sañjanayan - harṣam kuru - vṛddhaḥ pitāmahaḥ |<br>
-    siṃha - nādam vinadya - uccaiḥ śaṅkham dadhmau pratāpavān ||<br>
-    `,
+    tasya sañjanayan harṣam kuru vṛddhaḥ pitāmahaḥ।<br>
+    siṃha nādam vinadya uccaiḥ śaṅkham dadhmau pratāpavān॥<br>
+	`,
     translation: `
     To his (Duryodhana's) joy, the Kuru elder Pitamah (Bhishma),<br>
     (like a) lion roar, sounding loudly, (Bhishma's) conch blew mightily.<br>
@@ -74,9 +74,9 @@ const CH1_11_20 = [
     माधवः पाण्डवः·च·एव दिव्यौ शङ्खौ प्रदध्मतुः॥<br>
     `,
     translit: `
-    tataḥ śvetaiḥ - hayaiḥ - yukte mahati syandane sthitau।<br>
-    mādhavaḥ pāṇḍavaḥ - ca - eva divyau śaṅkhau pradadhmatuḥ॥<br>
-    `,
+    tataḥ śvetaiḥ hayaiḥ yukte mahati syandane sthitau।<br>
+    mādhavaḥ pāṇḍavaḥ ca eva divyau śaṅkhau pradadhmatuḥ॥<br>
+	`,
     translation: `
     Thereafter, in the white-horses-yoked great chariot , standing; <br>
     Mādhava and the son of Pāṇḍu, their divine conches blew.<br>
@@ -96,8 +96,8 @@ const CH1_11_20 = [
     `,
     translit: `
     pāñcajanyam hṛṣīkeśaḥ devadattam dhanañjayaḥ।<br>
-    pauṇḍram dadhmau mahā - śaṅkham bhīmakarmā vṛkaudaraḥ॥<br>
-    `,
+    pauṇḍram dadhmau mahā śaṅkham bhīmakarmā vṛkodaraḥ॥<br>
+	`,
     translation: `
     Pāñcajanya (was blown) by Hṛṣīkeśa (Krishna), and Devadatta (by) Dhanañjaya (Arjun);<br>
     Pauṇḍra was blown, the great conch, (by) Bhīma, doer of mighty deeds, the wolf-bellied (another name for Bhima).<br>
@@ -138,9 +138,9 @@ const CH1_11_20 = [
     धृष्टद्युम्नः विराटः·च सात्यकिः·च अपराजितः॥<br>
     `,
     translit: `
-    kāśyaḥ·ca parama·iṣvāsaḥ śikhaṇḍī·ca mahā·rathaḥ।<br>
-    dhṛṣṭa·dyumnaḥ virāṭaḥ·ca sātyakiḥ·ca aparājitaḥ॥<br>
-    `,
+    kāśyaḥ ca parama iṣvāsaḥ śikhaṇḍī ca mahā rathaḥ।<br>
+    dhṛṣṭadyumnaḥ virāṭaḥ ca sātyakiḥ ca aparājitaḥ॥<br>
+	`,
     translation: `
     Kāśya, the supreme archer, and Śikhaṇḍi, the great chariot‑warrior;<br>
     Dhṛṣṭadyumna and Virāṭa, and Sātyaki, the undefeated (one).<br>
@@ -160,9 +160,9 @@ const CH1_11_20 = [
     सौभद्रः·च महाबाहुः शङ्खान्·दध्मुः पृथक् पृथक्॥<br>
     `,
     translit: `
-    drupadaḥ draupadeyāḥ·ca sarvaśaḥ pṛthivī·pate।<br>
-    saubhadraḥ·ca mahā·bāhuḥ śaṅkhān·dadhmuḥ pṛthak pṛthak॥<br>
-    `,
+    drupadaḥ draupadeyāḥ ca sarvaśaḥ pṛthivī pate।<br>
+    saubhadraḥ ca mahābāhuḥ śaṅkhān dadhmuḥ pṛthak pṛthak॥<br>
+	`,
     translation: `
     Drupada and the sons of Draupadī, all of them, O lord of the earth;<br>
     Saubhadra, and the mighty‑armed one, their conches (they) blew separately, each one.<br>
