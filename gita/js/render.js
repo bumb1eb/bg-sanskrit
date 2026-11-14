@@ -147,9 +147,18 @@ function highlightActiveVerse() {
   const active = chapterList.children[currentVerseIndex];
   if (active) {
     active.classList.add("active-verse");
-    active.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+    // Only scroll inside the sidebar on desktop/laptop without moving the main page
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar && window.innerWidth > 900) {
+      sidebar.scrollTo({
+        top: active.offsetTop - sidebar.clientHeight / 2,
+        behavior: "smooth"
+      });
+    }
   }
 }
+
 
 
 /* ============================================================
