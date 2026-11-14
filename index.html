@@ -2,10 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanskrit Text Explorer</title>
 
   <!-- Landing page stylesheet -->
   <link rel="stylesheet" href="css/landing.css">
+
+  <style>
+    .texts-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      margin-bottom: 10px;
+      background-color: #fcfaf2;
+    }
+
+    .texts-table th,
+    .texts-table td {
+      border: 1px solid #d8c8a8;
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    .texts-table th {
+      background-color: #f3e9d2;
+      color: #6a4a00;
+      font-weight: 600;
+    }
+
+    .texts-table .text-title {
+      font-weight: 600;
+      color: #2b2620;
+    }
+
+    .texts-table a {
+      color: #6a4a00;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .texts-table a:hover {
+      text-decoration: underline;
+    }
+	
+	    @media (max-width: 768px) {
+      #landing-container {
+        padding: 16px !important;
+        margin: 10px !important;
+        width: auto !important;
+      }
+
+      .texts-table th,
+      .texts-table td {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -29,50 +82,89 @@
       <li>Lets you explore verse-by-verse with grammar toggles</li>
     </ul>
 
+    <hr style="border: 0; border-top: 1px solid #e2d3b3; margin: 28px 0 22px;">
+
+    <h2>How to Use This Explorer (Read Me First)</h2>
+    <p>
+      Open any verse and use the <strong>Grammar Options</strong> panel on the right to peel back
+      the verse layer by layer:
+    </p>
+    <ul class="how-to-list">
+      <li>
+        <strong>Separate joined words (Sandhi split):</strong> Toggle this on to break long
+        compound words into individual words below the shloka. Compound words are underlined in the
+        verse—hover over an underlined compound or any split word to spotlight all parts belonging
+        together.
+      </li>
+      <li>
+        <strong>Read in IAST Transliteration:</strong> Cannot read Devanāgarī yet? Flip the slider
+        next to <em>Compound-split verse</em> to switch the split text into Romanized IAST script
+        while keeping all grammar colors and hover links active.
+      </li>
+      <li>
+        <strong>See Phrase Groups:</strong> Check <em>Show phrase groups</em> to wrap related words
+        inside the compound-split verse into visual pills, showing how the verse breaks into natural
+        thought units.
+      </li>
+      <li>
+        <strong>Word-by-Word Meanings &amp; Grammar:</strong> Hover over any split word to see its
+        English meaning and grammatical case. Use the color toggles on the right (<strong>Nouns</strong>,
+        <strong>Verbs</strong>, <strong>Pronouns</strong>, <strong>Adjectives</strong>,
+        <strong>Indeclinables</strong>, and <strong>Cases</strong>) to color-code parts of speech
+        across every view.
+      </li>
+      <li>
+        <strong>Read in Meaning Order:</strong> Sanskrit verses arrange words for poetic meter.
+        Toggle <em>Read in meaning order</em> to rearrange the phrases into natural English prose
+        order, complete with role tags (such as <em>Speaker</em>, <em>Person addressed</em>, or
+        <em>What happens?</em>).
+      </li>
+      <li>
+        <strong>Show Verbatim Translation:</strong> Toggle this on to view a direct, line-by-line
+        English translation alongside your grammatical breakdown.
+      </li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px solid #e2d3b3; margin: 28px 0 22px;">
+
     <h2>Available Texts</h2>
 
-	<div class="text-links">
-
-	  <div class="text-entry">
-		<span class="text-title">Śrī Bhagavad Gītā</span>
-
-		<span class="text-actions">
-		  – 
-		  <a href="gita/index_gita.html"
-			 onclick="localStorage.removeItem('lastVerse'); localStorage.removeItem('lastChapter');">
-			 Start from the Beginning
-		  </a>
-
-		  –
-		  <a href="gita/index_gita.html">
-			 Resume from Last Verse
-		  </a>
-		</span>
-
-		<div id="resume-info" class="resume-info"></div>
-	  </div>
-
-	</div>
-
-    <!-- Future texts -->
-    <!--
-    <div class="text-links">
-      <a href="upanishads/index_upanishads.html">Upanishads Explorer</a>
-      <a href="yogasutra/index_yogasūtra.html">Yoga Sutras Explorer</a>
-    </div>
-    -->
+    <table class="texts-table">
+      <thead>
+        <tr>
+          <th>Text</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-title">Śrī Bhagavad Gītā</td>
+          <td>
+            <a href="gita/index_gita.html"
+               onclick="localStorage.removeItem('currentVerseIndex'); localStorage.removeItem('currentChapter');">
+              Start from the Beginning
+            </a>
+            &nbsp;|&nbsp;
+            <a href="gita/index_gita.html">
+              Resume from Last Verse
+            </a>
+          </td>
+        </tr>
+        <!-- Future texts -->
+        <!--
+        <tr>
+          <td class="text-title">Upanishads</td>
+          <td><a href="upanishads/index_upanishads.html">Explore Text</a></td>
+        </tr>
+        <tr>
+          <td class="text-title">Yoga Sutras</td>
+          <td><a href="yogasutra/index_yogasūtra.html">Explore Text</a></td>
+        </tr>
+        -->
+      </tbody>
+    </table>
 
   </div>
-
-  <script>
-    const lastChapter = localStorage.getItem('lastChapter');
-    const lastVerse = localStorage.getItem('lastVerse');
-
-    if (lastChapter && lastVerse !== null) {
-      document.getElementById('resume-info').innerText =
-        `Last visited: ${lastChapter}, Verse ${parseInt(lastVerse) + 1}`;
-    }
-  </script>
 
 </body>
 </html>
