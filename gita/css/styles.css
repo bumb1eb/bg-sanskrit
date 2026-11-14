@@ -655,3 +655,108 @@ input:checked + .slider:before {
 #check-missing-btn {
   display: none;
 }
+
+/* ============================================================
+   MOBILE PORTRAIT RESPONSIVE OVERRIDES (<= 900px)
+   Desktop/laptop view (> 900px) remains completely untouched.
+   ============================================================ */
+@media (max-width: 900px) {
+  body {
+    padding: 8px;
+  }
+
+  #outer-frame {
+    padding: 10px;
+    border-width: 2px;
+  }
+
+  /* Stack Sidebar, Main Content, and Grammar Options vertically */
+  #layout-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Hide desktop vertical gold bars on mobile */
+  .vertical-separator {
+    display: none !important;
+  }
+
+  /* Put Main Shloka first, Grammar Options second, Verse Index third */
+  #main-content {
+    order: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    padding: 6px 4px !important;
+    box-sizing: border-box;
+  }
+
+  #case-panel {
+    order: 2;
+    width: 100% !important;
+    height: auto !important;
+    overflow-y: visible !important;
+    border-left: none !important;
+    border-top: 2px solid #d4af37;
+    padding: 14px 4px 6px 4px !important;
+    box-sizing: border-box;
+  }
+
+  #sidebar {
+    order: 3;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 260px;
+    overflow-y: auto !important;
+    border-right: none !important;
+    border-top: 2px solid #d4af37;
+    padding: 12px 4px !important;
+    box-sizing: border-box;
+  }
+
+  /* Arrange Grammar Options checkboxes into a clean 2-column grid for thumbs */
+  #grammar-options {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 8px;
+  }
+
+  #grammar-options label {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  /* Widen the verse grid to 8 columns on mobile phones */
+  #sidebar ul.verse-grid {
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 6px;
+  }
+
+  /* Scale shloka text & meaning order cleanly for narrow screens */
+  #main-content h1 {
+    font-size: 1.5rem;
+    margin: 6px 0;
+  }
+
+  .nav-inline {
+    margin: 10px 0;
+  }
+
+  .stotra-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+  #meaning-order {
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  /* Make tooltips fit inside phone width */
+  .tooltip {
+    max-width: 85vw;
+    font-size: 0.9rem;
+  }
+}
