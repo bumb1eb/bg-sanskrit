@@ -319,51 +319,72 @@ body {
 
 
 /* ------------------------------------------------------------
-   CHAPTER + VERSE LIST — sidebar tree-view
+   CHAPTER + VERSE NUMBER GRID — sidebar tree-view
    ------------------------------------------------------------ */
 
-.chapter-block { margin-bottom: 6px; }
+.chapter-block { margin-bottom: 8px; }
 .chapter-body { margin-left: 10px; }
+
+.chapter-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #fffdf7;
+  padding: 6px 2px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6a4a00;
+}
 
 .group-header {
   cursor: pointer;
   font-weight: 600;
   margin: 4px 0;
   color: #6a4a00;
+  font-size: 16px;
 }
-
-.verses li:hover { color: #b8860b; }
 
 #color-legend { display: none; }
 
 #sidebar ul.verses {
   list-style: none;
-  padding-left: 4px;
-  margin-left: 4px;
+  padding: 6px 0 12px 0;
+  margin: 0;
 }
 
-#sidebar ul.verses li {
-  padding: 4px 6px;
+#sidebar ul.verse-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+#sidebar ul.verse-grid li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3226;
+  background-color: #fcfaf2;
+  border: 1px solid #dfd3ba;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-#sidebar ul.verses li:hover {
-  background: #f0e6d2;
+#sidebar ul.verse-grid li:hover {
+  background-color: #f3e9d2;
+  border-color: #c9a86a;
+  color: #6a4a00;
 }
 
-.chapter-header,
-.group-header,
-#sidebar ul.verses li {
-  font-size: 16px !important;
-  font-weight: normal !important;
-}
-
-#sidebar ul.verses li.active-verse {
-  font-weight: 700 !important;
-  text-decoration: underline !important;
-  color: #b8860b !important;
+#sidebar ul.verse-grid li.active-verse {
+  background-color: #f3e9d2;
+  border: 1.5px solid #d4af37;
+  color: #6a4a00;
+  font-weight: 700;
 }
 
 /* Triangle icon */
@@ -379,12 +400,6 @@ body {
 .chapter-header.open .toggle-icon,
 li.open .toggle-icon {
   transform: rotate(90deg);
-}
-
-/* Sidebar spacing */
-#sidebar li {
-  cursor: pointer;
-  padding: 4px 0;
 }
 
 
@@ -426,6 +441,55 @@ li.open .toggle-icon {
 .compound-underline {
   text-decoration: underline;
   text-decoration-color: #8b4513; /* optional */
+}
+
+/* ------------------------------------------------------------
+   ROLE TAGS IN MEANING ORDER
+   ------------------------------------------------------------ */
+.role-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  background-color: #e2e8f0;
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------------------
+   INLINE PHRASE GROUP PILLS (Inside Compound-split verse)
+   ------------------------------------------------------------ */
+.phrase-pill {
+  display: inline;
+  transition: background-color 0.2s ease, border-color 0.2s ease, padding 0.2s ease;
+}
+
+#sandhi-translit-wrapper.show-phrase-groups .phrase-pill {
+  display: inline-block;
+  background-color: rgba(243, 233, 210, 0.55);
+  border: 1px solid #d8c8a8;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: 3px 3px;
+  line-height: 1.5;
+}
+
+
+/* ------------------------------------------------------------
+   BIDIRECTIONAL COMPOUND HOVER HIGHLIGHT
+   ------------------------------------------------------------ */
+.sandhi-highlight {
+  background-color: rgba(212, 175, 55, 0.32);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.45);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#shloka .shloka-word[data-sandhi-group] {
+  cursor: pointer;
 }
 
 
@@ -586,3 +650,8 @@ input:checked + .slider:before {
 #phrase-groups .adjective, #meaning-order .adjective { color: #0b7d3b !important; }
 #phrase-groups .indeclinable, #meaning-order .indeclinable { color: #cc8400 !important; }
 #phrase-groups .case, #meaning-order .case { color: #444 !important; }
+
+/* Hide developer dictionary checker button */
+#check-missing-btn {
+  display: none;
+}
