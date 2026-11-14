@@ -25,8 +25,8 @@ const CH1_01_10 = [
     parts: [
       {id: 1, role: "Speaker", sandhi: "धृतराष्ट्र उवाच ।", translit: "dhṛtarāṣṭra uvāca |", guide: "Dhṛtarāṣṭra said"},
       {id: 2, role: "Place or setting", sandhi: "धर्मक्षेत्रे कुरुक्षेत्रे", translit: "dharma-kṣetre kuru-kṣetre", guide: "in the land of dharma, in Kurukṣetra"},
-      {id: 3, role: "Description or quality", sandhi: "समवेताः युयुत्सवः |", translit: "samavetāḥ yuyutsavaḥ |", guide: "gathered together, desiring to fight"},
-      {id: 4, role: "Who acts?", sandhi: "मामकाः पाण्डवाः च एव", translit: "māmakāḥ pāṇḍavāś ca eva", guide: "my people and the sons of Pāṇḍu indeed"},
+      {id: 3, role: "Situation or context", sandhi: "समवेताः युयुत्सवः |", translit: "samavetāḥ yuyutsavaḥ |", guide: "gathered together, desiring to fight"},
+      {id: 4, role: "Persons involved", sandhi: "मामकाः पाण्डवाः च एव", translit: "māmakāḥ pāṇḍavāś ca eva", guide: "my people and the sons of Pāṇḍu indeed"},
       {id: 5, role: "Question", sandhi: "किम् अकुर्वत", translit: "kim akurvata", guide: "what did they do"},
       {id: 6, role: "Person addressed", sandhi: "सञ्जय ||", translit: "sañjaya ||", guide: "O Sañjaya"}
     ],
@@ -59,11 +59,11 @@ const CH1_01_10 = [
     `,
     parts: [
       {id: 1, role: "Speaker", sandhi: "सञ्जय उवाच ।", translit: "sañjaya uvāca |", guide: "Sañjaya said"},
-      {id: 2, role: "What happens?", sandhi: "दृष्ट्वा तु", translit: "dṛṣṭvā tu", guide: "then having seen"},
-      {id: 3, role: "What is affected?", sandhi: "पाण्डवः अनीकम् व्यूढं", translit: "pāṇḍavānīkam vyūḍham", guide: "the arrayed army of the Pāṇḍavas"},
-      {id: 4, role: "Who acts?", sandhi: "दुर्योधनः तदा", translit: "duryodhanaḥ tadā", guide: "Duryodhana at that time"},
-      {id: 5, role: "What happens?", sandhi: "आचार्यम् उपसङ्गम्य", translit: "ācāryam upasaṅgamya", guide: "approaching the teacher (Droṇa)"},
-      {id: 6, role: "What happens?", sandhi: "राजा वचनम् अब्रवीत् ||", translit: "rājā vacanam abravīt ||", guide: "the king spoke these words"}
+      {id: 2, role: "Action 1", sandhi: "दृष्ट्वा तु", translit: "dṛṣṭvā tu", guide: "then having seen"},
+      {id: 3, role: "Situation", sandhi: "पाण्डवः अनीकम् व्यूढं", translit: "pāṇḍavānīkam vyūḍham", guide: "the arrayed army of the Pāṇḍavas"},
+      {id: 4, role: "Person involved", sandhi: "दुर्योधनः तदा", translit: "duryodhanaḥ tadā", guide: "Duryodhana at that time"},
+      {id: 5, role: "Action 2", sandhi: "आचार्यम् उपसङ्गम्य", translit: "ācāryam upasaṅgamya", guide: "approaching the teacher (Droṇa)"},
+      {id: 6, role: "Action 3", sandhi: "राजा वचनम् अब्रवीत् ||", translit: "rājā vacanam abravīt ||", guide: "the king spoke these words"}
     ],
     meaningOrder: [1, 4, 2, 3, 5, 6]
   },
@@ -88,12 +88,12 @@ const CH1_01_10 = [
       arrayed by son of Drupada, your disciple, the intelligent.<br>
     `,
     parts: [
-      {id: 1, role: "Request or command", sandhi: "पश्य एताम्", translit: "paśya etām", guide: "Behold this"},
-      {id: 2, role: "Description or quality", sandhi: "पाण्डुपुत्राणाम्", translit: "pāṇḍuputrāṇām", guide: "of the sons of Pāṇḍu"},
+      {id: 1, role: "Request", sandhi: "पश्य एताम्", translit: "paśya etām", guide: "Behold this"},
+      {id: 2, role: "Belonging to", sandhi: "पाण्डुपुत्राणाम्", translit: "pāṇḍuputrāṇām", guide: "of the sons of Pāṇḍu"},
       {id: 3, role: "Person addressed", sandhi: "आचार्य", translit: "ācārya", guide: "O teacher"},
-      {id: 4, role: "What is affected?", sandhi: "महतीम् चमूम् |", translit: "mahatīm camūm |", guide: "mighty army"},
-      {id: 5, role: "What happens?", sandhi: "व्यूढां द्रुपदपुत्रेण", translit: "vyūḍhām drupadaputreṇa", guide: "arrayed by the son of Drupada"},
-      {id: 6, role: "Description or quality", sandhi: "तव शिष्येण धीमता ||", translit: "tava śiṣyeṇa dhīmatā ||", guide: "by your intelligent disciple"}
+      {id: 4, role: "Object", sandhi: "महतीम् चमूम् |", translit: "mahatīm camūm |", guide: "mighty army"},
+      {id: 5, role: "Description", sandhi: "व्यूढां द्रुपदपुत्रेण", translit: "vyūḍhām drupadaputreṇa", guide: "arrayed by the son of Drupada"},
+      {id: 6, role: "Description", sandhi: "तव शिष्येण धीमता ||", translit: "tava śiṣyeṇa dhīmatā ||", guide: "by your intelligent disciple"}
     ],
     meaningOrder: [3, 1, 4, 2, 5, 6]
   },
@@ -121,8 +121,8 @@ const CH1_01_10 = [
       {id: 1, role: "Place or setting", sandhi: "अत्र", translit: "atra", guide: "Here (in this army)"},
       {id: 2, role: "Description or quality", sandhi: "शूराः महा इष्वासाः", translit: "śūrā maha eṣvāsā", guide: "heroic great archers"},
       {id: 3, role: "Description or quality", sandhi: "भीमः अर्जुन - समाः युधि |", translit: "bhīm ārjuna-samā yudhi |", guide: "equal to Bhīma and Arjuna in battle"},
-      {id: 4, role: "Who acts?", sandhi: "युयुधानः विराटः च", translit: "yuyudhāno virāṭaś ca", guide: "Yuyudhāna and Virāṭa"},
-      {id: 5, role: "Who acts?", sandhi: "द्रुपदः च महारथः ||", translit: "drupadaś ca mahārathaḥ ||", guide: "and Drupada, the great chariot-warrior"}
+      {id: 4, role: "Persons involved", sandhi: "युयुधानः विराटः च", translit: "yuyudhāno virāṭaś ca", guide: "Yuyudhāna and Virāṭa"},
+      {id: 5, role: "Persons involved", sandhi: "द्रुपदः च महारथः ||", translit: "drupadaś ca mahārathaḥ ||", guide: "and Drupada, the great chariot-warrior"}
     ],
     meaningOrder: [1, 2, 3, 4, 5]
   },
@@ -147,10 +147,10 @@ const CH1_01_10 = [
       Purujit and Kuntibhoja and Saibyah, the bull among men.<br>
     `,
     parts: [
-      {id: 1, role: "Who acts?", sandhi: "धृष्टकेतुः चेकितानः", translit: "dhṛṣṭaketuḥ cekitānaḥ", guide: "Dhṛṣṭaketu and Cekitāna"},
-      {id: 2, role: "Who acts?", sandhi: "काशिराजः च वीर्यवान् ।", translit: "kāśirājaḥ ca vīryavān ।", guide: "and the valiant King of Kāśī"},
-      {id: 3, role: "Who acts?", sandhi: "पुरुजित् कुन्तिभोजः च", translit: "purujit kuntibhojaḥ ca", guide: "Purujit and Kuntibhoja"},
-      {id: 4, role: "Who acts?", sandhi: "शैब्यः च नरपुङ्गवः ॥", translit: "śaibyaḥ ca narapuṅgavaḥ ॥", guide: "and Śaibya, the foremost among men"}
+      {id: 1, role: "Persons involved", sandhi: "धृष्टकेतुः चेकितानः", translit: "dhṛṣṭaketuḥ cekitānaḥ", guide: "Dhṛṣṭaketu and Cekitāna"},
+      {id: 2, role: "Persons involved", sandhi: "काशिराजः च वीर्यवान् ।", translit: "kāśirājaḥ ca vīryavān ।", guide: "and the valiant King of Kāśī"},
+      {id: 3, role: "Persons involved", sandhi: "पुरुजित् कुन्तिभोजः च", translit: "purujit kuntibhojaḥ ca", guide: "Purujit and Kuntibhoja"},
+      {id: 4, role: "Persons involved", sandhi: "शैब्यः च नरपुङ्गवः ॥", translit: "śaibyaḥ ca narapuṅgavaḥ ॥", guide: "and Śaibya, the foremost among men"}
     ],
     meaningOrder: [1, 2, 3, 4]
   },
@@ -176,9 +176,9 @@ const CH1_01_10 = [
       Son of Subhadra and sons of Draupadi, all indeed great warriors <br>
     `,
     parts: [
-      {id: 1, role: "Who acts?", sandhi: "युधामन्युः च विक्रान्तः", translit: "yudhāmanyuḥ ca vikrāntaḥ", guide: "the valiant Yudhāmanyu"},
-      {id: 2, role: "Who acts?", sandhi: "उत्तमौजाः च वीर्यवान् ।", translit: "uttamaujāḥ ca vīryavān ।", guide: "and the powerful Uttamaujāḥ"},
-      {id: 3, role: "Who acts?", sandhi: "सौभद्रः द्रौपदेयाः च", translit: "saubhadraḥ draupadeyāḥ ca", guide: "the son of Subhadrā and the sons of Draupadī"},
+      {id: 1, role: "Persons involved", sandhi: "युधामन्युः च विक्रान्तः", translit: "yudhāmanyuḥ ca vikrāntaḥ", guide: "the valiant Yudhāmanyu"},
+      {id: 2, role: "Persons involved", sandhi: "उत्तमौजाः च वीर्यवान् ।", translit: "uttamaujāḥ ca vīryavān ।", guide: "and the powerful Uttamaujāḥ"},
+      {id: 3, role: "Persons involved", sandhi: "सौभद्रः द्रौपदेयाः च", translit: "saubhadraḥ draupadeyāḥ ca", guide: "the son of Subhadrā and the sons of Draupadī"},
       {id: 4, role: "Description or quality", sandhi: "सर्व एव महारथाः ॥", translit: "sarve eva mahārathāḥ ॥", guide: "all of them indeed are great chariot-warriors"}
     ],
     meaningOrder: [1, 2, 3, 4]
@@ -205,11 +205,11 @@ const CH1_01_10 = [
     `,
     parts: [
       {id: 1, role: "Description or quality", sandhi: "अस्माकम् तु विशिष्टाः ये", translit: "asmākam tu viśiṣṭāḥ ye", guide: "those who are distinguished among ours"},
-      {id: 2, role: "Request or command", sandhi: "तान् निबोध", translit: "tān nibodha", guide: "know them"},
+      {id: 2, role: "Purpose", sandhi: "तान् निबोध", translit: "tān nibodha", guide: "know them"},
       {id: 3, role: "Person addressed", sandhi: "द्विज-उत्तम ।", translit: "dvija-uttama ।", guide: "O best among the twice-born (Droṇa)"},
-      {id: 4, role: "What is affected?", sandhi: "नायकाः मम सैन्यस्य", translit: "nāyakāḥ mama sainyasya", guide: "the leaders of my army"},
+      {id: 4, role: "Object", sandhi: "नायकाः मम सैन्यस्य", translit: "nāyakāḥ mama sainyasya", guide: "the leaders of my army"},
       {id: 5, role: "Time or purpose", sandhi: "संज्ञा अर्थम्", translit: "saṃjñā artham", guide: "for your information"},
-      {id: 6, role: "What happens?", sandhi: "तान् ब्रवीमि ते ॥", translit: "tān bravīmi te॥", guide: "I name them to you"}
+      {id: 6, role: "Action", sandhi: "तान् ब्रवीमि ते ॥", translit: "tān bravīmi te॥", guide: "I name them to you"}
     ],
     meaningOrder: [3, 1, 2, 4, 5, 6]
   },
@@ -234,10 +234,10 @@ const CH1_01_10 = [
       Ashvathama and Vikarna and Saumadattih, likewise indeed.<br>
     `,
     parts: [
-      {id: 1, role: "Who acts?", sandhi: "भवान् भीष्मः च", translit: "bhavān bhīṣmaḥ ca", guide: "Yourself (Droṇa) and Bhīṣma"},
-      {id: 2, role: "Who acts?", sandhi: "कर्णः च कृपः च समितिंजयः।", translit: "karṇaḥ ca kṛpaḥ ca samitiñjayaḥ।", guide: "Karṇa, and Kṛpa, victorious in battle"},
-      {id: 3, role: "Who acts?", sandhi: "अश्वत्थामा विकर्णः च", translit: "aśvatthāmā vikarṇaḥ ca", guide: "Aśvatthāmā and Vikarṇa"},
-      {id: 4, role: "Who acts?", sandhi: "सौमदत्तिः तथा एव च ॥", translit: "saumadattiḥ tathā eva ca॥", guide: "and Saumadatti (Bhūriśravā) likewise indeed"}
+      {id: 1, role: "Persons involved", sandhi: "भवान् भीष्मः च", translit: "bhavān bhīṣmaḥ ca", guide: "Yourself (Droṇa) and Bhīṣma"},
+      {id: 2, role: "Persons involved", sandhi: "कर्णः च कृपः च समितिंजयः।", translit: "karṇaḥ ca kṛpaḥ ca samitiñjayaḥ।", guide: "Karṇa, and Kṛpa, victorious in battle"},
+      {id: 3, role: "Persons involved", sandhi: "अश्वत्थामा विकर्णः च", translit: "aśvatthāmā vikarṇaḥ ca", guide: "Aśvatthāmā and Vikarṇa"},
+      {id: 4, role: "Persons involved", sandhi: "सौमदत्तिः तथा एव च ॥", translit: "saumadattiḥ tathā eva ca॥", guide: "and Saumadatti (Bhūriśravā) likewise indeed"}
     ],
     meaningOrder: [1, 2, 3, 4]
   },
@@ -262,8 +262,8 @@ const CH1_01_10 = [
       Different weapons bearing, all proficient in battle. <br>
     `,
     parts: [
-      {id: 1, role: "Who acts?", sandhi: "अन्ये च बहवः शूराः", translit: "anye ca bahavaḥ śūrāḥ", guide: "and many other heroes"},
-      {id: 2, role: "Reason or result", sandhi: "मत्·अर्थे त्यक्त·जीविताः ।", translit: "mat-arthe tyakta-jīvitāḥ ।", guide: "ready to give up their lives for my sake"},
+      {id: 1, role: "Persons involved", sandhi: "अन्ये च बहवः शूराः", translit: "anye ca bahavaḥ śūrāḥ", guide: "and many other heroes"},
+      {id: 2, role: "Qualifier", sandhi: "मत्·अर्थे त्यक्त·जीविताः ।", translit: "mat-arthe tyakta-jīvitāḥ ।", guide: "ready to give up their lives for my sake"},
       {id: 3, role: "Description or quality", sandhi: "नाना·शस्त्र·प्रहरणाः", translit: "nānā-śastra-praharaṇāḥ", guide: "armed with various weapons"},
       {id: 4, role: "Description or quality", sandhi: "सर्वे युद्ध·विशारदाः ॥", translit: "sarve yuddha-viśāradāḥ ॥", guide: "all of them skilled in warfare"}
     ],
@@ -291,10 +291,10 @@ const CH1_01_10 = [
     `,
     parts: [
       {id: 1, role: "Description or quality", sandhi: "अपर्याप्तम्", translit: "aparyāptam", guide: "immeasurable / beyond sufficient"},
-      {id: 2, role: "What is affected?", sandhi: "तत् अस्माकम् बलम्", translit: "tat asmākam balam", guide: "is that strength of ours"},
+      {id: 2, role: "Object", sandhi: "तत् अस्माकम् बलम्", translit: "tat asmākam balam", guide: "is that strength of ours"},
       {id: 3, role: "Description or quality", sandhi: "भीष्म·अभिरक्षितम् ।", translit: "bhīṣma-abhirakṣitam।", guide: "protected by Bhīṣma"},
       {id: 4, role: "Description or quality", sandhi: "पर्याप्तम् तु", translit: "paryāptam tu", guide: "whereas limited / merely sufficient"},
-      {id: 5, role: "What is affected?", sandhi: "इदम् एतेषाम् बलम्", translit: "idam eteṣām balam", guide: "is this strength of theirs"},
+      {id: 5, role: "Object", sandhi: "इदम् एतेषाम् बलम्", translit: "idam eteṣām balam", guide: "is this strength of theirs"},
       {id: 6, role: "Description or quality", sandhi: "भीम·अभिरक्षितम् ॥", translit: "bhīma-abhirakṣitam॥", guide: "protected by Bhīma"}
     ],
     meaningOrder: [2, 3, 1, 5, 6, 4]

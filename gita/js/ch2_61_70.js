@@ -17,7 +17,14 @@ const CH2_61_70 = [
     translation: `
       Them all restraining steadfast he should sit, devoted to Me;<br>
       Under control indeed whose senses, his wisdom is firmly established. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Guidance / Advice", sandhi: "तानि सर्वाणि संयम्य", translit: "tāni sarvāṇi saṃyamya", guide: "bringing all those senses under control"},
+      {id: 2, role: "Guidance / Advice", sandhi: "युक्तः आसीत मत्·परः।", translit: "yuktaḥ āsīta mat·paraḥ।", guide: "one should remain steadfast in meditation, devoted to Me"},
+      {id: 3, role: "Condition / If–When", sandhi: "वशे हि यस्य इन्द्रियाणि", translit: "vaśe hi yasya indriyāṇi", guide: "for whose senses are under complete control"},
+      {id: 4, role: "Result / Consequence", sandhi: "तस्य प्रज्ञा प्रतिष्ठिता॥", translit: "tasya prajñā pratiṣṭhitā॥", guide: "his wisdom is firmly established"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -38,7 +45,14 @@ const CH2_61_70 = [
     translation: `
       Dwelling on sense-objects, for man, attachment in them arises;<br>
       From attachment comes desire; from desire, anger is born. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Condition / If–When", sandhi: "ध्यायतः विषयान् पुंसः", translit: "dhyāyataḥ viṣayān puṃsaḥ", guide: "for a person who broods upon sense-objects"},
+      {id: 2, role: "Result / Consequence", sandhi: "सङ्गः तेषु उपजायते।", translit: "saṅgaḥ teṣu upajāyate।", guide: "attachment to them arises"},
+      {id: 3, role: "Result / Consequence", sandhi: "सङ्गात् सञ्जायते कामः", translit: "saṅgāt sañjāyate kāmaḥ", guide: "from attachment springs intense desire"},
+      {id: 4, role: "Result / Consequence", sandhi: "कामात् क्रोधः अभिजायते॥", translit: "kāmāt krodhaḥ abhijāyate॥", guide: "and from unfulfilled desire, anger is born"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -59,7 +73,14 @@ const CH2_61_70 = [
     translation: `
       From anger comes delusion; from delusion, confusion of memory;<br>
       From loss of memory, destruction of understanding; from destruction of understanding, one perishes. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Result / Consequence", sandhi: "क्रोधात् भवति सम्मोहः", translit: "krodhāt bhavati sammohaḥ", guide: "from anger arises delusion"},
+      {id: 2, role: "Result / Consequence", sandhi: "सम्मोहात् स्मृति·विभ्रमः।", translit: "sammohāt smṛti·vibhramaḥ।", guide: "from delusion comes confusion of memory"},
+      {id: 3, role: "Result / Consequence", sandhi: "स्मृति·भ्रंशात् बुद्धि·नाशः", translit: "smṛti·bhraṃśāt buddhi·nāśaḥ", guide: "from loss of memory comes destruction of discrimination"},
+      {id: 4, role: "Result / Consequence", sandhi: "बुद्धि·नाशात् प्रणश्यति॥", translit: "buddhi·nāśāt praṇaśyati॥", guide: "and from destruction of discrimination, one perishes"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -80,7 +101,13 @@ const CH2_61_70 = [
     translation: `
       Passion and hate eliminated, but sense-objects with the senses engaging;<br>
       Self‑restrained, controlled (by the) self, peace/satisfaction/serenity he attains. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Condition / If–When", sandhi: "राग·द्वेष·वियुक्तैः तु विषयान् इन्द्रियैः चरन्।", translit: "rāga·dveṣa·viyuktaiḥ tu viṣayān indriyaiḥ caran।", guide: "moving among sense-objects with senses free from attraction and aversion"},
+      {id: 2, role: "Description or quality", sandhi: "आत्म·वश्यैः विधेय·आत्मा", translit: "ātma·vaśyaiḥ vidheya·ātmā", guide: "with senses mastered and a disciplined mind"},
+      {id: 3, role: "Result / Consequence", sandhi: "प्रसादम् अधिगच्छति॥", translit: "prasādam adhigacchati॥", guide: "attains inner serenity and peace"}
+    ],
+    meaningOrder: [2, 1, 3]
   },
 
   {
@@ -101,7 +128,14 @@ const CH2_61_70 = [
     translation: `
       In peace/satisfaction/serenity, (of) all sorrows destruction, his takes place;<br>
       Of the serene‑minded indeed, quickly wisdom/intellience becomes steady. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Situation or context", sandhi: "प्रसादे", translit: "prasāde", guide: "in that state of inner serenity"},
+      {id: 2, role: "Result / Consequence", sandhi: "सर्व·दुःखानाम् हानिः अस्य उपजायते।", translit: "sarva·duḥkhānām hāniḥ asya upajāyate।", guide: "the destruction of all sorrows takes place for him"},
+      {id: 3, role: "Reason / Because", sandhi: "प्रसन्न·चेतसः हि आशु", translit: "prasanna·cetasaḥ hi āśu", guide: "for of one whose mind is tranquil, swiftly"},
+      {id: 4, role: "Result / Consequence", sandhi: "बुद्धिः पर्य·वतिष्ठते॥", translit: "buddhiḥ parya·vatiṣṭhate॥", guide: "the intellect becomes firmly established"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -122,7 +156,14 @@ const CH2_61_70 = [
     translation: `
       Not there is wisdom/intelligence of the unsteady in yoga, and not of the unsteady in yoga (has) concentration;<br>
       And not of the non-concentrating peace/tranquility, of the unpeaceful where from happiness/joy. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Core principle / Truth", sandhi: "न अस्ति बुद्धिः अयुक्तस्य", translit: "na asti buddhiḥ ayuktasya", guide: "there is no resolute wisdom for one who is not united in yoga"},
+      {id: 2, role: "Core principle / Truth", sandhi: "न च अयुक्तस्य भावना।", translit: "na ca ayuktasya bhāvanā।", guide: "nor is there steady contemplation for the unharmonized"},
+      {id: 3, role: "Core principle / Truth", sandhi: "न च अभावयतः शान्तिः", translit: "na ca abhāvayataḥ śāntiḥ", guide: "for one without contemplation, there is no peace"},
+      {id: 4, role: "Question", sandhi: "अशान्तस्य कुतः सुखम्॥", translit: "aśāntasya kutaḥ sukham॥", guide: "and for one who lacks peace, how can there be happiness"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -143,7 +184,13 @@ const CH2_61_70 = [
     translation: `
       Of the senses indeed roaming, when the mind is guided (to);<br>
       That his carries away wisdom/intellience, (as if) the wind a boat like on water. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Condition / If–When", sandhi: "इन्द्रियाणाम् हि चरताम् यत् मनः अनुविधीयते।", translit: "indriyāṇām hi caratām yat manaḥ anuvidhīyate।", guide: "when the mind follows after the wandering senses"},
+      {id: 2, role: "Result / Consequence", sandhi: "तत् अस्य हरति प्रज्ञाम्", translit: "tat asya harati prajñām", guide: "that mind sweeps away one's discriminating wisdom"},
+      {id: 3, role: "Analogy / Example", sandhi: "वायुः नावम् इव अम्भसि॥", translit: "vāyuḥ nāvam iva ambhasi॥", guide: "just as a strong wind sweeps away a boat upon the waters"}
+    ],
+    meaningOrder: [1, 2, 3]
   },
 
   {
@@ -164,7 +211,15 @@ const CH2_61_70 = [
     translation: `
       Therefore, he who, O mighty‑armed (Arjuna), restrained in every way;<br>
       The senses from the sense-objects, his wisdom/intelligence is firmly established. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Reason / Because", sandhi: "तस्मात्", translit: "tasmāt", guide: "Therefore"},
+      {id: 2, role: "Person addressed", sandhi: "महाबाहो", translit: "mahābāho", guide: "O mighty-armed (Arjuna)"},
+      {id: 3, role: "Condition / If–When", sandhi: "यस्य निगृहीतानि सर्वशः।", translit: "yasya nigṛhītāni sarvaśaḥ।", guide: "one whose senses are completely restrained"},
+      {id: 4, role: "What is affected?", sandhi: "इन्द्रियाणि इन्द्रिय·अर्थेभ्यः", translit: "indriyāṇi indriya·arthebhyaḥ", guide: "the senses from their sense-objects"},
+      {id: 5, role: "Result / Consequence", sandhi: "तस्य प्रज्ञा प्रतिष्ठिता॥", translit: "tasya prajñā pratiṣṭhitā॥", guide: "his wisdom is firmly established"}
+    ],
+    meaningOrder: [1, 2, 3, 4, 5]
   },
 
   {
@@ -185,7 +240,14 @@ const CH2_61_70 = [
     translation: `
       What is night of all beings, therein is awake one who is the self-controlled; <br>
       That in which are awake all beings, that (is) night of the perceiving sage. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Contrast / Distinction", sandhi: "या निशा सर्व·भूतानाम्", translit: "yā niśā sarva·bhūtānām", guide: "what is night (unseen) for all ordinary beings"},
+      {id: 2, role: "Core principle / Truth", sandhi: "तस्याम् जागर्ति संयमी।", translit: "tasyām jāgarti saṃyamī।", guide: "in that state the self-controlled sage is wide awake"},
+      {id: 3, role: "Contrast / Distinction", sandhi: "यस्याम् जाग्रति भूतानि", translit: "yasyām jāgrati bhūtāni", guide: "and that worldly realm in which all beings are awake"},
+      {id: 4, role: "Core principle / Truth", sandhi: "सा निशा पश्यतः मुनेः॥", translit: "sā niśā paśyataḥ muneḥ॥", guide: "is night to the sage who sees the true Self"}
+    ],
+    meaningOrder: [1, 2, 3, 4]
   },
 
   {
@@ -206,6 +268,14 @@ const CH2_61_70 = [
     translation: `
       Becoming filled (is) unmoved, stable the ocean, waters they enter as;<br>
       So all desires whom they enter, all he peace achieves, not (he who is) desire‑driven. <br>
-    `
+    `,
+    parts: [
+      {id: 1, role: "Analogy / Example", sandhi: "आपूर्यमाणम् अचल·प्रतिष्ठम् समुद्रम्", translit: "āpūryamāṇam acala·pratiṣṭham samudram", guide: "into the brimming, unmoving ocean"},
+      {id: 2, role: "Analogy / Example", sandhi: "आपः प्रविशन्ति यत्·वत्।", translit: "āpaḥ praviśanti yat·vat।", guide: "just as rivers enter without disturbing it"},
+      {id: 3, role: "Condition / If–When", sandhi: "तत्·वत् कामाः यम् प्रविशन्ति सर्वे", translit: "tat·vat kāmāḥ yam praviśanti sarve", guide: "so too, the sage into whom all desires enter without causing agitation"},
+      {id: 4, role: "Result / Consequence", sandhi: "सः शान्तिम् आप्नोति", translit: "saḥ śāntim āpnoti", guide: "that person attains supreme peace"},
+      {id: 5, role: "Contrast / Distinction", sandhi: "न काम·कामी॥", translit: "na kāma·kāmī॥", guide: "and not the one who chases after desires"}
+    ],
+    meaningOrder: [1, 2, 3, 4, 5]
   }
 ];

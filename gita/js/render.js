@@ -120,12 +120,17 @@ function buildSidebar() {
 function toggleChapter(chNum) {
   const blocks = document.querySelectorAll(".chapter-block");
   blocks.forEach(block => {
+    const header = block.querySelector(".chapter-header");
+    const body = block.querySelector(".verses");
+
     if (block.dataset.chapter === String(chNum)) {
-      const header = block.querySelector(".chapter-header");
-      const body = block.querySelector(".verses");
       const isOpen = body.style.display === "grid";
       body.style.display = isOpen ? "none" : "grid";
       header.classList.toggle("open", !isOpen);
+    } else {
+      // Collapse all other chapters
+      body.style.display = "none";
+      header.classList.remove("open");
     }
   });
 }
@@ -134,15 +139,19 @@ function highlightActiveVerse() {
   const lists = document.querySelectorAll("#sidebar ul.verses li");
   lists.forEach(li => li.classList.remove("active-verse"));
 
+  // Expand only the active chapter and collapse all others
+  const blocks = document.querySelectorAll("#sidebar .chapter-block");
+  blocks.forEach(block => {
+    const header = block.querySelector(".chapter-header");
+    const body = block.querySelector(".verses");
+    const isCurrent = block.dataset.chapter === String(currentChapter);
+
+    body.style.display = isCurrent ? "grid" : "none";
+    if (header) header.classList.toggle("open", isCurrent);
+  });
+
   const chapterList = document.querySelectorAll("#sidebar ul.verses")[currentChapter - 1];
   if (!chapterList) return;
-
-  // Ensure the active chapter accordion is expanded when navigating via Prev/Next arrows
-  if (chapterList.style.display === "none") {
-    chapterList.style.display = "grid";
-    const header = chapterList.parentElement?.querySelector(".chapter-header");
-    if (header) header.classList.add("open");
-  }
 
   const active = chapterList.children[currentVerseIndex];
   if (active) {
@@ -453,38 +462,47 @@ function renderMeaningOrder(v) {
 
   if (!v.parts) return;
 
-  // Use meaningOrder array if defined; otherwise fall back to natural v.parts order
   const sortedParts = v.meaningOrder
     ? v.meaningOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
     : v.parts;
 
   sortedParts.forEach(part => {
-    // 1. Create and append the role tag badge if it exists
+    const row = document.createElement("div");
+    row.className = "meaning-row";
+
+    // Column 1: Role tag badge (keeps empty placeholder if no role so grid stays aligned)
+    const tagCol = document.createElement("div");
+    tagCol.className = "meaning-tag-col";
     if (part.role) {
       const roleSpan = document.createElement("span");
       roleSpan.className = "role-tag";
       roleSpan.textContent = part.role;
-      container.appendChild(roleSpan);
+      tagCol.appendChild(roleSpan);
     }
+    row.appendChild(tagCol);
 
-    // 2. Append the Sanskrit or Transliterated phrase
+    // Column 2: Sanskrit phrase + English guide
+    const contentCol = document.createElement("div");
+    contentCol.className = "meaning-content-col";
+
     const span = document.createElement("span");
     span.innerHTML = wrapWordsWithGrammar(
       currentMode === "sandhi" ? part.sandhi : part.translit,
       part.sandhi.split(/[\s·]+/)
     );
     span.className = "sanskrit-text";
-    container.appendChild(span);
+    contentCol.appendChild(span);
 
-    // 3. Append the guided English meaning
     const guide = document.createElement("span");
     guide.className = "guide-text";
     guide.textContent = " — " + part.guide;
-    container.appendChild(guide);
+    contentCol.appendChild(guide);
 
-    container.appendChild(document.createElement("br"));
+    row.appendChild(contentCol);
+    container.appendChild(row);
   });
 }
+
 
 
 
