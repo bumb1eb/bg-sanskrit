@@ -19,19 +19,28 @@
 const ANIM_CONFIG = {
   underlineCompounds: true,     // underline animation for sandhi
   typingTranslit: false,        // typing animation for transliteration
-  fadePhraseGroups: true        // fade-in animation for phrase groups
+  fadePhraseGroups: false        // fade-in animation for phrase groups
 };
 
 
 /* ============================================================
-   MAIN ENTRY POINT — called by render.js
+   MAIN ENTRY POINT — called by render.js & viewModes.js
    ============================================================ */
 
 function runAnimations() {
-  if (ANIM_CONFIG.underlineCompounds) animateCompounds();
+  const sandhiToggle = document.getElementById("toggle-sandhi");
+  const isSandhiActive = sandhiToggle ? sandhiToggle.checked : false;
+
+  if (ANIM_CONFIG.underlineCompounds && isSandhiActive) {
+    animateCompounds();
+  } else {
+    clearAnimations();
+  }
+
   if (ANIM_CONFIG.typingTranslit) animateTranslitTyping();
   if (ANIM_CONFIG.fadePhraseGroups) animatePhraseGroupsFade();
 }
+
 
 
 /* ============================================================
@@ -43,39 +52,29 @@ function runAnimations() {
 
 function animateCompounds() {
   const shlokaEl = document.getElementById("shloka");
-
-  console.log("animateCompounds() ran");
-  console.log("animateCompounds sees:", shlokaEl ? shlokaEl.innerHTML : "NO SHLOKA ELEMENT");
-  
-  console.log("animateCompounds() ran");
-  console.log("shlokaEl exists:", !!shlokaEl);
-  console.log("animateCompounds sees:", shlokaEl ? shlokaEl.innerHTML : "NO DOM");
-
-
   if (!shlokaEl) return;
 
-  // ⭐ FIX: Normalize whitespace + newline issues
-  let rawHTML = shlokaEl.innerHTML
-    .replace(/^\s+|\s+$/g, "")
-    .replace(/\s*\n\s*/g, "<br>")
-    .replace(/\s*\r\s*/g, "<br>")
-    .replace(/<br>\s*<br>/g, "<br>");
+  // 1. Only wrap words in spans if they haven't been wrapped yet for this verse
+  if (!shlokaEl.querySelector(".shloka-word")) {
+    let rawHTML = shlokaEl.innerHTML
+      .replace(/^\s+|\s+$/g, "")
+      .replace(/\s*\n\s*/g, "<br>")
+      .replace(/\s*\r\s*/g, "<br>")
+      .replace(/<br>\s*<br>/g, "<br>");
 
-  // 2. Split into lines
-  const lines = rawHTML.split("<br>").map(line => line.trim());
+    const lines = rawHTML.split("<br>").map(line => line.trim());
 
-  // 3. Wrap each line's words in spans
-  const wrappedLines = lines.map(line => {
-    const words = line.split(/\s+/);
-    return words
-      .map(w => `<span class="shloka-word">${w}</span>`)
-      .join(" ");
-  });
+    const wrappedLines = lines.map(line => {
+      const words = line.split(/\s+/).filter(Boolean);
+      return words
+        .map(w => `<span class="shloka-word">${w}</span>`)
+        .join(" ");
+    });
 
-  // 4. Reassemble with <br>
-  shlokaEl.innerHTML = wrappedLines.join("<br>");
+    shlokaEl.innerHTML = wrappedLines.join("<br>");
+  }
 
-  // 5. Underline compounds
+  // 2. Underline compounds cleanly
   const spans = shlokaEl.querySelectorAll(".shloka-word");
 
   spans.forEach(el => {
@@ -93,6 +92,7 @@ function animateCompounds() {
     }
   });
 }
+
 
 
 

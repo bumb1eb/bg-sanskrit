@@ -142,25 +142,25 @@ window.SANDHI_CH1 = {
 22: {
   "यावदेतान्निरीक्षेऽहं": { type: "sandhi", meaning: "यावत् + एतान् + निरीक्षे + अहम् = until I observe these", case: "Accusative (2nd)" },
   "योद्धुकामानवस्थितान्": { type: "sandhi", meaning: "योद्धु + कामान् + अवस्थितान् = those desiring to fight, standing", case: "Accusative (2nd)" },
-  "कैर्मया": { type: "sandhi", meaning: ["कैः", "मया"], case: null },
-"योद्धव्यमस्मिन्": { type: "sandhi", meaning: ["योद्धव्यम्", "अस्मिन्"], case: null },
+  "कैर्मया": { type: "sandhi", meaning: "कैः + मया = by whom + by me", case: null },
+  "योद्धव्यमस्मिन्": { type: "sandhi", meaning: "योद्धव्यम् + अस्मिन् = must be fought + in this", case: null },
   "रणसमुद्यमे": { type: "sandhi", meaning: "रण + समुद्यमे = in the battle‑effort", case: "Locative (7th)" }
 },
 
 23: {
   "योत्स्यमानानवेक्षेऽहं": { type: "sandhi", meaning: "योत्स्यमानान् + अवेक्षे + अहम् = I will observe those about to fight", case: "Accusative (2nd)" },
-  "यएतेऽत्रसमागताḥ": { type: "sandhi", meaning: "यः + एते + अत्र + समागताः = those who have assembled here", case: "Nominative (1st)" },
+  "यएतेऽत्रसमागताः": { type: "sandhi", meaning: "यः + एते + अत्र + समागताः = those who have assembled here", case: "Nominative (1st)" },
   "दुर्बुद्धेर्युद्धे": { type: "sandhi", meaning: "दुर्बुद्धेः + युद्धे = in the battle of the evil‑minded", case: "Locative (7th)" },
-  "प्रियचिकीर्षव:": { type: "sandhi", meaning: "प्रिय + चिकीर्षवः = wishing to please", case: "Nominative (1st)" },
-  "एतेऽत्र": { type: "sandhi", meaning: ["एते", "अत्र"], case: null }
+  "प्रियचिकीर्षवः": { type: "sandhi", meaning: "प्रिय + चिकीर्षवः = wishing to please", case: "Nominative (1st)" },
+  "एतेऽत्र": { type: "sandhi", meaning: "एते + अत्र = these + here", case: null }
 },
+
 
 24: {
   "एवमुक्तो": { type: "sandhi", meaning: "एवम् + उक्तः = thus spoke", case: null },
   "गुडाकेशेनभारत": { type: "sandhi", meaning: "गुडाकेशेन + भारत = by Guḍākeśa, O Bhārata", case: "Instrumental (3rd)" },
   "सेनयोरुभयोर्मध्ये": { type: "sandhi", meaning: "सेनयोः + उभयोः + मध्ये = between both armies", case: "Locative (7th)" },
-  "रथोत्तमम्": { type: "sandhi", meaning: "रथ + उत्तमम् = the best chariot", case: "Accusative (2nd)" },
-  "गुडाकेशेन": { type: "sandhi", meaning: ["गुडाकेशेन"], case: null }   // simple, but appears fused in your text
+  "रथोत्तमम्": { type: "sandhi", meaning: "रथ + उत्तमम् = the best chariot", case: "Accusative (2nd)" }
 },
 
 25: {
@@ -302,7 +302,7 @@ window.SANDHI_CH1 = {
 },
 
 45: {
-  "महत्पापं": { type: "sandhi", meaning: "महत् + पापम् = great sin", case: "Accusative (2nd)" },
+  "महत्पापं": { type: "sandhi", meaning: "महत् + पापं = great sin", case: "Accusative (2nd)" },
   "यद्राज्यसुखलोभेन": { type: "sandhi", meaning: "यत् + राज्य + सुख + लोभेन = by greed for kingdom and pleasure", case: "Instrumental (3rd)" },
   "स्वजनमुद्यताः": { type: "sandhi", meaning: "स्व + जनम् + उद्यताः = ready (to kill) our own people", case: "Accusative (2nd)" }
 },

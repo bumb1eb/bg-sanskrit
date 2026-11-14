@@ -83,22 +83,33 @@ document.getElementById("toggle-sandhi").addEventListener("change", () => {
     translitEl.style.display = "none";
   }
   
-  // ⭐ FIX: Force coloring sync upon layer split reveal
+  // ⭐ Run animations first so .shloka-word spans exist before linking
+  if (typeof runAnimations === "function") {
+    runAnimations();
+  }
+
+  // Sync grammar colors and compound hover links
   forceUIRefresh();
+
 });
 
 
-/* ============================================================
-   3. PHRASE GROUPS
-   ============================================================ */
 
+/* ------------------------------------------------------------
+   3. PHRASE GROUPS (Inline Pills inside Compound-split verse)
+   ------------------------------------------------------------ */
 document.getElementById("toggle-phrase-groups").addEventListener("change", () => {
   const checked = document.getElementById("toggle-phrase-groups").checked;
-  checked ? show("phrase-groups-wrapper") : hide("phrase-groups-wrapper");
-  
-  // ⭐ FIX: Enforce colors across dynamic section reveal
-  forceUIRefresh();
+  const wrapper = document.getElementById("sandhi-translit-wrapper");
+
+  // Always keep the old standalone Phrase Groups block hidden
+  hide("phrase-groups-wrapper");
+
+  if (wrapper) {
+    wrapper.classList.toggle("show-phrase-groups", checked);
+  }
 });
+
 
 /* ============================================================
    4. MEANING ORDER
@@ -139,11 +150,22 @@ function resetViewModes() {
   hide("sandhi");
   hide("translit");
 
+  const wrapper = document.getElementById("sandhi-translit-wrapper");
+  if (wrapper) {
+    wrapper.classList.remove("show-phrase-groups");
+  }
+
   hide("phrase-groups-wrapper");
   hide("meaning-order-wrapper");
   hide("translation-wrapper");
   hide("cases-wrapper");
+
+  if (typeof clearAnimations === "function") {
+    clearAnimations();
+  }
 }
+
+
 
 /* ============================================================
    7. INITIAL STATE
