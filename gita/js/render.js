@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ============================================================
-   SIDEBAR — CHAPTER + VERSE LIST
+   SIDEBAR — CHAPTER + VERSE NUMBER GRID
    ============================================================ */
 
 function buildSidebar() {
@@ -68,10 +68,14 @@ function buildSidebar() {
   Object.keys(chapters).forEach(chNum => {
     const chBlock = document.createElement("div");
     chBlock.className = "chapter-block";
+    chBlock.dataset.chapter = chNum;
 
     // --- Chapter header with triangle ---
     const header = document.createElement("div");
     header.className = "chapter-header";
+
+    const isCurrentChapter = parseInt(chNum) === currentChapter;
+    if (isCurrentChapter) header.classList.add("open");
 
     header.innerHTML = `
       <span class="toggle-icon">▶</span>
@@ -80,35 +84,27 @@ function buildSidebar() {
 
     header.onclick = () => {
       toggleChapter(chNum);
-      header.classList.toggle("open");
     };
 
-    // --- Verse list ---
+    // --- Verse number grid ---
     const body = document.createElement("ul");
-    body.className = "verses";
-    body.style.display = "none";
+    body.className = "verses verse-grid";
+    body.style.display = isCurrentChapter ? "grid" : "none";
 
     chapters[chNum].forEach((v, idx) => {
       const li = document.createElement("li");
-
-      // Triangle + verse number
-      li.innerHTML = `
-        <span class="toggle-icon">▶</span>
-        Verse ${v.id}
-      `;
+      li.textContent = v.id;
+      li.title = `Chapter ${chNum}, Verse ${v.id}`;
 
       li.onclick = () => {
         currentChapter = parseInt(chNum);
         currentVerseIndex = idx;
-		
-		localStorage.setItem("currentChapter", currentChapter);
-		localStorage.setItem("currentVerseIndex", currentVerseIndex);
+
+        localStorage.setItem("currentChapter", currentChapter);
+        localStorage.setItem("currentVerseIndex", currentVerseIndex);
 
         renderCurrentVerse();
         highlightActiveVerse();
-
-        // highlight active verse triangle
-        li.classList.add("open");
       };
 
       body.appendChild(li);
@@ -124,11 +120,11 @@ function buildSidebar() {
 function toggleChapter(chNum) {
   const blocks = document.querySelectorAll(".chapter-block");
   blocks.forEach(block => {
-    const header = block.querySelector(".chapter-header");
-    const body = block.querySelector(".verses");
-    if (header.textContent.includes(chNum)) {
-      const isOpen = body.style.display === "block";
-      body.style.display = isOpen ? "none" : "block";
+    if (block.dataset.chapter === String(chNum)) {
+      const header = block.querySelector(".chapter-header");
+      const body = block.querySelector(".verses");
+      const isOpen = body.style.display === "grid";
+      body.style.display = isOpen ? "none" : "grid";
       header.classList.toggle("open", !isOpen);
     }
   });
@@ -138,10 +134,21 @@ function highlightActiveVerse() {
   const lists = document.querySelectorAll("#sidebar ul.verses li");
   lists.forEach(li => li.classList.remove("active-verse"));
 
-  const active = document.querySelectorAll("#sidebar ul.verses")[currentChapter - 1]
-    .children[currentVerseIndex];
+  const chapterList = document.querySelectorAll("#sidebar ul.verses")[currentChapter - 1];
+  if (!chapterList) return;
 
-  if (active) active.classList.add("active-verse");
+  // Ensure the active chapter accordion is expanded when navigating via Prev/Next arrows
+  if (chapterList.style.display === "none") {
+    chapterList.style.display = "grid";
+    const header = chapterList.parentElement?.querySelector(".chapter-header");
+    if (header) header.classList.add("open");
+  }
+
+  const active = chapterList.children[currentVerseIndex];
+  if (active) {
+    active.classList.add("active-verse");
+    active.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
 }
 
 
@@ -173,15 +180,16 @@ function renderCurrentVerse() {
     applyGrammarColoring();
   }
 
-  // Attach hover meanings (hover.js)
+  // ⭐ Trigger animations BEFORE hover meanings so .shloka-word spans exist for sandhi linking
+  if (typeof runAnimations === "function") {
+    runAnimations();
+  }
+
+  // Attach hover meanings and compound links (hover.js)
   if (typeof attachHoverMeanings === "function") {
     attachHoverMeanings();
   }
 
-  // Trigger animations (animations.js)
-  if (typeof runAnimations === "function") {
-    runAnimations();
-  }
 
   highlightActiveVerse();
 }
@@ -195,30 +203,95 @@ function renderShloka(v) {
   document.getElementById("shloka").innerHTML = v.shloka;   // No grammar coloring for parchment
 }
 
+/* ------------------------------------------------------------
+   SANDHI SPLIT (Devanagari — grouped into inline phrase pills)
+   ------------------------------------------------------------ */
 function renderSandhi(v) {
-  const lines = v.sandhi
-    .split("<br>")
-    .map(line => line.trim())
-    .filter(line => line !== "")
-    .map(line => wrapWordsWithGrammar(line));
+  const el = document.getElementById("sandhi");
+  el.innerHTML = "";
 
-  document.getElementById("sandhi").innerHTML = lines.join("<br>");
-}
+  // If v.parts exists, render grouped phrase pills while preserving half-verse line breaks
+  if (Array.isArray(v.parts) && v.parts.length > 0) {
+    const orderedParts = v.origOrder
+      ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
+      : v.parts;
 
-function renderTranslit(v) {
-  const sandhiLines = v.sandhi.split("<br>").map(line => line.trim());
+    orderedParts.forEach((part, index) => {
+      const pill = document.createElement("span");
+      pill.className = "phrase-pill";
 
-  const lines = v.translit
-    .split("<br>")
-    .map(line => line.trim())
-    .filter(line => line !== "")
-    .map((line, i) => {
-      const devWords = sandhiLines[i].split(/[\s·]+/);
-      return wrapWordsWithGrammar(line, devWords);
+      const rawText = part.sandhi.trim();
+      pill.innerHTML = wrapWordsWithGrammar(rawText, rawText.split(/[\s·]+/));
+      el.appendChild(pill);
+
+      // Preserve the line break after a single danda (। or |) when not the final phrase
+      const endsHalfVerse = /[।|]$/.test(rawText) && !/[॥]$/.test(rawText);
+      if (endsHalfVerse && index < orderedParts.length - 1) {
+        el.appendChild(document.createElement("br"));
+      } else {
+        el.appendChild(document.createTextNode(" "));
+      }
     });
+    return;
+  }
 
-  document.getElementById("translit").innerHTML = lines.join("<br>");
+  // Fallback for verses without v.parts
+  const raw = v.sandhi.trim();
+  const lines = raw.split("<br>").map(l => l.trim());
+  const htmlLines = lines.map(line => {
+    const words = line.split(/[\s·]+/);
+    return wrapWordsWithGrammar(line, words);
+  });
+
+  el.innerHTML = htmlLines.join("<br>");
 }
+
+
+/* ------------------------------------------------------------
+   TRANSLITERATION (IAST — grouped into inline phrase pills)
+   ------------------------------------------------------------ */
+function renderTranslit(v) {
+  const el = document.getElementById("translit");
+  el.innerHTML = "";
+
+  // If v.parts exists, render grouped phrase pills while preserving half-verse line breaks
+  if (Array.isArray(v.parts) && v.parts.length > 0) {
+    const orderedParts = v.origOrder
+      ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
+      : v.parts;
+
+    orderedParts.forEach((part, index) => {
+      const pill = document.createElement("span");
+      pill.className = "phrase-pill";
+
+      const rawTranslit = part.translit.trim();
+      const devanagariWords = part.sandhi.trim().split(/[\s·]+/);
+      pill.innerHTML = wrapWordsWithGrammar(rawTranslit, devanagariWords);
+      el.appendChild(pill);
+
+      // Preserve the line break after a single danda (। or |) when not the final phrase
+      const endsHalfVerse = /[।|]$/.test(rawTranslit) && !/[॥]$/.test(rawTranslit);
+      if (endsHalfVerse && index < orderedParts.length - 1) {
+        el.appendChild(document.createElement("br"));
+      } else {
+        el.appendChild(document.createTextNode(" "));
+      }
+    });
+    return;
+  }
+
+  // Fallback for verses without v.parts
+  const translitLines = v.translit.trim().split("<br>").map(l => l.trim());
+  const sandhiLines = v.sandhi.trim().split("<br>").map(l => l.trim());
+
+  const htmlLines = translitLines.map((tLine, i) => {
+    const devWords = (sandhiLines[i] || "").split(/[\s·]+/);
+    return wrapWordsWithGrammar(tLine, devWords);
+  });
+
+  el.innerHTML = htmlLines.join("<br>");
+}
+
 
 
 function renderTranslation(v) {
@@ -333,18 +406,20 @@ function toggleSlider() {
 
 
 /* ------------------------------------------------------------
-   PHRASE GROUPS (origOrder)
+   PHRASE GROUPS (Natural Shloka Order)
    ------------------------------------------------------------ */
 function renderPhraseGroups(v) {
   const container = document.getElementById("phrase-groups");
   container.innerHTML = "";
 
-  if (!v.origOrder || !v.parts) return;
+  if (!v.parts) return;
 
-  v.origOrder.forEach(idx => {
-    const part = v.parts[idx - 1];
-    if (!part) return;
+  // Backward compatibility: if a verse still uses old origOrder, follow it; otherwise render v.parts directly
+  const orderedParts = v.origOrder
+    ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
+    : v.parts;
 
+  orderedParts.forEach(part => {
     const span = document.createElement("span");
 
     span.innerHTML = wrapWordsWithGrammar(
@@ -360,11 +435,8 @@ function renderPhraseGroups(v) {
 }
 
 
-
-
-
 /* ------------------------------------------------------------
-   MEANING ORDER (sorted parts)
+   MEANING ORDER (Sorted by meaningOrder array with role tags)
    ------------------------------------------------------------ */
 function renderMeaningOrder(v) {
   const container = document.getElementById("meaning-order");
@@ -372,18 +444,30 @@ function renderMeaningOrder(v) {
 
   if (!v.parts) return;
 
-  v.parts.forEach(part => {
-    const span = document.createElement("span");
+  // Use meaningOrder array if defined; otherwise fall back to natural v.parts order
+  const sortedParts = v.meaningOrder
+    ? v.meaningOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
+    : v.parts;
 
+  sortedParts.forEach(part => {
+    // 1. Create and append the role tag badge if it exists
+    if (part.role) {
+      const roleSpan = document.createElement("span");
+      roleSpan.className = "role-tag";
+      roleSpan.textContent = part.role;
+      container.appendChild(roleSpan);
+    }
+
+    // 2. Append the Sanskrit or Transliterated phrase
+    const span = document.createElement("span");
     span.innerHTML = wrapWordsWithGrammar(
       currentMode === "sandhi" ? part.sandhi : part.translit,
       part.sandhi.split(/[\s·]+/)
     );
-
     span.className = "sanskrit-text";
     container.appendChild(span);
 
-    // ⭐ NEW: guided meaning (minimal addition)
+    // 3. Append the guided English meaning
     const guide = document.createElement("span");
     guide.className = "guide-text";
     guide.textContent = " — " + part.guide;
@@ -392,6 +476,8 @@ function renderMeaningOrder(v) {
     container.appendChild(document.createElement("br"));
   });
 }
+
+
 
 
 
