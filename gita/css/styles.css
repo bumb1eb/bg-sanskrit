@@ -958,3 +958,20 @@ input:checked + .slider:before {
   }
 }
 
+/* ============================================================
+   SPLIT WORDS MODE: COMPOUND DOTTED UNDERLINE + '+' JOINERS
+   ============================================================ */
+#sandhi-translit-wrapper:not(.show-phrase-groups):not(.show-meaning-order) .compound-part {
+  border-bottom: 1.5px dotted #b8860b;
+  padding-bottom: 1px;
+}
+
+#sandhi-translit-wrapper:not(.show-phrase-groups):not(.show-meaning-order) .compound-join-next::after {
+  content: " +";
+  color: #9c7a2c;
+  font-weight: 600;
+  font-size: 0.88em;
+  margin-left: 2px;
+  pointer-events: none;
+}
+

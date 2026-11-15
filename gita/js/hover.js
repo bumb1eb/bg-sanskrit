@@ -227,6 +227,26 @@ function linkSandhiCompounds() {
     }
   });
 
+  // 4b. Mark consecutive compound parts in #sandhi and #translit for visual grouping
+  document.querySelectorAll(".compound-part, .compound-join-next").forEach(el => {
+    el.classList.remove("compound-part", "compound-join-next");
+  });
+
+  ["#sandhi", "#translit"].forEach(containerSelector => {
+    const words = Array.from(document.querySelectorAll(`${containerSelector} .word`));
+    words.forEach((el, idx) => {
+      const groupId = el.getAttribute("data-sandhi-group");
+      if (!groupId) return;
+
+      el.classList.add("compound-part");
+
+      const nextEl = words[idx + 1];
+      if (nextEl && nextEl.getAttribute("data-sandhi-group") === groupId) {
+        el.classList.add("compound-join-next");
+      }
+    });
+  });
+
   // 5. Attach bidirectional hover listeners to all tagged elements
   const groupedEls = document.querySelectorAll("[data-sandhi-group]");
   groupedEls.forEach(el => {
