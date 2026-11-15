@@ -237,7 +237,7 @@ const CH1_01_10 = [
       {id: 1, role: "Persons involved", sandhi: "भवान् भीष्मः च", translit: "bhavān bhīṣmaḥ ca", guide: "Yourself (Droṇa) and Bhīṣma"},
       {id: 2, role: "Persons involved", sandhi: "कर्णः च कृपः च समितिंजयः।", translit: "karṇaḥ ca kṛpaḥ ca samitiñjayaḥ।", guide: "Karṇa, and Kṛpa, victorious in battle"},
       {id: 3, role: "Persons involved", sandhi: "अश्वत्थामा विकर्णः च", translit: "aśvatthāmā vikarṇaḥ ca", guide: "Aśvatthāmā and Vikarṇa"},
-      {id: 4, role: "Persons involved", sandhi: "सौमदत्तिः तथा एव च ॥", translit: "saumadattiḥ tathā eva ca॥", guide: "and Saumadatti (Bhūriśravā) likewise indeed"}
+      {id: 4, role: "Persons involved", sandhi: "सौमदत्तिः तथा एव च ॥", translit: "saumadattiḥ tathā eva ca॥", guide: "and Saumadatti likewise indeed"}
     ],
     meaningOrder: [1, 2, 3, 4]
   },
