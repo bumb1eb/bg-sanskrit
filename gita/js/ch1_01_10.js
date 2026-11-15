@@ -14,7 +14,7 @@ const CH1_01_10 = [
     `,
     translit: `
       dhṛtarāṣṭra uvāca |<br>
-      dharma-kṣetre kuru-kṣetre samavetāḥ yuyutsavaḥ |<br>
+      dharmakṣetre kurukṣetre samavetāḥ yuyutsavaḥ |<br>
       māmakāḥ pāṇḍavāś ca eva kim akurvata sañjaya ||<br>
     `,
     translation: `
@@ -24,7 +24,7 @@ const CH1_01_10 = [
     `,
     parts: [
       {id: 1, role: "Speaker", sandhi: "धृतराष्ट्र उवाच ।", translit: "dhṛtarāṣṭra uvāca |", guide: "Dhṛtarāṣṭra said"},
-      {id: 2, role: "Place or setting", sandhi: "धर्मक्षेत्रे कुरुक्षेत्रे", translit: "dharma-kṣetre kuru-kṣetre", guide: "in the land of dharma, in Kurukṣetra"},
+      {id: 2, role: "Place or setting", sandhi: "धर्मक्षेत्रे कुरुक्षेत्रे", translit: "dharmakṣetre kurukṣetre", guide: "in the land of dharma, in Kurukṣetra"},
       {id: 3, role: "Situation or context", sandhi: "समवेताः युयुत्सवः |", translit: "samavetāḥ yuyutsavaḥ |", guide: "gathered together, desiring to fight"},
       {id: 4, role: "Persons involved", sandhi: "मामकाः पाण्डवाः च एव", translit: "māmakāḥ pāṇḍavāś ca eva", guide: "my people and the sons of Pāṇḍu indeed"},
       {id: 5, role: "Question", sandhi: "किम् अकुर्वत", translit: "kim akurvata", guide: "what did they do"},
@@ -49,7 +49,7 @@ const CH1_01_10 = [
     `,
     translit: `
       sañjaya uvāca |<br>
-      dṛṣṭvā tu pāṇḍavānīkam vyūḍham duryodhanaḥ tadā |<br>
+      dṛṣṭvā tu pāṇḍav ānīkam vyūḍham duryodhanaḥ tadā |<br>
       ācāryam upasaṅgamya rājā vacanam abravīt ||
     `,
     translation: `
@@ -60,7 +60,7 @@ const CH1_01_10 = [
     parts: [
       {id: 1, role: "Speaker", sandhi: "सञ्जय उवाच ।", translit: "sañjaya uvāca |", guide: "Sañjaya said"},
       {id: 2, role: "Action 1", sandhi: "दृष्ट्वा तु", translit: "dṛṣṭvā tu", guide: "then having seen"},
-      {id: 3, role: "Situation", sandhi: "पाण्डवः अनीकम् व्यूढं", translit: "pāṇḍavānīkam vyūḍham", guide: "the arrayed army of the Pāṇḍavas"},
+      {id: 3, role: "Situation", sandhi: "पाण्डवः अनीकम् व्यूढं", translit: "pāṇḍava anīkam vyūḍham", guide: "the arrayed army of the Pāṇḍavas"},
       {id: 4, role: "Person involved", sandhi: "दुर्योधनः तदा", translit: "duryodhanaḥ tadā", guide: "Duryodhana at that time"},
       {id: 5, role: "Action 2", sandhi: "आचार्यम् उपसङ्गम्य", translit: "ācāryam upasaṅgamya", guide: "approaching the teacher (Droṇa)"},
       {id: 6, role: "Action 3", sandhi: "राजा वचनम् अब्रवीत् ||", translit: "rājā vacanam abravīt ||", guide: "the king spoke these words"}
