@@ -460,6 +460,50 @@ li.open .toggle-icon {
 }
 
 /* ------------------------------------------------------------
+   MEANING ORDER ROW LAYOUT (Desktop 2-Column Grid, Mobile Inline)
+   ------------------------------------------------------------ */
+.meaning-row {
+  margin-bottom: 6px;
+}
+
+.meaning-tag-col,
+.meaning-content-col {
+  display: inline;
+}
+
+@media (min-width: 901px) {
+  #meaning-order {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+
+  #meaning-order .meaning-row {
+    display: grid;
+    grid-template-columns: 175px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  #meaning-order .meaning-tag-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #meaning-order .meaning-tag-col .role-tag {
+    margin-right: 0;
+    white-space: nowrap;
+  }
+
+  #meaning-order .meaning-content-col {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+/* ------------------------------------------------------------
    INLINE PHRASE GROUP PILLS (Inside Compound-split verse)
    ------------------------------------------------------------ */
 .phrase-pill {
