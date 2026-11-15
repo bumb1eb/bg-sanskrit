@@ -222,13 +222,79 @@ function renderShloka(v) {
 }
 
 /* ------------------------------------------------------------
-   SANDHI SPLIT (Devanagari — grouped into inline phrase pills)
+   HELPER: Render unified layer (Split Words / Phrase Groups / Meaning Order)
    ------------------------------------------------------------ */
-function renderSandhi(v) {
-  const el = document.getElementById("sandhi");
+function renderAnalyticalLayer(v, targetId, scriptMode) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
   el.innerHTML = "";
 
-  // If v.parts exists, render grouped phrase pills while preserving half-verse line breaks
+  const wrapper = document.getElementById("sandhi-translit-wrapper");
+  const isMeaningMode = wrapper && wrapper.classList.contains("show-meaning-order");
+
+  // MODE 3: MEANING ORDER (Rendered inside the same workspace with numbered pills + cascade)
+  if (isMeaningMode && Array.isArray(v.parts) && v.parts.length > 0) {
+    const showRoleTags = currentChapter !== 2;
+    const meaningBox = document.createElement("div");
+    meaningBox.className = "inline-meaning-order" + (showRoleTags ? "" : " no-role-tags");
+
+    const sortedIndices = v.meaningOrder
+      ? v.meaningOrder
+      : v.parts.map((_, idx) => idx + 1);
+
+    sortedIndices.forEach((partIdx, rowIndex) => {
+      const part = v.parts[partIdx - 1];
+      if (!part) return;
+
+      const row = document.createElement("div");
+      row.className = "meaning-row cascade-row";
+      row.style.animationDelay = `${rowIndex * 55}ms`;
+
+      // Column 1: Role tag badge
+      const tagCol = document.createElement("div");
+      tagCol.className = "meaning-tag-col";
+      if (part.role && showRoleTags) {
+        const roleSpan = document.createElement("span");
+        roleSpan.className = "role-tag";
+        roleSpan.textContent = part.role;
+        tagCol.appendChild(roleSpan);
+      }
+      row.appendChild(tagCol);
+
+      // Column 2: Numbered Phrase Pill + English Guide
+      const contentCol = document.createElement("div");
+      contentCol.className = "meaning-content-col";
+
+      const pill = document.createElement("span");
+      pill.className = "phrase-pill meaning-pill";
+
+      const numBadge = document.createElement("span");
+      numBadge.className = "phrase-num";
+      numBadge.textContent = partIdx;
+      pill.appendChild(numBadge);
+
+      const rawText = (scriptMode === "sandhi" ? part.sandhi : part.translit).trim();
+      const devWords = part.sandhi.trim().split(/[\s·]+/);
+      const wordsWrap = document.createElement("span");
+      wordsWrap.innerHTML = wrapWordsWithGrammar(rawText, devWords);
+      pill.appendChild(wordsWrap);
+
+      contentCol.appendChild(pill);
+
+      const guide = document.createElement("span");
+      guide.className = "guide-text";
+      guide.textContent = " — " + part.guide;
+      contentCol.appendChild(guide);
+
+      row.appendChild(contentCol);
+      meaningBox.appendChild(row);
+    });
+
+    el.appendChild(meaningBox);
+    return;
+  }
+
+  // MODES 1 & 2: SPLIT WORDS / PHRASE GROUPS (Poetic shloka lines)
   if (Array.isArray(v.parts) && v.parts.length > 0) {
     const orderedParts = v.origOrder
       ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
@@ -238,11 +304,19 @@ function renderSandhi(v) {
       const pill = document.createElement("span");
       pill.className = "phrase-pill";
 
-      const rawText = part.sandhi.trim();
-      pill.innerHTML = wrapWordsWithGrammar(rawText, rawText.split(/[\s·]+/));
+      const numBadge = document.createElement("span");
+      numBadge.className = "phrase-num";
+      numBadge.textContent = part.id || index + 1;
+      pill.appendChild(numBadge);
+
+      const rawText = (scriptMode === "sandhi" ? part.sandhi : part.translit).trim();
+      const devWords = part.sandhi.trim().split(/[\s·]+/);
+      const wordsWrap = document.createElement("span");
+      wordsWrap.innerHTML = wrapWordsWithGrammar(rawText, devWords);
+      pill.appendChild(wordsWrap);
+
       el.appendChild(pill);
 
-      // Preserve the line break after a single danda (। or |) when not the final phrase
       const endsHalfVerse = /[।|]$/.test(rawText) && !/[॥]$/.test(rawText);
       if (endsHalfVerse && index < orderedParts.length - 1) {
         el.appendChild(document.createElement("br"));
@@ -254,60 +328,24 @@ function renderSandhi(v) {
   }
 
   // Fallback for verses without v.parts
-  const raw = v.sandhi.trim();
-  const lines = raw.split("<br>").map(l => l.trim());
-  const htmlLines = lines.map(line => {
-    const words = line.split(/[\s·]+/);
-    return wrapWordsWithGrammar(line, words);
-  });
-
-  el.innerHTML = htmlLines.join("<br>");
+  if (scriptMode === "sandhi") {
+    const lines = v.sandhi.trim().split("<br>").map(l => l.trim());
+    el.innerHTML = lines.map(line => wrapWordsWithGrammar(line, line.split(/[\s·]+/))).join("<br>");
+  } else {
+    const translitLines = v.translit.trim().split("<br>").map(l => l.trim());
+    const sandhiLines = v.sandhi.trim().split("<br>").map(l => l.trim());
+    el.innerHTML = translitLines
+      .map((tLine, i) => wrapWordsWithGrammar(tLine, (sandhiLines[i] || "").split(/[\s·]+/)))
+      .join("<br>");
+  }
 }
 
+function renderSandhi(v) {
+  renderAnalyticalLayer(v, "sandhi", "sandhi");
+}
 
-/* ------------------------------------------------------------
-   TRANSLITERATION (IAST — grouped into inline phrase pills)
-   ------------------------------------------------------------ */
 function renderTranslit(v) {
-  const el = document.getElementById("translit");
-  el.innerHTML = "";
-
-  // If v.parts exists, render grouped phrase pills while preserving half-verse line breaks
-  if (Array.isArray(v.parts) && v.parts.length > 0) {
-    const orderedParts = v.origOrder
-      ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
-      : v.parts;
-
-    orderedParts.forEach((part, index) => {
-      const pill = document.createElement("span");
-      pill.className = "phrase-pill";
-
-      const rawTranslit = part.translit.trim();
-      const devanagariWords = part.sandhi.trim().split(/[\s·]+/);
-      pill.innerHTML = wrapWordsWithGrammar(rawTranslit, devanagariWords);
-      el.appendChild(pill);
-
-      // Preserve the line break after a single danda (। or |) when not the final phrase
-      const endsHalfVerse = /[।|]$/.test(rawTranslit) && !/[॥]$/.test(rawTranslit);
-      if (endsHalfVerse && index < orderedParts.length - 1) {
-        el.appendChild(document.createElement("br"));
-      } else {
-        el.appendChild(document.createTextNode(" "));
-      }
-    });
-    return;
-  }
-
-  // Fallback for verses without v.parts
-  const translitLines = v.translit.trim().split("<br>").map(l => l.trim());
-  const sandhiLines = v.sandhi.trim().split("<br>").map(l => l.trim());
-
-  const htmlLines = translitLines.map((tLine, i) => {
-    const devWords = (sandhiLines[i] || "").split(/[\s·]+/);
-    return wrapWordsWithGrammar(tLine, devWords);
-  });
-
-  el.innerHTML = htmlLines.join("<br>");
+  renderAnalyticalLayer(v, "translit", "translit");
 }
 
 

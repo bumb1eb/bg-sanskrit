@@ -804,3 +804,157 @@ input:checked + .slider:before {
     font-size: 0.9rem;
   }
 }
+
+/* ============================================================
+   LAYOUT A: 3-STEP SEGMENTED BAR + NUMBERED PILLS + CASCADE
+   ============================================================ */
+.workspace-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.segmented-bar {
+  display: inline-flex;
+  background-color: #f3e9d2;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.segmented-bar .seg-btn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #6a4a00;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.segmented-bar .seg-btn:hover {
+  background-color: rgba(255, 253, 247, 0.6);
+}
+
+.segmented-bar .seg-btn.active {
+  background-color: #fffdf7;
+  color: #4a3200;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(106, 74, 0, 0.18);
+}
+
+.script-toggle-row {
+  margin-bottom: 0 !important;
+  text-decoration: none !important;
+  font-size: 0.92rem;
+}
+
+/* Shloka order badge inside Phrase Pills (visible in Phrase Groups & Meaning Order) */
+.phrase-num {
+  display: none;
+}
+
+#sandhi-translit-wrapper.show-phrase-groups .phrase-num,
+#sandhi-translit-wrapper.show-meaning-order .phrase-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  margin-right: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #7c5800;
+  background-color: rgba(212, 175, 55, 0.28);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* Phrase Pill styling in Meaning Order mode */
+#sandhi-translit-wrapper.show-meaning-order .meaning-pill {
+  display: inline-block;
+  background-color: rgba(243, 233, 210, 0.55);
+  border: 1px solid #d8c8a8;
+  border-radius: 6px;
+  padding: 2px 8px;
+  line-height: 1.5;
+}
+
+/* Staggered cascade animation when switching into Meaning Order */
+@keyframes meaningRowCascade {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cascade-row {
+  opacity: 0;
+  animation: meaningRowCascade 0.28s ease forwards;
+}
+
+/* Desktop 2-Column Spine for Inline Meaning Order */
+@media (min-width: 901px) {
+  .inline-meaning-order {
+    max-width: 760px;
+    margin: 4px auto 0 auto;
+  }
+
+  .inline-meaning-order .meaning-row {
+    display: grid;
+    grid-template-columns: 175px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .inline-meaning-order .meaning-tag-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .inline-meaning-order .meaning-tag-col .role-tag {
+    margin-right: 0;
+    white-space: nowrap;
+  }
+
+  .inline-meaning-order .meaning-content-col {
+    display: block;
+    text-align: left;
+  }
+
+  .inline-meaning-order.no-role-tags .meaning-row {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-meaning-order.no-role-tags .meaning-tag-col {
+    display: none;
+  }
+
+  .inline-meaning-order.no-role-tags .meaning-content-col {
+    text-align: center;
+  }
+}
+
+/* Mobile compact segmented bar */
+@media (max-width: 900px) {
+  .segmented-bar .seg-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .inline-meaning-order {
+    text-align: left;
+  }
+}
+

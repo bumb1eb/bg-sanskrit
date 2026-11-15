@@ -2,11 +2,9 @@
    viewModes.js — Controls visibility of all Sanskrit layers (FIXED SYNC TIMING)
    ------------------------------------------------------------
    Responsibilities:
-   - Show/hide sandhi + translit
-   - Show/hide phrase groups
-   - Show/hide meaning order
+   - Show/hide sandhi + translit + inline phrase groups + meaning order
+   - Sync 3-step segmented bar with right-panel checkboxes
    - Show/hide translation
-   - Sync UI toggles with rendered content
    - Force critical grammar re-coloring upon element reveal
    ============================================================ */
 
@@ -58,70 +56,135 @@ function toggleSandhiTranslit() {
 
 
 /* ============================================================
-   2. SEPARATE JOINED WORDS (Sandhi split)
+   UNIFIED ANALYTICAL MODE CONTROLLER (Split / Phrases / Meaning)
+   ============================================================ */
+
+function setAnalyticalMode(mode) {
+  const sandhiChk  = document.getElementById("toggle-sandhi");
+  const phraseChk  = document.getElementById("toggle-phrase-groups");
+  const meaningChk = document.getElementById("toggle-meaning-order");
+  const wrapper    = document.getElementById("sandhi-translit-wrapper");
+
+  // Always keep standalone legacy sections hidden
+  hide("phrase-groups-wrapper");
+  hide("meaning-order-wrapper");
+
+  // Ensure workspace is open when selecting any tab
+  if (sandhiChk && !sandhiChk.checked) {
+    sandhiChk.checked = true;
+    show("sandhi-translit-wrapper");
+    const useTranslit = document.getElementById("toggle-slider")?.checked;
+    if (useTranslit) {
+      hide("sandhi");
+      show("translit");
+    } else {
+      show("sandhi");
+      hide("translit");
+    }
+    if (typeof runAnimations === "function") {
+      runAnimations();
+    }
+  }
+
+  // Sync checkboxes and wrapper classes
+  if (mode === "split") {
+    if (phraseChk) phraseChk.checked = false;
+    if (meaningChk) meaningChk.checked = false;
+    if (wrapper) {
+      wrapper.classList.remove("show-phrase-groups", "show-meaning-order");
+    }
+  } else if (mode === "phrases") {
+    if (phraseChk) phraseChk.checked = true;
+    if (meaningChk) meaningChk.checked = false;
+    if (wrapper) {
+      wrapper.classList.add("show-phrase-groups");
+      wrapper.classList.remove("show-meaning-order");
+    }
+  } else if (mode === "meaning") {
+    if (phraseChk) phraseChk.checked = false;
+    if (meaningChk) meaningChk.checked = true;
+    if (wrapper) {
+      wrapper.classList.remove("show-phrase-groups");
+      wrapper.classList.add("show-meaning-order");
+    }
+  }
+
+  // Update active button state on the 3-step segmented bar
+  document.querySelectorAll(".segmented-bar .seg-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.mode === mode);
+  });
+
+  // Re-render active verse layers and re-attach grammar colors + compound hover links
+  forceUIRefresh();
+}
+
+
+/* ============================================================
+   2. SEPARATE JOINED WORDS (Master On/Off for Analytical Workspace)
    ============================================================ */
 
 document.getElementById("toggle-sandhi").addEventListener("change", () => {
   const checked = document.getElementById("toggle-sandhi").checked;
-  const wrapper = document.getElementById("sandhi-translit-wrapper");
-  const sandhiEl = document.getElementById("sandhi");
-  const translitEl = document.getElementById("translit");
-  const slider = document.getElementById("toggle-slider");
 
   if (checked) {
-    wrapper.style.display = "block";
-    if (slider.checked) {
-      sandhiEl.style.display = "none";
-      translitEl.style.display = "block";
+    show("sandhi-translit-wrapper");
+    const useTranslit = document.getElementById("toggle-slider").checked;
+    if (useTranslit) {
+      hide("sandhi");
+      show("translit");
     } else {
-      sandhiEl.style.display = "block";
-      translitEl.style.display = "none";
+      show("sandhi");
+      hide("translit");
+    }
+
+    const phraseChecked = document.getElementById("toggle-phrase-groups")?.checked;
+    const meaningChecked = document.getElementById("toggle-meaning-order")?.checked;
+    const activeMode = meaningChecked ? "meaning" : phraseChecked ? "phrases" : "split";
+    setAnalyticalMode(activeMode);
+
+    if (typeof runAnimations === "function") {
+      runAnimations();
     }
   } else {
-    wrapper.style.display = "none";
-    sandhiEl.style.display = "none";
-    translitEl.style.display = "none";
-  }
-  
-  // ⭐ Run animations first so .shloka-word spans exist before linking
-  if (typeof runAnimations === "function") {
-    runAnimations();
-  }
-
-  // Sync grammar colors and compound hover links
-  forceUIRefresh();
-
-});
-
-
-
-/* ------------------------------------------------------------
-   3. PHRASE GROUPS (Inline Pills inside Compound-split verse)
-   ------------------------------------------------------------ */
-document.getElementById("toggle-phrase-groups").addEventListener("change", () => {
-  const checked = document.getElementById("toggle-phrase-groups").checked;
-  const wrapper = document.getElementById("sandhi-translit-wrapper");
-
-  // Always keep the old standalone Phrase Groups block hidden
-  hide("phrase-groups-wrapper");
-
-  if (wrapper) {
-    wrapper.classList.toggle("show-phrase-groups", checked);
+    hide("sandhi-translit-wrapper");
+    hide("sandhi");
+    hide("translit");
+    if (typeof clearAnimations === "function") {
+      clearAnimations();
+    }
   }
 });
 
 
 /* ============================================================
-   4. MEANING ORDER
+   3. PHRASE GROUPS (Synced Checkbox)
+   ============================================================ */
+
+document.getElementById("toggle-phrase-groups").addEventListener("change", () => {
+  const checked = document.getElementById("toggle-phrase-groups").checked;
+  if (checked) {
+    setAnalyticalMode("phrases");
+  } else {
+    const meaningChecked = document.getElementById("toggle-meaning-order")?.checked;
+    setAnalyticalMode(meaningChecked ? "meaning" : "split");
+  }
+});
+
+
+/* ============================================================
+   4. MEANING ORDER (Synced Checkbox)
    ============================================================ */
 
 document.getElementById("toggle-meaning-order").addEventListener("change", () => {
   const checked = document.getElementById("toggle-meaning-order").checked;
-  checked ? show("meaning-order-wrapper") : hide("meaning-order-wrapper");
-  
-  // ⭐ FIX: Enforce colors across dynamic section reveal
-  forceUIRefresh();
+  if (checked) {
+    setAnalyticalMode("meaning");
+  } else {
+    const phraseChecked = document.getElementById("toggle-phrase-groups")?.checked;
+    setAnalyticalMode(phraseChecked ? "phrases" : "split");
+  }
 });
+
 
 /* ============================================================
    5. VERBATIM TRANSLATION
@@ -134,6 +197,7 @@ document.getElementById("toggle-translation").addEventListener("change", () => {
   // ⭐ FIX: Final safety sync pass
   forceUIRefresh();
 });
+
 
 /* ============================================================
    6. RESET VIEW MODES
@@ -152,8 +216,13 @@ function resetViewModes() {
 
   const wrapper = document.getElementById("sandhi-translit-wrapper");
   if (wrapper) {
-    wrapper.classList.remove("show-phrase-groups");
+    wrapper.classList.remove("show-phrase-groups", "show-meaning-order");
   }
+
+  // Reset segmented bar active button back to "Split Words"
+  document.querySelectorAll(".segmented-bar .seg-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.mode === "split");
+  });
 
   hide("phrase-groups-wrapper");
   hide("meaning-order-wrapper");
@@ -164,7 +233,6 @@ function resetViewModes() {
     clearAnimations();
   }
 }
-
 
 
 /* ============================================================

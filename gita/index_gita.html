@@ -63,20 +63,33 @@
       <div id="single-column">
 
         <!-- ============================================================
-             SANDHI + TRANSLIT WRAPPER (Layer 2)
-             Controlled by toggle-slider (sandhi/translit switch)
-             Used by animations.js for typing + underline animations
+             SANDHI + TRANSLIT + MEANING ORDER WORKSPACE (Layer 2)
+             Controlled by 3-step segmented bar & synced checkboxes
              ============================================================ -->
         <div id="sandhi-translit-wrapper" style="display:none;">
 
-          <!-- Sandhi/Translit toggle switch -->
-          <div class="section-title toggle-wrapper">
-            <span class="toggle-label-left"><b>Compound-split verse</b></span>
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle-slider" onchange="toggleSlider()">
-              <span class="slider"></span>
-            </label>
-            <span class="toggle-label-right"><b>Transliteration</b></span>
+          <!-- Layout A: Stacked Header (3-Step Mode Bar + Script Slider) -->
+          <div class="workspace-header">
+            <div class="segmented-bar" role="tablist" aria-label="Verse breakdown mode">
+              <button type="button" class="seg-btn active" data-mode="split" onclick="setAnalyticalMode('split')">
+                Split Words
+              </button>
+              <button type="button" class="seg-btn" data-mode="phrases" onclick="setAnalyticalMode('phrases')">
+                Phrase Groups
+              </button>
+              <button type="button" class="seg-btn" data-mode="meaning" onclick="setAnalyticalMode('meaning')">
+                Meaning Order
+              </button>
+            </div>
+
+            <div class="section-title toggle-wrapper script-toggle-row">
+              <span class="toggle-label-left"><b>Devanāgarī</b></span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-slider" onchange="toggleSlider()">
+                <span class="slider"></span>
+              </label>
+              <span class="toggle-label-right"><b>Transliteration</b></span>
+            </div>
           </div>
 
           <!-- Sandhi (split Sanskrit) -->
