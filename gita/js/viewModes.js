@@ -137,14 +137,16 @@ document.getElementById("toggle-sandhi").addEventListener("change", () => {
       hide("translit");
     }
 
+    // 1. Run animations FIRST so .shloka-word spans exist in the parchment
+    if (typeof runAnimations === "function") {
+      runAnimations();
+    }
+
+    // 2. Now render the active mode and link compound parts + dotted underlines
     const phraseChecked = document.getElementById("toggle-phrase-groups")?.checked;
     const meaningChecked = document.getElementById("toggle-meaning-order")?.checked;
     const activeMode = meaningChecked ? "meaning" : phraseChecked ? "phrases" : "split";
     setAnalyticalMode(activeMode);
-
-    if (typeof runAnimations === "function") {
-      runAnimations();
-    }
   } else {
     hide("sandhi-translit-wrapper");
     hide("sandhi");
@@ -154,6 +156,7 @@ document.getElementById("toggle-sandhi").addEventListener("change", () => {
     }
   }
 });
+
 
 
 /* ============================================================
