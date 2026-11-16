@@ -1,5 +1,5 @@
 /* ============================================================
-   dict_checker.js — Verse & Chapter Diagnostic Auditor
+   dict_checker.js — Verse & Chapter Diagnostic Auditor (Part 1/2)
    ------------------------------------------------------------
    Console Commands:
    - auditCurrentVerse()  → Audits the currently open verse
@@ -43,28 +43,49 @@
   }
 
   /* ------------------------------------------------------------
-     CORE AUDITOR: Audits a single verse object
+     Helper: determine which verse data file holds this verse
+     ------------------------------------------------------------ */
+  function guessVerseFile(chNum, verseId) {
+    const start = Math.floor((verseId - 1) / 10) * 10 + 1;
+    const end = chNum === 1 && start === 41 ? 47 : chNum === 2 && start === 71 ? 72 : start + 9;
+    const pad = n => String(n).padStart(2, "0");
+    return `ch${chNum}_${pad(start)}_${pad(end)}.js`;
+  }
+
+  /* ------------------------------------------------------------
+     CORE AUDITOR: Audits a single verse object with plain-English
+     explanations and actionable fix recommendations
      ------------------------------------------------------------ */
   function auditVerse(chNum, verseObj) {
-    const issues = [];
+    const findings = [];
     const missingDictTemplates = {};
+    const missingSandhiTemplates = {};
 
     if (!verseObj) {
       console.warn("No verse object found.");
-      return { issues: ["No verse object"], missingDictTemplates };
+      return { findings: [], missingDictTemplates };
     }
 
     const label = `Chapter ${chNum}, Verse ${verseObj.id}`;
+    const verseFile = guessVerseFile(chNum, verseObj.id);
+    const sandhiFile = `dict-sandhi_ch${chNum}.js`;
 
     // 1. Validate parts & meaningOrder structure
     if (!Array.isArray(verseObj.parts) || verseObj.parts.length === 0) {
-      issues.push("Missing 'parts' array (verse will fall back to flat text without pills/meaning order).");
+      findings.push({
+        type: "Missing Phrase Breakdown",
+        why: "This verse does not have a 'parts' array yet, so Phrase Groups, Numbered Pills, and Meaning Order cannot render.",
+        fix: `Open ${verseFile} (Verse ${verseObj.id}) and add a 'parts' array and 'meaningOrder' array.`
+      });
     } else {
       const partCount = verseObj.parts.length;
       if (!Array.isArray(verseObj.meaningOrder) || verseObj.meaningOrder.length !== partCount) {
-        issues.push(
-          `meaningOrder length (${verseObj.meaningOrder?.length || 0}) does not match parts length (${partCount}).`
-        );
+        const defaultOrder = JSON.stringify(verseObj.parts.map((_, i) => i + 1));
+        findings.push({
+          type: "Meaning Order Mismatch",
+          why: `'meaningOrder' has ${verseObj.meaningOrder?.length || 0} items, while 'parts' has ${partCount} phrases. Every phrase must be listed once so Meaning Order displays the full verse.`,
+          fix: `In ${verseFile} (Verse ${verseObj.id}), set meaningOrder to an array of ${partCount} numbers (for example: meaningOrder: ${defaultOrder}).`
+        });
       }
 
       // 2. Check Devanagari vs. IAST word count alignment & DICT coverage per phrase
@@ -73,9 +94,11 @@
         const iastWords = splitWords(p.translit || "");
 
         if (devWords.length !== iastWords.length) {
-          issues.push(
-            `Part ${idx + 1} word-count mismatch (causes IAST color/hover shift): Devanāgarī has ${devWords.length} words [${devWords.join(", ")}] vs. IAST has ${iastWords.length} words [${iastWords.join(", ")}].`
-          );
+          findings.push({
+            type: `IAST Alignment Shift (Phrase ${idx + 1})`,
+            why: `Devanāgarī has ${devWords.length} split words [${devWords.join(" | ")}], while IAST has ${iastWords.length} split words [${iastWords.join(" | ")}]. Because grammar colors and hover links match words by position, this causes IAST words to get the wrong colors or fail to highlight.`,
+            fix: `In ${verseFile} (Verse ${verseObj.id}, part id ${p.id}), add or remove '·' separators in 'translit' so it has the exact same ${devWords.length} words as 'sandhi'.`
+          });
         }
 
         devWords.forEach(w => {
@@ -85,7 +108,11 @@
             (window.SANDHI && (window.SANDHI[w] || window.SANDHI[altVisarga]));
 
           if (!foundInDict) {
-            issues.push(`Missing in DICT (no color/meaning): "${w}"`);
+            findings.push({
+              type: `Missing Dictionary Word: "${w}"`,
+              why: `The word "${w}" (in Phrase ${idx + 1}) is not in dict.js, so it will appear uncolored and show no English meaning when hovered.`,
+              fix: `Add "${w}" to dict.js (a copy-paste template is printed at the bottom of this report).`
+            });
             missingDictTemplates[w] = { pos: "noun", meaning: "" };
           }
         });
@@ -108,8 +135,8 @@
         if (Array.isArray(entry.split)) {
           expectedParts = entry.split.map(cleanToken);
         } else if (typeof entry.meaning === "string" && entry.meaning.includes("+")) {
-          expectedParts = entry.meaning
-            .split("=")[0]
+          const leftSide = entry.meaning.split("=")[0];
+          expectedParts = leftSide
             .split("+")
             .map(cleanToken)
             .filter(Boolean);
@@ -121,32 +148,55 @@
             vw => vw === sp || vw.replace(/[ःं]/g, "") === normSp
           );
           if (!existsInVerse) {
-            issues.push(
-              `Compound "${token}" expects split part "${sp}" from SANDHI, which was not found in parts.sandhi.`
-            );
+            findings.push({
+              type: `Broken Compound Link: "${token}" → "${sp}"`,
+              why: `The compound "${token}" is underlined in the shloka and expects "${sp}" in the breakdown, but "${sp}" was not found in 'parts.sandhi'. Hovering over "${token}" will fail to highlight that part.`,
+              fix: `Either update "${token}" in ${sandhiFile} so its split parts match the exact spelling in 'parts.sandhi', or adjust the spelling in ${verseFile} (Verse ${verseObj.id}).`
+            });
           }
         });
       } else if (!entry && looksLikeCompound(token)) {
-        issues.push(`Possible unindexed compound in shloka (not in SANDHI): "${token}"`);
+        findings.push({
+          type: `Possible Unlinked Compound: "${token}"`,
+          why: `"${token}" looks like a joined compound word in the shloka, but it has no entry in ${sandhiFile}. As a result, it will not be underlined in the parchment or get dotted '+' joiners in Split Words.`,
+          fix: `If "${token}" is a sandhi compound, add it to ${sandhiFile} (template provided below). If it is a single unjoined word, you can safely ignore this notice.`
+        });
+        missingSandhiTemplates[token] = {
+          isCompound: true,
+          meaning: "part1 + part2 = combined meaning"
+        };
       }
     });
 
-    // 4. Print clean report to Console
+    // 4. Print friendly, structured report to Console
     console.group(`🔍 Diagnostic Audit: ${label}`);
-    if (issues.length === 0) {
-      console.log("✅ All checks passed! DICT, IAST alignment, and SANDHI links look clean.");
+    if (findings.length === 0) {
+      console.log("✅ All checks passed! Dictionary colors, IAST alignment, and compound hover links are healthy.");
     } else {
-      console.warn(`Found ${issues.length} issue(s):`);
-      issues.forEach((msg, i) => console.log(`${i + 1}. ${msg}`));
+      console.warn(`Found ${findings.length} item(s) to review:\n`);
+      findings.forEach((item, i) => {
+        console.log(
+          `%c${i + 1}. ${item.type}\n` +
+          `%c   • Why it matters: ${item.why}\n` +
+          `   • Recommended fix: ${item.fix}`,
+          "font-weight: bold; color: #8a6400;",
+          "font-weight: normal; color: inherit;"
+        );
+      });
 
       if (Object.keys(missingDictTemplates).length > 0) {
-        console.log("📋 Copy-paste template for dict.js:");
+        console.log("%c📋 Copy-paste template for dict.js:", "font-weight: bold; color: #2f6fb1;");
         console.log(JSON.stringify(missingDictTemplates, null, 2));
+      }
+
+      if (Object.keys(missingSandhiTemplates).length > 0) {
+        console.log(`%c📋 Optional template for ${sandhiFile}:`, "font-weight: bold; color: #0b7d3b;");
+        console.log(JSON.stringify(missingSandhiTemplates, null, 2));
       }
     }
     console.groupEnd();
 
-    return { issues, missingDictTemplates };
+    return { findings, missingDictTemplates, missingSandhiTemplates };
   }
 
   /* ------------------------------------------------------------
@@ -179,13 +229,13 @@
 
     chapterData.forEach(v => {
       const res = auditVerse(chNum, v);
-      totalIssues += res.issues.length;
+      totalIssues += res.findings.length;
       Object.assign(allMissingDict, res.missingDictTemplates);
     });
 
-    console.log(`🏁 Chapter ${chNum} audit complete — ${totalIssues} total issue(s) found.`);
+    console.log(`🏁 Chapter ${chNum} audit complete — ${totalIssues} total item(s) flagged.`);
     if (Object.keys(allMissingDict).length > 0) {
-      console.log("📋 Combined missing DICT entries for dict.js:");
+      console.log("%c📋 Combined missing DICT entries for dict.js:", "font-weight: bold; color: #2f6fb1;");
       console.log(JSON.stringify(allMissingDict, null, 2));
     }
   };

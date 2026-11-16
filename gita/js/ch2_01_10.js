@@ -25,9 +25,9 @@ const CH2_01_10 = [
     parts: [
       {id: 1, role: "Speaker", sandhi: "सञ्जय उवाच।", translit: "sañjaya uvāca।", guide: "Sañjaya said"},
       {id: 2, role: "Person addressed", sandhi: "तं तथा", translit: "taṃ tathā", guide: "to him (Arjuna), thus"},
-      {id: 3, role: "Description or quality", sandhi: "कृपया·आविष्टम्·अश्रुपूर्ण·आकुल·ईक्षणम् ।", translit: "kṛpayā·āviṣṭam·aśrupūrṇa·ākula·īkṣaṇam ।", guide: "overcome with pity, with eyes filled with tears and agitated"},
-      {id: 4, role: "Description or quality", sandhi: "विषीदन्तम्", translit: "viṣīdantam", guide: "grieving"},
-      {id: 5, role: "What happens?", sandhi: "इदं वाक्यम्·उवाच", translit: "idaṃ vākyam·uvāca", guide: "spoke these words"},
+      {id: 3, role: "Quality", sandhi: "कृपया·आविष्टम्·अश्रुपूर्ण·आकुल·ईक्षणम् ।", translit: "kṛpayā·āviṣṭam·aśrupūrṇa·ākula·īkṣaṇam ।", guide: "overcome with pity, with eyes filled with tears and agitated"},
+      {id: 4, role: "Quality", sandhi: "विषीदन्तम्", translit: "viṣīdantam", guide: "grieving"},
+      {id: 5, role: "Action", sandhi: "इदं वाक्यम्·उवाच", translit: "idaṃ vākyam·uvāca", guide: "spoke these words"},
       {id: 6, role: "Who acts?", sandhi: "मधुसूदनः॥", translit: "madhusūdanaḥ॥", guide: "Madhusūdana (Kṛṣṇa)"}
     ],
     meaningOrder: [1, 6, 5, 2, 3, 4]
@@ -60,7 +60,7 @@ const CH2_01_10 = [
       {id: 1, role: "Speaker", sandhi: "श्रीभगवान् उवाच।", translit: "śrībhagavān uvāca।", guide: "The Blessed Lord said"},
       {id: 2, role: "Question", sandhi: "कुतः·त्वा·कश्मलम्·इदं", translit: "kutaḥ·tvā·kaśmalam·idaṃ", guide: "whence has this delusion come upon you"},
       {id: 3, role: "Situation or context", sandhi: "विषमे·समुपस्थितम् ।", translit: "viṣame·samupasthitam ।", guide: "arising at this critical hour"},
-      {id: 4, role: "Description or quality", sandhi: "अनार्य·जुष्टम्·अस्वर्ग्यम्·अकीर्ति·करम्", translit: "anārya·juṣṭam·asvargyam·akīrti·karam", guide: "unworthy of the noble, leading away from heaven, and causing disgrace"},
+      {id: 4, role: "Quality", sandhi: "अनार्य·जुष्टम्·अस्वर्ग्यम्·अकीर्ति·करम्", translit: "anārya·juṣṭam·asvargyam·akīrti·karam", guide: "unworthy of the noble, leading away from heaven, and causing disgrace"},
       {id: 5, role: "Person addressed", sandhi: "अर्जुन॥", translit: "arjuna॥", guide: "O Arjuna"}
     ],
     meaningOrder: [1, 5, 2, 3, 4]
@@ -90,7 +90,7 @@ const CH2_01_10 = [
       {id: 2, role: "Person addressed", sandhi: "पार्थ;", translit: "pārtha;", guide: "O Pārtha"},
       {id: 3, role: "Reason / Because", sandhi: "न·एतत·त्वयि·उपपद्यते ।", translit: "na·etat·tvayi·upapadyate ।", guide: "this does not befit you"},
       {id: 4, role: "Guidance / Advice", sandhi: "क्षुद्रं हृदय·दौर्बल्यं·त्यक्त्वा", translit: "kṣudraṃ hṛdaya·daurbalyaṃ tyaktvā", guide: "casting off this petty weakness of heart"},
-      {id: 5, role: "Guidance / Advice", sandhi: "उत्तिष्ठ", translit: "uttiṣṭha", guide: "arise"},
+      {id: 5, role: "Instruction", sandhi: "उत्तिष्ठ", translit: "uttiṣṭha", guide: "arise"},
       {id: 6, role: "Person addressed", sandhi: "परन्तप॥", translit: "parantapa॥", guide: "O scorcher of foes"}
     ],
     meaningOrder: [2, 1, 3, 6, 4, 5]
@@ -121,15 +121,15 @@ const CH2_01_10 = [
     `,
     parts: [
       {id: 1, role: "Speaker", sandhi: "अर्जुन उवाच।", translit: "arjuna uvāca।", guide: "Arjuna said"},
-      {id: 2, role: "Doubt / Dilemma", sandhi: "कथं·भीष्मम्·अहं", translit: "kathaṃ·bhīṣmam·ahaṃ", guide: "how shall I against Bhīṣma"},
-      {id: 3, role: "Place or setting", sandhi: "सङ्ख्ये", translit: "saṅkhye", guide: "in battle"},
-      {id: 4, role: "What is affected?", sandhi: "द्रोणं च", translit: "droṇaṃ ca", guide: "and against Droṇa"},
+      {id: 2, role: "Person involved", sandhi: "·भीष्मम्", translit: "bhīṣmam·", guide: "Bhīṣma"},
+      {id: 3, role: "Setting", sandhi: "सङ्ख्ये", translit: "saṅkhye", guide: "in battle"},
+      {id: 4, role: "Person involved", sandhi: "द्रोणं च", translit: "droṇaṃ ca", guide: "and against Droṇa"},
       {id: 5, role: "Person addressed", sandhi: "मधुसूदन ।", translit: "madhusūdana ।", guide: "O Madhusūdana"},
-      {id: 6, role: "Doubt / Dilemma", sandhi: "इषुभिः प्रति·योत्स्यामि", translit: "iṣubhiḥ prati·yotsyāmi", guide: "fight back with arrows"},
-      {id: 7, role: "Description or quality", sandhi: "पूजार्हौ", translit: "pūjārhau", guide: "both of whom are worthy of reverence"},
+      {id: 6, role: "Doubt / Dilemma", sandhi: "कथं अहं इषुभिः प्रति·योत्स्यामि", translit: "kathaṃ ahaṃ iṣubhiḥ prati·yotsyāmi", guide: "how shall I fight back with arrows"},
+      {id: 7, role: "Quality", sandhi: "पूजार्हौ", translit: "pūjārhau", guide: "both of whom are worthy of reverence"},
       {id: 8, role: "Person addressed", sandhi: "अरि·सूदन॥", translit: "ari·sūdana॥", guide: "O destroyer of foes"}
     ],
-    meaningOrder: [1, 5, 2, 4, 3, 6, 7, 8]
+    meaningOrder: [1, 5, 6, 2, 4, 3, 7, 8]
   },
 
   {
@@ -154,7 +154,7 @@ const CH2_01_10 = [
     parts: [
       {id: 1, role: "Condition / If–When", sandhi: "गुरून्·अहत्वा·हि महानुभावान्", translit: "gurūn·ahatvā·hi mahā·anubhāvān", guide: "without slaying these noble-minded teachers"},
       {id: 2, role: "Doubt / Dilemma", sandhi: "श्रेयः भोक्तुं भैक्ष्यम्·अपि", translit: "śreyaḥ bhoktuṃ bhaikṣyam·api", guide: "it would be better even to live on alms"},
-      {id: 3, role: "Place or setting", sandhi: "इह लोक ।", translit: "iha loka ।", guide: "in this world"},
+      {id: 3, role: "Setting", sandhi: "इह लोक ।", translit: "iha loka ।", guide: "in this world"},
       {id: 4, role: "Condition / If–When", sandhi: "हत्वा·अर्थ·कामान्·तु गुरून्", translit: "hatvā·artha·kāmān·tu gurūn", guide: "for by slaying these teachers who seek wealth and desires"},
       {id: 5, role: "Result / Consequence", sandhi: "इह·एव भुञ्जीय भोगान् रुधिर·प्रदिग्धान्॥", translit: "iha·eva bhuñjīya bhogān rudhira·pradigdhān॥", guide: "I would only enjoy blood-stained pleasures right here"}
     ],
@@ -184,7 +184,7 @@ const CH2_01_10 = [
       {id: 1, role: "Doubt / Dilemma", sandhi: "न च·एतत·विद्मः कतरम्·नः गरीयो;", translit: "na ca·etat·vidmaḥ kataram·no garīyaḥ;", guide: "nor do we know which of the two is better for us"},
       {id: 2, role: "Doubt / Dilemma", sandhi: "यद्·वा जयेम यदि वा नो जयेयुः।", translit: "yad·vā jayema yadi vā no jayeyuḥ।", guide: "whether we should conquer them or they should conquer us"},
       {id: 3, role: "Result / Consequence", sandhi: "यान्·एव हत्वा न जिजीविषामः;", translit: "yān·eva hatvā na jijīviṣāmaḥ;", guide: "whom having slain we would not wish to live"},
-      {id: 4, role: "Situation or context", sandhi: "ते·अवस्थिताः प्रमुखे धार्तराष्ट्राः॥", translit: "te·avasthitāḥ pramukhe dhārtarāṣṭrāḥ॥", guide: "those very sons of Dhṛtarāṣṭra stand arrayed before us"}
+      {id: 4, role: "Situation", sandhi: "ते·अवस्थिताः प्रमुखे धार्तराष्ट्राः॥", translit: "te·avasthitāḥ pramukhe dhārtarāṣṭrāḥ॥", guide: "those very sons of Dhṛtarāṣṭra stand arrayed before us"}
     ],
     meaningOrder: [1, 2, 4, 3]
   },
@@ -241,10 +241,10 @@ const CH2_01_10 = [
     `,
     parts: [
       {id: 1, role: "Doubt / Dilemma", sandhi: "न हि प्रपश्यामि", translit: "na hi prapaśyāmi", guide: "for I do not see anything"},
-      {id: 2, role: "What happens?", sandhi: "मम·अपनुद्यात् यत्·शोकम्", translit: "mama·apanudyāt yat·śokam", guide: "that can drive away this grief of mine"},
-      {id: 3, role: "Description or quality", sandhi: "उच्छोषणम्·इन्द्रियाणाम् ।", translit: "ucchoṣaṇam·indriyāṇām ।", guide: "which is withering away my senses"},
-      {id: 4, role: "Condition / If–When", sandhi: "अवाप्य भूमौ·असपत्नम्·ऋद्धं राज्यं", translit: "avāpya bhūmau·asapatnam·ṛddhaṃ rājyaṃ", guide: "even after attaining an unrivaled, prosperous kingdom on earth"},
-      {id: 5, role: "Condition / If–When", sandhi: "सुराणाम्·अपि च·अधिपत्यम्॥", translit: "surāṇām·api ca·adhipatyam॥", guide: "or even sovereignty over the gods"}
+      {id: 2, role: "Doubt / Dilemma", sandhi: "मम·अपनुद्यात् यत्·शोकम्", translit: "mama·apanudyāt yat·śokam", guide: "that can drive away this grief of mine"},
+      {id: 3, role: "Situation", sandhi: "उच्छोषणम्·इन्द्रियाणाम् ।", translit: "ucchoṣaṇam·indriyāṇām ।", guide: "which is withering away my senses"},
+      {id: 4, role: "Doubt / Dilemma", sandhi: "अवाप्य भूमौ·असपत्नम्·ऋद्धं राज्यं", translit: "avāpya bhūmau·asapatnam·ṛddhaṃ rājyaṃ", guide: "even after attaining an unrivaled, prosperous kingdom on earth"},
+      {id: 5, role: "Doubt / Dilemma", sandhi: "सुराणाम्·अपि च·अधिपत्यम्॥", translit: "surāṇām·api ca·adhipatyam॥", guide: "or even sovereignty over the gods"}
     ],
     meaningOrder: [1, 2, 3, 4, 5]
   },
@@ -274,10 +274,10 @@ const CH2_01_10 = [
     `,
     parts: [
       {id: 1, role: "Speaker", sandhi: "सञ्जय उवाच।", translit: "sañjaya uvāca।", guide: "Sañjaya said"},
-      {id: 2, role: "What happens?", sandhi: "एवम्·उक्त्वा·हृषीकेशं", translit: "evam·uktvā·hṛṣīkeśaṃ", guide: "having spoken thus to Hṛṣīkeśa"},
-      {id: 3, role: "Who acts?", sandhi: "गुडाकेशः·परन्तप ।", translit: "guḍākeśaḥ·parantapa ।", guide: "Guḍākeśa (Arjuna), the scorcher of foes"},
-      {id: 4, role: "What happens?", sandhi: "न·योत्स्य·इति·गोविन्दम्·उक्त्वा", translit: "na·yotsya·iti·govindam·uktvā", guide: "saying to Govinda, “I will not fight,”"},
-      {id: 5, role: "Result / Consequence", sandhi: "तूष्णीं·बभूव·ह॥", translit: "tūṣṇīṃ·babhūva·ha॥", guide: "became silent indeed"}
+      {id: 2, role: "Action", sandhi: "एवम्·उक्त्वा·हृषीकेशं", translit: "evam·uktvā·hṛṣīkeśaṃ", guide: "having spoken thus to Hṛṣīkeśa"},
+      {id: 3, role: "Person acting", sandhi: "गुडाकेशः·परन्तप ।", translit: "guḍākeśaḥ·parantapa ।", guide: "Guḍākeśa (Arjuna), the scorcher of foes"},
+      {id: 4, role: "Action", sandhi: "न·योत्स्य·इति·गोविन्दम्·उक्त्वा", translit: "na·yotsya·iti·govindam·uktvā", guide: "saying to Govinda, “I will not fight,”"},
+      {id: 5, role: "Quality", sandhi: "तूष्णीं·बभूव·ह॥", translit: "tūṣṇīṃ·babhūva·ha॥", guide: "became silent indeed"}
     ],
     meaningOrder: [1, 3, 2, 4, 5]
   },
@@ -303,14 +303,14 @@ const CH2_01_10 = [
     `,
     parts: [
       {id: 1, role: "Person addressed", sandhi: "तम्", translit: "tam", guide: "to him (Arjuna)"},
-      {id: 2, role: "What happens?", sandhi: "उवाच", translit: "uvāca", guide: "spoke"},
+      {id: 2, role: "Action", sandhi: "उवाच", translit: "uvāca", guide: "spoke"},
       {id: 3, role: "Speaker", sandhi: "हृषीकेशः", translit: "hṛṣīkeśaḥ", guide: "Hṛṣīkeśa (Kṛṣṇa)"},
-      {id: 4, role: "Description or quality", sandhi: "प्रहसन्·इव", translit: "prahasan·iva", guide: "as if smiling"},
+      {id: 4, role: "Quality", sandhi: "प्रहसन्·इव", translit: "prahasan·iva", guide: "as if smiling"},
       {id: 5, role: "Person addressed", sandhi: "भारत ।", translit: "bhārata ।", guide: "O Bhārata (Dhṛtarāṣṭra)"},
-      {id: 6, role: "Place or setting", sandhi: "सेनयोः·उभयोः·मध्ये", translit: "senayoḥ·ubhayor·madhye", guide: "in the midst of both armies"},
-      {id: 7, role: "Description or quality", sandhi: "विषीदन्तम्", translit: "viṣīdantam", guide: "to the despondent one"},
-      {id: 8, role: "What is affected?", sandhi: "इदं·वचः॥", translit: "idaṃ·vacaḥ॥", guide: "these words"}
+      {id: 6, role: "Setting", sandhi: "सेनयोः·उभयोः·मध्ये", translit: "senayoḥ·ubhayor·madhye", guide: "in the midst of both armies"},
+      {id: 7, role: "Quality", sandhi: "विषीदन्तम्", translit: "viṣīdantam", guide: "grieving"},
+      {id: 8, role: "Result of action", sandhi: "इदं·वचः॥", translit: "idaṃ·vacaḥ॥", guide: "these words"}
     ],
-    meaningOrder: [5, 3, 4, 2, 1, 7, 6, 8]
+    meaningOrder: [5, 3, 2, 8, 4, 1, 7, 6]
   }
 ];

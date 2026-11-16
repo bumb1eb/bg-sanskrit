@@ -1,15 +1,14 @@
 /* ============================================================
-   render.js — Main Rendering Engine for Sanskrit Explorer
+   render.js — Main Rendering Engine for Sanskrit Explorer (Part 1/4)
    ------------------------------------------------------------
    Responsibilities:
-   - Load chapter/verse data
+   - Load chapter/verse data & support ?ch=X&v=Y deep links
    - Render shloka, sandhi, translit, translation
    - Render phrase groups + meaning order
    - Render cases
-   - Build sidebar navigation
+   - Build dual-tab sidebar navigation (By Number | By Context)
    - Handle next/prev navigation
-   - Provide hooks for grammar.js, dictionary.js, hover.js
-   - Provide hooks for animations.js (future)
+   - Provide hooks for grammar.js, dictionary.js, hover.js, animations.js
    ============================================================ */
 
 
@@ -21,8 +20,10 @@
 let currentChapter = 1;
 let currentVerseIndex = 0;
 
+// Sidebar view mode: "number" | "context"
+let sidebarViewMode = "number";
+
 // All chapters loaded from chapter files
-// Each chapter file defines: chapterX = [ {verse objects}, ... ]
 const chapters = {
   1: chapter1,
   2: chapter2,
@@ -37,35 +38,81 @@ const chapterSandhiMap = {
 
 let currentMode = "sandhi";   // or "translit"
 
+
 /* ------------------------------------------------------------
    INITIALIZATION
    ------------------------------------------------------------ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  buildSidebar();
+  // 1. Check URL parameters (?ch=X&v=Y) first for direct topic links
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramCh = parseInt(urlParams.get("ch"), 10);
+  const paramV  = parseInt(urlParams.get("v"), 10);
 
-  const savedChapter = parseInt(localStorage.getItem("currentChapter"));
-  const savedVerse   = parseInt(localStorage.getItem("currentVerseIndex"));
+  if (!isNaN(paramCh) && chapters[paramCh]) {
+    currentChapter = paramCh;
+    currentVerseIndex =
+      !isNaN(paramV) && paramV >= 1 && paramV <= chapters[paramCh].length
+        ? paramV - 1
+        : 0;
 
-  if (!isNaN(savedChapter) && !isNaN(savedVerse)) {
-    currentChapter = savedChapter;
-    currentVerseIndex = savedVerse;
+    localStorage.setItem("currentChapter", currentChapter);
+    localStorage.setItem("currentVerseIndex", currentVerseIndex);
+  } else {
+    // 2. Otherwise fall back to saved localStorage position
+    const savedChapter = parseInt(localStorage.getItem("currentChapter"), 10);
+    const savedVerse   = parseInt(localStorage.getItem("currentVerseIndex"), 10);
+
+    if (!isNaN(savedChapter) && chapters[savedChapter] && !isNaN(savedVerse)) {
+      currentChapter = savedChapter;
+      currentVerseIndex = savedVerse;
+    }
   }
 
+  buildSidebar();
   renderCurrentVerse();
   highlightActiveVerse();
 });
 
 
 /* ============================================================
-   SIDEBAR — CHAPTER + VERSE NUMBER GRID
+   SIDEBAR — DUAL-TAB SWITCHER (BY NUMBER | BY CONTEXT)
    ============================================================ */
+
+function setSidebarViewMode(mode) {
+  sidebarViewMode = mode;
+  buildSidebar();
+  highlightActiveVerse();
+}
+
+function jumpToVerse(chInt, verseIdx) {
+  currentChapter = chInt;
+  currentVerseIndex = verseIdx;
+
+  localStorage.setItem("currentChapter", currentChapter);
+  localStorage.setItem("currentVerseIndex", currentVerseIndex);
+
+  renderCurrentVerse();
+  highlightActiveVerse();
+}
 
 function buildSidebar() {
   const container = document.getElementById("index-container");
   container.innerHTML = "";
 
+  // --- Top Switcher: By Number | By Context ---
+  const tabBar = document.createElement("div");
+  tabBar.className = "sidebar-mode-bar";
+  tabBar.innerHTML = `
+    <button type="button" class="sb-tab ${sidebarViewMode === "number" ? "active" : ""}"
+            onclick="setSidebarViewMode('number')">By Number</button>
+    <button type="button" class="sb-tab ${sidebarViewMode === "context" ? "active" : ""}"
+            onclick="setSidebarViewMode('context')">By Context</button>
+  `;
+  container.appendChild(tabBar);
+
   Object.keys(chapters).forEach(chNum => {
+    const chInt = parseInt(chNum, 10);
     const chBlock = document.createElement("div");
     chBlock.className = "chapter-block";
     chBlock.dataset.chapter = chNum;
@@ -74,7 +121,7 @@ function buildSidebar() {
     const header = document.createElement("div");
     header.className = "chapter-header";
 
-    const isCurrentChapter = parseInt(chNum) === currentChapter;
+    const isCurrentChapter = chInt === currentChapter;
     if (isCurrentChapter) header.classList.add("open");
 
     header.innerHTML = `
@@ -86,46 +133,79 @@ function buildSidebar() {
       toggleChapter(chNum);
     };
 
-    // --- Verse number grid ---
-    const body = document.createElement("ul");
-    body.className = "verses verse-grid";
-    body.style.display = isCurrentChapter ? "grid" : "none";
-
-    chapters[chNum].forEach((v, idx) => {
-      const li = document.createElement("li");
-      li.textContent = v.id;
-      li.title = `Chapter ${chNum}, Verse ${v.id}`;
-
-      li.onclick = () => {
-        currentChapter = parseInt(chNum);
-        currentVerseIndex = idx;
-
-        localStorage.setItem("currentChapter", currentChapter);
-        localStorage.setItem("currentVerseIndex", currentVerseIndex);
-
-        renderCurrentVerse();
-        highlightActiveVerse();
-      };
-
-      body.appendChild(li);
-    });
-
     chBlock.appendChild(header);
-    chBlock.appendChild(body);
+
+    // --- VIEW A: 5-Column Verse Number Grid ---
+    if (sidebarViewMode === "number") {
+      const body = document.createElement("ul");
+      body.className = "verses verse-grid";
+      body.style.display = isCurrentChapter ? "grid" : "none";
+
+      chapters[chNum].forEach((v, idx) => {
+        const li = document.createElement("li");
+        li.textContent = v.id;
+        li.title = `Chapter ${chNum}, Verse ${v.id}`;
+        li.onclick = () => jumpToVerse(chInt, idx);
+        body.appendChild(li);
+      });
+
+      chBlock.appendChild(body);
+    }
+
+    // --- VIEW B: Thematic Spine (By Context) ---
+    else {
+      const spineList = document.createElement("div");
+      spineList.className = "verses spine-list";
+      spineList.style.display = isCurrentChapter ? "flex" : "none";
+
+      const sections = (typeof GITA_SPINE !== "undefined" && GITA_SPINE[chInt]) || [];
+
+      if (sections.length === 0) {
+        const emptyNote = document.createElement("div");
+        emptyNote.className = "spine-summary";
+        emptyNote.style.padding = "4px 6px";
+        emptyNote.textContent = "Context outline coming soon.";
+        spineList.appendChild(emptyNote);
+      } else {
+        sections.forEach(sec => {
+          const card = document.createElement("div");
+          card.className = "spine-card";
+          card.dataset.start = sec.start;
+          card.dataset.end = sec.end;
+
+          card.innerHTML = `
+            <div class="spine-range">Verses ${chInt}.${sec.start}–${chInt}.${sec.end}</div>
+            <div class="spine-title">${sec.title}</div>
+            <div class="spine-summary">${sec.summary}</div>
+          `;
+
+          card.onclick = () => jumpToVerse(chInt, sec.start - 1);
+          spineList.appendChild(card);
+        });
+      }
+
+      chBlock.appendChild(spineList);
+    }
+
     container.appendChild(chBlock);
   });
 }
 
+/* ============================================================
+   SIDEBAR TOGGLING & ACTIVE HIGHLIGHTING (Part 2/4)
+   ============================================================ */
 
 function toggleChapter(chNum) {
+  const openDisplay = sidebarViewMode === "number" ? "grid" : "flex";
   const blocks = document.querySelectorAll(".chapter-block");
+
   blocks.forEach(block => {
     const header = block.querySelector(".chapter-header");
     const body = block.querySelector(".verses");
 
     if (block.dataset.chapter === String(chNum)) {
-      const isOpen = body.style.display === "grid";
-      body.style.display = isOpen ? "none" : "grid";
+      const isOpen = body.style.display === openDisplay;
+      body.style.display = isOpen ? "none" : openDisplay;
       header.classList.toggle("open", !isOpen);
     } else {
       // Collapse all other chapters
@@ -135,9 +215,9 @@ function toggleChapter(chNum) {
   });
 }
 
+
 function highlightActiveVerse() {
-  const lists = document.querySelectorAll("#sidebar ul.verses li");
-  lists.forEach(li => li.classList.remove("active-verse"));
+  const openDisplay = sidebarViewMode === "number" ? "grid" : "flex";
 
   // Expand only the active chapter and collapse all others
   const blocks = document.querySelectorAll("#sidebar .chapter-block");
@@ -146,22 +226,43 @@ function highlightActiveVerse() {
     const body = block.querySelector(".verses");
     const isCurrent = block.dataset.chapter === String(currentChapter);
 
-    body.style.display = isCurrent ? "grid" : "none";
+    body.style.display = isCurrent ? openDisplay : "none";
     if (header) header.classList.toggle("open", isCurrent);
   });
 
-  const chapterList = document.querySelectorAll("#sidebar ul.verses")[currentChapter - 1];
-  if (!chapterList) return;
+  const activeBlock = document.querySelector(`#sidebar .chapter-block[data-chapter="${currentChapter}"]`);
+  if (!activeBlock) return;
 
-  const active = chapterList.children[currentVerseIndex];
-  if (active) {
-    active.classList.add("active-verse");
+  let activeTarget = null;
 
-    // Only scroll inside the sidebar on desktop/laptop without moving the main page
+  if (sidebarViewMode === "number") {
+    document.querySelectorAll("#sidebar ul.verses li").forEach(li => li.classList.remove("active-verse"));
+    const chapterList = activeBlock.querySelector("ul.verses");
+    if (chapterList && chapterList.children[currentVerseIndex]) {
+      activeTarget = chapterList.children[currentVerseIndex];
+      activeTarget.classList.add("active-verse");
+    }
+  } else {
+    document.querySelectorAll("#sidebar .spine-card").forEach(card => card.classList.remove("active-spine"));
+    const verseObj = chapters[currentChapter]?.[currentVerseIndex];
+    const verseNum = verseObj ? verseObj.id : currentVerseIndex + 1;
+
+    activeBlock.querySelectorAll(".spine-card").forEach(card => {
+      const start = parseInt(card.dataset.start, 10);
+      const end   = parseInt(card.dataset.end, 10);
+      if (verseNum >= start && verseNum <= end) {
+        card.classList.add("active-spine");
+        activeTarget = card;
+      }
+    });
+  }
+
+  // Only scroll inside the sidebar on desktop/laptop without moving the main page
+  if (activeTarget) {
     const sidebar = document.getElementById("sidebar");
     if (sidebar && window.innerWidth > 900) {
       sidebar.scrollTo({
-        top: active.offsetTop - sidebar.clientHeight / 2,
+        top: activeTarget.offsetTop - sidebar.clientHeight / 2,
         behavior: "smooth"
       });
     }
@@ -169,14 +270,13 @@ function highlightActiveVerse() {
 }
 
 
-
 /* ============================================================
    MAIN RENDER FUNCTION
    ============================================================ */
 
 function renderCurrentVerse() {
-  // ⭐ Load sandhi dictionary for this chapter
-	loadChapterSandhi(chapterSandhiMap[currentChapter]);
+  // Load sandhi dictionary for this chapter
+  loadChapterSandhi(chapterSandhiMap[currentChapter]);
 
   const verseObj = chapters[currentChapter][currentVerseIndex];
 
@@ -198,7 +298,7 @@ function renderCurrentVerse() {
     applyGrammarColoring();
   }
 
-  // ⭐ Trigger animations BEFORE hover meanings so .shloka-word spans exist for sandhi linking
+  // Trigger animations BEFORE hover meanings so .shloka-word spans exist for sandhi linking
   if (typeof runAnimations === "function") {
     runAnimations();
   }
@@ -207,7 +307,6 @@ function renderCurrentVerse() {
   if (typeof attachHoverMeanings === "function") {
     attachHoverMeanings();
   }
-
 
   highlightActiveVerse();
 }
@@ -222,7 +321,7 @@ function renderShloka(v) {
 }
 
 /* ------------------------------------------------------------
-   HELPER: Render unified layer (Split Words / Phrase Groups / Meaning Order)
+   HELPER: Render unified layer (Split Words / Phrase Groups / Meaning Order) (Part 3/4)
    ------------------------------------------------------------ */
 function renderAnalyticalLayer(v, targetId, scriptMode) {
   const el = document.getElementById(targetId);
@@ -234,7 +333,7 @@ function renderAnalyticalLayer(v, targetId, scriptMode) {
 
   // MODE 3: MEANING ORDER (Rendered inside the same workspace with numbered pills + cascade)
   if (isMeaningMode && Array.isArray(v.parts) && v.parts.length > 0) {
-    const showRoleTags = currentChapter !== 2;
+    const showRoleTags = currentChapter !== 3;
     const meaningBox = document.createElement("div");
     meaningBox.className = "inline-meaning-order" + (showRoleTags ? "" : " no-role-tags");
 
@@ -348,8 +447,6 @@ function renderTranslit(v) {
   renderAnalyticalLayer(v, "translit", "translit");
 }
 
-
-
 function renderTranslation(v) {
   document.getElementById("translation").innerHTML = v.translation;
 }
@@ -362,14 +459,13 @@ function wrapWordsWithGrammar(text, devWords = null) {
 
   const colored = words
     .map((word, index) => {
-
       const devSource = devList[index] || word;
       const cleanDev = devSource.replace(/[।॥]/g, "");
 
       const info = DICT[cleanDev] || {};
       const cls = info.type ? info.type : "";
 
-      // ⭐ FIX: separate danda from the word
+      // Separate danda from the word
       const cleanedDisplay = word.replace(/[।॥]/g, "");
       const danda = word.match(/[।॥]+$/)?.[0] || "";
 
@@ -380,7 +476,6 @@ function wrapWordsWithGrammar(text, devWords = null) {
   const enriched = colored.replace(
     /<span class="word([^"]*)">([^<]+)<\/span>/g,
     (match, cls, wordText, offset) => {
-
       const index = (colored.slice(0, offset).match(/<span class="word/g) || []).length;
 
       const devSource = devList[index] || wordText;
@@ -399,35 +494,13 @@ function wrapWordsWithGrammar(text, devWords = null) {
 
       return `<span class="word ${cls}" data-meaning="${meaning}" data-case="${caseInfo}">${wordText}</span>`;
     }
- )
-
-  // ------------------------------------------------------------
-  // DEBUG LOGS (safe to comment out later)
-  // ------------------------------------------------------------
-/*    console.log("wrapWordsWithGrammar DEBUG:");
-      console.log("  text:", text);
-      console.log("  words:", words);
-      console.log("  devList:", devList);
-      console.log("  colored:", colored);
-
-      colored.replace(
-        /<span class="word([^"]*)">([^<]+)<\/span>/g,
-        (match, cls, wordText, offset) => {
-          const index = (colored.slice(0, offset).match(/<span class="word/g) || []).length;
-          console.log(`  span: word="${wordText}", index=${index}, devWord="${devList[index]}"`);
-        }
-      );
-*/
+  );
 
   return enriched;
 }
 
-
-
-
-
 /* ============================================================
-   UI TOGGLES / DISPLAY HELPERS (FIXED TIMING)
+   UI TOGGLES / DISPLAY HELPERS (Part 4/4)
    ============================================================ */
 
 function toggleSlider() {
@@ -446,31 +519,28 @@ function toggleSlider() {
   // Get the current verse data object
   const verseObj = chapters[currentChapter][currentVerseIndex];
 
-  // ⭐ FORCE RE-RENDERING of the text layers so all metadata classes are cleanly generated
+  // Force re-rendering of the text layers so all metadata classes are cleanly generated
   renderSandhi(verseObj);
   renderTranslit(verseObj);
   renderPhraseGroups(verseObj);
   renderMeaningOrder(verseObj);
 
-  // ⭐ REQUIRED: re-attach hover + execute grammar coloring engine now that the elements are safe in the DOM
+  // Re-attach hover + execute grammar coloring engine now that the elements are safe in the DOM
   if (typeof applyGrammarColoring === "function") applyGrammarColoring();
   if (typeof attachHoverMeanings === "function") attachHoverMeanings();
 }
 
 
-
-
-
 /* ------------------------------------------------------------
-   PHRASE GROUPS (Natural Shloka Order)
+   PHRASE GROUPS (Legacy Compatibility Hook)
    ------------------------------------------------------------ */
 function renderPhraseGroups(v) {
   const container = document.getElementById("phrase-groups");
+  if (!container) return;
   container.innerHTML = "";
 
   if (!v.parts) return;
 
-  // Backward compatibility: if a verse still uses old origOrder, follow it; otherwise render v.parts directly
   const orderedParts = v.origOrder
     ? v.origOrder.map(idx => v.parts[idx - 1]).filter(Boolean)
     : v.parts;
@@ -492,10 +562,11 @@ function renderPhraseGroups(v) {
 
 
 /* ------------------------------------------------------------
-   MEANING ORDER (Sorted by meaningOrder array with role tags)
+   MEANING ORDER (Legacy Compatibility Hook)
    ------------------------------------------------------------ */
 function renderMeaningOrder(v) {
   const container = document.getElementById("meaning-order");
+  if (!container) return;
   container.innerHTML = "";
 
   if (!v.parts) return;
@@ -508,7 +579,6 @@ function renderMeaningOrder(v) {
     const row = document.createElement("div");
     row.className = "meaning-row";
 
-    // Column 1: Role tag badge (keeps empty placeholder if no role so grid stays aligned)
     const tagCol = document.createElement("div");
     tagCol.className = "meaning-tag-col";
     if (part.role) {
@@ -519,7 +589,6 @@ function renderMeaningOrder(v) {
     }
     row.appendChild(tagCol);
 
-    // Column 2: Sanskrit phrase + English guide
     const contentCol = document.createElement("div");
     contentCol.className = "meaning-content-col";
 
@@ -542,18 +611,12 @@ function renderMeaningOrder(v) {
 }
 
 
-
-
-
-
-
-
-
 /* ------------------------------------------------------------
    CASES BELOW (dictionary + dict-sandhi)
    ------------------------------------------------------------ */
 function renderCases(v) {
   const container = document.getElementById("cases-below");
+  if (!container) return;
   container.innerHTML = "";
 
   if (!v.cases) return;
@@ -598,7 +661,6 @@ function changePage(delta) {
   localStorage.setItem("currentChapter", currentChapter);
   localStorage.setItem("currentVerseIndex", currentVerseIndex);
 
-
   renderCurrentVerse();
 }
 
@@ -608,7 +670,7 @@ function changePage(delta) {
    ============================================================ */
 
 function runChecker() {
-  if (typeof checkMissingWords === "function") {
-    checkMissingWords();
+  if (typeof auditChapter === "function") {
+    auditChapter(currentChapter);
   }
 }
